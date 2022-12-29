@@ -1,15 +1,23 @@
 <script lang="ts">
-  export let data;
+  // import type { RssPost } from '../../types/RssXml';
+  import { blogStore } from '../../store/BlogStore';
+  import { slugify } from '../../helpers/post-utils';
+  // export let data;
+  // const posts = data.posts as RssPost[];
 
-  console.log(data);
+  const makeHref = (postTitle: string) => {
+    return `/blog/${slugify(postTitle)}`;
+  };
 </script>
 
 Blog
 
-{#each data.posts as post}
-  <li>
-    <a target="_blank" href={post.link} rel="noreferrer">
-      {post.title}
-    </a>
-  </li>
-{/each}
+<ul>
+  {#each $blogStore as post}
+    <li>
+      <a href={makeHref(post.title)} rel="noreferrer">
+        {post.title}
+      </a>
+    </li>
+  {/each}
+</ul>
