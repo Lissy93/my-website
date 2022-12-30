@@ -1,6 +1,6 @@
 <nav>
-	<a href="/">home</a>
-	<a href="/blog">blog</a>
+  <a href="/" data-sveltekit-prefetch>home</a>
+  <a href="/blog" data-sveltekit-prefetch>blog</a>
 </nav>
 
 <slot />

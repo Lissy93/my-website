@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { RssPost, RssPosts } from '../../../types/RssXml';
-  import { PostStatus } from '../../../types/RssXml';
-  import { blogStore } from '../../../store/BlogStore';
-  import { slugify } from '../../../helpers/post-utils';
+  import type { RssPost, RssPosts } from '$src/types/RssXml';
+  import { PostStatus } from '$src/types/RssXml';
+  import { blogStore } from '$src/store/BlogStore';
+  import { slugify } from '$src/helpers/post-utils';
   import type { PageData } from './$types';
 
   export let data: PageData; // Svelte data about current page

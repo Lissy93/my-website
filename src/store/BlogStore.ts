@@ -1,7 +1,7 @@
 import { writable, get } from 'svelte/store';
 import { XMLParser } from 'fast-xml-parser';
 
-import type { RssPosts, RssResponse } from '../types/RssXml';
+import type { RssPosts, RssResponse } from '$src/types/RssXml';
 
 export const blogStore = writable<RssPosts>([]);
 

@@ -1,7 +1,6 @@
 <script lang="ts">
-  // import type { RssPost } from '../../types/RssXml';
-  import { blogStore } from '../../store/BlogStore';
-  import { slugify } from '../../helpers/post-utils';
+  import { blogStore } from '$src/store/BlogStore';
+  import { slugify } from '$src/helpers/post-utils';
   // export let data;
   // const posts = data.posts as RssPost[];
 

@@ -1,3 +1,9 @@
+<script>
+  import { blogStore } from '$src/store/BlogStore';
+</script>
+
+<h2>Blog Post Count: {$blogStore.length}</h2>
+
 <h1 class="border-zinc-100 bg-blue-500">Welcome to SvelteKit</h1>
 <p>
   Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
