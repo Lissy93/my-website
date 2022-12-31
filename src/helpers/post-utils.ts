@@ -13,3 +13,17 @@ export const slugify = (postTitle: string): string => {
     .replaceAll(' ', '-')
     .replace(/[^a-zA-Z0-9_-]/g, '');
 };
+
+/**
+ * Makes blog post date more human-friendly string based on users locale
+ * @param inputDate The input date/time, either as timestamp of ISO format
+ * @returns The date string
+ */
+export const formatDate = (inputDate: string): string => {
+  // const localFormat = navigator ? navigator.language : 'en-GB';
+  const localFormat = 'en-GB';
+  const dateFormat: Intl.DateTimeFormatOptions = {
+    weekday: 'long', day: 'numeric', month: 'short', year: 'numeric',
+  };
+  return new Date(inputDate).toLocaleDateString(localFormat, dateFormat);
+};
