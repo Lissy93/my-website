@@ -1,4 +1,4 @@
-import { writable, get } from 'svelte/store';
+import { writable, get, derived, type Readable } from 'svelte/store';
 import { XMLParser } from 'fast-xml-parser';
 
 import type { RssPosts, RssResponse } from '$src/types/RssXml';
@@ -30,3 +30,30 @@ if (get(blogStore).length < 1) {
     blogStore.set(response);
   });
 }
+
+
+export const searchTerm = writable('');
+
+export const filtered: Readable<RssPosts> = derived(
+    [searchTerm, blogStore], 
+    ([$searchTerm, $blogStore]) => {
+      // If no search term, return everything
+      if (!$searchTerm) return $blogStore;
+
+      // For more accurate searches, ignore case and whitespace
+      const normalize = (input: string) => input.toLocaleLowerCase().replaceAll(' ', '');
+
+      // Search post title for matches
+      const postTitleResults = $blogStore.filter(
+        post => normalize(post.title).includes(normalize($searchTerm))
+      );
+      // If results were found return them, otherwise search entire post body
+      if (postTitleResults.length > 0) {
+        return postTitleResults;
+      } else {
+        return $blogStore.filter(
+          post => normalize(post.description).includes(normalize($searchTerm))
+        );
+      }
+    }
+);
