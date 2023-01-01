@@ -6,7 +6,6 @@
   {@html content}
 </main>
 
-
 <style lang="scss">
   @import "$src/styles/color-palette.scss";
 
@@ -78,14 +77,15 @@
     padding: 0 0.25rem;
   }
 
-  :global(div.highlight pre) {
+  :global(div.highlight pre),
+  :global(pre) {
     background: var(--code-background);
     border-radius: 4px;
     font-size: 1rem;
     padding: 0.25rem 0.5rem;
     font-family: FiraCode, monospace;
+    overflow: auto;
   }
-
 
 }
 
