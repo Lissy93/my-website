@@ -1,9 +1,11 @@
 <script lang="ts">
+  import { goto } from '$app/navigation';
   import type { RssPost, RssPosts } from '$src/types/RssXml';
   import { PostStatus } from '$src/types/RssXml';
   import { blogStore } from '$src/store/BlogStore';
-  import { slugify } from '$src/helpers/post-utils';
+  import { slugify, formatDate } from '$src/helpers/post-utils';
   import type { PageData } from './$types';
+  import ArticleContent from '$src/components/ArticleContent.svelte';
 
   export let data: PageData; // Svelte data about current page
 
@@ -30,6 +32,13 @@
     return posts.find((post: RssPost) => slugify(post.title) === slug);
   };
 
+  /**
+   * Navigate the user back to the main blog page
+   */
+  const goBackToPostPage = () => {
+    goto('/blog');
+  };
+
   // Get the post to render, using post list from store, and slug from URL
   postToRender = getPostToRender($blogStore, postSlug);
   updateStatus();
@@ -44,8 +53,26 @@
 </script>
 
 {#if postStatus === PostStatus.Ready && postToRender}
-  <h1>{postToRender.title}</h1>
-  <div>{@html postToRender.description}</div>
+  <article>
+    <button class="back-button" on:click={goBackToPostPage}>← Back</button>
+    <h1>{postToRender.title}</h1>
+    <div class="meta">
+      <time
+        datetime={postToRender.pubDate}
+        title="First published on: {postToRender.pubDate}">
+        {formatDate(postToRender.pubDate)}
+      </time>
+      <p class="view-original">
+        {#if postToRender.author}
+        Published by {postToRender.author},
+        {/if}
+        View <a href={postToRender.link} title="Read: {postToRender.title}">original</a>
+      </p>
+    </div>
+    <div class="article-content">
+      <ArticleContent content={postToRender.description} />
+    </div>
+  </article>
 {:else if postStatus === PostStatus.Loading}
   <h2>Loading...</h2>
 {:else if postStatus === PostStatus.NotFound}
@@ -53,3 +80,61 @@
 {:else}
   <h2>Big Error</h2>
 {/if}
+
+<style lang="scss">
+article {
+  color: var(--foreground);
+  background: var(--card-background);
+  font-family: RedHatText;
+  border-radius: 6px;
+  border: var(--card-border);
+  margin: 1rem 5vw;
+  padding: 0 0 1rem 0;
+  min-height: 50vh;
+
+  h1 {
+    margin: 0.5rem 1.5rem;
+    font-size: 2.2rem;
+    font-weight: 800;
+  }
+
+  button.back-button {
+    padding: 0.25rem 0.5rem;
+    margin: 0.5rem;
+    border: 0;
+    border-radius: 4px;
+    background: var(--accent-2);
+    cursor: pointer;
+    font-family: RedHatText;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  .article-content {
+    padding: 1rem 1.5rem;
+  }
+
+  .meta {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px dashed var(--dimmed-text);
+
+    time, .view-original {
+      margin: 0;
+      font-size: 0.8rem;
+      letter-spacing: 0.1rem;
+      text-transform: uppercase;
+      color: var(--dimmed-text);
+      font-family: RedHatText;
+      transition: color 0.75s ease-in-out;
+      a {
+        color: var(--dimmed-text);
+      }
+    }
+  }
+}
+
+</style>
