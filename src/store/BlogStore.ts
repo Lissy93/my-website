@@ -1,39 +1,50 @@
 import { writable, get, derived, type Readable } from 'svelte/store';
-import { XMLParser } from 'fast-xml-parser';
 
-import type { RssPosts, RssResponse } from '$src/types/RssXml';
+import type { RssPosts } from '$src/types/RssXml';
+import { fetchPostsFromRss } from '$src/helpers/fetch-rss-posts';
 
 export const blogStore = writable<RssPosts>([]);
 
-const fetchPosts = () => {
-  // Uses fast-xml-parser to convert XML RSS feel into JSON format
-  const parseXml = (rawRssData: string): RssResponse => {
-    const parser = new XMLParser();
-    return parser.parse(rawRssData);
+
+
+
+  /**
+   * Given an array of URLs to RSS ATOM feeds, fetch and parse all posts
+   * then merge results together and update the store
+   * @param rssUrlList
+   */
+  const fetchAllPosts = (rssUrlList: string[]) => {
+    rssUrlList.forEach((rssUrl) => {
+      fetchPostsFromRss(rssUrl).then((response) => {
+        const existingPosts = get(blogStore);
+        const mergedPostList = [...response, ...existingPosts];
+        blogStore.set(mergedPostList);
+      });
+    });
   };
 
-  // Fetches XML from given URL, calls parse, returns promised post list
-  const fetchRss = async (rssUrl: string) => {
-    return fetch(rssUrl)
-      .then((response) => response.text())
-      .then((rawXml) => parseXml(rawXml).rss.channel.item);
-  };
+  if (get(blogStore).length < 1) {
+    const urls = [
+      'https://notes.aliciasykes.com/feed',
+      '/local-feeds/dev-to',
+      // '/local-feeds/blogspot.xml',
+    ];
+    fetchAllPosts(urls);
+  }
 
-  // Kick off request and process parsed response
-  const RSS_URL = `https://notes.aliciasykes.com/feed`;
-  const posts = fetchRss(RSS_URL);
-  return posts;
-};
-
-if (get(blogStore).length < 1) {
-  fetchPosts().then((response) => {
-    blogStore.set(response);
-  });
-}
+// RSS Feeds for Testing
+// - Dave Steele:					https://davesteele.github.io/feed.xml
+// - Serge Zaitsev:				https://zserge.com/rss.xml
+// - Luke Smith: 					https://lukesmith.xyz/rss.xml
+// - Will Browning				https://willbrowning.me/feed.xml
+// - Octocats							https://octodex.github.com/atom.xml
+// - Rehan Saeed					https://rehansaeed.com/rss.xml
 
 
+// Stores the users search term, for filtering posts
 export const searchTerm = writable('');
 
+// If 'searchTerm' is present, return only matching posts to render
 export const filtered: Readable<RssPosts> = derived(
     [searchTerm, blogStore], 
     ([$searchTerm, $blogStore]) => {
