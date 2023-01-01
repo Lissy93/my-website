@@ -10,13 +10,9 @@
 </p>
 
 <style lang="scss">
-  h1 {
-    color: red;
-    // @apply bg-red-500 #{!important};
-  }
-  p {
-    a {
-      color: yellow;
-    }
-  }
+
+:global(html) {
+  scroll-behavior: smooth;
+}
+
 </style>
