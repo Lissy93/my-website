@@ -1,23 +1,47 @@
 <script lang="ts">
   import BackToTop from '$src/components/BackToTop.svelte';
+  import NavBar from '$src/components/NavBar.svelte';
+  import Footer from '$src/components/Footer.svelte';
+  import { fade } from 'svelte/transition';
+  import { page } from '$app/stores';
 </script>
 
+{#if $page.url.pathname !== '/'}
+  <NavBar />
+{/if}
 
-<nav>
-  <a href="/" data-sveltekit-prefetch>home</a>
-  <a href="/blog" data-sveltekit-prefetch>blog</a>
-</nav>
-
-<slot />
+{#key $page.url.pathname}
+<main>
+  <div class="website" in:fade>
+    <slot />
+  </div>  
+</main>
+{/key}
 
 <BackToTop />
 
+{#if $page.url.pathname !== '/'}
+  <Footer />
+{/if}
+
+
 <style lang="scss">
+  
   // Import reused SCSS variables and global styles
   @import "$src/styles/color-palette.scss";
   @import "$src/styles/media-queries.scss";
   @import "$src/styles/typography.scss";
 
+  main {
+    min-height: 100%;
+    min-height: 91vh;
+  }
+
+  .website {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
   :global(html) {
     scroll-behavior: smooth;
@@ -27,6 +51,11 @@
     color: var(--foreground);
     transition: all 0.25s ease-in-out;
     font-family: FiraCode;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
 
     /* Fancy scrollbar */
     &::-webkit-scrollbar {
