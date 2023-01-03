@@ -1,6 +1,8 @@
 import { XMLParser } from 'fast-xml-parser';
-import type { RssPost, RssPosts } from '$src/types/RssXml';
+import type { RssPost, RssPosts, RssUrlList } from '$src/types/RssXml';
 
+// Datatype for JSON parsed from RSS
+// At this point, we don't know what the structure is
 interface NotSureYet {
   [key: string]: any;
 }
@@ -10,13 +12,15 @@ interface NotSureYet {
  * @param RSS_URL - The URL to the XML formatted ATOM/RSS feed
  * @returns - An array of formatted blog posts
  */
-export const fetchPostsFromRss = (RSS_URL: string) => {
+export const fetchPostsFromRss = (RSS_FEEDS: RssUrlList, svelteFetch?: (() => Promise<Response>)) => {
 
+  // Returns first matching value, from an array of possible keys
   const findValueFromKeys = (dataMass: NotSureYet, keys: string[]): string => {
     const keyWithValue = keys.find((key: string) => dataMass[key]);
     return keyWithValue ? dataMass[keyWithValue] : '';
   }
 
+  // Author data structure in RSS varies, so check if it's a string/ object of summin else
   const getAuthor = (dataMass: NotSureYet) => {
     if (dataMass.author && typeof dataMass.author === 'string') return dataMass.author;
     if (dataMass.author?.name) return dataMass.author?.name;
@@ -42,22 +46,46 @@ export const fetchPostsFromRss = (RSS_URL: string) => {
     return rssPosts;
   };
 
-  // Uses fast-xml-parser to convert XML RSS feel into JSON format
+  // Filters out any possible duplicate posts with same URL
+  const removeDuplicates = (postsList: RssPosts): RssPosts => {
+    return postsList.filter((post) =>
+      postsList.find((p) => p.url === post.url)
+    );
+  };
+
+  // Sorts combined list of posts in ascending order by date
+  const sortByDate = (postList: RssPosts): RssPosts => {
+    return postList.sort((a, b) => {
+      return new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime();
+    });
+  };
+
+  // Parses the XML data into JSON format, using fast-xml-parser
   const parseXml = (rawRssData: string): RssPosts => {
     const parser = new XMLParser();
     const rssJson = parser.parse(rawRssData);
-    console.log(rssJson);
     const hopefullyHasData = rssJson?.feed?.entry || rssJson?.rss?.channel?.item || [];
     return normalizePosts(hopefullyHasData);
   };
 
-  // Fetches XML from given URL, then calls the parse and format functions to get post list
-  const initiateFetchRequest = async (rssUrl: string) => {
-    return fetch(rssUrl)
+  // Fetches data from an RSS endpoint, and initiates the parsing of the XML
+  const fetchSinglePost = async (rssUrl: string) => {
+    const fetchMethod = svelteFetch || fetch;
+    return fetchMethod(rssUrl)
       .then((response) => response.text())
       .then((rawXml) => parseXml(rawXml));
   };
 
+  // Initiates requests for an array of RSS feeds
+  const fetchAllPosts = async (feeds: RssUrlList): Promise<RssPost[]> => {
+    return await Promise
+      .all( // Fetch data from all RSS feeds in array
+        feeds.map(feed => fetchSinglePost(feed.url))
+      ).then( // Flattern, de-duplicate and sort combined results
+        result => sortByDate(removeDuplicates(result.flat()))
+      );
+  }
+
   // Kick off request and process parsed response
-  return initiateFetchRequest(RSS_URL);
+  return fetchAllPosts(RSS_FEEDS);
 };
