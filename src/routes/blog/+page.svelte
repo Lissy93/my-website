@@ -1,19 +1,73 @@
+
 <script lang="ts">
   import { goto } from '$app/navigation';
-  import { blogStore, filtered, searchTerm } from '$src/store/BlogStore';
+  import { blogStore, filtered, searchTerm, rssFeedUrls } from '$src/store/BlogStore';
   import { slugify, formatDate } from '$src/helpers/post-utils';
-  import type { RssPost, RssPosts } from '$src/types/RssXml';
+  import { PostStatus, type RssPost } from '$src/types/RssXml';
   import SearchBar from '$src/components/SearchBar.svelte';
+  import Loading from '$src/components/Loading.svelte';
+  import DropDown from '$src/components/DropDown.svelte';
 
+  export let data;
+
+  import { _loadPosts } from './+page';
+
+  export let fetchStatus: PostStatus = PostStatus.Loading;
+
+  blogStore.set(data.posts);
+
+  rssFeedUrls.subscribe(() => {
+    _loadPosts(undefined);
+  });
+
+  let searchInputRef: any | HTMLElement; // Has to be any, as used in context of <svelte:element>
+
+  /**
+   * Make path for blog post, based on post title
+   * @param postTitle
+   */
   const makeHref = (postTitle: string) => {
     return `/blog/${slugify(postTitle)}`;
   };
+
+  /**
+   * Navigate to post when clicked
+   * Only used, if the user misses the inner <a> tag
+   * @param postTitle
+   */
   const postClicked = (postTitle: string) => {
     goto(makeHref(postTitle), {});
     return null;
   };
+
+  /**
+   * Resets search field, and show all results again
+   * Triggered when Clear button or Esc key is pressed
+   */
   const cancelSearch = () => {
     searchTerm.set('');
+  };
+
+  /**
+   * Trigger/ cancel search when a keyboard event is triggered
+   * If key is alphanumeric then focus search field, or if it's the Esc key then de-focus
+   * @param event
+   */
+  const handleKeydown = (event: KeyboardEvent) => {
+    if (event.key.length === 1 && /^[a-z0-9]+$/i.test(event.key)) {
+      searchInputRef.focus();
+    } else if (event.key === 'Escape') {
+      cancelSearch();
+      searchInputRef.blur();
+    }
+  }
+
+  const makeHoverText = (post: RssPost) => {
+    const secondsDifference = new Date().getTime() - new Date(post.pubDate).getTime();
+    const daysBack = Math.round(secondsDifference / (1000 * 60 * 60 * 24));
+    const timeAgo = daysBack <= 365 ?
+      `${daysBack} days ago` : `${Math.round(daysBack / 365)} years ago`;
+    return `Read: ${post.title}${post.author ? `\nFrom: ${post.author}`:''}\nPublished: ${timeAgo}`;
   };
 </script>
 
@@ -28,28 +82,56 @@
       </div>
     {/if}
   </div>
-  <SearchBar />
+  <div class="filter-controls">
+    <SearchBar bind:searchInputRef />
+    <DropDown />
+  </div>
 </div>
 
-{#if $searchTerm && $filtered.length === 0}
-  <p>No Results for your search term</p>
+
+{#if $filtered.length === 0}
+  <div class="no-results">
+    <h4>No Results :(</h4>
+    <p>
+      There were no posts returned.
+      Try selecting more feeds in the dropdown, or broadening your search term
+    </p>
+  </div>
 {:else if $filtered.length === 0}
-  <p>No posts written yet</p>
+  <Loading />
+{:else if fetchStatus === PostStatus.Errored}
+  <p>Oh no, something real bad happened</p>
 {/if}
 
 <ul>
   {#each $filtered as post}
-    <li on:click={postClicked(post.title)} on:keydown={postClicked(post.title)}>
+    <li
+      on:click={() => postClicked(post.title)}
+      on:keydown={()=> postClicked(post.title)}
+      title={makeHoverText(post)}
+    >
       <a href={makeHref(post.title)} rel="noreferrer">
         {post.title}
       </a>
-      <time datetime={post.pubDate}>{formatDate(post.pubDate)}</time>
+      <time datetime={post.pubDate}>
+        {formatDate(post.pubDate)}
+      </time>
     </li>
   {/each}
 </ul>
 
+<svelte:window on:keydown={handleKeydown} />
+
 <style lang="scss">
   @import "$src/styles/color-palette.scss";
+
+  h1 {
+    font-family: RedHatText;
+    font-size: 2.4rem;
+    margin: 0.25rem calc(5vw + 1rem);
+    color: var(--accent-2);
+  }
+
   ul { // Configuration for the blog post grid dimensions
     --grid-item-width: 18rem;
     --grid-item-min-height: 3.5rem;
@@ -87,11 +169,8 @@
       &:hover {
         box-shadow: 1px 1px 3px #f093, 6px 6px 6px #ff00990d, 36px 36px 50px #ff009903;
         transform: scale(1.05);
-        // border: var(--card-border);
         time {
           color: var(--foreground);
-          // color: var(--accent-1);
-          // opacity: 0.6;
         }
       }
       a {
@@ -114,23 +193,43 @@
   .post-filter-options {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    .filter-controls {
+      display: flex;
+      gap: 1rem;
+      margin: 0 calc(5vw + 1rem);
+    }
   }
 
   .results-info {
-    margin-left: calc(5vw + 1rem);
     display: flex;
+    align-items: center;
     flex-direction: row;
+    margin: 0.25rem calc(5vw + 1rem);
     p {
       margin: 0;
     }
     button {
-      background: var(--accent-1);
       border: none;
       outline: none;
+      background: var(--accent-1);
       color: var(--foreground);
       border-radius: 4px;
       margin: 0 0.5rem;
       cursor: pointer;
+    }
+  }
+
+  .no-results {
+    background: var(--card-background);
+    border: var(--card-border);
+    border-radius: 4px;
+    color: var(--foreground);
+    margin: 2rem calc(5vw + 1rem);
+    padding: 1rem 2rem;
+    h4 {
+      font-size: 1.6rem;
+      margin: 0.5rem 0;
     }
   }
 
