@@ -16,7 +16,12 @@
 
 <form class="filter-form">
   <label for="filter-input">Filter</label>
-  <input bind:value={usersSearchTerm} type="text" id="filter-input" bind:this={searchInputRef} >
+  <input
+    bind:value={usersSearchTerm}
+    type="text"
+    id="filter-input"
+    bind:this={searchInputRef}
+  />
 </form>
 
 <style lang="scss">
@@ -25,7 +30,6 @@ form {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin: 0.25rem calc(5vw + 1rem);
 }
 label {
   margin-right: 1rem;
