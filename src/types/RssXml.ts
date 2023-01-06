@@ -8,6 +8,8 @@ export interface RssPost {
   description: string;
   link: string;
   pubDate: string;
+  thumbnail?: string;
+  tags?: string;
   [key: string]: any;
 }
 
@@ -32,3 +34,10 @@ export enum PostStatus {
   Errored,
   Ready,
 }
+
+export interface RssUrlItem {
+  label: string,
+  url: string,
+}
+
+export type RssUrlList = RssUrlItem[] | [];
