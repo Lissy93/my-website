@@ -1,37 +1,34 @@
-// import { XMLParser } from 'fast-xml-parser';
-// import { get } from 'svelte/store';
-// import type { RssResponse } from './../../types/RssXml';
-// import { blogStore } from '../../store/BlogStore';
+import { get } from 'svelte/store';
+import type { PageServerLoad } from './$types';
+import { blogStore, rssFeedUrls } from '$src/store/BlogStore';
+import { fetchPostsFromRss } from '$src/helpers/fetch-rss-posts';
+import { type RssPost, PostStatus } from '$src/types/RssXml';
 
-// /** @type {import('./$types').PageLoad} */
-// export const load = () => {
-//   // If posts already fetched, save time by returning them
-//   const existingPosts = get(blogStore);
-//   if (existingPosts && existingPosts.length > 0)
-//     return { posts: existingPosts };
+export const _loadPosts = (fetch: (() => Promise<Response>) | undefined) => {
+  let fetchStatus: PostStatus = PostStatus.Loading;
 
-//   // Uses fast-xml-parser to convert XML RSS feel into JSON format
-//   const parseXml = (rawRssData: string): RssResponse => {
-//     const parser = new XMLParser();
-//     return parser.parse(rawRssData);
-//   };
+  // Get promise of all posts from array of RSS feeds
+  const posts: Promise<RssPost[]> = fetchPostsFromRss(get(rssFeedUrls), fetch);
+  // When resolved, update the store to save for later
+  posts
+    .then((resolvedPosts) => {
+      fetchStatus = PostStatus.Ready;
+      return blogStore.set(resolvedPosts)
+    })
+    .catch(() => {
+      fetchStatus = PostStatus.Errored;
+    });
+  // Return post prop, to render content
+  return { posts, fetchStatus };
+};
 
-//   // Fetches XML from given URL, calls parse, returns promised post list
-//   const fetchPosts = async (rssUrl: string) => {
-//     return fetch(rssUrl)
-//       .then((response) => response.text())
-//       .then((rawXml) => parseXml(rawXml).rss.channel.item);
-//   };
+/** @type {import('./$types').PageLoad} */
+export const load = async ({ fetch }: PageServerLoad) => {
 
-//   // Kick off request and process parsed response
-//   const RSS_URL = `https://notes.aliciasykes.com/feed`;
-//   const posts = fetchPosts(RSS_URL);
+  if (get(blogStore)?.length > 0) {
+    return { posts: get(blogStore) }
+  }
 
-//   // Update the store with response, to use later
-//   posts.then((response) => {
-//     blogStore.update(() => response);
-//   });
+  return _loadPosts(fetch);
+  };
 
-//   // Return results
-//   return { posts };
-// };

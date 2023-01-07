@@ -1,5 +1,9 @@
-export function load({ params }) {
-  const slug = params.slug;
+import { error } from '@sveltejs/kit';
+import type { PageServerLoad } from './$types';
+
+export function load(pageData: PageServerLoad) {
+
+  const slug = pageData.params.slug;
   if (slug === '404') throw error(404);
 
   return {

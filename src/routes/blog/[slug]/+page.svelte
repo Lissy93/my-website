@@ -1,11 +1,15 @@
 <script lang="ts">
+  import { get } from 'svelte/store';
   import { goto } from '$app/navigation';
   import type { RssPost, RssPosts } from '$src/types/RssXml';
   import { PostStatus } from '$src/types/RssXml';
-  import { blogStore } from '$src/store/BlogStore';
+  import { blogStore, rssFeedUrls } from '$src/store/BlogStore';
   import { slugify, formatDate } from '$src/helpers/post-utils';
   import type { PageData } from './$types';
   import ArticleContent from '$src/components/ArticleContent.svelte';
+  import NotFound from '$src/components/NotFound.svelte';
+  import Loading from '$src/components/Loading.svelte';
+  import { fetchPostsFromRss } from '$src/helpers/fetch-rss-posts';
 
   export let data: PageData; // Svelte data about current page
 
@@ -13,10 +17,22 @@
   const postSlug = data.slug; // The URL slug, to reference blog post
   let postToRender: RssPost | undefined; // Will store the blog post to render
 
+  const triggerPostLoad = () => {
+    const posts: Promise<RssPost[]> = fetchPostsFromRss(get(rssFeedUrls));
+    posts
+      .then((resolvedPosts) => {
+        postStatus = PostStatus.Ready;
+        blogStore.set(resolvedPosts)
+      }).catch(() => {
+        postStatus = PostStatus.Errored;
+      });
+  };
+
   /* Updates the status, to determine which view is shown */
   const updateStatus = () => {
     if ($blogStore.length === 0) {
       postStatus = PostStatus.Loading;
+      triggerPostLoad()
     } else if (!postToRender) {
       postStatus = PostStatus.NotFound;
     } else {
@@ -74,9 +90,9 @@
     </div>
   </article>
 {:else if postStatus === PostStatus.Loading}
-  <h2>Loading...</h2>
+  <Loading />
 {:else if postStatus === PostStatus.NotFound}
-  <h2>Post not found</h2>
+  <NotFound message="Post not Found" />
 {:else}
   <h2>Big Error</h2>
 {/if}
