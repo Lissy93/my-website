@@ -1,36 +1,19 @@
-import { writable, get, derived, type Readable } from 'svelte/store';
-
-import type { RssPosts } from '$src/types/RssXml';
-import { fetchPostsFromRss } from '$src/helpers/fetch-rss-posts';
+import { writable, derived, type Readable } from 'svelte/store';
+import type { RssPosts, RssUrlList } from '$src/types/RssXml';
 
 export const blogStore = writable<RssPosts>([]);
 
+const initialFeeds: RssUrlList = [
+  { label: 'Notes', url: 'https://notes.aliciasykes.com/feed' },
+];
 
-
-
-  /**
-   * Given an array of URLs to RSS ATOM feeds, fetch and parse all posts
-   * then merge results together and update the store
-   * @param rssUrlList
-   */
-  const fetchAllPosts = (rssUrlList: string[]) => {
-    rssUrlList.forEach((rssUrl) => {
-      fetchPostsFromRss(rssUrl).then((response) => {
-        const existingPosts = get(blogStore);
-        const mergedPostList = [...response, ...existingPosts];
-        blogStore.set(mergedPostList);
-      });
-    });
-  };
-
-  if (get(blogStore).length < 1) {
-    const urls = [
-      'https://notes.aliciasykes.com/feed',
-      '/local-feeds/dev-to',
-      // '/local-feeds/blogspot.xml',
-    ];
-    fetchAllPosts(urls);
-  }
+export const extraFeeds: RssUrlList = [
+  { label: 'Notes', url: 'https://notes.aliciasykes.com/feed' },
+  { url: '/local-feeds/dev-to.atom', label: 'Dev.to' },
+  { url: '/local-feeds/blogspot.atom', label: 'Blogspot' },
+  { url: '/local-feeds/github.atom', label: 'GitHub' },
+  { url: '/local-feeds/stackoverflow.atom', label: 'StackOverflow' },
+];
 
 // RSS Feeds for Testing
 // - Dave Steele:					https://davesteele.github.io/feed.xml
@@ -40,6 +23,8 @@ export const blogStore = writable<RssPosts>([]);
 // - Octocats							https://octodex.github.com/atom.xml
 // - Rehan Saeed					https://rehansaeed.com/rss.xml
 
+// The list of URLs to RSS feeds to fetch
+export const rssFeedUrls = writable<RssUrlList>(initialFeeds);
 
 // Stores the users search term, for filtering posts
 export const searchTerm = writable('');
