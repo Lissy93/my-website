@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:creativeCommons="http://backend.userland.com/creativeCommonsRssModule" xmlns:re="http://purl.org/atompub/rank/1.0">
+    <title type="text">User Lissy93 - Stack Overflow</title>
+    <link rel="self" href="https://stackoverflow.com/feeds/user/979052" type="application/atom+xml" />
+    <link rel="alternate" href="https://stackoverflow.com/users/979052" type="text/html" />
+    <subtitle>most recent 30 from stackoverflow.com</subtitle>
+    <updated>2023-01-01T15:52:52Z</updated>
+    <id>https://stackoverflow.com/feeds/user/979052</id>
+    <creativeCommons:license>https://creativecommons.org/licenses/by-sa/4.0/rdf</creativeCommons:license> 
+            <entry>
+        <id>https://stackoverflow.com/questions/74804013/-/74804049#74804049</id>
+        <re:rank scheme="https://stackoverflow.com">0</re:rank>
+        <title type="text">Answer by Lissy93 for How do I align text in top left corner of div?</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/74804013/how-do-i-align-text-in-top-left-corner-of-div/74804049#74804049" />
+        <published>2022-12-14T20:52:12Z</published>
+        <updated>2022-12-14T21:03:34Z</updated>
+        <summary type="html">&lt;p&gt;(I&#x27;ll update my answer with more specific code samples, once you&#x27;ve shared your markup)&lt;/p&gt;&#xA;&lt;h2&gt;Option #1 - Absolute Positioning&lt;/h2&gt;&#xA;&lt;p&gt;&lt;div class=&quot;snippet&quot; data-lang=&quot;js&quot; data-hide=&quot;false&quot; data-console=&quot;true&quot; data-babel=&quot;false&quot;&gt;&#xD;&#xA;&lt;div class=&quot;snippet-code&quot;&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-css lang-css prettyprint-override&quot;&gt;&lt;code&gt;.wrapper {&#xA;  position: relative;&#xA;  min-height: 300px;&#xA;  border: 2px dashed red;&#xA;}&#xA;&#xA;.top-left {&#xA;  position: absolute;&#xA;  top: 0.25rem;&#xA;  left: 0.25rem;&#xA;  border: 2px dashed blue;&#xA;}&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-html lang-html prettyprint-override&quot;&gt;&lt;code&gt;&amp;lt;div class=&quot;wrapper&quot;&amp;gt;&#xA;  &amp;lt;div class=&quot;top-left&quot;&amp;gt;[123]&amp;lt;/div&amp;gt;&#xA;&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/p&gt;&#xA;&lt;h2&gt;Option #2 - Flex Layout&lt;/h2&gt;&#xA;&lt;p&gt;&lt;div class=&quot;snippet&quot; data-lang=&quot;js&quot; data-hide=&quot;false&quot; data-console=&quot;true&quot; data-babel=&quot;false&quot;&gt;&#xD;&#xA;&lt;div class=&quot;snippet-code&quot;&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-css lang-css prettyprint-override&quot;&gt;&lt;code&gt;.wrapper {&#xA;  display: flex;&#xA;  justify-content: flex-start;&#xA;  align-items: baseline;&#xA;  min-height: 300px;&#xA;  border: 2px dashed red;&#xA;}&#xA;&#xA;.top-left {&#xA;  border: 2px dashed blue;&#xA;}&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-html lang-html prettyprint-override&quot;&gt;&lt;code&gt;&amp;lt;div class=&quot;wrapper&quot;&amp;gt;&#xA;  &amp;lt;div class=&quot;top-left&quot;&amp;gt;[123]&amp;lt;/div&amp;gt;&#xA;&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/p&gt;&#xA;&lt;h2&gt;Option #3 - Grid Layout&lt;/h2&gt;&#xA;&lt;p&gt;&lt;div class=&quot;snippet&quot; data-lang=&quot;js&quot; data-hide=&quot;false&quot; data-console=&quot;true&quot; data-babel=&quot;false&quot;&gt;&#xD;&#xA;&lt;div class=&quot;snippet-code&quot;&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-css lang-css prettyprint-override&quot;&gt;&lt;code&gt;.wrapper {&#xA;  display: grid;&#xA;  grid-template-columns: repeat(3, minmax(0, 1fr));&#xA;  min-height: 200px;&#xA;  border: 2px dashed red;&#xA;}&#xA;&#xA;.top-left {&#xA;  grid-column-start: 1;&#xA;  grid-column-end: 1;&#xA;  border: 2px dashed blue;&#xA;}&#xA;&#xA;.cell {&#xA;  border: 2px dashed yellow;&#xA;}&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-html lang-html prettyprint-override&quot;&gt;&lt;code&gt;&amp;lt;div class=&quot;wrapper&quot;&amp;gt;&#xA;  &amp;lt;div class=&quot;top-left&quot;&amp;gt;[123]&amp;lt;/div&amp;gt;&#xA;  &amp;lt;div class=&quot;cell&quot;&amp;gt;[CELL]&amp;lt;/div&amp;gt;&#xA;  &amp;lt;div class=&quot;cell&quot;&amp;gt;[CELL]&amp;lt;/div&amp;gt;&#xA;  &amp;lt;div class=&quot;cell&quot;&amp;gt;[CELL]&amp;lt;/div&amp;gt;&#xA;  &amp;lt;div class=&quot;cell&quot;&amp;gt;[CELL]&amp;lt;/div&amp;gt;&#xA;  &amp;lt;div class=&quot;cell&quot;&amp;gt;[CELL]&amp;lt;/div&amp;gt;&#xA;  &amp;lt;div class=&quot;cell&quot;&amp;gt;[CELL]&amp;lt;/div&amp;gt;&#xA;  &amp;lt;div class=&quot;cell&quot;&amp;gt;[CELL]&amp;lt;/div&amp;gt;&#xA;  &amp;lt;div class=&quot;cell&quot;&amp;gt;[CELL]&amp;lt;/div&amp;gt;&#xA;&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/p&gt;&#xA;</summary>
+    </entry>
+            <entry>
+        <id>https://stackoverflow.com/questions/74648912/-/74648959#74648959</id>
+        <re:rank scheme="https://stackoverflow.com">2</re:rank>
+        <title type="text">Answer by Lissy93 for Compile Error: Assign arrow function to a variable before exporting as module default</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/74648912/compile-error-assign-arrow-function-to-a-variable-before-exporting-as-module-de/74648959#74648959" />
+        <published>2022-12-01T22:40:25Z</published>
+        <updated>2022-12-01T22:56:54Z</updated>
+        <summary type="html">&lt;p&gt;For arrow functions, since they&#x27;re anonymous you&#x27;ll need to assign it to a variable which you can then export. This example, based on your code should work (but don&#x27;t forget to fill in the logic within the tasks.map function)&lt;/p&gt;&#xA;&lt;pre class=&quot;lang-js prettyprint-override&quot;&gt;&lt;code&gt;import React from &#x27;react&#x27;;&#xA;import TaskList from &#x27;./TaskList&#x27;;&#xA;&#xA;const Tasks = ({ tasks }) =&amp;gt; {&#xA;  return tasks.map(task =&amp;gt; ( ... ));&#xA;} &#xA;&#xA;export default Tasks;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;It&#x27;s caused by the &lt;a href=&quot;https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-anonymous-default-export.md&quot; rel=&quot;nofollow noreferrer&quot;&gt;&lt;code&gt;import/no-anonymous-default-export&lt;/code&gt;&lt;/a&gt; rule, which prevents a module&#x27;s default export from being unnamed.&lt;/p&gt;&#xA;&lt;p&gt;Since it&#x27;s a lint warning, and not a syntatical error, if you were to disable that rule, your existing code would work (but I recommend &lt;strong&gt;not&lt;/strong&gt; doing that!).&lt;/p&gt;&#xA;&lt;p&gt;This rule is useful, as ensuring that default exports are named helps improve the grepability of the codebase by encouraging the re-use of the same identifier for the module&#x27;s default export at its declaration site and at its import sites.&lt;/p&gt;&#xA;</summary>
+    </entry>
+            <entry>
+        <id>https://stackoverflow.com/questions/74606483/-/74606625#74606625</id>
+        <re:rank scheme="https://stackoverflow.com">1</re:rank>
+        <title type="text">Answer by Lissy93 for Trying to figure out how to add this javascript</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/74606483/trying-to-figure-out-how-to-add-this-javascript/74606625#74606625" />
+        <published>2022-11-28T21:25:44Z</published>
+        <updated>2022-11-28T21:25:44Z</updated>
+        <summary type="html">&lt;p&gt;Here&#x27;s a working snippet. As mentioned by Kinglish (in the comments), the issue is there is no value property in the objects you are looping through it should say &lt;code&gt;customerid&lt;/code&gt; instead.&lt;/p&gt;&#xA;&lt;p&gt;&lt;div class=&quot;snippet&quot; data-lang=&quot;js&quot; data-hide=&quot;false&quot; data-console=&quot;true&quot; data-babel=&quot;false&quot;&gt;&#xD;&#xA;&lt;div class=&quot;snippet-code&quot;&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-js lang-js prettyprint-override&quot;&gt;&lt;code&gt;const orderlist = document.getElementById(&#x27;orderlist&#x27;);&#xA;let orderid = [0];&#xA;&#xA;const loadorders = async() =&amp;gt; {&#xA;  try {&#xA;    const res = await fetch(&#x27;https://www.cc.puv.fi/~asa/cgi-bin/fetchOrders.py&#x27;);&#xA;    orderid = await res.json();&#xA;    displayorderid(orderid);&#xA;  } catch (err) {&#xA;    console.error(err);&#xA;    console.log(res);&#xA;  }&#xA;};&#xA;const displayorderid = (orderObject) =&amp;gt; {&#xA;  const htmlString = orderObject&#xA;.map((orderObject) =&amp;gt; {&#xA;  return `&#xA;    &amp;lt;li class=&quot;orderid&quot;&amp;gt;&#xA;    &amp;lt;h2&amp;gt;${orderObject.customerid}&amp;lt;/h2&amp;gt;&#xA;    &amp;lt;/li&amp;gt;&#xA;    `; //&amp;lt;------- the customerid property exists&#xA;})&#xA;.join(&#x27;&#x27;);&#xA;  orderlist.innerHTML = htmlString;&#xA;};&#xA;loadorders();&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-css lang-css prettyprint-override&quot;&gt;&lt;code&gt;body {&#xA;  font-family: Georgia, serif;&#xA;  background-color: rgb(59, 59, 243);&#xA;}&#xA;&#xA;* {&#xA;  box-sizing: border-box;&#xA;}&#xA;&#xA;h1 {&#xA;  color: azure margin-bottom:30px;&#xA;}&#xA;&#xA;.container {&#xA;  padding: 35px;&#xA;  margin: 0 auto;&#xA;  max-width: 1000px;&#xA;  text-align: center center;&#xA;}&#xA;&#xA;#customerslist {&#xA;  padding-inline-start: 0;&#xA;  display: grid;&#xA;  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));&#xA;  grid-gap: 15;&#xA;}&#xA;&#xA;.Customer {&#xA;  list-style-type: none;&#xA;  background-color: aquamarine;&#xA;  border-radius: 5px;&#xA;  padding: 10px 25px;&#xA;  grid-template-columns: 3fr 1fr;&#xA;  grid-template-areas: ;&#xA;  text-align: left;&#xA;}&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-html lang-html prettyprint-override&quot;&gt;&lt;code&gt;&amp;lt;div class=&quot;container&quot;&amp;gt;&#xA;  &amp;lt;h1&amp;gt;tilaukset&amp;lt;/h1&amp;gt;&#xA;  &amp;lt;div id=&quot;search&quot;&amp;gt;&#xA;    &amp;lt;input type=&quot;text&quot; name=&quot;Hakupalkki&quot; id=&quot;Hakupalkki&quot; placeholder=&quot;Hae tilausta&quot; /&amp;gt;&#xA;  &amp;lt;/div&amp;gt;&#xA;  &amp;lt;ul id=&quot;orderlist&quot;&amp;gt;&amp;lt;/ul&amp;gt;&#xA;&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/p&gt;&#xA;</summary>
+    </entry>
+            <entry>
+        <id>https://stackoverflow.com/questions/42749704/-/74235768#74235768</id>
+        <re:rank scheme="https://stackoverflow.com">0</re:rank>
+        <title type="text">Answer by Lissy93 for Reindex a source code in the VSCode</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/42749704/reindex-a-source-code-in-the-vscode/74235768#74235768" />
+        <published>2022-10-28T12:56:54Z</published>
+        <updated>2022-10-28T12:56:54Z</updated>
+        <summary type="html">&lt;p&gt;&lt;em&gt;This question is a few years old now, but this is an issue I&#x27;ve seen a lot, and can usually be fixed by one of the following options:&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h3&gt;Reload Session&lt;/h3&gt;&#xA;&lt;p&gt;You can reload the current session, with the &lt;code&gt;workbench.action.reloadWindow&lt;/code&gt; command:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Open the Command Palette with &lt;kbd&gt;Ctrl&lt;/kbd&gt; &#x2B; &lt;kbd&gt;Shift&lt;/kbd&gt; &#x2B; &lt;kbd&gt;P&lt;/kbd&gt; Then type &lt;code&gt;Reload Window&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h3&gt;Filter Files being Indexed&lt;/h3&gt;&#xA;&lt;p&gt;For C/C&#x2B;&#x2B; projects specificially, sometimes the intellisense indexing can be really slow, and feel like it&#x27;s not working. One solution for this is to limit what it indexes with something like &lt;code&gt;limitSymbolsToIncludedHeaders&lt;/code&gt;, or reduce the amount of parsed files in &lt;code&gt;c_cpp_properties.json&lt;/code&gt;&lt;/p&gt;&#xA;&lt;pre class=&quot;lang-json prettyprint-override&quot;&gt;&lt;code&gt;&amp;quot;browse&amp;quot;: {&#xA;  &amp;quot;path&amp;quot;: [&#xA;    &amp;quot;/usr/include/&amp;quot;,&#xA;    &amp;quot;/usr/local/include/&amp;quot;,&#xA;    &amp;quot;${workspaceRoot}/../include&amp;quot;,&#xA;    &amp;quot;${workspaceRoot}/dir2&amp;quot;,&#xA;    &amp;quot;${workspaceRoot}/dir3/src/c&#x2B;&#x2B;&amp;quot;&#xA;    ...&#xA;  ]&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h3&gt;Set File Associations&lt;/h3&gt;&#xA;&lt;p&gt;Sometimes the file associations are incorrect, so files are not indexed as expected.&#xA;This can be fixed by adding something similar to this into your VS Code settings (&lt;code&gt;settings.json&lt;/code&gt;):&lt;/p&gt;&#xA;&lt;pre class=&quot;lang-json prettyprint-override&quot;&gt;&lt;code&gt;&amp;quot;intelephense.files.associations&amp;quot;: [&amp;quot;*.php&amp;quot;, &amp;quot;*.phtml&amp;quot;, &amp;quot;*.inc&amp;quot;, &amp;quot;*.module&amp;quot;, &amp;quot;*.install&amp;quot;, &amp;quot;*.theme&amp;quot;, &amp;quot;.engine&amp;quot;, &amp;quot;.profile&amp;quot;, &amp;quot;.info&amp;quot;, &amp;quot;.test&amp;quot;]&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h3&gt;Rebuild System Index&lt;/h3&gt;&#xA;&lt;p&gt;For Windows users, VS Code uses the system search index, so &lt;a href=&quot;https://www.kapilarya.com/how-to-reset-and-rebuild-search-index-in-windows-10&quot; rel=&quot;nofollow noreferrer&quot;&gt;rebuilding that&lt;/a&gt; may help.&lt;/p&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h3&gt;Ensure Intellisense Enabled&lt;/h3&gt;&#xA;&lt;p&gt;Finally, it may seem obvious, but just confirm that &lt;a href=&quot;https://code.visualstudio.com/docs/editor/intellisense&quot; rel=&quot;nofollow noreferrer&quot;&gt;Intellisense&lt;/a&gt; is actually enabled, with &lt;code&gt;editor.tabCompletion&lt;/code&gt; in your settings.json. And if you&#x27;re searching with results not displaying, ensure there aren&#x27;t any filters preventing results.&lt;/p&gt;&#xA;</summary>
+    </entry>
+            <entry>
+        <id>https://stackoverflow.com/questions/73765634/-/73765751#73765751</id>
+        <re:rank scheme="https://stackoverflow.com">1</re:rank>
+        <title type="text">Answer by Lissy93 for Vue js does not bind values to form</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/73765634/vue-js-does-not-bind-values-to-form/73765751#73765751" />
+        <published>2022-09-18T19:14:57Z</published>
+        <updated>2022-09-18T22:24:25Z</updated>
+        <summary type="html">&lt;h3&gt;Vue 2&lt;/h3&gt;&#xA;&lt;p&gt;Use &lt;code&gt;v-model&lt;/code&gt; instead of &lt;code&gt;value&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Here&#x27;s a working example:&lt;/p&gt;&#xA;&lt;p&gt;&lt;div class=&quot;snippet&quot; data-lang=&quot;js&quot; data-hide=&quot;false&quot; data-console=&quot;true&quot; data-babel=&quot;false&quot;&gt;&#xD;&#xA;&lt;div class=&quot;snippet-code&quot;&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-js lang-js prettyprint-override&quot;&gt;&lt;code&gt;Vue.config.devtools = false;&#xA;Vue.config.productionTip = false;&#xA;new Vue({&#xA;  el: &#x27;#app&#x27;,&#xA;  name: &#x27;memite7760-demo&#x27;,&#xA;  data() {&#xA;    return {&#xA;      email: &#x27;&#x27;,&#xA;      password: &#x27;&#x27;,&#xA;    }&#xA;  },&#xA;})&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-html lang-html prettyprint-override&quot;&gt;&lt;code&gt;&amp;lt;script src=&quot;https://unpkg.com/vue@2.x/dist/vue.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&#xA;&#xA;&amp;lt;div id=&quot;app&quot;&amp;gt;&#xA;  &amp;lt;form&amp;gt;&#xA;    &amp;lt;div&amp;gt;&#xA;      &amp;lt;label for=&quot;email&quot;&amp;gt;Email:&amp;lt;/label&amp;gt;&#xA;      &amp;lt;input type=&quot;text&quot; name=&quot;email&quot; id=&quot;email&quot; v-model=&quot;email&quot;&amp;gt;&#xA;    &amp;lt;/div&amp;gt;&#xA;    &amp;lt;div&amp;gt;&#xA;      &amp;lt;label for=&quot;email&quot;&amp;gt;Password:&amp;lt;/label&amp;gt;&#xA;      &amp;lt;input type=&quot;password&quot; name=&quot;password&quot; id=&quot;password&quot; v-model=&quot;password&quot;&amp;gt;&#xA;    &amp;lt;/div&amp;gt;&#xA;    &amp;lt;button type=&quot;submit&quot;&amp;gt;Submit&amp;lt;/button&amp;gt;&#xA;  &amp;lt;/form&amp;gt;&#xA;  &amp;lt;div&amp;gt;&#xA;  Username: {{ email }}, Password: {{ password }}&#xA;  &amp;lt;/div&amp;gt;&#xA;&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/p&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h3&gt;Vue 3&lt;/h3&gt;&#xA;&lt;p&gt;As &lt;a href=&quot;https://stackoverflow.com/a/73766658/979052&quot;&gt;pointed out by @tao&lt;/a&gt;, you have a small typo: &lt;code&gt;date&lt;/code&gt; should be &lt;code&gt;data&lt;/code&gt;. He also gives some good advice re imports&lt;/p&gt;&#xA;&lt;p&gt;Again, here&#x27;s a working example:&lt;/p&gt;&#xA;&lt;p&gt;&lt;div class=&quot;snippet&quot; data-lang=&quot;js&quot; data-hide=&quot;false&quot; data-console=&quot;true&quot; data-babel=&quot;false&quot;&gt;&#xD;&#xA;&lt;div class=&quot;snippet-code&quot;&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-js lang-js prettyprint-override&quot;&gt;&lt;code&gt;const App = {&#xA;  data() {&#xA;    return {&#xA;      email: &#x27;example@roocket.ir&#x27;,&#xA;      password: &#x27;123456&#x27;&#xA;    }&#xA;  }&#xA;};&#xA;&#xA;Vue.createApp(App).mount(&#x27;#app&#x27;);&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-html lang-html prettyprint-override&quot;&gt;&lt;code&gt;&amp;lt;script src=&quot;https://unpkg.com/vue@3/dist/vue.global.prod.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&#xA;&amp;lt;div id=&quot;app&quot;&amp;gt;&#xA;  &amp;lt;form&amp;gt;&#xA;    &amp;lt;div&amp;gt;&#xA;      &amp;lt;label for=&quot;email&quot;&amp;gt;Email:&amp;lt;/label&amp;gt;&#xA;      &amp;lt;input type=&quot;text&quot; name=&quot;email&quot; id=&quot;email&quot; v-model=&quot;email&quot;&amp;gt;&#xA;    &amp;lt;/div&amp;gt;&#xA;    &amp;lt;div&amp;gt;&#xA;      &amp;lt;label for=&quot;email&quot;&amp;gt;Password:&amp;lt;/label&amp;gt;&#xA;      &amp;lt;input type=&quot;password&quot; name=&quot;password&quot; id=&quot;password&quot; v-model=&quot;password&quot;&amp;gt;&#xA;    &amp;lt;/div&amp;gt;&#xA;    &amp;lt;button type=&quot;submit&quot;&amp;gt;Submit&amp;lt;/button&amp;gt;&#xA;  &amp;lt;/form&amp;gt;&#xA;  Email: {{email}}, Pass: {{password}}&#xA;&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/p&gt;&#xA;</summary>
+    </entry>
+            <entry>
+        <id>https://stackoverflow.com/questions/73757719/-/73757893#73757893</id>
+        <re:rank scheme="https://stackoverflow.com">1</re:rank>
+        <title type="text">Answer by Lissy93 for I Need Help Randomizing an &lt;a&gt; Tag</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/73757719/i-need-help-randomizing-an-a-tag/73757893#73757893" />
+        <published>2022-09-17T19:27:28Z</published>
+        <updated>2022-09-17T19:27:28Z</updated>
+        <summary type="html">&lt;p&gt;The key is to break it down:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Define your list of possible destinations&lt;/li&gt;&#xA;&lt;li&gt;Select one at random&lt;/li&gt;&#xA;&lt;li&gt;Grab the DOM element to change&lt;/li&gt;&#xA;&lt;li&gt;Set the DOM element&#x27;s href link to your random page&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Here&#x27;s a working example:&lt;/p&gt;&#xA;&lt;p&gt;&lt;div class=&quot;snippet&quot; data-lang=&quot;js&quot; data-hide=&quot;false&quot; data-console=&quot;true&quot; data-babel=&quot;false&quot;&gt;&#xD;&#xA;&lt;div class=&quot;snippet-code&quot;&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-js lang-js prettyprint-override&quot;&gt;&lt;code&gt;const destinations = [&#xA;  &#x27;my-destination-1.html&#x27;,&#xA;  &#x27;my-destination-2.html&#x27;,&#xA;  &#x27;my-destination-3.html&#x27;,&#xA;  &#x27;my-destination-4.html&#x27;,&#xA;  &#x27;my-destination-5.html&#x27;&#xA;];&#xA; &#xA;const randomIndex = Math.floor(Math.random()*destinations.length);&#xA;&#xA;const randomDestination = destinations[randomIndex];&#xA;&#xA;const randomJokeLink = document.getElementById(&#x27;random-joke-link&#x27;);&#xA;&#xA;randomJokeLink.setAttribute(&quot;href&quot;, randomDestination);&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-html lang-html prettyprint-override&quot;&gt;&lt;code&gt;&amp;lt;a id=&quot;random-joke-link&quot; href=&quot;#&quot;&amp;gt;Random Joke&amp;lt;/a&amp;gt;&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/p&gt;&#xA;</summary>
+    </entry>
+            <entry>
+        <id>https://stackoverflow.com/questions/73675353/-/73675425#73675425</id>
+        <re:rank scheme="https://stackoverflow.com">1</re:rank>
+        <title type="text">Answer by Lissy93 for datepicker does not work even after following the same script</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/73675353/datepicker-does-not-work-even-after-following-the-same-script/73675425#73675425" />
+        <published>2022-09-10T21:57:17Z</published>
+        <updated>2022-09-10T21:57:17Z</updated>
+        <summary type="html">&lt;p&gt;Looks like the DOM hasn&#x27;t finished loading at the time that you&#x27;re executing your JavaScript.&lt;/p&gt;&#xA;&lt;p&gt;jQuery has an implementation of the window &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event&quot; rel=&quot;nofollow noreferrer&quot;&gt;load event&lt;/a&gt;, which is &lt;a href=&quot;https://learn.jquery.com/using-jquery-core/document-ready/&quot; rel=&quot;nofollow noreferrer&quot;&gt;&lt;code&gt;$( document ).ready()&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;In your example, that would be:&lt;/p&gt;&#xA;&lt;pre class=&quot;lang-js prettyprint-override&quot;&gt;&lt;code&gt;$(document).ready(() =&amp;gt; {&#xA;  $(&#x27;.pickupDate&#x27;).datepicker();&#xA;  $(&#x27;.dropoffDate&#x27;).datepicker();&#xA;  $(&#x27;.pickupDate&#x27;).change(() =&amp;gt; {&#xA;    const date2 = $(&#x27;.pickupDate&#x27;).datepicker(&#x27;getDate&#x27;, &#x27;&#x2B;1d&#x27;);&#xA;    $(&#x27;.dropoffDate&#x27;).datepicker(&#x27;setDate&#x27;, date2.getDate() &#x2B; 1);&#xA;  });&#xA;});&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;Also, you probably want to load those external scripts from within your &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; tag. You could also consider downloading them locally using &lt;a href=&quot;https://npmjs.com/&quot; rel=&quot;nofollow noreferrer&quot;&gt;NPM&lt;/a&gt;.&lt;/p&gt;&#xA;</summary>
+    </entry>
+            <entry>
+        <id>https://stackoverflow.com/questions/73664724/-/73665133#73665133</id>
+        <re:rank scheme="https://stackoverflow.com">0</re:rank>
+        <title type="text">Answer by Lissy93 for How do I use my existing toggle to also switch between two css sheets?</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/73664724/how-do-i-use-my-existing-toggle-to-also-switch-between-two-css-sheets/73665133#73665133" />
+        <published>2022-09-09T16:36:38Z</published>
+        <updated>2022-09-09T16:43:27Z</updated>
+        <summary type="html">&lt;p&gt;The easiest method would be to determine the theme based on HTML data attribute, then check which theme is applied in the CSS using &lt;code&gt;html[data-theme=&#x27;dark&#x27;]&lt;/code&gt; or &lt;code&gt;html[data-theme=&#x27;light&#x27;]&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;This can be broken down into several steps:&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h2&gt;Apply Styles Based on Data Attribute&lt;/h2&gt;&#xA;&lt;p&gt;You can apply CSS to any given element by targetting data values. In this instance, you&#x27;d probably want to apply this value to an upper-most node, like &lt;code&gt;&amp;lt;html&amp;gt;&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;In JavaScript, you can change this value with:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;document.getElementsByTagName(&#x27;html&#x27;)[0].setAttribute(&#x27;data-theme&#x27;, &#x27;dark&#x27;);&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;Which will update the HTML to look like:&lt;/p&gt;&#xA;&lt;pre class=&quot;lang-html prettyprint-override&quot;&gt;&lt;code&gt;&amp;lt;html data-theme=&amp;quot;dark&amp;quot;&amp;gt;&#xA;...&#xA;&amp;lt;/html&amp;gt;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;That can then be targeted in CSS with:&lt;/p&gt;&#xA;&lt;pre class=&quot;lang-css prettyprint-override&quot;&gt;&lt;code&gt;html[data-theme=&#x27;light&#x27;] {&#xA;  --background: #fff;&#xA;  --foreground: #000;&#xA;}&#xA;&#xA;html[data-theme=&#x27;dark&#x27;] {&#xA;  --background: #000;&#xA;  --foreground: #fff;&#xA;}&#xA;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2&gt;Store User Preference&lt;/h2&gt;&#xA;&lt;p&gt;When the user changes theme, store their choice in the browsers local storage, using &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage&quot; rel=&quot;nofollow noreferrer&quot;&gt;&lt;code&gt;Window.localStorage&lt;/code&gt;&lt;/a&gt;, then apply it again next time they visit your site.&lt;/p&gt;&#xA;&lt;pre class=&quot;lang-js prettyprint-override&quot;&gt;&lt;code&gt;// Set&#xA;window.localStorage.setItem(&#x27;theme&#x27;, &#x27;dark&#x27;);&#xA;// Get&#xA;const theme = window.localStorage.theme;&#xA;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;Here&#x27;s a more &lt;a href=&quot;https://listed.to/p/YcUgsjeFPh&quot; rel=&quot;nofollow noreferrer&quot;&gt;detailed tutorial&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2&gt;Detect User Light / Dark Preference&lt;/h2&gt;&#xA;&lt;p&gt;You can check if the user&#x27;s OS / browser is set to prefer light or dark mode, and apply that theme on initial page load. This is done using &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme&quot; rel=&quot;nofollow noreferrer&quot;&gt;&lt;code&gt;prefers-color-scheme&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;pre class=&quot;lang-css prettyprint-override&quot;&gt;&lt;code&gt;@media (prefers-color-scheme: dark) {&#xA;  --background: #000;&#xA;  --foreground: #fff;&#xA;}&#xA;&#xA;@media (prefers-color-scheme: light) {&#xA;  --background: #fff;&#xA;  --foreground: #000;&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h2&gt;Putting it all Together&lt;/h2&gt;&#xA;&lt;p&gt;Here&#x27;s a live example, which combines the above points into a runnable code snippet, which you can integrate into your app&lt;/p&gt;&#xA;&lt;p&gt;&lt;div class=&quot;snippet&quot; data-lang=&quot;js&quot; data-hide=&quot;false&quot; data-console=&quot;true&quot; data-babel=&quot;false&quot;&gt;&#xD;&#xA;&lt;div class=&quot;snippet-code&quot;&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-js lang-js prettyprint-override&quot;&gt;&lt;code&gt;const setTheme = () =&amp;gt; {&#xA;  const newTheme = document.getElementById(&#x27;theme-selector&#x27;).value;&#xA;  const htmlTag = document.getElementsByTagName(&#x27;html&#x27;)[0];&#xA;  if (htmlTag.hasAttribute(&#x27;data-theme&#x27;)) htmlTag.removeAttribute(&#x27;data-theme&#x27;);&#xA;  htmlTag.setAttribute(&#x27;data-theme&#x27;, newTheme);&#xA;  window.localStorage.setItem(&#x27;theme&#x27;, newTheme);&#xA;}&#xA;&#xA;// Apply previously saved theme, on page load&#xA;document.onload = function() {&#xA;  const savedTheme = window.localStorage.theme;&#xA;  if (savedTheme) {&#xA;    document.getElementsByTagName(&#x27;html&#x27;)[0].setAttribute(&#x27;data-theme&#x27;, savedTheme)&#xA;  }&#xA;};&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-css lang-css prettyprint-override&quot;&gt;&lt;code&gt;html[data-theme=&#x27;light&#x27;] {&#xA;  --background: #fff;&#xA;  --foreground: #000;&#xA;}&#xA;&#xA;html[data-theme=&#x27;dark&#x27;] {&#xA;  --background: #000;&#xA;  --foreground: #fff;&#xA;}&#xA;&#xA;&#xA;body {&#xA;  background: var(--background);&#xA;  color: var(--foreground);&#xA;}&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-html lang-html prettyprint-override&quot;&gt;&lt;code&gt;&amp;lt;label for=&quot;theme-selector&quot;&amp;gt;Theme&amp;lt;/label&amp;gt;&#xA;&amp;lt;select id=&quot;theme-selector&quot; onchange=&quot;setTheme()&quot;&amp;gt;&#xA;  &amp;lt;option value=&quot;light&quot;&amp;gt;Light&amp;lt;/option&amp;gt;&#xA;  &amp;lt;option value=&quot;dark&quot;&amp;gt;Dark&amp;lt;/option&amp;gt;&#xA;&amp;lt;/select&amp;gt;&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;If you want to see a real-world example, of how this could scale up for larger code bases, I am using this approach in &lt;a href=&quot;https://github.com/lissy93/dashy/&quot; rel=&quot;nofollow noreferrer&quot;&gt;this app&lt;/a&gt;, and the theming is explained in &lt;a href=&quot;https://github.com/Lissy93/dashy/blob/master/docs/theming.md&quot; rel=&quot;nofollow noreferrer&quot;&gt;this docs&lt;/a&gt;&lt;/p&gt;&#xA;</summary>
+    </entry>
+            <entry>
+        <id>https://stackoverflow.com/questions/73651059/-/73651156#73651156</id>
+        <re:rank scheme="https://stackoverflow.com">1</re:rank>
+        <title type="text">Answer by Lissy93 for How to display current date in in html using javscript (jquery)</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/73651059/how-to-display-current-date-in-in-html-using-javscript-jquery/73651156#73651156" />
+        <published>2022-09-08T14:55:43Z</published>
+        <updated>2022-09-08T15:36:29Z</updated>
+        <summary type="html">&lt;p&gt;Here&#x27;s a working proof of concept, without using any external libraries. It basically just converts seconds to minutes if it&#x27;s over 60, minutes to hours if over 60, hours to days if over 24, etc...&lt;/p&gt;&#xA;&lt;p&gt;&lt;div class=&quot;snippet&quot; data-lang=&quot;js&quot; data-hide=&quot;false&quot; data-console=&quot;true&quot; data-babel=&quot;false&quot;&gt;&#xD;&#xA;&lt;div class=&quot;snippet-code&quot;&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-js lang-js prettyprint-override&quot;&gt;&lt;code&gt;/* Given two timestamp, return the difference in text format, e.g. &#x27;10 minutes&#x27; */&#xA;const getTimeDifference = (startTime, endTime) =&amp;gt; {&#xA;  const msDifference = new Date(endTime).getTime() - new Date(startTime).getTime();&#xA;  const diff = Math.abs(Math.round(msDifference / 1000));&#xA;  const divide = (time, round) =&amp;gt; Math.round(time / round);&#xA;  if (diff &amp;lt; 60) return `${divide(diff, 1)} seconds`;&#xA;  if (diff &amp;lt; 3600) return `${divide(diff, 60)} minutes`;&#xA;  if (diff &amp;lt; 86400) return `${divide(diff, 3600)} hours`;&#xA;  if (diff &amp;lt; 604800) return `${divide(diff, 86400)} days`;&#xA;  if (diff &amp;lt; 31557600) return `${divide(diff, 604800)} weeks`;&#xA;  if (diff &amp;gt;= 31557600) return `${divide(diff, 31557600)} years`;&#xA;  return &#x27;unknown&#x27;;&#xA;};&#xA;&#xA;/* Given a timestamp, return how long ago it was, e.g. &#x27;10 minutes&#x27; */&#xA;const getTimeAgo = (dateTime) =&amp;gt; {&#xA;  const now = new Date().getTime();&#xA;  const isHistorical = new Date(dateTime).getTime() &amp;lt; now;&#xA;  const diffStr = getTimeDifference(dateTime, now);&#xA;  if (diffStr === &#x27;unknown&#x27;) return diffStr;&#xA;  return isHistorical ? `${diffStr} ago` : `in ${diffStr}`;&#xA;};&#xA;&#xA;/* Update the UI at intervals */&#xA;const startTime = new Date();&#xA;const timer = setInterval(() =&amp;gt; {&#xA;  document.getElementById(&#x27;comment&#x27;).innerHTML = getTimeAgo(startTime);&#xA;}, 1000);&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-html lang-html prettyprint-override&quot;&gt;&lt;code&gt;&amp;lt;p id=&quot;comment&quot;&amp;gt;&amp;lt;/p&amp;gt;&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/p&gt;&#xA;</summary>
+    </entry>
+            <entry>
+        <id>https://stackoverflow.com/questions/73531705/-/73531789#73531789</id>
+        <re:rank scheme="https://stackoverflow.com">1</re:rank>
+        <title type="text">Answer by Lissy93 for How to Combine Same key JavaScript Object to one Array Dynamically</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/73531705/how-to-combine-same-key-javascript-object-to-one-array-dynamically/73531789#73531789" />
+        <published>2022-08-29T16:24:09Z</published>
+        <updated>2022-08-29T16:24:09Z</updated>
+        <summary type="html">&lt;p&gt;You can just iterate over your input data&#x27;s keys. Then if the key already exists in your results you append the new value, otherwise create an array with the first value within your results.&lt;/p&gt;&#xA;&lt;p&gt;Here&#x27;s a working demo:&lt;/p&gt;&#xA;&lt;p&gt;&lt;div class=&quot;snippet&quot; data-lang=&quot;js&quot; data-hide=&quot;false&quot; data-console=&quot;true&quot; data-babel=&quot;false&quot;&gt;&#xD;&#xA;&lt;div class=&quot;snippet-code&quot;&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-js lang-js prettyprint-override&quot;&gt;&lt;code&gt;const sample = [&#xA;  {&#xA;    1: { date: 1638334800, value: 0 },&#xA;    2: { date: 1638334800, value: 19.71 },&#xA;    nth: { date: 1638334800, value: 19.71 }&#xA;  },&#xA;  {&#xA;    1: { date: 1638334800, value: 0 },&#xA;    2: { date: 1638334800, value: 23.77 },&#xA;    nth: { date: 1638334800, value: 19.71 }&#xA;  }&#xA;];&#xA;&#xA;const generateOutput = (inputData) =&amp;gt; {&#xA;  const results = {};&#xA;  inputData.forEach((dataSet) =&amp;gt; {&#xA;    Object.keys(dataSet).forEach((key) =&amp;gt; {&#xA;      if (results[key]) {&#xA;        results[key].push(dataSet[key]);&#xA;      } else {&#xA;        results[key] = [dataSet[key]];&#xA;      }&#xA;    });&#xA;  });&#xA;  return results;&#xA;}&#xA;&#xA;console.log(generateOutput(sample));&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/p&gt;&#xA;</summary>
+    </entry>
+            <entry>
+        <id>https://stackoverflow.com/questions/73522370/-/73522520#73522520</id>
+        <re:rank scheme="https://stackoverflow.com">1</re:rank>
+        <title type="text">Answer by Lissy93 for How to capitalize all keys in an array of objects?</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/73522370/how-to-capitalize-all-keys-in-an-array-of-objects/73522520#73522520" />
+        <published>2022-08-28T21:50:21Z</published>
+        <updated>2022-08-28T22:18:39Z</updated>
+        <summary type="html">&lt;p&gt;It looks like the issue is with your capitalization method.&lt;/p&gt;&#xA;&lt;p&gt;The following alternative should work:&lt;/p&gt;&#xA;&lt;pre class=&quot;lang-js prettyprint-override&quot;&gt;&lt;code&gt;const capitalizeKey = (key) =&amp;gt; key.charAt(0).toUpperCase() &#x2B; key.slice(1);&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;Here&#x27;s a very basic live demo:&lt;/p&gt;&#xA;&lt;p&gt;&lt;div class=&quot;snippet&quot; data-lang=&quot;js&quot; data-hide=&quot;false&quot; data-console=&quot;true&quot; data-babel=&quot;false&quot;&gt;&#xD;&#xA;&lt;div class=&quot;snippet-code&quot;&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-js lang-js prettyprint-override&quot;&gt;&lt;code&gt;const capitalizeObjectKeys = (obj) =&amp;gt; {&#xA;  if (!obj) return;&#xA;  if (Array.isArray(obj)) {&#xA;    return obj.map((each) =&amp;gt; capitalizeObjectKeys(each))&#xA;  }&#xA;  const results = {};&#xA;  Object.keys(obj).forEach((key) =&amp;gt; {&#xA;    const newKey = key.charAt(0).toUpperCase() &#x2B; key.slice(1);&#xA;    const objVal = (typeof obj[key] === &#x27;object&#x27;) ? capitalizeObjectKeys(obj[key]) : obj[key];&#xA;    results[newKey] = objVal;&#xA;  });&#xA;  return results;&#xA;};&#xA;&#xA;const sample = [{&quot;id&quot;:3,&quot;accountId&quot;:6,&quot;title&quot;:&quot;ABCDF Copy&quot;,&quot;versionDto&quot;:{&quot;id&quot;:3,&quot;entitlementsTemplateId&quot;:3,&quot;status&quot;:&quot;Draft&quot;,&quot;entitlementElementsTemplateDto&quot;:[{&quot;id&quot;:5,&quot;isHeaderCategory&quot;:false,&quot;order&quot;:1},{&quot;id&quot;:6,&quot;isHeaderCategory&quot;:false,&quot;order&quot;:2}]}}];&#xA;&#xA;&#xA;const results = capitalizeObjectKeys(sample)&#xA;&#xA;console.log(results);&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/p&gt;&#xA;</summary>
+    </entry>
+            <entry>
+        <id>https://stackoverflow.com/questions/73522434/height-100-in-css-does-not-behave-how-i-expect/73522476#73522476</id>
+        <re:rank scheme="https://stackoverflow.com">1</re:rank>
+        <title type="text">Answer by Lissy93 for Height 100% in CSS does not behave how I expect</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/73522434/height-100-in-css-does-not-behave-how-i-expect/73522476#73522476" />
+        <published>2022-08-28T21:42:08Z</published>
+        <updated>2022-08-28T22:07:09Z</updated>
+        <summary type="html">&lt;p&gt;The &lt;a href=&quot;https://www.w3.org/TR/CSS22/visudet.html#the-height-property&quot; rel=&quot;nofollow noreferrer&quot;&gt;&lt;code&gt;height: 100%&lt;/code&gt;&lt;/a&gt; attribute&#x27;s percentage is calculated based on the containing block&#x27;s height. And if that containing block doesn&#x27;t have a specified and fixed height, then the percentage is invalid, and behind the scense it will default back to &lt;code&gt;auto&lt;/code&gt; (which if the inner has no content, it will be zero).&lt;/p&gt;&#xA;&lt;p&gt;So, for percentage height to work on an in-flow child, the parent must have a set height.&lt;/p&gt;&#xA;&lt;hr /&gt;&#xA;&lt;p&gt;In your example, just setting a display method to the outer container, and then setting height to fill parent will fix your issue, here&#x27;s an &lt;a href=&quot;https://codepen.io/Lissy93/pen/QWmXBrj?editors=1100&quot; rel=&quot;nofollow noreferrer&quot;&gt;updated CodePen&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;div class=&quot;snippet&quot; data-lang=&quot;js&quot; data-hide=&quot;false&quot; data-console=&quot;true&quot; data-babel=&quot;false&quot;&gt;&#xD;&#xA;&lt;div class=&quot;snippet-code&quot;&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-css lang-css prettyprint-override&quot;&gt;&lt;code&gt;* {&#xA;  box-sizing: border-box;&#xA;}&#xA;&#xA;.outer {&#xA;  background-color: yellow;&#xA;  height: 1000px;&#xA;  width: 300px;&#xA;}&#xA;&#xA;.inner {&#xA;  min-height: 500px;&#xA;  width: 200px;&#xA;  background-color: green;&#xA;  display: flex;&#xA;}&#xA;&#xA;.inner-inner {&#xA;  height: fill;&#xA;  width: 100px;&#xA;  background-color: aqua;&#xA;}&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-html lang-html prettyprint-override&quot;&gt;&lt;code&gt;&amp;lt;body&amp;gt;&#xA;  &amp;lt;div class=&quot;outer&quot;&amp;gt;&#xA;    &amp;lt;div class=&quot;inner&quot;&amp;gt;&#xA;      &amp;lt;div class=&quot;inner-inner&quot;&amp;gt;&amp;lt;/div&amp;gt;&#xA;    &amp;lt;/div&amp;gt;&#xA;  &amp;lt;/div&amp;gt;&#xA;&amp;lt;/body&amp;gt;&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/p&gt;&#xA;</summary>
+    </entry>
+            <entry>
+        <id>https://stackoverflow.com/questions/71873824/-/71876238#71876238</id>
+        <re:rank scheme="https://stackoverflow.com">45</re:rank>
+        <title type="text">Answer by Lissy93 for Copy text to clipboard: Cannot read properties of undefined reading &#x27;writeText&#x27;</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/71873824/copy-text-to-clipboard-cannot-read-properties-of-undefined-reading-writetext/71876238#71876238" />
+        <published>2022-04-14T18:37:51Z</published>
+        <updated>2022-08-27T18:27:07Z</updated>
+        <summary type="html">&lt;p&gt;The use of &lt;code&gt;navigator.clipboard&lt;/code&gt; requires a secure origin. So if your dev environment is being served over HTTP, then the clipboard method won&#x27;t be available.&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;According to MDN &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Clipboard&quot; rel=&quot;noreferrer&quot;&gt;&lt;code&gt;Clipboard&lt;/code&gt;&lt;/a&gt; docs&lt;/em&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;This feature is available only in &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts&quot; rel=&quot;noreferrer&quot;&gt;secure contexts&lt;/a&gt; (HTTPS), in some or all &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Clipboard#browser_compatibility&quot; rel=&quot;noreferrer&quot;&gt;supporting browsers&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Maybe you could check if this method is available with &lt;code&gt;window.isSecureContext&lt;/code&gt;, and disable the Copy Text button accordingly.&lt;/p&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h3&gt;Workaround&lt;/h3&gt;&#xA;&lt;p&gt;The best option is to use HTTPS in your dev environment.&lt;/p&gt;&#xA;&lt;p&gt;But since you asked for a workaround, here&#x27;s a (very hacky) working method. Using &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Document/execCommand&quot; rel=&quot;noreferrer&quot;&gt;&lt;code&gt;Document.exec&lt;/code&gt;&lt;/a&gt;  command, which is no longer recommended, in favour of &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API&quot; rel=&quot;noreferrer&quot;&gt;&lt;code&gt;ClipboardAPI&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;pre class=&quot;lang-js prettyprint-override&quot;&gt;&lt;code&gt;function unsecuredCopyToClipboard(text) {&#xA;  const textArea = document.createElement(&amp;quot;textarea&amp;quot;);&#xA;  textArea.value = text;&#xA;  document.body.appendChild(textArea);&#xA;  textArea.focus();&#xA;  textArea.select();&#xA;  try {&#xA;    document.execCommand(&#x27;copy&#x27;);&#xA;  } catch (err) {&#xA;    console.error(&#x27;Unable to copy to clipboard&#x27;, err);&#xA;  }&#xA;  document.body.removeChild(textArea);&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3&gt;Usage&lt;/h3&gt;&#xA;&lt;p&gt;You can then just check if &lt;code&gt;!navigator.clipboard&lt;/code&gt; and call the fallback method, otherwise continue with the normal &lt;code&gt;navigator.clipboard.writeText(...)&lt;/code&gt; function. For example:&lt;/p&gt;&#xA;&lt;p&gt;&lt;div class=&quot;snippet&quot; data-lang=&quot;js&quot; data-hide=&quot;false&quot; data-console=&quot;true&quot; data-babel=&quot;false&quot;&gt;&#xD;&#xA;&lt;div class=&quot;snippet-code&quot;&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-js lang-js prettyprint-override&quot;&gt;&lt;code&gt;const unsecuredCopyToClipboard = (text) =&amp;gt; { const textArea = document.createElement(&quot;textarea&quot;); textArea.value=text; document.body.appendChild(textArea); textArea.focus();textArea.select(); try{document.execCommand(&#x27;copy&#x27;)}catch(err){console.error(&#x27;Unable to copy to clipboard&#x27;,err)}document.body.removeChild(textArea)};&#xA;&#xA;/**&#xA; * Copies the text passed as param to the system clipboard&#xA; * Check if using HTTPS and navigator.clipboard is available&#xA; * Then uses standard clipboard API, otherwise uses fallback&#xA;*/&#xA;const copyToClipboard = (content) =&amp;gt; {&#xA;  if (window.isSecureContext &amp;amp;&amp;amp; navigator.clipboard) {&#xA;    navigator.clipboard.writeText(content);&#xA;  } else {&#xA;    unsecuredCopyToClipboard(content);&#xA;  }&#xA;};&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-html lang-html prettyprint-override&quot;&gt;&lt;code&gt;&amp;lt;button onClick=&quot;buttonPress()&quot;&amp;gt;&#x27A1;&#xFE0F; Copy Message to Clipboard&amp;lt;/button&amp;gt;&#xA;&#xA;&amp;lt;script type=&quot;text/javascript&quot;&amp;gt; const buttonPress = () =&amp;gt; { copyToClipboard(&#x27;Hello World!&#x27;); console.log(&#x27;Clipboard updated &#x1F4E5;\nNow try pasting!&#x27;); }; &amp;lt;/script&amp;gt;&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/p&gt;&#xA;</summary>
+    </entry>
+            <entry>
+        <id>https://stackoverflow.com/questions/43953001/-/43953236#43953236</id>
+        <re:rank scheme="https://stackoverflow.com">1</re:rank>
+        <title type="text">Answer by Lissy93 for Change source on audio end [multiple audios] JS &amp; jQuery</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/43953001/change-source-on-audio-end-multiple-audios-js-jquery/43953236#43953236" />
+        <published>2017-05-13T12:36:33Z</published>
+        <updated>2022-08-07T12:28:58Z</updated>
+        <summary type="html">&lt;p&gt;Here&#x27;s a working &lt;a href=&quot;https://jsfiddle.net/&quot; rel=&quot;nofollow noreferrer&quot;&gt;JSFiddle&lt;/a&gt;&lt;/p&gt;&#xA;&lt;pre class=&quot;lang-js prettyprint-override&quot;&gt;&lt;code&gt;// Plays random song from array&#xA;function playNextRandom(){&#xA;  const allSongs = [&#xA;    &amp;quot;http://www.noiseaddicts.com/samples_1w72b820/281.mp3&amp;quot;,&#xA;    &amp;quot;http://www.noiseaddicts.com/samples_1w72b820/4939.mp3&amp;quot;&#xA;  ];&#xA;  const randomIndex = allSongs[Math.floor(Math.random() * allSongs.length)];&#xA;  $(&amp;quot;audio&amp;quot;).src = randomIndex;&#xA;}&#xA;&#xA;// Executed when document has loaded    &#xA;$(document).ready(function(){    &#xA;&#xA;  // Append audio element&#xA;  const audioElement = document.createElement(&amp;quot;audio&amp;quot;);&#xA;  audioElement.controls = true;&#xA;  audioElement.setAttribute(&amp;quot;id&amp;quot;, &amp;quot;au&amp;quot;);&#xA;  document.body.appendChild(audioElement);&#xA;        &#xA;  // Append Audio source&#xA;  const audioSource = document.createElement(&amp;quot;source&amp;quot;);&#xA;  audioSource.src = &amp;quot;http://www.noiseaddicts.com/samples_1w72b820/4927.mp3&amp;quot;&#xA;  audioElement.appendChild(audioSource);&#xA;  audioElement.play()&#xA;  audioSource.setAttribute(&amp;quot;onended&amp;quot;, &amp;quot;playNextRandom&amp;quot;);&#xA;&#xA;})&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;</summary>
+    </entry>
+            <entry>
+        <id>https://stackoverflow.com/questions/73259699/-/73259733#73259733</id>
+        <re:rank scheme="https://stackoverflow.com">3</re:rank>
+        <title type="text">Answer by Lissy93 for cannot clear Interval within if query</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/73259699/cannot-clear-interval-within-if-query/73259733#73259733" />
+        <published>2022-08-06T12:28:04Z</published>
+        <updated>2022-08-06T12:28:04Z</updated>
+        <summary type="html">&lt;p&gt;You need to put the &lt;code&gt;( y &amp;gt; 3)&lt;/code&gt; check within the &lt;code&gt;countdown&lt;/code&gt; function. Currently it&#x27;ll only be executed once, and at the end.&lt;/p&gt;&#xA;&lt;p&gt;Here&#x27;s a working example:&lt;/p&gt;&#xA;&lt;p&gt;&lt;div class=&quot;snippet&quot; data-lang=&quot;js&quot; data-hide=&quot;false&quot; data-console=&quot;true&quot; data-babel=&quot;false&quot;&gt;&#xD;&#xA;&lt;div class=&quot;snippet-code&quot;&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-js lang-js prettyprint-override&quot;&gt;&lt;code&gt;let y = 1;&#xA;&#xA;const countdown = () =&amp;gt; {&#xA;  y &#x2B;= 0.5;&#xA;  console.log(y);&#xA;  if( y &amp;gt;= 3) {&#xA;    clearInterval(timerId);&#xA;  }&#xA;}&#xA;&#xA;const timerId = setInterval(countdown, 500);&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/p&gt;&#xA;</summary>
+    </entry>
+            <entry>
+        <id>https://stackoverflow.com/questions/73004461/-/73004916#73004916</id>
+        <re:rank scheme="https://stackoverflow.com">0</re:rank>
+        <title type="text">Answer by Lissy93 for Vue not rendering fetched html</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/73004461/vue-not-rendering-fetched-html/73004916#73004916" />
+        <published>2022-07-16T14:15:54Z</published>
+        <updated>2022-07-16T14:26:47Z</updated>
+        <summary type="html">&lt;p&gt;You&#x27;re approaching this in the traditional JavaScript way of manipulating the DOM directly. In Vue, we set state which can then be rendered by your template.&lt;/p&gt;&#xA;&lt;p&gt;Instead:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Create a &lt;code&gt;data&lt;/code&gt; attribute to store your state&lt;/li&gt;&#xA;&lt;li&gt;Under &lt;code&gt;methods&lt;/code&gt;, write a function to fetch your data, then update the components &lt;code&gt;data&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Call your function in the components &lt;code&gt;created&lt;/code&gt; hook&lt;/li&gt;&#xA;&lt;li&gt;In you&#x27;re &lt;code&gt;template&lt;/code&gt; render the results&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Don&#x27;t forget to check it&#x27;s present first, with &lt;code&gt;v-if&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;You can use &lt;code&gt;v-for&lt;/code&gt; to iterate over, and render lists&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Here&#x27;s a &lt;a href=&quot;https://codesandbox.io/s/nice-kilby-hupvj5?file=/src/components/HelloWorld.vue&quot; rel=&quot;nofollow noreferrer&quot;&gt;working demo&lt;/a&gt;&lt;/p&gt;&#xA;&lt;hr /&gt;&#xA;&lt;p&gt;I don&#x27;t have access to your API endpoint, so for demo purposes, am just using the GitHub API, to fetch and render a list of all repos in the Vue.js organization.&lt;/p&gt;&#xA;&lt;p&gt;Here&#x27;s what it looks like:&lt;/p&gt;&#xA;&lt;p&gt;&lt;div class=&quot;snippet&quot; data-lang=&quot;js&quot; data-hide=&quot;false&quot; data-console=&quot;true&quot; data-babel=&quot;false&quot;&gt;&#xD;&#xA;&lt;div class=&quot;snippet-code&quot;&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-js lang-js prettyprint-override&quot;&gt;&lt;code&gt;Vue.config.devtools = false;&#xA;    Vue.config.productionTip = false;&#xA;    new Vue({&#xA;      el: &#x27;#app&#x27;,&#xA;      name: &#x27;dbzx10299-demo&#x27;,&#xA;  data() {&#xA;    return {&#xA;      loaded: false,&#xA;      response: null,&#xA;    }&#xA;  },&#xA;  methods: {&#xA;    fetchData() {&#xA;      const demoEndpoint = &#x27;https://api.github.com/orgs/vuejs/repos&#x27;;&#xA;      fetch(demoEndpoint)&#xA;      .then(response =&amp;gt; response.json())&#xA;      .then(data =&amp;gt; {&#xA;        this.response = data;&#xA;        this.loaded = true;&#xA;      })&#xA;    },&#xA;  },&#xA;  mounted() {&#xA;    this.fetchData();&#xA;  },&#xA;    })&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-html lang-html prettyprint-override&quot;&gt;&lt;code&gt;&amp;lt;script src=&quot;https://unpkg.com/vue@2.x/dist/vue.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&#xA;&#xA;&amp;lt;div id=&quot;app&quot;&amp;gt;&#xA;&amp;lt;div class=&quot;hello&quot;&amp;gt;&#xA;  &amp;lt;h2&amp;gt;Vue Repo List - Data fetching example&amp;lt;/h2&amp;gt;&#xA;  &amp;lt;div v-if=&quot;!loaded&quot;&amp;gt;Loading...&amp;lt;/div&amp;gt;&#xA;  &amp;lt;ul v-else&amp;gt;&#xA;    &amp;lt;li v-for=&quot;(repo, index) in response&quot; :key=&quot;index&quot;&amp;gt;&#xA;      &amp;lt;a :href=&quot;repo.html_url&quot; :title=&quot;repo.description&quot; target=&quot;_blank&quot;&amp;gt;&#xA;        {{ repo.name }}&#xA;      &amp;lt;/a&amp;gt;&#xA;      &amp;lt;i&amp;gt;&#x2605; {{ repo.stargazers_count }}&amp;lt;/i&amp;gt;&#xA;    &amp;lt;/li&amp;gt;&#xA;  &amp;lt;/ul&amp;gt;&#xA;&amp;lt;/div&amp;gt;&#xA;&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/p&gt;&#xA;</summary>
+    </entry>
+    <entry>
+        <id>https://stackoverflow.com/q/44859961</id>
+        <re:rank scheme="https://stackoverflow.com">0</re:rank>
+        <title type="text">How to manage multiple versions of the same NPM dependency?</title>
+            <category scheme="https://stackoverflow.com/tags" term="javascript" />
+            <category scheme="https://stackoverflow.com/tags" term="npm" />
+            <category scheme="https://stackoverflow.com/tags" term="yarnpkg" />
+            <category scheme="https://stackoverflow.com/tags" term="bower" />
+            <category scheme="https://stackoverflow.com/tags" term="c3.js" />
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/44859961/how-to-manage-multiple-versions-of-the-same-npm-dependency" />
+        <published>2017-07-01T10:37:56Z</published>
+        <updated>2022-07-15T11:49:54Z</updated>
+        <summary type="html">
+            &lt;h4&gt;Situation&lt;/h4&gt;&#xA;&lt;p&gt;I&#x27;ve written a bunch of &lt;a href=&quot;https://d3js.org/&quot; rel=&quot;nofollow noreferrer&quot;&gt;D3.js&lt;/a&gt; charts using the latest version of &lt;a href=&quot;https://github.com/d3/d3/releases/tag/v4.9.1&quot; rel=&quot;nofollow noreferrer&quot;&gt;D3 (4.9.1)&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;However I also need to include the occasional &lt;a href=&quot;http://c3js.org/&quot; rel=&quot;nofollow noreferrer&quot;&gt;C3.js&lt;/a&gt; chart in my app, problem is-  C3 requires &lt;a href=&quot;https://github.com/d3/d3/releases/tag/v3.5.17&quot; rel=&quot;nofollow noreferrer&quot;&gt;D3 v3.5.0&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h4&gt;What I&#x27;ve considered so far&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;p&gt;Forking C3 to update it to the latest version of D3 (it&#x27;s not really feasible though)&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;p&gt;Using a different package manager, such as Yarn&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;p&gt;Just forgetting about C3.... (don&#x27;t want to do this, as it will involve a lot of re-work!)&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;p&gt;Specifying a URL of an older version in the bower.json. However, I still was not able to reference to just that version for C3, and the latest for everything else.&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt; &amp;quot;d3&amp;quot;: &amp;quot;^4.9.1&amp;quot;,&#xA; &amp;quot;d3-3.5.0&amp;quot;: &amp;quot;https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.0/d3.min.js&amp;quot;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h4&gt;Question&lt;/h4&gt;&#xA;&lt;p&gt;Is it possible to manage multiple versions of the same dependency, cleanly?&#xA;And if not, what would be a sensible work-around?&lt;/p&gt;&#xA;
+        </summary>
+    </entry>
+            <entry>
+        <id>https://stackoverflow.com/questions/18470069/-/18470362#18470362</id>
+        <re:rank scheme="https://stackoverflow.com">0</re:rank>
+        <title type="text">Answer by Lissy93 for PHP timezone ahead or behind?</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/18470069/php-timezone-ahead-or-behind/18470362#18470362" />
+        <published>2013-08-27T15:58:23Z</published>
+        <updated>2022-06-30T05:01:11Z</updated>
+        <summary type="html">&lt;p&gt;&lt;strong&gt;Greenwich Mean Time&lt;/strong&gt; &lt;br&gt;&#xA;Well if your using time(), it&#x27;s in GMT as it is the Unix timestamp that&#x27;s been counting seconds since the Unix Epoch  (January 1 1970 00:00:00 GMT).&lt;/p&gt;&#xA;</summary>
+    </entry>
+    <entry>
+        <id>https://stackoverflow.com/q/31524353</id>
+        <re:rank scheme="https://stackoverflow.com">0</re:rank>
+        <title type="text">Gulp watch not called from within Nodemon</title>
+            <category scheme="https://stackoverflow.com/tags" term="javascript" />
+            <category scheme="https://stackoverflow.com/tags" term="node.js" />
+            <category scheme="https://stackoverflow.com/tags" term="gulp" />
+            <category scheme="https://stackoverflow.com/tags" term="nodemon" />
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/31524353/gulp-watch-not-called-from-within-nodemon" />
+        <published>2015-07-20T19:02:27Z</published>
+        <updated>2022-06-30T05:00:09Z</updated>
+        <summary type="html">
+            &lt;p&gt;So I have my Gulp file as below.&lt;/p&gt;&#xA;&lt;p&gt;The &#x27;watch&#x27; block seems to work absolutely fine, and do what is expected. Nodemon works in the way that it detects file changes and refreshes the server, that works too.&lt;/p&gt;&#xA;&lt;p&gt;But I can&#x27;t for the life of me get Nodemon to call the &#x27;watch&#x27; method when a file changes.&lt;/p&gt;&#xA;&lt;p&gt;On line 81, the .on(&#x27;start&#x27; is called succesfully from nodemon, but the code inside the &#x27;watch&#x27; method is never executed.&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;var gulp    = require(&#x27;gulp&#x27;);&#xA;var gutil   = require(&#x27;gulp-util&#x27;);      // For logging stats and warnings&#xA;var jshint  = require(&#x27;gulp-jshint&#x27;);    // For checking JavaScript for warnings&#xA;var concat  = require(&#x27;gulp-concat&#x27;);    // For joining together multiple files&#xA;var uglify  = require(&#x27;gulp-uglify&#x27;);    // For minimising files&#xA;var coffee  = require(&#x27;gulp-coffee&#x27;);    // For compiling coffee script into js&#xA;var cofLint = require(&#x27;gulp-coffeelint&#x27;);// For checking coffee script for errors&#xA;var less    = require(&#x27;gulp-less&#x27;);      // For compiling Less into CSS&#xA;var cssLint = require(&#x27;gulp-csslint&#x27;);   // For checking the awesomeness of css&#xA;var minCss  = require(&#x27;gulp-minify-css&#x27;);// For minifying css&#xA;var uncss   = require(&#x27;gulp-uncss&#x27;);     // For deleting unused CSS rules&#xA;var footer  = require(&#x27;gulp-footer&#x27;);    // For adding footer text into files&#xA;var nodemon = require(&#x27;gulp-nodemon&#x27;);   // For the super cool instant refreshing server&#xA;var bSync   = require(&#x27;browser-sync&#x27;);   // Syncs the place between multiple browsers for dev&#xA;var es      = require(&#x27;event-stream&#x27;);   // For working with streams rather than temp dirs&#xA;&#xA;var sourcePath  = &amp;quot;sources&amp;quot;;&#xA;var destPath    = &amp;quot;public&amp;quot;;&#xA;var jsFileName  = &amp;quot;all.min.js&amp;quot;;&#xA;var cssFileName = &amp;quot;all.min.css&amp;quot;;&#xA;var footerText  = &amp;quot;&amp;quot;;&#xA;&#xA;&#xA;/* JavaScript Tasks */&#xA;gulp.task(&#x27;scripts&#x27;,  function(){&#xA;    var jsSrcPath = sourcePath &#x2B; &#x27;/javascript/**/*&#x27;;&#xA;    var jsResPath = destPath &#x2B; &#x27;/javascript&#x27;;&#xA;&#xA;    var jsFromCs = gulp.src(jsSrcPath&#x2B;&#x27;.coffee&#x27;)// Get all coffee script&#xA;        .pipe(cofLint())                        // Check CS for errors or warnings&#xA;        .pipe(cofLint.reporter())               // Output the error results&#xA;        .pipe(coffee());                        // Convert coffee to vanilla js&#xA;&#xA;    var jsFromPlain = gulp.src(jsSrcPath&#x2B;&#x27;.js&#x27;);// get all vanilla JavaScript&#xA;&#xA;   return es.merge(jsFromCs, jsFromPlain)       // Both js from cs and vanilla js&#xA;       .pipe(jshint())                          // Check js errors or warnings&#xA;       .pipe(jshint.reporter(&#x27;jshint-stylish&#x27;)) // Print js errors or warnings&#xA;       .pipe(concat(jsFileName,{newLine: &#x27;;&#x27;})) // Concatenate all files together&#xA;       .pipe(uglify())                          // Minify JavaScript&#xA;       .pipe(footer(footerText))                // Add footer to script&#xA;       .pipe(gulp.dest(jsResPath));             // Save to destination&#xA;});&#xA;&#xA;/* CSS Tasks */&#xA;gulp.task(&#x27;styles&#x27;,  function(){&#xA;    var cssSrcPath = sourcePath &#x2B; &#x27;/styles/**/*&#x27;;&#xA;    var cssResPath = destPath &#x2B; &#x27;/stylesheet&#x27;;&#xA;&#xA;    var cssFromLess = gulp.src(cssSrcPath&#x2B;&#x27;.less&#x27;)  // Get all Less code&#xA;        .pipe(less());                              // Convert Less to CSS&#xA;&#xA;    var cssFromVanilla = gulp.src(cssSrcPath&#x2B;&#x27;.css&#x27;);// Get all CSS&#xA;&#xA;    return es.merge(cssFromLess, cssFromVanilla)    // Combine both CSS&#xA;        .pipe(cssLint())                            // Check CSS for errors or warnings&#xA;        .pipe(cssLint.reporter())                   // And output the results&#xA;        .pipe(concat(cssFileName))                  // Concatenate all files together&#xA;        .pipe(minCss({compatibility: &#x27;ie8&#x27;}))       // Minify the CSS&#xA;        .pipe(gulp.dest(cssResPath));               // Save to destination&#xA;});&#xA;&#xA;&#xA;/* Configure files to watch for changes */&#xA;gulp.task(&#x27;watch&#x27;, function() {&#xA;    gulp.watch(sourcePath&#x2B;&#x27;/**/*.{js,coffee}&#x27;, [&#x27;scripts&#x27;]);&#xA;    gulp.watch(sourcePath&#x2B;&#x27;/**/*.{css,less}&#x27;,  [&#x27;styles&#x27;]);&#xA;});&#xA;&#xA;/* Start Nodemon */&#xA;gulp.task(&#x27;demon&#x27;, function () {&#xA;    nodemon({&#xA;        script: &#x27;./bin/www&#x27;,&#xA;        ext: &#x27;js coffee css less html&#x27;,&#xA;        env: { &#x27;NODE_ENV&#x27;: &#x27;development&#x27;}&#xA;    })&#xA;        .on(&#x27;start&#x27;, [&#x27;watch&#x27;])//TODO: ERROR: watch is never called, even though start is called&#xA;        .on(&#x27;change&#x27;, [&#x27;watch&#x27;])&#xA;        .on(&#x27;restart&#x27;, function () {&#xA;            console.log(&#x27;restarted!&#x27;);&#xA;        });&#xA;});&#xA;&#xA;&#xA;/* Default Task */&#xA;gulp.task(&#x27;default&#x27;, [&#x27;demon&#x27;]);&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;Any suggestions why this may be happening?&#xA;Is there something wrong with my Gulp file?&lt;/p&gt;&#xA;&lt;p&gt;(and yes, I know the code is a little over-commented, I work with apprentices and they like English better than code ;)&lt;/p&gt;&#xA;
+        </summary>
+    </entry>
+            <entry>
+        <id>https://stackoverflow.com/questions/47654247/-/47654297#47654297</id>
+        <re:rank scheme="https://stackoverflow.com">2</re:rank>
+        <title type="text">Answer by Lissy93 for github pages Can&#x27;t find variable: $</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/47654247/github-pages-cant-find-variable/47654297#47654297" />
+        <published>2017-12-05T13:02:28Z</published>
+        <updated>2022-06-30T04:50:48Z</updated>
+        <summary type="html">&lt;p&gt;If you open up the dev tool console on that link you&#x27;ve shared, here&#x27;s the error:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;Mixed Content: The page at &#x27;https://zkid18.github.io/data_visualization_project/&#x27; was loaded over HTTPS, but requested an insecure script &#x27;http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&#x27;. &#xA;&#xA;This request has been blocked; the content must be served over HTTPS.&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;So in this case, the solution is to just load your external resources over HTTPS, because this is what GitHub is hosted on. For example:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;&amp;lt;script src=&amp;quot;https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;&lt;strong&gt;If a page is loaded over HTTPS then every resource it uses should also be loaded over HTTPS.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Reason behind this is, that otherwise a man-in-the-middle could replace resources (or ones that exploit buffer overflow issues in browsers to execute code) and scripts with ones that do different things (such as leak data to the third party).&lt;/p&gt;&#xA;&lt;p&gt;You can read more about this &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content/How_to_fix_website_with_mixed_content&quot; rel=&quot;nofollow noreferrer&quot;&gt;in this article on the Mozilla site&lt;/a&gt;.&lt;/p&gt;&#xA;</summary>
+    </entry>
+    <entry>
+        <id>https://stackoverflow.com/q/48075509</id>
+        <re:rank scheme="https://stackoverflow.com">15</re:rank>
+        <title type="text">Socket.io failed: WebSocket is closed before the connection is established</title>
+            <category scheme="https://stackoverflow.com/tags" term="node.js" />
+            <category scheme="https://stackoverflow.com/tags" term="express" />
+            <category scheme="https://stackoverflow.com/tags" term="twitter" />
+            <category scheme="https://stackoverflow.com/tags" term="socket.io" />
+            <category scheme="https://stackoverflow.com/tags" term="stream" />
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/48075509/socket-io-failed-websocket-is-closed-before-the-connection-is-established" />
+        <published>2018-01-03T10:26:15Z</published>
+        <updated>2022-06-30T04:49:49Z</updated>
+        <summary type="html">
+            &lt;h1&gt;The Issue&lt;/h1&gt;&#xA;&lt;p&gt;My Twitter streaming app using Socket.io works okay when visiting the site with the IP address and port, but live streaming throws an error, when using the domain name to access the site. &#x1F914;&lt;/p&gt;&#xA;&lt;p&gt;Try the links below, and open up the developer tools, to see the error&lt;/p&gt;&#xA;&lt;h3&gt;Visiting site using the domain name (&lt;a href=&quot;http://sentiment-sweep.com&quot; rel=&quot;nofollow noreferrer&quot;&gt;http://sentiment-sweep.com&lt;/a&gt;)&lt;/h3&gt;&#xA;&lt;p&gt;Hundreds of socket errors following this format:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;WebSocket connection to &#xA;&#x27;ws://sentiment-sweep.com/socket.io/?EIO=3&amp;amp;transport=websocket&amp;amp;sid=guBmeCqsOr22CTsWAAC0&#x27; &#xA;failed: WebSocket is closed before the connection is established.&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3&gt;Visiting the site using IP and Port (&lt;a href=&quot;http://XXX.XX.XXX.XX:3003&quot; rel=&quot;nofollow noreferrer&quot;&gt;http://XXX.XX.XXX.XX:3003&lt;/a&gt;)&lt;/h3&gt;&#xA;&lt;p&gt;Initially a few of the above socket errors, but then affter 10-15 seconds the app starts to work fine&lt;/p&gt;&#xA;&lt;h1&gt;Background&lt;/h1&gt;&#xA;&lt;p&gt;I made this Node app for a University project few years back. I keep it updated. It uses Socket.io and the Twitter API to stream live Tweets, calculate the sentiment and display results visually using D3. I use NGINX for port forwarding.&lt;/p&gt;&#xA;&lt;p&gt;For reference, here is my git repo: &lt;a href=&quot;https://github.com/Lissy93/twitter-sentiment-visualisation&quot; rel=&quot;nofollow noreferrer&quot;&gt;https://github.com/Lissy93/twitter-sentiment-visualisation&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Recently I made a small HTML/ CSS change, and updated a couple of dependencies, and that&#x27;s when this strange socket.io issue started&lt;/p&gt;&#xA;&lt;h1&gt;What I&#x27;ve tried so far&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Changing the port - no difference&lt;/li&gt;&#xA;&lt;li&gt;I use &lt;code&gt;io.connect();&lt;/code&gt; with no params to connect&lt;/li&gt;&#xA;&lt;li&gt;Including socket.io locally, rather than from CDN&lt;/li&gt;&#xA;&lt;li&gt;Could it have something to do with my site being non-SSL&lt;/li&gt;&#xA;&lt;li&gt;Locally it works totally fine, and faster and less of a delay than the API version&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Has anyone seen an issue similar to this before?&lt;/p&gt;&#xA;
+        </summary>
+    </entry>
+            <entry>
+        <id>https://stackoverflow.com/questions/55786350/-/55787551#55787551</id>
+        <re:rank scheme="https://stackoverflow.com">4</re:rank>
+        <title type="text">Answer by Lissy93 for Npm pack to include local modules</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/55786350/npm-pack-to-include-local-modules/55787551#55787551" />
+        <published>2019-04-21T23:13:57Z</published>
+        <updated>2022-06-30T04:48:06Z</updated>
+        <summary type="html">&lt;p&gt;I had a similar issue a while back, and a good and simple solution, is just to put your local modules into private git repos (which are now free on GitHub, &lt;a href=&quot;https://www.theinquirer.net/inquirer/news/3068940/github-offers-private-code-repository-access-for-free&quot; rel=&quot;nofollow noreferrer&quot;&gt;thanks Microsoft&lt;/a&gt; &#x1F64C;)&lt;/p&gt;&#xA;&lt;p&gt;Then, in your &lt;code&gt;package.json&lt;/code&gt;, just add:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;&amp;quot;dependencies&amp;quot; : {&#xA;  &amp;quot;name1&amp;quot; : &amp;quot;git://github.com/user/project.git#commit-ish&amp;quot;,&#xA;  &amp;quot;name2&amp;quot; : &amp;quot;git://github.com/user/project.git#commit-ish&amp;quot;&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;Source, &lt;a href=&quot;https://docs.npmjs.com/files/package.json#git-urls-as-dependencies&quot; rel=&quot;nofollow noreferrer&quot;&gt;npm docs&lt;/a&gt;&lt;/p&gt;&#xA;</summary>
+    </entry>
+            <entry>
+        <id>https://stackoverflow.com/questions/55879614/-/55880298#55880298</id>
+        <re:rank scheme="https://stackoverflow.com">0</re:rank>
+        <title type="text">Answer by Lissy93 for Navbar toggle button centering</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/55879614/navbar-toggle-button-centering/55880298#55880298" />
+        <published>2019-04-27T11:54:36Z</published>
+        <updated>2022-06-30T04:47:01Z</updated>
+        <summary type="html">&lt;p&gt;You were nearly there, just change the order of your elements, putting the toggle component as the final item, and it will display on the far right.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Here&#x27;s the working code:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;div class=&quot;snippet&quot; data-lang=&quot;js&quot; data-hide=&quot;false&quot; data-console=&quot;true&quot; data-babel=&quot;false&quot;&gt;&#xD;&#xA;&lt;div class=&quot;snippet-code&quot;&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-html lang-html prettyprint-override&quot;&gt;&lt;code&gt;&amp;lt;link href=&quot;https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;/&amp;gt;&#xA;&#xA;&amp;lt;!-- Navigation --&amp;gt;&#xA;&amp;lt;nav class=&quot;navbar navbar-expand-md navbar-light bg-light sticky-top&quot;&amp;gt;&#xA;    &#xA;  &amp;lt;a class=&quot;navbar-brand&quot; href=&quot;index.html&quot;&amp;gt;&#xA;&amp;lt;img src=&quot;https://cdn.worldvectorlogo.com/logos/bootstrap-4.svg&quot; height=&quot;30&quot;&amp;gt;&#xA;  &amp;lt;/a&amp;gt;&#xA;    &#xA;  &amp;lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;navbarResponsive&quot;&amp;gt;&#xA;&amp;lt;ul class=&quot;navbar-nav ml-auto&quot;&amp;gt;&#xA;  &amp;lt;li class=&quot;nav-item active&quot;&amp;gt;&#xA;    &amp;lt;a class=&quot;nav-link&quot; href=&quot;index.html&quot;&amp;gt;Home&amp;lt;/a&amp;gt;&#xA;   &amp;lt;/li&amp;gt;&#xA;   &amp;lt;li class=&quot;nav-item&quot;&amp;gt;&#xA;     &amp;lt;a class=&quot;nav-link&quot; href=&quot;day_map.html&quot;&amp;gt;Daytime Map&amp;lt;/a&amp;gt;&#xA;   &amp;lt;/li&amp;gt;&#xA;   &amp;lt;li class=&quot;nav-item&quot;&amp;gt;&#xA;     &amp;lt;a class=&quot;nav-link&quot; href=&quot;night-map.html&quot;&amp;gt;Nighttime Map&amp;lt;a&amp;gt;&#xA;    &amp;lt;/li&amp;gt;&#xA;  &amp;lt;/ul&amp;gt;&#xA;&amp;lt;/div&amp;gt;&#xA;    &#xA;  &amp;lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#navbarText&quot; aria-controls=&quot;navbarText&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&amp;gt;&#xA;      &amp;lt;span class=&quot;navbar-toggler-icon&quot;&amp;gt;&amp;lt;/span&amp;gt;&#xA;  &amp;lt;/button&amp;gt;&#xA;&#xA;&amp;lt;/nav&amp;gt;&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/p&gt;&#xA;&lt;p&gt;I also refined your code a bit, you don&#x27;t need your &lt;code&gt;.container-fluid&lt;/code&gt; wrapper div for the navbar.&lt;/p&gt;&#xA;&lt;p&gt;Reference: &lt;a href=&quot;https://getbootstrap.com/docs/4.0/components/navbar/&quot; rel=&quot;nofollow noreferrer&quot;&gt;Bootstrap navbar docs&lt;/a&gt;&lt;/p&gt;&#xA;</summary>
+    </entry>
+            <entry>
+        <id>https://stackoverflow.com/questions/55982543/-/55982611#55982611</id>
+        <re:rank scheme="https://stackoverflow.com">2</re:rank>
+        <title type="text">Answer by Lissy93 for How to make my images inline to the left of my component content?</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/55982543/how-to-make-my-images-inline-to-the-left-of-my-component-content/55982611#55982611" />
+        <published>2019-05-04T12:39:58Z</published>
+        <updated>2022-06-30T04:45:15Z</updated>
+        <summary type="html">&lt;p&gt;&lt;strong&gt;Just add &lt;code&gt;display: flex;&lt;/code&gt; to your outer container, and everything should fall in to place nicely!&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&quot;https://jsfiddle.net/r1m4v659/&quot; rel=&quot;nofollow noreferrer&quot;&gt;Here is a Demo Fiddle&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;You can then add in margin, and the rest of your styles as you please.&lt;/p&gt;&#xA;&lt;p&gt;If you want to learn more about flexbox, &lt;a href=&quot;https://css-tricks.com/snippets/css/a-guide-to-flexbox/&quot; rel=&quot;nofollow noreferrer&quot;&gt;this is an excellent reference&lt;/a&gt;. There&#x27;s also the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox&quot; rel=&quot;nofollow noreferrer&quot;&gt;MDN &lt;code&gt;flexbox&lt;/code&gt; docs&lt;/a&gt;.&lt;/p&gt;&#xA;</summary>
+    </entry>
+    <entry>
+        <id>https://stackoverflow.com/q/49078538</id>
+        <re:rank scheme="https://stackoverflow.com">1</re:rank>
+        <title type="text">Mongoose, how to append element to an array, inside existing JSON document</title>
+            <category scheme="https://stackoverflow.com/tags" term="node.js" />
+            <category scheme="https://stackoverflow.com/tags" term="mongodb" />
+            <category scheme="https://stackoverflow.com/tags" term="mongoose" />
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/49078538/mongoose-how-to-append-element-to-an-array-inside-existing-json-document" />
+        <published>2018-03-02T22:47:01Z</published>
+        <updated>2022-06-30T04:24:32Z</updated>
+        <summary type="html">
+            &lt;h3&gt;The Situation&lt;/h3&gt;&#xA;&lt;p&gt;I have a MongoDB of the following data structure&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;teamName: (String)&#xA;data: (Array)&#xA;---date: (Timestamp)&#xA;---userResults: (Object)&#xA;------userHash: (StringHash)&#xA;------score: (String)&#xA;------comment: (String)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;&lt;a href=&quot;https://pastebin.com/m9qpAWej&quot; rel=&quot;nofollow noreferrer&quot;&gt;Here is a short example on PasteBin&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h3&gt;The Question&lt;/h3&gt;&#xA;&lt;p&gt;Given a specific &lt;code&gt;teamName&lt;/code&gt; and &lt;code&gt;date&lt;/code&gt; (within the team data array), I&#x27;d like to append a new row (&lt;code&gt;{userHash: &#x27;&#x27;, score: &#x27;&#x27;, comment: &#x27;&#x27;}&lt;/code&gt;) into &lt;code&gt;userResults&lt;/code&gt; array.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;How can I update an array within a given document, after querying the parent node, and the parents parent node?&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;hr /&gt;&#xA;&lt;h3&gt;What I&#x27;ve tried so far&lt;/h3&gt;&#xA;&lt;p&gt;I&#x27;ve tried &lt;code&gt;findOneAndUpdate&lt;/code&gt;. It inserted an entire new document, right from the root though.&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;TeamRecordSchema.findOneAndUpdate(&#xA;    {teamName: teamName, data: {date: today}}, &#xA;    {$set:{teamName: teamName, data: {date: today, userResults: [userResponse]}}}, &#xA;    {new: true, upsert: true}, &#xA;    function(err, savedDoc){&#xA;&#xA;       // Do stuff with err and savedDoc&#xA;&#xA;});&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;I&#x27;ve tried &lt;code&gt;save&lt;/code&gt;, and again it just creates an entire new document at the root level, within my db&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;const _userResponse = new TeamRecordSchema(teamUserResponse);&#xA;_userResponse.save((err, savedDoc) =&amp;gt; {&#xA;&#xA;    // Do stuff with err and savedDoc accordingly     &#xA;&#xA; });&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;I&#x27;ve also tried several variations based on the documentation, but I either get the same results, or an error.&lt;/p&gt;&#xA;
+        </summary>
+    </entry>
+    <entry>
+        <id>https://stackoverflow.com/q/47365582</id>
+        <re:rank scheme="https://stackoverflow.com">2</re:rank>
+        <title type="text">Angular AOT compiler can&#x27;t find project-relative paths within components</title>
+            <category scheme="https://stackoverflow.com/tags" term="node.js" />
+            <category scheme="https://stackoverflow.com/tags" term="angular" />
+            <category scheme="https://stackoverflow.com/tags" term="aot" />
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/47365582/angular-aot-compiler-cant-find-project-relative-paths-within-components" />
+        <published>2017-11-18T11:35:42Z</published>
+        <updated>2022-06-30T04:23:45Z</updated>
+        <summary type="html">
+            &lt;p&gt;I&#x27;m in the (painful) process of AOT-ing an app I&#x27;ve been making, but have hit a bit of a hurdle when it comes to specifying URL&#x27;s for the components.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Works in AOT, but not JIT &#x1F616;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre class=&quot;lang-js prettyprint-override&quot;&gt;&lt;code&gt;@Component({&#xA;  selector: &amp;quot;home-page&amp;quot;,&#xA;  templateUrl: &amp;quot;./home.html&amp;quot;,&#xA;  styleUrls: [&amp;quot;./home.css&amp;quot;],&#xA;}) &#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;&lt;strong&gt;Works in JIT, but not AOT &#x1F616;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre class=&quot;lang-js prettyprint-override&quot;&gt;&lt;code&gt;@Component({&#xA;  selector: &amp;quot;home-page&amp;quot;,&#xA;  templateUrl: &amp;quot;pages/home/home.html&amp;quot;,&#xA;  styleUrls: [&amp;quot;pages/home/home.css&amp;quot;],&#xA;})&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;&lt;strong&gt;Question&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Why does the AOT Compiler resolve paths relative to the current component, whereas the JIT compiler expects absolute path from the project root? And what is the standard, best practice way to get around this?&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;More Details&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;This error orrours, when trying to run &lt;code&gt;npm run ngc&lt;/code&gt; (or &lt;code&gt;node_modules/.bin/ngc -p tsconfig-aot.json&lt;/code&gt;)&lt;/li&gt;&#xA;&lt;li&gt;My project structure was origionally based on &lt;a href=&quot;https://github.com/ericmdantas/generator-ng-fullstack&quot; rel=&quot;nofollow noreferrer&quot;&gt;generator-ng-fullstack (via Yeoman)&lt;/a&gt;.&lt;/li&gt;&#xA;&lt;li&gt;It&#x27;s not using the Angular CLI, or WebPack.&lt;/li&gt;&#xA;&lt;li&gt;Angular 4&lt;/li&gt;&#xA;&lt;li&gt;Here&#x27;s my &lt;a href=&quot;https://github.com/Lissy93/happy-app/blob/master/tsconfig-aot.json&quot; rel=&quot;nofollow noreferrer&quot;&gt;&lt;code&gt;tsconfig-aot.json&lt;/code&gt;&lt;/a&gt;. (And, here&#x27;s my JIT &lt;a href=&quot;https://github.com/Lissy93/happy-app/blob/master/tsconfig.json&quot; rel=&quot;nofollow noreferrer&quot;&gt;&lt;code&gt;tsconfig.json&lt;/code&gt;&lt;/a&gt;)&lt;/li&gt;&#xA;&lt;li&gt;And for reference, &lt;a href=&quot;https://github.com/Lissy93/happy-app/tree/master/client/dev&quot; rel=&quot;nofollow noreferrer&quot;&gt;here&lt;/a&gt; is my client-side source directory.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;What I&#x27;ve tried so far&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Attempting to import and read the html template and stylesheet beforehand, and pass the value in as a string- but this is a terrible approach, and can&#x27;t be right&lt;/li&gt;&#xA;&lt;li&gt;Specifying the template and style paths in many different ways; relative, absolute, and everything between&lt;/li&gt;&#xA;&lt;li&gt;Searching issues on the Angular repo, this was the only one I found that was relevant, but had no clear outcome: &lt;a href=&quot;https://github.com/angular/angular/issues/11554&quot; rel=&quot;nofollow noreferrer&quot;&gt;https://github.com/angular/angular/issues/11554&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Following the official &lt;a href=&quot;https://angular.io/guide/aot-compiler&quot; rel=&quot;nofollow noreferrer&quot;&gt;Angular AOT documentation&lt;/a&gt;, word-for-word, and like it&#x27;s the actual Bible- but they&#x27;ve just brushed over this issue&lt;/li&gt;&#xA;&lt;li&gt;With the Yeoman generator, there are two client-side directories, one for dev, and the other for dist. Gulp is used to build:dist. Since AOT will only need to happen in dist, maybe a potential solution could be to use Gulp to change the path structures on build:dist?&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;
+        </summary>
+    </entry>
+            <entry>
+        <id>https://stackoverflow.com/questions/4414297/-/72652446#72652446</id>
+        <re:rank scheme="https://stackoverflow.com">0</re:rank>
+        <title type="text">Answer by Lissy93 for Unix Bash script to embolden/underline/italicize specific text</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/4414297/unix-bash-script-to-embolden-underline-italicize-specific-text/72652446#72652446" />
+        <published>2022-06-16T22:17:56Z</published>
+        <updated>2022-06-16T22:17:56Z</updated>
+        <summary type="html">&lt;p&gt;Just to add, that instead of using &lt;a href=&quot;https://linux.die.net/man/1/tput&quot; rel=&quot;nofollow noreferrer&quot;&gt;&lt;code&gt;tput&lt;/code&gt;&lt;/a&gt;, you can also specify colors as ANSI escape sequences.&lt;/p&gt;&#xA;&lt;p&gt;These are specified like &lt;code&gt;\033[XXXm&lt;/code&gt;, where XXX is a series of semicolon-separated parameters (as covered by the &lt;a href=&quot;https://www.ecma-international.org/wp-content/uploads/ECMA-48_5th_edition_june_1991.pdf&quot; rel=&quot;nofollow noreferrer&quot;&gt;&lt;code&gt;ECMA-48&lt;/code&gt;&lt;/a&gt; standard). For example:&lt;/p&gt;&#xA;&lt;pre class=&quot;lang-bash prettyprint-override&quot;&gt;&lt;code&gt;Color_Off=&#x27;\033[0m&#x27;       # Text Reset&#xA;&#xA;# Regular Colors&#xA;Black=&#x27;\033[0;30m&#x27;        # Black&#xA;Red=&#x27;\033[0;31m&#x27;          # Red&#xA;Green=&#x27;\033[0;32m&#x27;        # Green&#xA;Yellow=&#x27;\033[0;33m&#x27;       # Yellow&#xA;Blue=&#x27;\033[0;34m&#x27;         # Blue&#xA;Purple=&#x27;\033[0;35m&#x27;       # Purple&#xA;Cyan=&#x27;\033[0;36m&#x27;         # Cyan&#xA;White=&#x27;\033[0;37m&#x27;        # White&#xA;&#xA;# Bold&#xA;BBlack=&#x27;\033[1;30m&#x27;       # Black&#xA;BRed=&#x27;\033[1;31m&#x27;         # Red&#xA;BGreen=&#x27;\033[1;32m&#x27;       # Green&#xA;BYellow=&#x27;\033[1;33m&#x27;      # Yellow&#xA;BBlue=&#x27;\033[1;34m&#x27;        # Blue&#xA;BPurple=&#x27;\033[1;35m&#x27;      # Purple&#xA;BCyan=&#x27;\033[1;36m&#x27;        # Cyan&#xA;BWhite=&#x27;\033[1;37m&#x27;       # White&#xA;&#xA;# Underline&#xA;UBlack=&#x27;\033[4;30m&#x27;       # Black&#xA;URed=&#x27;\033[4;31m&#x27;         # Red&#xA;UGreen=&#x27;\033[4;32m&#x27;       # Green&#xA;UYellow=&#x27;\033[4;33m&#x27;      # Yellow&#xA;UBlue=&#x27;\033[4;34m&#x27;        # Blue&#xA;UPurple=&#x27;\033[4;35m&#x27;      # Purple&#xA;UCyan=&#x27;\033[4;36m&#x27;        # Cyan&#xA;UWhite=&#x27;\033[4;37m&#x27;       # White&#xA;&#xA;# Background&#xA;On_Black=&#x27;\033[40m&#x27;       # Black&#xA;On_Red=&#x27;\033[41m&#x27;         # Red&#xA;On_Green=&#x27;\033[42m&#x27;       # Green&#xA;On_Yellow=&#x27;\033[43m&#x27;      # Yellow&#xA;On_Blue=&#x27;\033[44m&#x27;        # Blue&#xA;On_Purple=&#x27;\033[45m&#x27;      # Purple&#xA;On_Cyan=&#x27;\033[46m&#x27;        # Cyan&#xA;On_White=&#x27;\033[47m&#x27;       # White&#xA;&#xA;# High Intensity&#xA;IBlack=&#x27;\033[0;90m&#x27;       # Black&#xA;IRed=&#x27;\033[0;91m&#x27;         # Red&#xA;IGreen=&#x27;\033[0;92m&#x27;       # Green&#xA;IYellow=&#x27;\033[0;93m&#x27;      # Yellow&#xA;IBlue=&#x27;\033[0;94m&#x27;        # Blue&#xA;IPurple=&#x27;\033[0;95m&#x27;      # Purple&#xA;ICyan=&#x27;\033[0;96m&#x27;        # Cyan&#xA;IWhite=&#x27;\033[0;97m&#x27;       # White&#xA;&#xA;# Bold High Intensity&#xA;BIBlack=&#x27;\033[1;90m&#x27;      # Black&#xA;BIRed=&#x27;\033[1;91m&#x27;        # Red&#xA;BIGreen=&#x27;\033[1;92m&#x27;      # Green&#xA;BIYellow=&#x27;\033[1;93m&#x27;     # Yellow&#xA;BIBlue=&#x27;\033[1;94m&#x27;       # Blue&#xA;BIPurple=&#x27;\033[1;95m&#x27;     # Purple&#xA;BICyan=&#x27;\033[1;96m&#x27;       # Cyan&#xA;BIWhite=&#x27;\033[1;97m&#x27;      # White&#xA;&#xA;# High Intensity backgrounds&#xA;On_IBlack=&#x27;\033[0;100m&#x27;   # Black&#xA;On_IRed=&#x27;\033[0;101m&#x27;     # Red&#xA;On_IGreen=&#x27;\033[0;102m&#x27;   # Green&#xA;On_IYellow=&#x27;\033[0;103m&#x27;  # Yellow&#xA;On_IBlue=&#x27;\033[0;104m&#x27;    # Blue&#xA;On_IPurple=&#x27;\033[0;105m&#x27;  # Purple&#xA;On_ICyan=&#x27;\033[0;106m&#x27;    # Cyan&#xA;On_IWhite=&#x27;\033[0;107m&#x27;   # White&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;E.g. to print in bright purple (note that &lt;code&gt;-e&lt;/code&gt; is required to enable interpretation of backslash escapes)&lt;/p&gt;&#xA;&lt;pre class=&quot;lang-bash prettyprint-override&quot;&gt;&lt;code&gt;echo -e &amp;quot;\033[0;95m Hello World!\033[0m&amp;quot;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;Colors are rendered by the terminal you are using, traditionally terminal colors were 8-bit, nowadays most termainl emulators &lt;a href=&quot;https://github.com/termstandard/colors#terminal-emulators&quot; rel=&quot;nofollow noreferrer&quot;&gt;are true color&lt;/a&gt; / 256-bit.&lt;/p&gt;&#xA;</summary>
+    </entry>
+            <entry>
+        <id>https://stackoverflow.com/questions/72475210/-/72475329#72475329</id>
+        <re:rank scheme="https://stackoverflow.com">0</re:rank>
+        <title type="text">Answer by Lissy93 for How do I host my React app on Github pages without getting redirected?</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/72475210/how-do-i-host-my-react-app-on-github-pages-without-getting-redirected/72475329#72475329" />
+        <published>2022-06-02T11:14:31Z</published>
+        <updated>2022-06-02T18:32:15Z</updated>
+        <summary type="html">&lt;ol&gt;&#xA;&lt;li&gt;Under Repo &#x2192; Settings &#x2192; Pages &#x2192; Sources, and select the &lt;code&gt;gh-pages&lt;/code&gt; branch&lt;/li&gt;&#xA;&lt;li&gt;Put your built application (e.g. &lt;code&gt;dist&lt;/code&gt;) at the root of the gh-pages branch to be served up&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;hr /&gt;&#xA;&lt;p&gt;You&#x27;ll probably want to automate this, which can be done quite easily with &lt;a href=&quot;https://github.com/actions&quot; rel=&quot;nofollow noreferrer&quot;&gt;GitHub Actions&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The following example, uses &lt;a href=&quot;https://github.com/JamesIves/github-pages-deploy-action&quot; rel=&quot;nofollow noreferrer&quot;&gt;JamesIves/github-pages-deploy-action&lt;/a&gt;, to build an deploy your app every time a change is made on your main branch.&lt;/p&gt;&#xA;&lt;p&gt;Just create a file in &lt;code&gt;.github/workflows/deploy-gh-pages.yml&lt;/code&gt; in your main branch, then populate it with:&lt;/p&gt;&#xA;&lt;pre class=&quot;lang-yaml prettyprint-override&quot;&gt;&lt;code&gt;name: Build and Deploy to GH Pages&#xA;on: &#xA;  push:&#xA;  workflow_dispatch:&#xA;permissions: &#xA;  contents: write&#xA;jobs:&#xA;  build-and-deploy:&#xA;    concurrency: ci-${{ github.ref }}&#xA;    runs-on: ubuntu-latest&#xA;    steps:&#xA;      - name: Checkout&#xA;        uses: actions/checkout@v3&#xA;      - name: Install and Build&#xA;        run: |&#xA;          yarn&#xA;          yarn build&#xA;      - name: Deploy&#xA;        uses: JamesIves/github-pages-deploy-action@v4.3.3&#xA;        with:&#xA;          branch: gh-pages&#xA;          folder: dist&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;Commit your files, the action will run automatically, and a few minutes later your app will be live on GH Pages &#x1F680;&lt;/p&gt;&#xA;&lt;p&gt;If you&#x27;d like to see a real-world example of this, I&#x27;m doing something similar in &lt;a href=&quot;https://github.com/lissy93/email-comparison&quot; rel=&quot;nofollow noreferrer&quot;&gt;this project&lt;/a&gt;.&lt;/p&gt;&#xA;</summary>
+    </entry>
+            <entry>
+        <id>https://stackoverflow.com/questions/72433188/-/72434440#72434440</id>
+        <re:rank scheme="https://stackoverflow.com">0</re:rank>
+        <title type="text">Answer by Lissy93 for VueJS router handle all request</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/72433188/vuejs-router-handle-all-request/72434440#72434440" />
+        <published>2022-05-30T12:35:26Z</published>
+        <updated>2022-05-30T12:35:26Z</updated>
+        <summary type="html">&lt;p&gt;You need to create a new route, with a custom param regexp to catch all routes which haven&#x27;t been defined. You&#x27;ll also need to create a &lt;code&gt;NotFound&lt;/code&gt; component to be your 404 view.&lt;/p&gt;&#xA;&lt;h3&gt;Vue 3&lt;/h3&gt;&#xA;&lt;pre class=&quot;lang-js prettyprint-override&quot;&gt;&lt;code&gt;const routes: RouteConfig[] = [&#xA;  { path: &#x27;/&#x27;, name: &#x27;Home&#x27;, component: Home },&#xA;  { path: &#x27;/home&#x27;, redirect: &#x27;/&#x27; },&#xA;  { path: &#x27;/:pathMatch(.*)*&#x27;, name: &#x27;NotFound&#x27;, component: NotFound },&#xA;];&#xA;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;h3&gt;Vue 2&lt;/h3&gt;&#xA;&lt;pre class=&quot;lang-js prettyprint-override&quot;&gt;&lt;code&gt;export const new Router({&#xA;  routes: [&#xA;    ...&#xA;    {&#xA;      path: &#x27;*&#x27;,&#xA;      name: &#x27;404&#x27;,&#xA;      component: () =&amp;gt; import(&#x27;./views/404.vue&#x27;),&#xA;    },&#xA;  ]&#xA;});&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;</summary>
+    </entry>
+            <entry>
+        <id>https://stackoverflow.com/questions/72366630/-/72366753#72366753</id>
+        <re:rank scheme="https://stackoverflow.com">2</re:rank>
+        <title type="text">Answer by Lissy93 for text blinking in textarea</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/72366630/text-blinking-in-textarea/72366753#72366753" />
+        <published>2022-05-24T16:59:11Z</published>
+        <updated>2022-05-24T16:59:11Z</updated>
+        <summary type="html">&lt;p&gt;Here&#x27;s a working version. I think your issue was that buttons within a form will default to type &lt;code&gt;submit&lt;/code&gt; if no type is specified.&lt;/p&gt;&#xA;&lt;p&gt;&lt;div class=&quot;snippet&quot; data-lang=&quot;js&quot; data-hide=&quot;false&quot; data-console=&quot;true&quot; data-babel=&quot;false&quot;&gt;&#xD;&#xA;&lt;div class=&quot;snippet-code&quot;&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-js lang-js prettyprint-override&quot;&gt;&lt;code&gt;i = 0;&#xA;function add_task(){&#xA;    return document.getElementById(&quot;tasklist&quot;).value &#x2B;= (document.getElementById(&quot;addtask&quot;).value&#x2B;&quot;\n&quot;);&#xA;}&#xA;&#xA;function formSubmitted(e) {&#xA;  // Handle form submit, if needed&#xA;  return false;&#xA;}&#xA;&#xA;function next_task() {&#xA;  // Not yet implemented&#xA;}&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-css lang-css prettyprint-override&quot;&gt;&lt;code&gt;#pos{&#xA;  position: absolute;&#xA;  bottom: 25px;&#xA;  text-align:center;&#xA;}&#xA;    &#xA;form{&#xA;  padding: 1rem;&#xA;}&#xA;&#xA;h1{&#xA;  padding: 1rem;&#xA;  margin: 0;&#xA;  color: blue;&#xA;}&#xA;&#xA;#body {&#xA;  border: 5px solid black;&#xA;}&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;pre class=&quot;snippet-code-html lang-html prettyprint-override&quot;&gt;&lt;code&gt;&amp;lt;header&amp;gt;&#xA;  &amp;lt;h1&amp;gt;To Do list&amp;lt;/h1&amp;gt;&#xA;&amp;lt;/header&amp;gt;&#xA;&#xA;&amp;lt;form name=&quot;form1&quot; onsubmit=&quot;return formSubmitted(event)&quot;&amp;gt;&#xA;  &amp;lt;label for=&quot;addtask&quot;&amp;gt;Add task : &amp;lt;/label&amp;gt;&#xA;  &amp;lt;input type=&quot;text&quot; id=&quot;addtask&quot;/&amp;gt;&#xA;  &amp;lt;button id=&quot;ad&quot; onclick=&quot;add_task()&quot;&amp;gt;Add task&amp;lt;/button&amp;gt;&amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&#xA;  &amp;lt;label style=&quot;vertical-align:top;&quot;&amp;gt;Task list :&amp;lt;/label&amp;gt;&#xA;  &amp;lt;textarea id=&quot;tasklist&quot; rows=10&amp;gt;&amp;lt;/textarea&amp;gt;&#xA;  &amp;lt;div id=&quot;pos&quot;&amp;gt;&#xA;    &amp;lt;label for=&quot;nexttask&quot;&amp;gt;Next task : &amp;lt;/label&amp;gt;&#xA;    &amp;lt;input type=&quot;text&quot; id=&quot;nexttask&quot;/&amp;gt;&#xA;    &amp;lt;button id=&quot;nt&quot; onclick=&quot;next_task&quot;&amp;gt;Show Next task&amp;lt;/button&amp;gt;&amp;lt;br&amp;gt;&#xA;  &amp;lt;/div&amp;gt;&#xA;&amp;lt;/form&amp;gt;&lt;/code&gt;&lt;/pre&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&lt;/p&gt;&#xA;</summary>
+    </entry>
+               <entry>
+        <id>https://stackoverflow.com/questions/57354001/how-to-focus-on-input-field-loaded-from-component-in-svelte/57355578?cid=132303963#57355578</id>
+        <title type="text">Comment by Lissy93 on How to focus on input field loaded from component in Svelte?</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/57354001/how-to-focus-on-input-field-loaded-from-component-in-svelte/57355578#57355578" />
+        <published>2023-01-01T00:37:49Z</published>
+        <updated>2023-01-01T00:37:49Z</updated>
+        <summary type="html">@mikemaccana - ref just short for reference, but it&amp;#39;s commonly used in this context so for the sake of an example should be fine.</summary>
+    </entry>
+
+               <entry>
+        <id>https://stackoverflow.com/questions/72030745/onkeydown-event-with-enter-key-in-svelte/72031473?cid=132303916#72031473</id>
+        <title type="text">Comment by Lissy93 on on:keydown event with Enter Key in svelte</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/72030745/onkeydown-event-with-enter-key-in-svelte/72031473#72031473" />
+        <published>2023-01-01T00:27:08Z</published>
+        <updated>2023-01-01T00:27:08Z</updated>
+        <summary type="html">This should be the accepted answer - very clearly described, and after testing against your scenario seems to work perfectly.</summary>
+    </entry>
+
+               <entry>
+        <id>https://stackoverflow.com/questions/74817558/how-to-add-docker-volume-for-zipkin-server?cid=132042207</id>
+        <title type="text">Comment by Lissy93 on How to add docker volume for zipkin server</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/74817558/how-to-add-docker-volume-for-zipkin-server" />
+        <published>2022-12-15T23:22:05Z</published>
+        <updated>2022-12-15T23:22:05Z</updated>
+        <summary type="html">Use &lt;code&gt;--volume&lt;/code&gt; to mount your own file or directory to where the log files are</summary>
+    </entry>
+
+               <entry>
+        <id>https://stackoverflow.com/questions/74818587/onclick-not-working-when-i-click-the-button?cid=132042171</id>
+        <title type="text">Comment by Lissy93 on Onclick not working when I click the button</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/74818587/onclick-not-working-when-i-click-the-button" />
+        <published>2022-12-15T23:18:08Z</published>
+        <updated>2022-12-15T23:18:08Z</updated>
+        <summary type="html">What do you mean by &lt;i&gt;&amp;quot;doesn&amp;#39;t work&amp;quot;&lt;/i&gt; ?  It lgtm. If you could update your question to be an interactive, runnable code snippet, that may help both you and us answer the question.</summary>
+    </entry>
+
+               <entry>
+        <id>https://stackoverflow.com/questions/74818557/how-would-i-use-setinterval-to-execute-a-class-function?cid=132042154</id>
+        <title type="text">Comment by Lissy93 on how would I use setInterval to execute a class function?</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/74818557/how-would-i-use-setinterval-to-execute-a-class-function" />
+        <published>2022-12-15T23:16:19Z</published>
+        <updated>2022-12-15T23:16:19Z</updated>
+        <summary type="html">You should just be able to wrap that final line in a for loop, that iterates over each of the players (unless I&amp;#39;ve misunderstood the question)</summary>
+    </entry>
+
+               <entry>
+        <id>https://stackoverflow.com/questions/74813452/nodemon-displays-console-log-twice-unnecessarily?cid=132033027</id>
+        <title type="text">Comment by Lissy93 on nodemon displays console.log() twice unnecessarily</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/74813452/nodemon-displays-console-log-twice-unnecessarily" />
+        <published>2022-12-15T15:06:54Z</published>
+        <updated>2022-12-15T15:06:54Z</updated>
+        <summary type="html">@Dug_Park- You&amp;#39;ll need to add some more info to your question, it&amp;#39;s not relly possible to answer it without seeing any code, steps to reproduce, expected and actual output.</summary>
+    </entry>
+
+               <entry>
+        <id>https://stackoverflow.com/questions/74813452/nodemon-displays-console-log-twice-unnecessarily?cid=132032820</id>
+        <title type="text">Comment by Lissy93 on nodemon displays console.log() twice unnecessarily</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/74813452/nodemon-displays-console-log-twice-unnecessarily" />
+        <published>2022-12-15T14:58:33Z</published>
+        <updated>2022-12-15T14:58:33Z</updated>
+        <summary type="html">Can you share your code?</summary>
+    </entry>
+
+               <entry>
+        <id>https://stackoverflow.com/questions/74813455/provide-alert-when-two-containers-come-in-each-other-position-range-through-css?cid=132032815</id>
+        <title type="text">Comment by Lissy93 on Provide alert when two containers come in each other position range through CSS animation</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/74813455/provide-alert-when-two-containers-come-in-each-other-position-range-through-css" />
+        <published>2022-12-15T14:58:17Z</published>
+        <updated>2022-12-15T14:58:17Z</updated>
+        <summary type="html">What have you tried so far?</summary>
+    </entry>
+
+               <entry>
+        <id>https://stackoverflow.com/questions/74188748/getting-key-from-hashmap-value/74189016?cid=132016882#74189016</id>
+        <title type="text">Comment by Lissy93 on Getting Key From HashMap Value</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/74188748/getting-key-from-hashmap-value/74189016#74189016" />
+        <published>2022-12-14T21:05:11Z</published>
+        <updated>2022-12-14T21:05:11Z</updated>
+        <summary type="html">@redfox - if IamGroot&amp;#39;s answer helped, don&amp;#39;t forget to accept it.</summary>
+    </entry>
+
+               <entry>
+        <id>https://stackoverflow.com/questions/74804013/how-do-i-align-text-in-top-left-corner-of-div?cid=132016619</id>
+        <title type="text">Comment by Lissy93 on How do I align text in top left corner of div?</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/74804013/how-do-i-align-text-in-top-left-corner-of-div" />
+        <published>2022-12-14T20:48:27Z</published>
+        <updated>2022-12-14T20:48:27Z</updated>
+        <summary type="html">Can you share (a minimal example of) your markup as well?</summary>
+    </entry>
+
+               <entry>
+        <id>https://stackoverflow.com/questions/74754040/how-do-i-get-the-localized-date-format-for-a-given-locale?cid=131933875</id>
+        <title type="text">Comment by Lissy93 on How do I get the localized date format for a given locale?</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/74754040/how-do-i-get-the-localized-date-format-for-a-given-locale" />
+        <published>2022-12-10T16:52:58Z</published>
+        <updated>2022-12-10T16:52:58Z</updated>
+        <summary type="html">This question is quite similar to &lt;a href=&quot;https://stackoverflow.com/a/54115358/979052&quot;&gt;this one&lt;/a&gt;, although no solution without using reduce was found</summary>
+    </entry>
+
+               <entry>
+        <id>https://stackoverflow.com/questions/74719145/how-to-use-rtl-mode-in-react-native-reanimated-carousel?cid=131904753</id>
+        <title type="text">Comment by Lissy93 on how to use rtl mode in react-native-reanimated-carousel</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/74719145/how-to-use-rtl-mode-in-react-native-reanimated-carousel" />
+        <published>2022-12-08T23:20:24Z</published>
+        <updated>2022-12-08T23:20:24Z</updated>
+        <summary type="html">The solution works though. Since there&amp;#39;s an open issue for it, you can submit an improvement as a PR. SO probably isn&amp;#39;t the best place to get help with a very specific library - either the discussions tab of the repo, or one of the existing open issues on the topic would be better.</summary>
+    </entry>
+
+               <entry>
+        <id>https://stackoverflow.com/questions/74719145/how-to-use-rtl-mode-in-react-native-reanimated-carousel?cid=131874884</id>
+        <title type="text">Comment by Lissy93 on how to use rtl mode in react-native-reanimated-carousel</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/74719145/how-to-use-rtl-mode-in-react-native-reanimated-carousel" />
+        <published>2022-12-07T15:34:39Z</published>
+        <updated>2022-12-07T15:34:39Z</updated>
+        <summary type="html">Have you checked the docs, or the GitHub repo? &lt;a href=&quot;https://github.com/dohooo/react-native-reanimated-carousel/issues/238#issuecomment-1311265888&quot; rel=&quot;nofollow noreferrer&quot;&gt;#238&lt;/a&gt; seems to answer your question.</summary>
+    </entry>
+
+               <entry>
+        <id>https://stackoverflow.com/questions/74719145/how-to-use-rtl-mode-in-react-native-reanimated-carousel?cid=131874853</id>
+        <title type="text">Comment by Lissy93 on how to use rtl mode in react-native-reanimated-carousel</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/74719145/how-to-use-rtl-mode-in-react-native-reanimated-carousel" />
+        <published>2022-12-07T15:33:36Z</published>
+        <updated>2022-12-07T15:33:36Z</updated>
+        <summary type="html">Try adding &lt;code&gt;{transform: [{scaleX: -1}]}&lt;/code&gt; to the container. I think you can also use the &lt;code&gt;autoPlayReverse&lt;/code&gt; prop too</summary>
+    </entry>
+
+               <entry>
+        <id>https://stackoverflow.com/questions/74708418/stop-animation-at-specific-frame?cid=131856980</id>
+        <title type="text">Comment by Lissy93 on Stop animation at specific frame?</title>
+        <author>
+            <name>Lissy93</name>
+            <uri>https://stackoverflow.com/users/979052</uri>
+        </author>
+        <link rel="alternate" href="https://stackoverflow.com/questions/74708418/stop-animation-at-specific-frame" />
+        <published>2022-12-06T20:08:13Z</published>
+        <updated>2022-12-06T20:08:13Z</updated>
+        <summary type="html">You may have better luck in the &lt;a href=&quot;https://github.com/photonstorm/phaser/discussions&quot; rel=&quot;nofollow noreferrer&quot;&gt;Phaser Discussions&lt;/a&gt;, since this is about a specific framework</summary>
+    </entry>
+
+</feed>

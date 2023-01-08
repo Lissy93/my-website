@@ -1,0 +1,2972 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>DEV Community 👩‍💻👨‍💻: Alicia Sykes</title>
+    <description>The latest articles on DEV Community 👩‍💻👨‍💻 by Alicia Sykes (@lissy93).</description>
+    <link>https://dev.to/lissy93</link>
+    <image>
+      <url>https://res.cloudinary.com/practicaldev/image/fetch/s--VpR-xpfa--/c_fill,f_auto,fl_progressive,h_90,q_auto,w_90/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/44940/c48f6904-fc82-46a3-8ed7-b2baac65cf9c.jpg</url>
+      <title>DEV Community 👩‍💻👨‍💻: Alicia Sykes</title>
+      <link>https://dev.to/lissy93</link>
+    </image>
+    <atom:link rel="self" type="application/rss+xml" href="https://dev.to/feed/lissy93"/>
+    <language>en</language>
+    <item>
+      <title>20 Git Commands you (probably) didn't know about 🧙‍♂️</title>
+      <dc:creator>Alicia Sykes</dc:creator>
+      <pubDate>Sun, 18 Dec 2022 13:32:40 +0000</pubDate>
+      <link>https://dev.to/lissy93/20-git-commands-you-probably-didnt-know-about-4j4o</link>
+      <guid>https://dev.to/lissy93/20-git-commands-you-probably-didnt-know-about-4j4o</guid>
+      <description>&lt;p&gt;If you've ever browsed the &lt;a href="https://git-scm.com/docs"&gt;git manual&lt;/a&gt; (or run &lt;code&gt;man git&lt;/code&gt;), then you'll have noticed there's a whole lot more to git than what most of us use on a daily basis. A lot of these commands are incredibly powerful and can make your life a lot easier (others are a bit niche, but still good to know).&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;This post outlines 20 of my favourite under-used git features, which you can use to level up your development process, impress your colleagues, help you answer git interview questions, and most importantly - have fun with!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;
+  
+  
+  Contents (and TL;DR)
+&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+Git Web - &lt;em&gt;Open builtin GUI&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;
+Git Notes - &lt;em&gt;Attach extra info to commits&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;
+Git Bisect - &lt;em&gt;Debug like a pro&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;
+Git Grep - &lt;em&gt;Search for anything&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;
+Git Archive - &lt;em&gt;Compress project for sharing&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;
+Git Submodules - &lt;em&gt;Import other repos into yours&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;
+Git Bugreport - &lt;em&gt;Compile bug report with system info&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;
+Git Fsck - &lt;em&gt;Verify and recover unreachable objects&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;
+Git Stripspace - &lt;em&gt;Remove trailing whitespaces&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;
+Git Diff - &lt;em&gt;Compare changes between two files&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;
+Git Hooks - &lt;em&gt;Execute script when a git command is run&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;
+Git Blame - &lt;em&gt;Show who wrote a given line&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;
+Git Large File Storage - &lt;em&gt;Store big files in git&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;
+Git Garbage Collection - &lt;em&gt;Optimize your git repo&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;
+Git Show - &lt;em&gt;Easily inspect any git object&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;
+Git Describe - &lt;em&gt;Give readable name based on last tag&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;
+Git Tag - &lt;em&gt;Create version tags at specific points&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;
+Git Reflog - &lt;em&gt;List all git actions made on a repo&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;
+Git Log - &lt;em&gt;View commit log, and branch diagrams&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;
+Git Cherry Pick - &lt;em&gt;Pull a feature into your branch&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;
+Git Switch - &lt;em&gt;Quickly jump between branches&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;
+Bonus - &lt;em&gt;Extend git with more commands!&lt;/em&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Git Web
+&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Run &lt;a href="https://git-scm.com/docs/git-instaweb"&gt;&lt;code&gt;git instaweb&lt;/code&gt;&lt;/a&gt; to instantly browse your working repository in gitweb&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Git has a built-in &lt;a href="https://git-scm.com/docs/gitweb"&gt;web-based visualiser&lt;/a&gt; for browsing local repositories, which lets you view and manage your repo via a GUI in the browser. It's packed with useful features, including:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Browsing and stepping through revisions and inspecting diffs, file contents and metadata&lt;/li&gt;
+&lt;li&gt;Viewing commit logs, branches, directories, file history, and attached data visually&lt;/li&gt;
+&lt;li&gt;Generating RSS or Atom feeds of commits and repository activity logs&lt;/li&gt;
+&lt;li&gt;Searching commits, files, changes and diffs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To open it, just run &lt;code&gt;git instaweb&lt;/code&gt; from within your repo. Your browser should pop open, and load &lt;code&gt;http://localhost:1234&lt;/code&gt;. If you don't have Lighttpd installed, you can specify an alternative web server with the &lt;code&gt;-d&lt;/code&gt; flag. Other options can be configured either via flags (like &lt;code&gt;-p&lt;/code&gt; for port, &lt;code&gt;-b&lt;/code&gt; for the browser to open, etc), or under the &lt;code&gt;[instaweb]&lt;/code&gt; block in your git config.&lt;/p&gt;
+
+&lt;p&gt;There's also the &lt;code&gt;git gui&lt;/code&gt; command, which can open up a GUI-based git app&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--ATnCqGFm--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/0DrmcWG/Screenshot-from-2022-12-17-20-26-30.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--ATnCqGFm--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/0DrmcWG/Screenshot-from-2022-12-17-20-26-30.png" alt="Screenshot of Git GUI" width="880" height="765"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Git Notes
+&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Use &lt;a href="https://git-scm.com/docs/git-notes"&gt;&lt;code&gt;git notes&lt;/code&gt;&lt;/a&gt; to add extra info to commits&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Sometimes you need to attach additional data to a git commit (beyond just the changes, message, date-time and author info).&lt;/p&gt;
+
+&lt;p&gt;The notes are stored within &lt;code&gt;.git/refs/notes&lt;/code&gt;, and since that's separate from the commit object data, you can modify the notes associated with a commit at anytime, without the SHA-1 hash changing.&lt;/p&gt;
+
+&lt;p&gt;You can view notes with &lt;code&gt;git log&lt;/code&gt;, using most git GUI apps, or with the &lt;code&gt;git notes show&lt;/code&gt; command. Some git hosts also show notes in the commit view (although &lt;a href="https://github.blog/2010-08-25-git-notes-display/"&gt;GH no longer displays notes&lt;/a&gt;).&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Git Bisect
+&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;With &lt;a href="https://git-scm.com/docs/git-bisect"&gt;&lt;code&gt;git bisect&lt;/code&gt;&lt;/a&gt; you can find the commit that introduced a bug using binary search&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This is one of the most powerful, yet easy to use git commands- bisect is an absolute life saver when it comes to debugging. After starting a bisect, it checks out commits for you, and you tell it weather that commit is &lt;code&gt;good&lt;/code&gt; (no bug), or &lt;code&gt;bad&lt;/code&gt; (bug introduced), which lets you narrow down the the earliest commit where the bug is present.&lt;/p&gt;
+
+&lt;p&gt;To get started, run &lt;code&gt;git bisect start&lt;/code&gt; then pass it a known good commit with &lt;code&gt;git bisect good &amp;lt;commit-hash&amp;gt;&lt;/code&gt; and a known bad one (defaults to current) with &lt;code&gt;git bisect bad &amp;lt;optional-hash&amp;gt;&lt;/code&gt;. It will then checkout the commit in-between the good and bad commits, then you specify weather the bug is present with either &lt;code&gt;git bisect good&lt;/code&gt; or &lt;code&gt;git bisect bad&lt;/code&gt;. It will then repeat the process, checking out a commit in the center of the bad and good, all the way until you've found the exact commit that introduced the bug. Cancel anytime with &lt;code&gt;git bisect reset&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;There's much more to the bisect command, including replays, viewing commits, skipping, so it's worth checking out the docs next time your debugging.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Git Grep
+&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Use &lt;a href="https://git-scm.com/docs/git-grep"&gt;&lt;code&gt;git grep&lt;/code&gt;&lt;/a&gt; to search for  code, files, commits or anything else across your repo&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ever find yourself needing to search for a string anywhere within a git project? With git grep you can easily search for any string, or RegEx throughout your project, and across branches (like a more powerful Ctrl + F!). &lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;git grep &amp;lt;regexp&amp;gt; &amp;lt;ref&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;It includes plenty of &lt;a href="https://git-scm.com/docs/git-grep#_options"&gt;options&lt;/a&gt; to narrow down your search, or specify results format. For example, use &lt;code&gt;-l&lt;/code&gt; to only return file names, &lt;code&gt;-c&lt;/code&gt; to specify number of matches per file to return, &lt;code&gt;-e&lt;/code&gt; to exclude results matching a condition, &lt;code&gt;--and&lt;/code&gt; to specify multiple conditions, &lt;code&gt;-n&lt;/code&gt; to search with line number.&lt;/p&gt;
+
+&lt;p&gt;Since git grep is regex-compatible, you can get much more advanced with the string your searching for.&lt;br&gt;
+You can also use it to specify a file extension, like &lt;code&gt;git grep 'console.log' *.js&lt;/code&gt; which will show all console.logs from within JavaScript files&lt;/p&gt;
+
+&lt;p&gt;The second parameter is a ref, and can be a branch name, commit, range of commits, or anything else. E.g. &lt;code&gt;git grep "foo" HEAD~1&lt;/code&gt; will search the previous commit.&lt;/p&gt;
+
+
+&lt;h2&gt;
+  
+  
+  Git Archive
+&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Use &lt;a href="https://git-scm.com/docs/git-archive"&gt;&lt;code&gt;git archive&lt;/code&gt;&lt;/a&gt; to combine an entire repo into a single file&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;When sharing or backing up a repository, it's often preferred to store it as a single file. Using git archive will include all repo history, so it can be easily extracted back to it's original form. The command also includes a lot of additional options, so you can customise exactly what files are and aren't included in the archive.&lt;br&gt;
+&lt;/p&gt;
+
+&lt;div class="highlight js-code-highlight"&gt;
+&lt;pre class="highlight shell"&gt;&lt;code&gt;git archive &lt;span class="nt"&gt;--format&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;tar&lt;/span&gt; &lt;span class="nt"&gt;--output&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;./my-archive HEAD
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;/div&gt;
+
+
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Git Submodules
+&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Use &lt;a href="https://git-scm.com/docs/git-submodule"&gt;&lt;code&gt;git submodule&lt;/code&gt;&lt;/a&gt; to pull any other repository into yours&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In git, &lt;a href="https://git-scm.com/docs/gitsubmodules"&gt;submodules&lt;/a&gt; let you mount one repo into another, and is commonly used for core dependencies or splitting components into separate repositories. For more info, see &lt;a href="https://notes.aliciasykes.com/17996/quick-tip-git-submodules"&gt;this post&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Running the following command will pull a module into the specified location, and also create a &lt;code&gt;.gitmodules&lt;/code&gt; file so that it's always downloaded when the repo is cloned. Use the &lt;code&gt;--recursive&lt;/code&gt; flag to include sub-modules when cloning the repo.&lt;br&gt;
+&lt;/p&gt;
+
+&lt;div class="highlight js-code-highlight"&gt;
+&lt;pre class="highlight shell"&gt;&lt;code&gt;git submodule add https://github.com/&amp;lt;user&amp;gt;/&amp;lt;repo&amp;gt; &amp;lt;path/to/save/at&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;/div&gt;
+
+
+
+&lt;p&gt;There's also &lt;a href="https://www.atlassian.com/git/tutorials/git-subtree"&gt;&lt;code&gt;git subtree&lt;/code&gt;&lt;/a&gt;, which does a similar thing, but without the need for metadata files.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Git Bug Report
+&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Use &lt;a href="https://git-scm.com/docs/git-bugreport"&gt;&lt;code&gt;git bugreport&lt;/code&gt;&lt;/a&gt; to compose a bug ticket, including git and system info&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This command will capture system info, and then open up a standard bug template (steps to reproduce, actual + expected output, etc). The completed file should be a very complete bug report, with all necessary info captured.&lt;/p&gt;
+
+&lt;p&gt;This is very handy if your a maintainer for an open source package and asking a user (developer) to raise a bug report, as it ensures all necessary data is included.&lt;/p&gt;
+
+&lt;p&gt;And if you are raising a bug report to the core git system, you can also run the &lt;a href="https://git-scm.com/docs/git-diagnose"&gt;&lt;code&gt;git diagnose&lt;/code&gt;&lt;/a&gt; command, and then raise your issue &lt;a href="https://github.com/git/git"&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Git Fsck
+&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Use &lt;a href="https://git-scm.com/docs/git-fsck"&gt;&lt;code&gt;git fsck&lt;/code&gt;&lt;/a&gt; to check all objects, or recover unreachable ones&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Although not often needed, sometimes you may have to verify the objects stored by git. This is where fsck (or File System ChecK) comes in, it tests the object database and verifies the SHA-1 ID of all objects and the connections they make.&lt;/p&gt;
+
+&lt;p&gt;It can also be used alongside the &lt;code&gt;--unreachable&lt;/code&gt; flag to find objects that are no longer reachable from any named reference (since unlike other commands, it includes everything in &lt;code&gt;.git/objects&lt;/code&gt;).&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Git Stripspace
+&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Use &lt;a href="https://git-scm.com/docs/git-stripspace"&gt;&lt;code&gt;git stripspace&lt;/code&gt;&lt;/a&gt; to format whitespaces within a given file&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Best practice is to avoid trailing whitespaces at the end of lines, avoid having multiple consecutive blank lines, avoid empty lines from beginning and end of an input, and end each file with a new line. There's plenty of language-specific tools which do this automatically for you (like prettier), but Git also has this functionality builtin.&lt;/p&gt;
+
+&lt;p&gt;It's intended for metadata (commit messages, tags, branch descriptions, etc), but also works if you pipe a file to it, then pipe the response back to a file. E.g. &lt;code&gt;cat ./path-to-file.txt | git stripspace&lt;/code&gt; or &lt;code&gt;git stripspace &amp;lt; dirty-file.txt &amp;gt; clean-file.txt&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;You can also use this to remove comments (with &lt;code&gt;--strip-comments&lt;/code&gt;), or even comment out lines (with &lt;code&gt;--comment-lines&lt;/code&gt;).&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Git Diff
+&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;With &lt;a href="https://git-scm.com/docs/git-diff"&gt;&lt;code&gt;git diff&lt;/code&gt;&lt;/a&gt; you can compare the difference between 2 sets of code&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;You're probably aware that you you can run &lt;code&gt;git diff&lt;/code&gt; to show all changes since the last commit, or use &lt;code&gt;git diff &amp;lt;commit-sha&amp;gt;&lt;/code&gt; to compare either 2 commits, or 1 commit to the HEAD. But there's much more you can do with the diff command.&lt;/p&gt;
+
+&lt;p&gt;You can also use it to compare any two arbitrary files, with &lt;code&gt;diff  file-1.txt file-2.txt&lt;/code&gt; (no more visiting &lt;a href="https://www.diffchecker.com/compare/"&gt;diffchecker.com&lt;/a&gt;!)&lt;/p&gt;
+
+&lt;p&gt;Or compare 2 branches, or refs with each other, using &lt;code&gt;git diff branch1..branch2&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Note that a double dot (&lt;code&gt;..&lt;/code&gt;) is the same as a space and indicates the diff input should be the tip of the branches, but you can also use a triple dot (&lt;code&gt;...&lt;/code&gt;)  to convert the first parameter into a ref of the shared common ancestor commit between the two diff inputs - very useful! If you want to only compare a single file across branches, just pass the files name in as the third argument. &lt;/p&gt;
+
+&lt;p&gt;You may want to see all changes made within a given date range, for this use &lt;code&gt;git diff HEAD@{7.day.ago} HEAD@{0}&lt;/code&gt; (for the last week), again this can be paired up with a filename, branch names, specific commits or any other ref.&lt;/p&gt;
+
+&lt;p&gt;There's also the &lt;a href="https://www.git-scm.com/docs/git-range-diff"&gt;&lt;code&gt;git range-diff&lt;/code&gt;&lt;/a&gt; command, which provides a simple interface for comparing commit ranges.&lt;/p&gt;
+
+&lt;p&gt;There's much more to the git diff tool (as well as the option of using your own diff checker), so I recommend checking out  &lt;a href="https://git-scm.com/docs/git-diff#_description"&gt;the docs&lt;/a&gt;.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Git Hooks
+&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Use &lt;a href="https://git-scm.com/docs/githooks"&gt;&lt;code&gt;hooks&lt;/code&gt;&lt;/a&gt; to execute command or run scripts when a given get action occurs&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Hooks let you automate pretty much anything. For example: ensuring standards are met (commit message, branch name, patch size), code quality (tests, lint), appending additional info to a commit (user, device, ticket ID), calling a webhook to record an event or run a pipeline, etc.&lt;/p&gt;
+
+&lt;p&gt;There's pre and post &lt;a href="https://git-scm.com/docs/githooks"&gt;hooks available&lt;/a&gt; for most git events, like commit, rebase, merge, push, update, applypatch, etc.&lt;/p&gt;
+
+&lt;p&gt;Hooks are stored in &lt;code&gt;.git/hooks&lt;/code&gt; (unless you configure them elsewhere with &lt;code&gt;git config core.hooksPath&lt;/code&gt;), and can be tested with the &lt;a href="https://git-scm.com/docs/git-hook"&gt;&lt;code&gt;git hook&lt;/code&gt;&lt;/a&gt; command. Since they're just shell files, they can be used to run any command.&lt;/p&gt;
+
+&lt;p&gt;Hooks aren't pushed to the remote repository, so to share and manage them across your team, you'll need to use a &lt;a href="https://github.com/aitemr/awesome-git-hooks#tools"&gt;hook manager&lt;/a&gt;, like &lt;a href="https://github.com/evilmartians/lefthook"&gt;lefthook&lt;/a&gt; or &lt;a href="https://github.com/typicode/husky"&gt;husky&lt;/a&gt;.  There's also several &lt;a href="https://githooks.com/#projects"&gt;3rd-party tools&lt;/a&gt;, which make managing hooks easier, I recommend &lt;a href="https://github.com/sds/overcommit"&gt;overcommit&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Remember, hooks can always be skipped (with the &lt;code&gt;--no-verify&lt;/code&gt; flag), so never rely purely on hooks, especially for anything security related. &lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Git Blame
+&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Use &lt;a href="https://git-scm.com/docs/git-blame"&gt;&lt;code&gt;git blame&lt;/code&gt;&lt;/a&gt; to show author info for a specific revision and line&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;A classic, quickly find out who wrote a specific line of code (aka which of your co-workers to blame for the bug!). But it's also useful to determine at which point in time something changed and inspect that commit and associated metadata.&lt;/p&gt;
+
+&lt;p&gt;For example, to view author and commit info for line 400 to 420 of index.rs, you'd run:&lt;br&gt;
+&lt;/p&gt;
+
+&lt;div class="highlight js-code-highlight"&gt;
+&lt;pre class="highlight shell"&gt;&lt;code&gt;git blame &lt;span class="nt"&gt;-L&lt;/span&gt; 400,420 index.rs
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;/div&gt;
+
+
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Git LFS
+&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Store large files using &lt;a href="https://git-lfs.github.com/"&gt;&lt;code&gt;git lfs&lt;/code&gt;&lt;/a&gt; to not bog down your repo&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Often your project will contain larger files (such as databases, binary assets, archives or media files), which would slow down the git workflow and max out usage limits. That's where &lt;a href="https://git-lfs.github.com/"&gt;Large File Storage&lt;/a&gt; comes in - it enables you to store these large assets elsewhere, while keeping them trackable with git and maintaining the same access controls/ permissions. LFS works by replacing these larger files with text pointers that are tracked within git.&lt;/p&gt;
+
+&lt;p&gt;To use it, just run &lt;code&gt;git lfs track &amp;lt;file glob&amp;gt;&lt;/code&gt;, which will update your &lt;code&gt;.gitattributes&lt;/code&gt; file. You can specify files by their extension (e.g. &lt;code&gt;*.psd&lt;/code&gt;), directory, or individually. Running &lt;code&gt;git lfs ls-files&lt;/code&gt; to view a list of tracked LFS files.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Git GC
+&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Use &lt;a href="https://git-scm.com/docs/git-gc"&gt;&lt;code&gt;git gc&lt;/code&gt;&lt;/a&gt; to optimize your repository&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Over time git repos accumulate various types of garbage, which take up disk space, and slow down actions. That's where the built-in garbage collector comes in. Running &lt;code&gt;git gc&lt;/code&gt; will remove orphaned and inaccessible commits (with &lt;a href="https://git-scm.com/docs/git-prune"&gt;&lt;code&gt;git prune&lt;/code&gt;&lt;/a&gt;), compress file revisions and stored git objects, as well as some other general house keeping tasks like packing refs, pruning reflog, revere metadata or stale working trees and updating indexes.&lt;/p&gt;
+
+&lt;p&gt;Adding the &lt;code&gt;--aggressive&lt;/code&gt; flag will &lt;a href="https://git-scm.com/docs/git-gc#_aggressive"&gt;aggressively optimize&lt;/a&gt; the repository, throwing away any existing deltas and re-computing them, this takes much longer to run but may be needed if you've got a large repository.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Git Show
+&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Use &lt;a href="https://git-scm.com/docs/git-show"&gt;&lt;code&gt;git show&lt;/code&gt;&lt;/a&gt; to easily inspect any git object&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Outputs objects (blobs, treees, tags or commits) in an easily readable form. To use, just run &lt;code&gt;git show &amp;lt;object&amp;gt;&lt;/code&gt;. You'll likely also want to append the &lt;code&gt;--pretty&lt;/code&gt; flag, for a clearer output, but there's many other options available to customize the output (with &lt;code&gt;--format&lt;/code&gt;), so this command can be extremely powerful for displaying exactly what you need.&lt;/p&gt;
+
+&lt;p&gt;An instance that this is very useful for, is previewing a file in another branch, without switching branches. Just run &lt;code&gt;git show branch:file&lt;/code&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Git Describe
+&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Use &lt;a href="https://git-scm.com/docs/git-describe"&gt;&lt;code&gt;git describe&lt;/code&gt;&lt;/a&gt; to find the latest tag reachable from a commit, and give it a human-readable name&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Run &lt;code&gt;git describe&lt;/code&gt; and you'll see a human-readable string made from combining the last tag name, with the current commit, to generate a string. You can also pass a specific tag to it, &lt;/p&gt;
+
+&lt;p&gt;Note that you must have created tags for this to work, unless you append the &lt;code&gt;--all&lt;/code&gt; flag. Git describe will also only use annotated tags by default, so you must specify the &lt;code&gt;--tags&lt;/code&gt; flag to make it use lightweight tags as well.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Git Tag
+&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Tag a specific point in your repo's history using &lt;a href="https://git-scm.com/docs/git-tag"&gt;&lt;code&gt;git tag&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It's often useful to be able to &lt;a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging"&gt;tag&lt;/a&gt; specific, important points in a repository’s history most commonly used to denote versions of releases. Creating a tag is as simple as &lt;code&gt;git tag &amp;lt;tagname&amp;gt;&lt;/code&gt;, or you can tag a historical commit with &lt;code&gt;git tag -a v4.2.0 &amp;lt;commit sha&amp;gt;&lt;/code&gt;. Like with commits, you can include a message alongside a tag, using &lt;code&gt;-m&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Don't forget to push your tag to remote, with &lt;code&gt;git push origin &amp;lt;tagname&amp;gt;&lt;/code&gt;.&lt;br&gt;
+To list all tags, just run &lt;code&gt;git tag&lt;/code&gt;, and optionally use &lt;code&gt;-l&lt;/code&gt; for a wildcard search.&lt;br&gt;
+You'll then be able to checkout a specific tag, with &lt;code&gt;git checkout &amp;lt;tagname&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Git Reflog
+&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;List all updates made on your repo using &lt;a href="https://git-scm.com/docs/git-reflog"&gt;&lt;code&gt;git reflog&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Git keeps track of updates to the tip of branches using a mechanism called reference logs, or "reflogs". Various events are tracked, including: clone, pull, push, commit, checkout and merge. It's often useful to be able to find an events reference, as many commands accept a ref as a parameter. Just run &lt;code&gt;git reflog&lt;/code&gt; to view recent events on &lt;code&gt;HEAD&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;One thing that reflog is really useful for is recovering lost commits. Git never really loses anything, even when rewriting history (like rebasing or commit amending). Reflog allows you to go back to commits even though they are not referenced by any branch or tag. &lt;/p&gt;
+
+&lt;p&gt;By default reflog uses &lt;code&gt;HEAD&lt;/code&gt; (your current branch), but you can run reflog on any ref. For example &lt;code&gt;git reflog show &amp;lt;branch name&amp;gt;&lt;/code&gt;, or to see stashed changes with &lt;code&gt;git reflog stash&lt;/code&gt;. Or show all references with &lt;code&gt;git reflog show --all&lt;/code&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Git Log
+&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Use &lt;a href="https://git-scm.com/docs/git-log"&gt;&lt;code&gt;git log&lt;/code&gt;&lt;/a&gt; to view a list of commits&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;You're likely already familiar with running &lt;code&gt;git log&lt;/code&gt; to view a list of recent commits on your current branch. But there's a few things more you can do with git log.&lt;/p&gt;
+
+&lt;p&gt;Using &lt;code&gt;git log --graph --decorate --oneline&lt;/code&gt; will show a nice neat commit graph along with ref pointers.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--EtfqYNeJ--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/c1WByg8/Screenshot-from-2022-12-17-20-43-56.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--EtfqYNeJ--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/c1WByg8/Screenshot-from-2022-12-17-20-43-56.png" alt="example git log output" width="628" height="281"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You also often need to be able to filter logs based on various parameters, the most useful of which are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;code&gt;git log --search="&amp;lt;anything&amp;gt;"&lt;/code&gt; - Search logs for specific code changes&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;git log --author="&amp;lt;pattern&amp;gt;"&lt;/code&gt; - Show log only for specific author(s)&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;git log --grep="&amp;lt;pattern&amp;gt;"&lt;/code&gt; - Filter log using search term or regex&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;git log &amp;lt;since&amp;gt;..&amp;lt;until&amp;gt;&lt;/code&gt; - Show all commits between two references&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;git log -- &amp;lt;file&amp;gt;&lt;/code&gt; - Show all commits made only to a specific file&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Or, just run &lt;code&gt;git shortlog&lt;/code&gt; for a summerized list of commits.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Git Cherry Pick
+&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Use &lt;a href="https://git-scm.com/docs/git-cherry-pick"&gt;&lt;code&gt;git cherry-pick&lt;/code&gt;&lt;/a&gt; to pick specified commit(s) by reference and append them to the working HEAD&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Sometimes you need to pull a specific commit from elsewhere, into your current branch. This can be very useful for applying hot fixes, undoing changes, restoring lost commits and in certain team collaboration settings. Note that often traditional merges are better practice, since cherry picking commits can cause duplicate commits in the log.&lt;/p&gt;
+
+&lt;p&gt;Usage is straightforward, just run &lt;code&gt;git cherry-pick &amp;lt;commit-hash&amp;gt;&lt;/code&gt;. This will pull the specified commit into your current branch.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Git Switch
+&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Use &lt;a href="https://git-scm.com/docs/git-switch"&gt;&lt;code&gt;git switch&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Moving between branches is something that we do often, the &lt;code&gt;switch&lt;/code&gt; command is like a simplified version of &lt;code&gt;git checkout&lt;/code&gt;, it can be used to create and navigate between branches, but unlike checkout does not copy modified files when you move between branches.&lt;/p&gt;
+
+&lt;p&gt;Similar to &lt;code&gt;checkout -b&lt;/code&gt;, with the switch command you can  append the &lt;code&gt;-c&lt;/code&gt; flag to create a new branch, and jump strait into it, e.g. &lt;code&gt;git switch -c &amp;lt;new branch&amp;gt;&lt;/code&gt;. And running &lt;code&gt;git switch -&lt;/code&gt; will discard any experimental changes you've made, and return you to your previous branch.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Git Standup
+&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Use &lt;a href="https://github.com/kamranahmedse/git-standup"&gt;&lt;code&gt;git standup&lt;/code&gt;&lt;/a&gt; to recall what you did on the last working day , based on git commits&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I've put this one at the end, as it's not included with most git clients, but you can &lt;a href="https://github.com/kamranahmedse/git-standup#install"&gt;easily install it&lt;/a&gt; either with your systems package manager, using a 1-line curl script, or by building from source.&lt;/p&gt;
+
+&lt;p&gt;If your boss requires you do a daily standup, to give updates on yesterdays work, but you can never remember what you actually did - this one is for you! It'll show a nicely formatted list of everything done in a given time frame. Usage is simple, just run &lt;code&gt;git standup&lt;/code&gt;, or use &lt;a href="https://github.com/kamranahmedse/git-standup#options"&gt;these options&lt;/a&gt; to specify what data should be shown (author, timeframe, branches, etc.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Bonus
+&lt;/h2&gt;
+
+&lt;p&gt;Git can be easily extended with add-ons, to add extra commands that do useful tasks. One of the most complete extensions is &lt;a href="https://github.com/tj/git-extras/blob/master/Commands.md"&gt;git-extras&lt;/a&gt; by &lt;a href="https://github.com/tj"&gt;@tj&lt;/a&gt;. It gives you 70+ &lt;a href="https://github.com/tj/git-extras/blob/master/Commands.md"&gt;extra commands&lt;/a&gt; to automate common git jobs.&lt;/p&gt;
+
+&lt;p&gt;For a list of more useful git add-ons, see &lt;a href="https://github.com/stevemao/awesome-git-addons"&gt;stevemao/awesome-git-addons&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you're working with GitHub repos, then the &lt;a href="https://cli.github.com/"&gt;GitHub CLI&lt;/a&gt; let's you do common tasks (managing PRs, issues, code reviews, etc) from the command line.&lt;/p&gt;
+
+
+
+
+&lt;div class="table-wrapper-paragraph"&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;
+&lt;small&gt;If you like this kind of stuff&lt;/small&gt;,&lt;br&gt;&lt;small&gt;consider following for more :)&lt;/small&gt;
+&lt;/th&gt;
+&lt;th&gt;
+&lt;a href="https://github.com/Lissy93"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--8_HGggCT--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://img.shields.io/badge/-Lissy93-3a3a3a%3Fstyle%3Dflat%26logo%3DGitHub%26logoColor%3Dwhite" alt="Follow Lissy93 on GitHub" width="69" height="20"&gt;&lt;/a&gt;&lt;a href="https://twitter.com/Lissy_Sykes"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--BhCWBIgy--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://img.shields.io/badge/-%40Lissy_Sykes-00acee%3Fstyle%3Dflat%26logo%3DTwitter%26logoColor%3Dwhite" alt="Follow Lissy_Sykes on Twitter" width="103" height="20"&gt;&lt;/a&gt;
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/div&gt;
+
+</description>
+      <category>git</category>
+      <category>github</category>
+      <category>tooling</category>
+      <category>programming</category>
+    </item>
+    <item>
+      <title>Super Useful CSS Resources 🌈</title>
+      <dc:creator>Alicia Sykes</dc:creator>
+      <pubDate>Sat, 03 Dec 2022 18:00:23 +0000</pubDate>
+      <link>https://dev.to/lissy93/super-useful-css-resources-1ba3</link>
+      <guid>https://dev.to/lissy93/super-useful-css-resources-1ba3</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;A collection of 70 hand-picked, web-based tools which are actually useful.&lt;br&gt;
+Each will generate pure CSS without the need for JS or any external libraries.&lt;/p&gt;
+
+&lt;p&gt;&lt;small&gt;Full credit goes to the authors behind each of these apps (where possible I've linked to their GH/ socials)&lt;/small&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;
+  
+  
+  Contents
+&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Property Generators&lt;/li&gt;
+&lt;li&gt;Animations&lt;/li&gt;
+&lt;li&gt;Backgrounds&lt;/li&gt;
+&lt;li&gt;Color Tools&lt;/li&gt;
+&lt;li&gt;Typography&lt;/li&gt;
+&lt;li&gt;Loaders&lt;/li&gt;
+&lt;li&gt;Layouts&lt;/li&gt;
+&lt;li&gt;Informative&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;
+  
+  
+  Property Generators
+&lt;/h2&gt;
+
+&lt;h3&gt;
+  
+  
+  1. &lt;a href="https://neumorphism.io"&gt;Neumorphism&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Generate Soft-UI CSS styles using inset shadows, by &lt;a href="https://github.com/adamgiebl"&gt;@adamgiebl&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--UYyR8aE8--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/vPH0YMV/32-neumorphism.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--UYyR8aE8--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/vPH0YMV/32-neumorphism.gif" alt="screenshot" width="880" height="515"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  2. &lt;a href="https://shadows.brumm.af/"&gt;Shaddows Brumm&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Make and preview beautifully smooth shadows, by &lt;a href="https://github.com/brumm"&gt;@brumm&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--Na5xmzk1--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/vD2rd3G/25-shadows-brum.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--Na5xmzk1--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/vD2rd3G/25-shadows-brum.gif" alt="screenshot" width="880" height="515"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  3. &lt;a href="https://9elements.github.io/fancy-border-radius/"&gt;Fancy Border Radius&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Generate cool shaped objects with border-radius, by &lt;a href="https://github.com/9elements"&gt;@9Elements&lt;/a&gt;. Similar to &lt;a href="https://www.blobmaker.app/"&gt;BlobMaker&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--J12yXx0M--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/0KQPHHh/35-fancy-border-radius.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--J12yXx0M--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/0KQPHHh/35-fancy-border-radius.gif" alt="screenshot" width="880" height="515"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  4. &lt;a href="https://cssbud.com/css-generator/css-glow-generator/"&gt;Glow Generator&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Generate pure CSS, cross-browser glow effects&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--6-ZEP296--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/DDfw0Mz/54-glow-generator.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--6-ZEP296--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/DDfw0Mz/54-glow-generator.gif" alt="screenshot" width="880" height="515"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  5. &lt;a href="https://onotakehiko.dev/clothoid/"&gt;Clothoid Corners&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Generates clothoid rounded corners by CSS clip-path, by &lt;a href="https://onotakehiko.com/"&gt;Takehiko Ono&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--TsXizuq4--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/HHR644q/33-clothoid.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--TsXizuq4--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/HHR644q/33-clothoid.gif" alt="screenshot" width="880" height="515"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  6. &lt;a href="https://hype4.academy/tools/glassmorphism-generator"&gt;Glassmorphism&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Build semi-transparent, blurred glass-like backgrounds. Similar to &lt;a href="https://ui.glass/generator/"&gt;ui.glass/generator&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--Oe8GzKEx--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/89R9Ckp/55-css-glow.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--Oe8GzKEx--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/89R9Ckp/55-css-glow.gif" alt="screenshot" width="880" height="515"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  7. &lt;a href="https://bennettfeely.com/clippy/"&gt;Clipy&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Generate complex shaped objects using clip-path, by &lt;a href="https://github.com/bennettfeely"&gt;@bennettfeely&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--QEXoRxlq--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/fHjj3FP/34-clippy.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--QEXoRxlq--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/fHjj3FP/34-clippy.gif" alt="screenshot" width="880" height="515"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  8. &lt;a href="https://www.cssfilters.co/"&gt;CSS Filters&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Generate and preview pure CSS Instagram-style photo filters, by &lt;a href="https://github.com/ghosh"&gt;@ghosh&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--4zAmfaWU--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/4Nwr01c/37-cssfilters.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--4zAmfaWU--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/4Nwr01c/37-cssfilters.gif" alt="screenshot" width="880" height="515"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  9. &lt;a href="https://www.base64-image.de/"&gt;Base64 Image&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Encode an image directly in your CSS in Base64&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--R-HSoTjG--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/FgTRfQd/38-base64-image.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--R-HSoTjG--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/FgTRfQd/38-base64-image.gif" alt="screenshot" width="880" height="515"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  10. &lt;a href="https://quantityqueries.com/"&gt;Quantity Queries&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Generate quantity-based CSS queries, by &lt;a href="https://github.com/drewminns"&gt;@drewminns&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--XZ9CxA1F--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/wK77hT7/39-quantityqueries.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--XZ9CxA1F--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/wK77hT7/39-quantityqueries.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Animations
+&lt;/h2&gt;
+
+&lt;h3&gt;
+  
+  
+  11. &lt;a href="https://animista.net/play"&gt;Animista&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;CSS animation playground and generator, by &lt;a href="https://www.linkedin.com/in/anatravas"&gt;Ana T&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--jP3cq6-G--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/zQ0y2mk/1-animista.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--jP3cq6-G--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/zQ0y2mk/1-animista.gif" alt="screenshot" width="880" height="515"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  12. &lt;a href="https://cubic-bezier.com/"&gt;Cubic-Bezier&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Preview and generate advanced cubic bezier animations, by &lt;a href="https://github.com/LeaVerou"&gt;@LeaVerou&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--ePy0dVVB--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/bLHhQ41/2-cubic-besier.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--ePy0dVVB--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/bLHhQ41/2-cubic-besier.gif" alt="screenshot" width="880" height="515"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  13. &lt;a href="https://keyframes.app/animate"&gt;Keyframes&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Advanced keyframe animation maker, by &lt;a href="https://github.com/mitchas"&gt;@mitchas&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--LbzewLeX--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/dK3Lxgr/3-keyframes.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--LbzewLeX--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/dK3Lxgr/3-keyframes.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  14. &lt;a href="https://waitanimate.wstone.uk/"&gt;Wait Animate&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Use animation-delay to simulate delays, by &lt;a href="https://github.com/will-stone"&gt;@will-stone&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--Rf0mjP6O--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/NZPMwf8/4-waitanimate.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--Rf0mjP6O--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/NZPMwf8/4-waitanimate.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  15. &lt;a href="https://www.transition.style"&gt;Transition.Style&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Copy-paste transition animations, by &lt;a href="https://github.com/argyleink"&gt;@argyleink&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--B8PTm6q9--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/YPwRgVW/5-transition.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--B8PTm6q9--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/YPwRgVW/5-transition.gif" alt="screenshot" width="880" height="515"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Backgrounds
+&lt;/h2&gt;
+
+&lt;h3&gt;
+  
+  
+  16. &lt;a href="https://heropatterns.com/"&gt;Hero Patterns&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Find and customize simple pure-CSS patterned backgrounds, by &lt;a href="https://twitter.com/steveschoger"&gt;@steveschoger&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--g-q7ryMB--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/gdnKVKG/56-hero-backgrounds.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--g-q7ryMB--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/gdnKVKG/56-hero-backgrounds.gif" alt="screenshot" width="880" height="515"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  17. &lt;a href="https://app.haikei.app/"&gt;Haikei&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Generate unique organic SVG banners and backgrounds (similar to &lt;a href="https://www.shapedivider.app/"&gt;Shape Divider&lt;/a&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--_G2SeZ1t--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/dQqztYV/14-haikei.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--_G2SeZ1t--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/dQqztYV/14-haikei.gif" alt="screenshot" width="880" height="515"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  18. &lt;a href="https://doodad.dev/pattern-generator/"&gt;Pattern Generator&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Advanced pattern generator&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--q1anKO37--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/th8khVj/15-pattern-generator.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--q1anKO37--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/th8khVj/15-pattern-generator.gif" alt="screenshot" width="880" height="515"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  19. &lt;a href="https://css-pattern.com/"&gt;CSS Pattern&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Collection of pre-made pure CSS patterned backgrounds, by &lt;a href="https://github.com/Afif13"&gt;@Afif13&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--0e3OTUZ5--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/Hh37hbb/16-css-pattern.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--0e3OTUZ5--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/Hh37hbb/16-css-pattern.gif" alt="screenshot" width="880" height="515"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  20. &lt;a href="https://patternizer.com"&gt;Patternizer&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Build striped backgrounds, by &lt;a href="https://twitter.com/matthewlein"&gt;@matthewlein&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--Q25p_O4o--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/PMMQC6F/17-patternizer.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--Q25p_O4o--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/PMMQC6F/17-patternizer.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  21. &lt;a href="http://www.patternify.com/"&gt;Patternify&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Build your own old-school pattern, by &lt;a href="https://twitter.com/SachaGreif"&gt;@SachaGreif&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--57SDR5c4--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/2P45cZT/18-patternify.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--57SDR5c4--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/2P45cZT/18-patternify.gif" alt="screenshot" width="880" height="515"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  22. &lt;a href="https://wweb.dev/resources/animated-css-background-generator/"&gt;Animated BG&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Generate blurred animated pure CSS backgrounds, by &lt;a href="https://github.com/Vincenius"&gt;@Vincenius&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--9DH42eR8--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/KFwrZQS/19-animated-bg.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--9DH42eR8--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/KFwrZQS/19-animated-bg.gif" alt="screenshot" width="880" height="515"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  23. &lt;a href="https://trianglify.io/"&gt;Trianglify&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Geometric background designer (note: only semmi-free), by &lt;a href="https://github.com/qrohlf"&gt;@qrohlf&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--qoYH9R6n--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/6F812Dd/20-trianglify.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--qoYH9R6n--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/6F812Dd/20-trianglify.gif" alt="screenshot" width="880" height="515"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  24. &lt;a href="https://animatedbackgrounds.me"&gt;Animated Backgrounds&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Collection of pure CSS background animations&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--bUzQni9a--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/YhxFmVw/21-animatedbackgrounds.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--bUzQni9a--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/YhxFmVw/21-animatedbackgrounds.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  25. &lt;a href="https://www.magicpattern.design/tools/css-backgrounds"&gt;Magic Pattern CSS Backgrounds&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Collection of reusable SVG-based / pure CSS background patterns, with a visual explorer&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--g-q7ryMB--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/gdnKVKG/56-hero-backgrounds.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--g-q7ryMB--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/gdnKVKG/56-hero-backgrounds.gif" alt="screenshot" width="880" height="515"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Colors
+&lt;/h2&gt;
+
+&lt;h3&gt;
+  
+  
+  26. &lt;a href="https://cssgradient.io/"&gt;CSS Gradient&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Advanced CSS gradient builder&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--aIMLYGRS--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/xJG5cCv/6-cssgradient.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--aIMLYGRS--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/xJG5cCv/6-cssgradient.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  27. &lt;a href="https://colormixer.web.app"&gt;Parametric Mixer&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Equaliser-based CSS color composer. by &lt;a href="https://twitter.com/dawidwoldu"&gt;@dawidwoldu&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--iylg2pR8--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/k6T022D/60-parametric-mixer.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--iylg2pR8--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/k6T022D/60-parametric-mixer.gif" alt="screenshot" width="880" height="515"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  28. &lt;a href="https://palettte.app/"&gt;Palettte.&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Develop and tweak color schemes&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--Ai_QGkZI--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/wr7Zhdz/61-palettte.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--Ai_QGkZI--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/wr7Zhdz/61-palettte.gif" alt="screenshot" width="880" height="515"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  29. &lt;a href="https://paletton.com"&gt;Paletton&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Palette builder using opposing or attracting colors&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--1a1v1Cgq--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/qBYcsgk/7-paletton.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--1a1v1Cgq--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/qBYcsgk/7-paletton.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  30. &lt;a href="https://www.grabient.com/"&gt;Grabient&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Sample gradients.&lt;br&gt;
+Similar to &lt;a href="https://webkul.github.io/coolhue/"&gt;CoolHue&lt;/a&gt;, &lt;a href="https://webgradients.com/"&gt;WebGradients.com&lt;/a&gt;, &lt;a href="https://gradienthunt.com/"&gt;GradientHunt&lt;/a&gt;, &lt;a href="https://gradientbuttons.colorion.co/"&gt;GradientButtons&lt;/a&gt; and &lt;a href="https://uigradients.com"&gt;UI gradients&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--O-kfrIXZ--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/Qj88dCZ/8-grabient.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--O-kfrIXZ--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/Qj88dCZ/8-grabient.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  31. &lt;a href="https://colorhunt.co/"&gt;Color Hunt&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Yet another color palette designer&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--Rp-JMH8n--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/ZVWbL7s/9-colorhunt.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--Rp-JMH8n--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/ZVWbL7s/9-colorhunt.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  32. &lt;a href="https://larsenwork.com/easing-gradients/#editor"&gt;Easing Gradients&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Cubic-bezier style pure CSS gradients, by &lt;a href="https://github.com/larsenwork"&gt;@larsenwork&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--t_SGRS5O--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/bdr9R8P/10-easing-gradients.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--t_SGRS5O--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/bdr9R8P/10-easing-gradients.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  33. &lt;a href="https://flatuicolors.com/"&gt;Flat UI Colors&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Flat-style handpicked color palettes, by &lt;a href="https://twitter.com/ahmetsulek"&gt;@ahmetsulek&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--7TnYbD02--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/t3TwmWw/11-flatuicolors.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--7TnYbD02--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/t3TwmWw/11-flatuicolors.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  34. &lt;a href="https://colordesigner.io/tools"&gt;Color Tools&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Mix, extract, convert and generate colors&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--ix61Nmdc--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/1ntDHZc/12-colordesigner.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--ix61Nmdc--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/1ntDHZc/12-colordesigner.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  35. &lt;a href="https://colorpalettes.earth/"&gt;ColorPalettes.Earth&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Natural color pallets from nature&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--ykiqt7mW--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/tJ0JMK6/13-eart-palettes.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--ykiqt7mW--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/tJ0JMK6/13-eart-palettes.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Typography
+&lt;/h2&gt;
+
+&lt;h3&gt;
+  
+  
+  36. &lt;a href="https://fontjoy.com/"&gt;Font Joy&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Discover and preview various font pairings, by &lt;a href="https://github.com/Jack000"&gt;@Jack000&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--QKN3XjRt--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/2jGJdDD/22-font-joy.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--QKN3XjRt--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/2jGJdDD/22-font-joy.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  37. &lt;a href="https://typesetwith.me/"&gt;Type set With Me&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Typography &amp;amp; legibility sandbox, by &lt;a href="https://github.com/tsmith512"&gt;@tsmith512&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--AjjL_lsL--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/5vFDphR/23-typesetwith.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--AjjL_lsL--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/5vFDphR/23-typesetwith.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  38. &lt;a href="https://type-scale.com/"&gt;Type Scale&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Generate heading/ body font sizes, by &lt;a href="https://github.com/jeremychurch"&gt;@jeremychurch&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--c1SRCk0x--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/4809qtW/24-typescale.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--c1SRCk0x--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/4809qtW/24-typescale.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  39. &lt;a href="https://glyphter.com/"&gt;Glyphter&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Create icon fonts from SVG graphics&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--t3WLtHTu--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/x3myt3N/25-glyphter.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--t3WLtHTu--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/x3myt3N/25-glyphter.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  40. &lt;a href="https://katydecorah.com/font-library"&gt;Font-Library&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Tagged library of Google Fonts, by &lt;a href="https://github.com/katydecorah"&gt;@katydecorah&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--cO-ciOHn--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/gPCghyQ/26-font-library.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--cO-ciOHn--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/gPCghyQ/26-font-library.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  41. &lt;a href="https://wh0.github.io/glitter/"&gt;Glitter&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Export 90s-style Glitter text&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--E9zAbrXR--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/GFyMm5k/27-glitter.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--E9zAbrXR--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/GFyMm5k/27-glitter.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Loaders
+&lt;/h2&gt;
+
+&lt;h3&gt;
+  
+  
+  42. &lt;a href="https://tobiasahlin.com/spinkit/"&gt;Spin Kit&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Selection of clean CSS loading animations&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--1tLzrsmy--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/t2CJLg0/28-spinkit.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--1tLzrsmy--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/t2CJLg0/28-spinkit.gif" alt="screenshot" width="880" height="515"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  43. &lt;a href="https://whirl.netlify.app/"&gt;Whirl&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;100+ CSS loading animations, for copy-paste&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--E7FAY-Du--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/rvG8Bzx/29-whirl.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--E7FAY-Du--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/rvG8Bzx/29-whirl.gif" alt="screenshot" width="880" height="515"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  44. &lt;a href="https://www.cssportal.com/css-loader-generator/"&gt;Loader Generator&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Pre-built and custom pure CSS loaders&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s---OGzrSyx--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/7jwBBj4/30-loader-generator.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s---OGzrSyx--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/7jwBBj4/30-loader-generator.gif" alt="screenshot" width="880" height="515"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  45. &lt;a href="https://projects.lukehaas.me/css-loaders/"&gt;lukehaas - CSS-Loaders&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Simple pure CSS loading animations&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--N4Q5jXBS--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/M1YWH6d/31-lukehaas-single-element.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--N4Q5jXBS--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/M1YWH6d/31-lukehaas-single-element.gif" alt="screenshot" width="880" height="515"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  46. &lt;a href="https://cssloaders.github.io/"&gt;CSSLoaders&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Complex pure CSS loaders&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;
+  
+  
+  47. &lt;a href="https://loading.io/css/"&gt;loading.io/css&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;CSS implementations of common loaders&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Layouts
+&lt;/h2&gt;
+
+&lt;h3&gt;
+  
+  
+  48. &lt;a href="https://cssgridgarden.com/"&gt;CSS Grid Garden&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Interactive game for learning CSS grid, by &lt;a href="https://github.com/thomaspark"&gt;@thomaspark&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--XbPT5Nu9--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/Ph6kx0X/40-css-gridgarden.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--XbPT5Nu9--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/Ph6kx0X/40-css-gridgarden.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  49. &lt;a href="https://flexboxfroggy.com/"&gt;FlexboxFroggy&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Interactive game for learning flexbox, by &lt;a href="https://github.com/thomaspark"&gt;@thomaspark&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--tmq25h-D--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/SPy0Qdg/41-flexbox-froggy.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--tmq25h-D--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/SPy0Qdg/41-flexbox-froggy.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  50. &lt;a href="https://bennettfeely.com/flexplorer/"&gt;Flexplorer&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Visual flexbox demo, by &lt;a href="https://twitter.com/bennettfeely"&gt;@bennettfeely&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--3W35gDvy--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/dbqDnnZ/42-flexsplorer.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--3W35gDvy--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/dbqDnnZ/42-flexsplorer.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  51. &lt;a href="https://www.flexulator.com/"&gt;Flexulator&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;An interactive CSS Flexbox space distribution calculator, by &lt;a href="https://github.com/telagraphic"&gt;@telagraphic&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--ufBH0Yks--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/pZNwVZj/43-flexulator.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--ufBH0Yks--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/pZNwVZj/43-flexulator.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  52. &lt;a href="https://cssgrid-generator.netlify.app/"&gt;Grid Generator&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Make grids using the CSS grid-template properties, by &lt;a href="https://github.com/sdras"&gt;@sdras&lt;/a&gt; (similar to &lt;a href="https://grid.layoutit.com/"&gt;grid.layoutit.com&lt;/a&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--fI_cxWBm--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/59t7mw0/44-grid-generator.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--fI_cxWBm--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/59t7mw0/44-grid-generator.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  53. &lt;a href="https://layout.bradwoods.io/"&gt;Layout Generator&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A modern CSS layout maker&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--jLSjzv3Q--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/4mzZWMT/45-layout-generator.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--jLSjzv3Q--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/4mzZWMT/45-layout-generator.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  54. &lt;a href="https://codepen.io/carolineartz/full/ogVXZj"&gt;Box Model Diagram&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Just a visual box model demo&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--rtMWKbAk--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/FK0p8r9/46-box-model.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--rtMWKbAk--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/FK0p8r9/46-box-model.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Informative
+&lt;/h2&gt;
+
+&lt;h3&gt;
+  
+  
+  55. &lt;a href="https://css-timeline.vercel.app/"&gt;CSS Timeline&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A history of CSS&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--OR9x8AqS--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/fSHtrQ8/47-css-timeline.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--OR9x8AqS--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/fSHtrQ8/47-css-timeline.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  56. &lt;a href="https://screensizemap.com/"&gt;Screen Size Map&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;View popular screen sizes for responsive design&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--XkcVFBLS--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/gvt1rX9/48-screensizemap.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--XkcVFBLS--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/gvt1rX9/48-screensizemap.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  57. &lt;a href="https://katydecorah.com/css-ruler/"&gt;CSS Ruler&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Preview various CSS units relative to each other&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--818Mzngp--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/RbVTKXk/49-css-ruler.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--818Mzngp--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/RbVTKXk/49-css-ruler.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  58. &lt;a href="http://bada55.io/"&gt;bada55&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;List of very funny CSS hex color codes&lt;br&gt;
+See also, &lt;a href="https://colors.lol/"&gt;colors.lol&lt;/a&gt; for some overly-descriptive color pallets&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--tNDmts4Y--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/WW3vXs6/50-bada55.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--tNDmts4Y--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/WW3vXs6/50-bada55.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  59. &lt;a href="https://www.whocanuse.com"&gt;Who can use?&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Checks accessibility grade of a given color combinations, similar to &lt;a href="https://colorable.jxnblk.com/"&gt;Colorable&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--mlvrVJE7--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/ZGVxFvf/59-who-can-use.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--mlvrVJE7--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/ZGVxFvf/59-who-can-use.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  60. &lt;a href="https://caniuse.com/"&gt;Can I use?&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Browser compatibility check of various, CSS, JS, HTML and web features&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--4z6jX5kW--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/sg6MLP3/57-can-i-use.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--4z6jX5kW--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/sg6MLP3/57-can-i-use.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  61. &lt;a href="https://www.caniemail.com/"&gt;Can I email?&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Similar to &lt;a href="https://caniuse.com"&gt;Can I use?&lt;/a&gt;, but checks if a given CSS property (or HTML elem) is compatible with email clients&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--C3cFef5S--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/h7qwsnb/58-can-i-email.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--C3cFef5S--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/h7qwsnb/58-can-i-email.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  62. &lt;a href="https://codebeautify.org/css-tools"&gt;CSS Processing Tools&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Convert to and from any other CSS language&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--X_qGDV20--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/82F5fSG/51-css-tools.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--X_qGDV20--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/82F5fSG/51-css-tools.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  63. &lt;a href="https://unused-css.com/"&gt;Unused CSS&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Searches your site for unused CSS, and displays stats&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--TfAx3XqE--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/z4MYSs5/52-unused-css.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--TfAx3XqE--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/z4MYSs5/52-unused-css.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  64. &lt;a href="https://component.gallery"&gt;Component.Gallery&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Global component search&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--LjP2P7-3--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/YPLHzd8/53-component-gallery.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--LjP2P7-3--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/YPLHzd8/53-component-gallery.png" alt="screenshot" width="880" height="517"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;
+  
+  
+  65. &lt;a href="https://designsystemsrepo.com/design-systems-recent/"&gt;Design System Gallery&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A collection of open design systems, for inspiration&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;
+  
+  
+  66. &lt;a href="https://www.checklist.design/"&gt;Checklist.design&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A collection of design best practices organised as checklists&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;
+  
+  
+  67. &lt;a href="https://css-tricks.com/snippets/html/glyphs/"&gt;Glyphs&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A list of CSS glyph character codes (see also &lt;a href="https://glyphsearch.com"&gt;GlyphSearch&lt;/a&gt; for library icons)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;
+  
+  
+  68. &lt;a href="https://css-tricks.com/"&gt;CSS-Tricks.com&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The best CSS blog out there&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;
+  
+  
+  69. &lt;a href="https://github.com/kudapara/curated-design-tools"&gt;Curated Design Tools&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A curated list of awesome design tools&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;
+  
+  
+  70. &lt;a href="https://github.com/troxler/awesome-css-frameworks"&gt;Awesome-CSS-Frameworks&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A list of open source CSS frameworks&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;
+  
+  
+  71. &lt;a href="https://cssreference.io/"&gt;CSS Reference&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A visual guide to CSS properties (similar to &lt;a href="https://htmlreference.io/"&gt;htmlreference.io&lt;/a&gt;)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3&gt;
+  
+  
+  72. &lt;a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference"&gt;MDN CSS Docs&lt;/a&gt;
+&lt;/h3&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Excellent documentation of all available CSS properties&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class="table-wrapper-paragraph"&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;
+&lt;small&gt;If you like this kind of stuff&lt;/small&gt;,&lt;br&gt;&lt;small&gt;consider following for more :)&lt;/small&gt;
+&lt;/th&gt;
+&lt;th&gt;
+&lt;a href="https://github.com/Lissy93"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--8_HGggCT--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://img.shields.io/badge/-Lissy93-3a3a3a%3Fstyle%3Dflat%26logo%3DGitHub%26logoColor%3Dwhite" alt="Follow Lissy93 on GitHub" width="69" height="20"&gt;&lt;/a&gt;&lt;a href="https://twitter.com/Lissy_Sykes"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--BhCWBIgy--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://img.shields.io/badge/-%40Lissy_Sykes-00acee%3Fstyle%3Dflat%26logo%3DTwitter%26logoColor%3Dwhite" alt="Follow Lissy_Sykes on Twitter" width="103" height="20"&gt;&lt;/a&gt;
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/div&gt;
+
+</description>
+      <category>css</category>
+      <category>webdev</category>
+      <category>opensource</category>
+      <category>codenewbie</category>
+    </item>
+    <item>
+      <title>Fun with console.log() 💿</title>
+      <dc:creator>Alicia Sykes</dc:creator>
+      <pubDate>Sun, 20 Nov 2022 21:50:01 +0000</pubDate>
+      <link>https://dev.to/lissy93/fun-with-consolelog-3i59</link>
+      <guid>https://dev.to/lissy93/fun-with-consolelog-3i59</guid>
+      <description>&lt;p&gt;If you've ever developed a web app, you'll be familiar with &lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/Console/log"&gt;&lt;code&gt;console.log(...)&lt;/code&gt;&lt;/a&gt;, the method which prints data to the developer console; useful for debugging, logging and testing.&lt;/p&gt;
+
+&lt;p&gt;Run &lt;code&gt;console.log(console)&lt;/code&gt;, and you'll see that there's much more to the &lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/Console"&gt;&lt;code&gt;console&lt;/code&gt;&lt;/a&gt; object.&lt;br&gt;
+This post briefly outlines the top 10 neat tricks you can use to level up your logging experience.&lt;/p&gt;
+&lt;h4&gt;
+  
+  
+  Contents
+&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Tables&lt;/li&gt;
+&lt;li&gt;Groups&lt;/li&gt;
+&lt;li&gt;Styles&lt;/li&gt;
+&lt;li&gt;Times&lt;/li&gt;
+&lt;li&gt;Asserts&lt;/li&gt;
+&lt;li&gt;Counts&lt;/li&gt;
+&lt;li&gt;Traces&lt;/li&gt;
+&lt;li&gt;Directory&lt;/li&gt;
+&lt;li&gt;Debugs&lt;/li&gt;
+&lt;li&gt;Log Levels&lt;/li&gt;
+&lt;li&gt;Multi-Values&lt;/li&gt;
+&lt;li&gt;Log Strings&lt;/li&gt;
+&lt;li&gt;Clear&lt;/li&gt;
+&lt;li&gt;Special Browser Methods&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;h2&gt;
+  
+  
+  Tables
+&lt;/h2&gt;
+
+&lt;p&gt;The &lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/Console/table"&gt;&lt;code&gt;console.table()&lt;/code&gt;&lt;/a&gt; method prints objects/ arrays as a neatly formatted tables.&lt;br&gt;
+&lt;/p&gt;
+
+&lt;div class="highlight js-code-highlight"&gt;
+&lt;pre class="highlight javascript"&gt;&lt;code&gt;&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;table&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+  &lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="s1"&gt;Time Stamp&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Date&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;getTime&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;
+  &lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="s1"&gt;OS&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;navigator&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="s1"&gt;platform&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+  &lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="s1"&gt;Browser&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;navigator&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="s1"&gt;appCodeName&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+  &lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="s1"&gt;Language&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;navigator&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="s1"&gt;language&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;/div&gt;
+
+
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--AI7BiA4H--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/HDmBv62/console-table.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--AI7BiA4H--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/HDmBv62/console-table.png" title="Example output of console.table" alt="Screenshot showing an example output of console.table" width="574" height="173"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Groups
+&lt;/h2&gt;
+
+&lt;p&gt;Group related console statements together with collapsible sections, using &lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/Console/group"&gt;&lt;code&gt;console.group()&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;You can optionally give a section a title, by passing a string as the parameter. Sections can be collapsed and expanded in the console, but you can also have a section collapsed by default, by using &lt;code&gt;groupCollapsed&lt;/code&gt; instead of &lt;code&gt;group&lt;/code&gt;. You can also nest sub-sections within sections but be sure to remember to close out each group with &lt;code&gt;groupEnd&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The following example will output an open section, containing some info&lt;br&gt;
+&lt;/p&gt;
+
+&lt;div class="highlight js-code-highlight"&gt;
+&lt;pre class="highlight javascript"&gt;&lt;code&gt;&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;group&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="s1"&gt;URL Info&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="s1"&gt;Protocol&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;location&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;protocol&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="s1"&gt;Host&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;origin&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="s1"&gt;Path&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;window&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;location&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;pathname&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;groupCollapsed&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="s1"&gt;Meta Info&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="s1"&gt;Date Fetched&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Date&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;getTime&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
+    &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="s1"&gt;OS&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;navigator&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="s1"&gt;platform&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="p"&gt;]);&lt;/span&gt;
+    &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="s1"&gt;Browser&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;navigator&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="s1"&gt;appCodeName&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="p"&gt;]);&lt;/span&gt;
+    &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="s1"&gt;Language&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;navigator&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="s1"&gt;language&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="p"&gt;]);&lt;/span&gt;
+  &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;groupEnd&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;groupEnd&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;/div&gt;
+
+
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--dzHyVZd---/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/jMhk8KM/console-group.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--dzHyVZd---/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/jMhk8KM/console-group.png" title="Example output of console.group" alt="Screenshot showing an example output of console.group" width="579" height="287"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+&lt;h2&gt;
+  
+  
+  Styled Logs
+&lt;/h2&gt;
+
+&lt;p&gt;It's possible to style your log outputs with some basic CSS, such as colors, fonts, text styles and sizes. Note that browser support for this is quite variable.&lt;/p&gt;
+
+&lt;p&gt;For example, try running the following:&lt;br&gt;
+&lt;/p&gt;
+
+&lt;div class="highlight js-code-highlight"&gt;
+&lt;pre class="highlight javascript"&gt;&lt;code&gt;&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+  &lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="s1"&gt;%cHello World!&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="s1"&gt;color: #f709bb; font-family: sans-serif; text-decoration: underline;&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;
+&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;/div&gt;
+
+
+
+&lt;p&gt;You should get the following output:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--mhyk_29s--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/0Zyw4TF/console-styles-1.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--mhyk_29s--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/0Zyw4TF/console-styles-1.png" title="Example output of console styles" alt="Screenshot showing an example using CSS in the console" width="649" height="98"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Pretty cool, huh? Well there's a lot more you can do too!&lt;br&gt;
+Maybe change the font, style, background color, add some shadows and some curves...&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--I2nfLt9X--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/L6P26CL/console-styles-2.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--I2nfLt9X--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/L6P26CL/console-styles-2.png" title="Example output of console styles" alt="Screenshot showing an example using CSS in the console" width="802" height="259"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Here's something similar I'm using in a developer dashboard, the code is &lt;a href="https://github.com/Lissy93/dashy/blob/master/src/utils/CoolConsole.js"&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--om8MjzG---/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/7jgSC8p/console-styles-3.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--om8MjzG---/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/7jgSC8p/console-styles-3.png" title="Example output of console styles" alt="Screenshot showing an example using CSS in the console" width="802" height="526"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+&lt;h2&gt;
+  
+  
+  Time
+&lt;/h2&gt;
+
+&lt;p&gt;Another common debugging technique is measuring execution time, to track how long an operation takes. This can be achieved by starting a timer using &lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/Console/time"&gt;&lt;code&gt;console.time()&lt;/code&gt;&lt;/a&gt; and passing in a label, then ending the timer using &lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/console/timeEnd"&gt;&lt;code&gt;console.timeEnd()&lt;/code&gt;&lt;/a&gt;, using the same label. You can also add markers within a long running operation using &lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/console/timeLog"&gt;&lt;code&gt;console.timeLog()&lt;/code&gt;&lt;/a&gt;&lt;br&gt;
+&lt;/p&gt;
+
+&lt;div class="highlight js-code-highlight"&gt;
+&lt;pre class="highlight javascript"&gt;&lt;code&gt;&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;time&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="dl"&gt;"&lt;/span&gt;&lt;span class="s2"&gt;concatenation&lt;/span&gt;&lt;span class="dl"&gt;"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nx"&gt;output&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="dl"&gt;""&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="nx"&gt;e6&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nx"&gt;output&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;timeEnd&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="dl"&gt;"&lt;/span&gt;&lt;span class="s2"&gt;concatenation&lt;/span&gt;&lt;span class="dl"&gt;"&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;/div&gt;
+
+
+
+
+
+&lt;div class="highlight js-code-highlight"&gt;
+&lt;pre class="highlight plaintext"&gt;&lt;code&gt;concatenation: 1206ms - timer ended
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;/div&gt;
+
+
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--EdWZdeLV--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/hsHv4tc/console-timer.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--EdWZdeLV--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/hsHv4tc/console-timer.png" title="Example output of console.time" alt="Screenshot showing an example output of console.time" width="651" height="737"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;There's also a non-standard method, &lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/console/timeStamp"&gt;&lt;code&gt;console.timeStamp()&lt;/code&gt;&lt;/a&gt; which adds markers within the performance tab, so you can correlate points in your code with the other events recorded in the timeline like paint and layout events.&lt;/p&gt;
+
+
+
+&lt;h2&gt;
+  
+  
+  Assert
+&lt;/h2&gt;
+
+&lt;p&gt;You may only want to log to the console if an error occurs, or a certain condition is true or false. This can be done using &lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/console/assert"&gt;&lt;code&gt;console.assert()&lt;/code&gt;&lt;/a&gt;, which won't log anything to the console unless the first parameter is &lt;code&gt;false&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The first parameter is a boolean condition to check, followed by 0 or more data points you'd like to print, and the last parameter is a message to output. So &lt;code&gt;console.assert(false, 'Value was false')&lt;/code&gt; will output the message, since the first parameter is &lt;code&gt;false&lt;/code&gt;.&lt;br&gt;
+&lt;/p&gt;
+
+&lt;div class="highlight js-code-highlight"&gt;
+&lt;pre class="highlight javascript"&gt;&lt;code&gt;&lt;span class="kd"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;errorMsg&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="s1"&gt;the # is not even&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;let&lt;/span&gt; &lt;span class="nx"&gt;num&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;num&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;num&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;`the # is &lt;/span&gt;&lt;span class="p"&gt;${&lt;/span&gt;&lt;span class="nx"&gt;num&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;`&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;assert&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;num&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="nx"&gt;num&lt;/span&gt; &lt;span class="p"&gt;},&lt;/span&gt; &lt;span class="nx"&gt;errorMsg&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;/div&gt;
+
+
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--xtZ-xOpf--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/5xWCN5k/console-assert.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--xtZ-xOpf--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/5xWCN5k/console-assert.png" title="Example output of console.assert" alt="Screenshot showing an example output of console.assert" width="648" height="356"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+&lt;h2&gt;
+  
+  
+  Count
+&lt;/h2&gt;
+
+&lt;p&gt;Ever find yourself manually incrementing a number for logging? &lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/console/count"&gt;&lt;code&gt;console.count()&lt;/code&gt;&lt;/a&gt; is helpful for keeping track how many times something was executed, or how often a block of code was entered.&lt;/p&gt;
+
+&lt;p&gt;You can optionally give your counter a label, which will let you manage multiple counters and make the output clearer.&lt;br&gt;
+Counters will always start from 1. You can reset a counter at anytime with &lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/console/countReset"&gt;&lt;code&gt;console.countReset()&lt;/code&gt;&lt;/a&gt;, which also takes an optional label parameter.&lt;/p&gt;
+
+&lt;p&gt;The following code will increment the counter for each item in the array, the final value will be 8.&lt;br&gt;
+&lt;/p&gt;
+
+&lt;div class="highlight js-code-highlight"&gt;
+&lt;pre class="highlight javascript"&gt;&lt;code&gt;&lt;span class="kd"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;numbers&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;69&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;120&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;240&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;420&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
+&lt;span class="nx"&gt;numbers&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;forEach&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="nx"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;count&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="p"&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;/div&gt;
+
+
+
+&lt;p&gt;The following is an example output of labelled counters.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--fAF8RRS3--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/khjHNKT/console-count.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--fAF8RRS3--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/khjHNKT/console-count.png" title="Example output of console.count" alt="Screenshot showing an example output of console.count" width="648" height="507"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Instead of passing in a label, if you use a value, then you'll have a separate counter for each conditions value. For example:&lt;br&gt;
+&lt;/p&gt;
+
+&lt;div class="highlight js-code-highlight"&gt;
+&lt;pre class="highlight javascript"&gt;&lt;code&gt;&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;count&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;NaN&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;         &lt;span class="c1"&gt;// NaN: 1&lt;/span&gt;
+&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;count&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;NaN&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;       &lt;span class="c1"&gt;// NaN: 2&lt;/span&gt;
+&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;count&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;         &lt;span class="c1"&gt;// Infinity: 1&lt;/span&gt;
+&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;count&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;String&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt; &lt;span class="c1"&gt;// Infinity: 2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;/div&gt;
+
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Trace
+&lt;/h2&gt;
+
+&lt;p&gt;In JavaScript, we're often working with deeply nested methods and objects. You can use &lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/console/trace"&gt;&lt;code&gt;console.trace()&lt;/code&gt;&lt;/a&gt; to traverse through the stack trace, and output which methods were called to get to a certain point.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--gI2JQF7_--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/M1Bt2Jq/console-trace.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--gI2JQF7_--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/M1Bt2Jq/console-trace.png" title="Example output of console.trace" alt="Screenshot showing an example output of console.trace" width="648" height="215"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You can optionally pass data to also be outputted along with the stacktrace.&lt;/p&gt;
+
+
+
+&lt;h2&gt;
+  
+  
+  Dir
+&lt;/h2&gt;
+
+&lt;p&gt;If your logging a large object to the console, it may become hard to read. The &lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/console/dir"&gt;&lt;code&gt;console.dir()&lt;/code&gt;&lt;/a&gt; method will format it in an expandable tree structure.&lt;/p&gt;
+
+&lt;p&gt;The following is an example of a directory-style console output:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--dtw0idhK--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/PW073sy/console-dir.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--dtw0idhK--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/PW073sy/console-dir.png" title="Example output of console.dir" alt="Screenshot showing an example output of console.dir" width="648" height="650"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You can also print XML or HTML based trees in a similar way, by using &lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/console/dirxml"&gt;&lt;code&gt;console.dirxml()&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+
+
+
+&lt;h2&gt;
+  
+  
+  Debug
+&lt;/h2&gt;
+
+&lt;p&gt;You may have some logging set up within your app, that you rely on during development, but don't wish the user to see. Replacing log statements with &lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/console/debug"&gt;&lt;code&gt;console.debug()&lt;/code&gt;&lt;/a&gt; will do just this, it functions in exactly the same way as &lt;code&gt;console.log&lt;/code&gt; but will be stripped out by most build systems, or disabled when running in production mode.&lt;/p&gt;
+
+
+
+&lt;h2&gt;
+  
+  
+  Log Levels
+&lt;/h2&gt;
+
+&lt;p&gt;You may have noticed that there's several filters in the browser console (info, warnings and error), they allow you to change the verbosity of logged data. To make use of these filters, just switch out log statements with one of the following:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/console/info"&gt;&lt;code&gt;console.info()&lt;/code&gt;&lt;/a&gt; - Informational messages for logging purposes, commonly includes a small "i" and / or a blue background&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/console/warn"&gt;&lt;code&gt;console.warn()&lt;/code&gt;&lt;/a&gt; - Warnings / non-critical errors, commonly includes a triangular exclamation mark and / or yellow background&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/console/error"&gt;&lt;code&gt;console.error()&lt;/code&gt;&lt;/a&gt; - Errors which may affect the functionality, commonly includes a circular exclamation mark and / or red background&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In Node.js different log levels get written to different streams when running in production, for example &lt;code&gt;error()&lt;/code&gt; will write to &lt;code&gt;stderr&lt;/code&gt;, whereas &lt;code&gt;log&lt;/code&gt; outputs to &lt;code&gt;stdout&lt;/code&gt;, but during development they will all appear in the console as normal.&lt;/p&gt;
+
+
+
+&lt;h2&gt;
+  
+  
+  Multi-Value Logs
+&lt;/h2&gt;
+
+&lt;p&gt;Most functions on the &lt;code&gt;console&lt;/code&gt; object will accept multiple parameters, so you can add labels to your output, or print multiple data points at a time, for example: &lt;code&gt;console.log('User: ', user.name);&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;But an easier approach for printing multiple, labelled values, is to make use of &lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment"&gt;object deconstructing&lt;/a&gt;. For example, if you had three variables (e.g. &lt;code&gt;x&lt;/code&gt;, &lt;code&gt;y&lt;/code&gt; and &lt;code&gt;z&lt;/code&gt;), you could log them as an object by surrounding them in curly braces, so that each variables name and value is outputted - like &lt;code&gt;console.log( { x, y, z } );&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--00a3YP1_--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/ynVWy52/console-deconstructing.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--00a3YP1_--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/ynVWy52/console-deconstructing.png" title="Example output of console deconstructing" alt="Screenshot showing an example output of console deconstructing" width="648" height="361"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+&lt;h2&gt;
+  
+  
+  Log String Formats
+&lt;/h2&gt;
+
+&lt;p&gt;If you need to build formatted strings to output, you can do this with C-style printf using format specifiers. &lt;/p&gt;
+
+&lt;p&gt;The following specifiers are supported:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;code&gt;%s&lt;/code&gt; - String or any other type converted to string&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;%d&lt;/code&gt; / &lt;code&gt;%i&lt;/code&gt; - Integer&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;%f&lt;/code&gt; - Float&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;%o&lt;/code&gt; - Use optimal formatting&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;%O&lt;/code&gt; - Use default formatting&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;%c&lt;/code&gt; - Use custom formatting (more info)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For example&lt;br&gt;
+&lt;/p&gt;
+
+&lt;div class="highlight js-code-highlight"&gt;
+&lt;pre class="highlight javascript"&gt;&lt;code&gt;&lt;span class="nx"&gt;console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;log&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="dl"&gt;"&lt;/span&gt;&lt;span class="s2"&gt;Hello %s, welcome to the year %d!&lt;/span&gt;&lt;span class="dl"&gt;"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="dl"&gt;"&lt;/span&gt;&lt;span class="s2"&gt;Alicia&lt;/span&gt;&lt;span class="dl"&gt;"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Date&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;getFullYear&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
+&lt;span class="c1"&gt;// Hello Alicia, welcome to the year 2022!&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;/div&gt;
+
+
+
+&lt;p&gt;Of course, you could also use &lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals"&gt;template literals&lt;/a&gt; to achieve the same thing, which might be easier to read for shorter strings.&lt;/p&gt;
+
+
+
+&lt;h2&gt;
+  
+  
+  Clear
+&lt;/h2&gt;
+
+&lt;p&gt;Finally, when you're looking for an output from an event, you might want to get rid of everything logged to the console when the page first loaded. This can be done with &lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/console/clear"&gt;&lt;code&gt;console.clear()&lt;/code&gt;&lt;/a&gt;, which will clear all content, but nor reset any data.&lt;/p&gt;
+
+&lt;p&gt;It's usually also possible to clear the console by clicking the Bin icon, as well as to search through it using the Filter text input.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Special Browser Methods
+&lt;/h2&gt;
+
+&lt;p&gt;When running code directly in the browser's console, you'll have access to a couple of short-hand methods, which are super useful for debugging, automation and testing.&lt;/p&gt;
+
+&lt;p&gt;The most useful of which are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;code&gt;$()&lt;/code&gt; - Short-hand for &lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector"&gt;&lt;code&gt;Document.querySelector()&lt;/code&gt;&lt;/a&gt; (to select DOM elements, jQuery-style!)&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;$$()&lt;/code&gt; - Same as above, but for &lt;code&gt;selectAll&lt;/code&gt; for when returning multiple elements in an array&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;$_&lt;/code&gt; - Returns value of last evaluated expression&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;$0&lt;/code&gt; - Returns the most recently selected DOM element (in the inspector)&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;$1&lt;/code&gt;...&lt;code&gt;$4&lt;/code&gt; can also be used to grab previously selected UI elements&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;$x()&lt;/code&gt; - Lets you select DOM elements using an Xpath query&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;keys()&lt;/code&gt; and &lt;code&gt;values()&lt;/code&gt; - Shorthand for Object.getKeys(), will return an array of either obj keys or values&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;copy()&lt;/code&gt; - Copies stuff to the clipboard&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;monitorEvents()&lt;/code&gt; - Run command each time a given event is fireed&lt;/li&gt;
+&lt;li&gt;For certain common console commands (like &lt;code&gt;console.table()&lt;/code&gt;), you don't need to type the preceding &lt;code&gt;console.&lt;/code&gt;, just run &lt;code&gt;table()&lt;/code&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There's many more console shorthand commands, &lt;a href="https://developer.chrome.com/docs/devtools/console/utilities/"&gt;here's a full list&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Warning&lt;/strong&gt; These only work within the dev tools console, and will not work in your code!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  And some more...
+&lt;/h2&gt;
+
+&lt;p&gt;There's so much more that you can do with logging to the console! For more info, check out the &lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/console"&gt;MDN &lt;code&gt;console&lt;/code&gt; Documentation&lt;/a&gt; or the &lt;a href="https://developer.chrome.com/docs/devtools/console/api/"&gt;Chrome Dev Console Docs&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Just a quick note about best practices...&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Define a lint rule, to prevent any console.log statements from being merged into your main branch&lt;/li&gt;
+&lt;li&gt;Write a wrapper function to handle logging, that way you can enable / disable debug logs based on environment, as well as use appropriate log levels, and apply any formatting. This can also be used to integrate with a third-party logging service with code updates only needed in a single place&lt;/li&gt;
+&lt;li&gt;Never log any sensitive info, the browser logs can be captured by any installed extensions, so should not be considered secure&lt;/li&gt;
+&lt;li&gt;Always use the correct log levels (like &lt;code&gt;info&lt;/code&gt;, &lt;code&gt;warn&lt;/code&gt;, &lt;code&gt;error&lt;/code&gt;) to make filtering and disabling easier&lt;/li&gt;
+&lt;li&gt;Follow a consistent format, so logs can be parsed by a machine if needed&lt;/li&gt;
+&lt;li&gt;Write short, meaningful log messages always in English&lt;/li&gt;
+&lt;li&gt;Include the context or category within logs&lt;/li&gt;
+&lt;li&gt;Don't overdo it, only log useful info&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+&lt;div class="table-wrapper-paragraph"&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;
+&lt;small&gt;If you like this kind of stuff&lt;/small&gt;,&lt;br&gt;&lt;small&gt;consider following for more :)&lt;/small&gt;
+&lt;/th&gt;
+&lt;th&gt;
+&lt;a href="https://github.com/Lissy93"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--8_HGggCT--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://img.shields.io/badge/-Lissy93-3a3a3a%3Fstyle%3Dflat%26logo%3DGitHub%26logoColor%3Dwhite" alt="Follow Lissy93 on GitHub" width="69" height="20"&gt;&lt;/a&gt;&lt;a href="https://twitter.com/Lissy_Sykes"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--BhCWBIgy--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://img.shields.io/badge/-%40Lissy_Sykes-00acee%3Fstyle%3Dflat%26logo%3DTwitter%26logoColor%3Dwhite" alt="Follow Lissy_Sykes on Twitter" width="103" height="20"&gt;&lt;/a&gt;
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/div&gt;
+
+</description>
+      <category>webdev</category>
+      <category>javascript</category>
+      <category>tooling</category>
+      <category>productivity</category>
+    </item>
+    <item>
+      <title>Awesome Dev Tool Tips 🔥</title>
+      <dc:creator>Alicia Sykes</dc:creator>
+      <pubDate>Mon, 14 Nov 2022 17:37:47 +0000</pubDate>
+      <link>https://dev.to/lissy93/awesome-dev-tool-tips-32oo</link>
+      <guid>https://dev.to/lissy93/awesome-dev-tool-tips-32oo</guid>
+      <description>&lt;p&gt;
+  &lt;strong&gt;Contents&lt;/strong&gt; (Click to expand) ↕️
+  &lt;ul&gt;
+&lt;li&gt;Design Mode&lt;/li&gt;
+&lt;li&gt;Pretty Print&lt;/li&gt;
+&lt;li&gt;Command Pallet and Super Search&lt;/li&gt;
+&lt;li&gt;Snippets&lt;/li&gt;
+&lt;li&gt;Live Expressions&lt;/li&gt;
+&lt;li&gt;Tracking Changes&lt;/li&gt;
+&lt;li&gt;Console Shorthand&lt;/li&gt;
+&lt;li&gt;Find Unused Code&lt;/li&gt;
+&lt;li&gt;Rendering Panel&lt;/li&gt;
+&lt;li&gt;Network Paint Times&lt;/li&gt;
+&lt;li&gt;Network Timings&lt;/li&gt;
+&lt;li&gt;Inspect Network Requests&lt;/li&gt;
+&lt;li&gt;Performance&lt;/li&gt;
+&lt;li&gt;Identifying Memory Leaks&lt;/li&gt;
+&lt;li&gt;Raw Memory Inspection&lt;/li&gt;
+&lt;li&gt;Test bfcache&lt;/li&gt;
+&lt;li&gt;Full Refresh&lt;/li&gt;
+&lt;li&gt;Lighthouse&lt;/li&gt;
+&lt;li&gt;Page Size Breakdown&lt;/li&gt;
+&lt;li&gt;Record User Flows&lt;/li&gt;
+&lt;li&gt;Advanced User Flow Operations&lt;/li&gt;
+&lt;li&gt;Pausing Execution with Breakpoints&lt;/li&gt;
+&lt;li&gt;Remote Debugging&lt;/li&gt;
+&lt;li&gt;Mock Location and Sensors&lt;/li&gt;
+&lt;li&gt;Death by Errors, no more!&lt;/li&gt;
+&lt;li&gt;View and Edit Storage&lt;/li&gt;
+&lt;li&gt;Debug Background Services&lt;/li&gt;
+&lt;li&gt;HTTPS Security Checks&lt;/li&gt;
+&lt;li&gt;Web Auth&lt;/li&gt;
+&lt;li&gt;Accessibility Tools&lt;/li&gt;
+&lt;li&gt;Screenshots&lt;/li&gt;
+&lt;li&gt;Super-Copying&lt;/li&gt;
+&lt;li&gt;Animations Timeline&lt;/li&gt;
+&lt;li&gt;Forcing Elements State&lt;/li&gt;
+&lt;li&gt;CSS Sizes and Units&lt;/li&gt;
+&lt;li&gt;Color Pallets&lt;/li&gt;
+&lt;li&gt;Easy Box Shadows&lt;/li&gt;
+&lt;li&gt;Easy Animations&lt;/li&gt;
+&lt;li&gt;Responsive Design Mode&lt;/li&gt;
+&lt;li&gt;Badges&lt;/li&gt;
+&lt;li&gt;Rulers&lt;/li&gt;
+&lt;li&gt;Style Overview&lt;/li&gt;
+&lt;li&gt;Layers&lt;/li&gt;
+&lt;li&gt;Saving Changes to Disk&lt;/li&gt;
+&lt;li&gt;Automation&lt;/li&gt;
+&lt;li&gt;Familiar Shortcuts&lt;/li&gt;
+&lt;li&gt;Dark Mode&lt;/li&gt;
+&lt;li&gt;Useful Add-Ons&lt;/li&gt;
+&lt;li&gt;Are we finished yet?&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;/p&gt;
+
+&lt;h2&gt;
+  
+  
+  Design Mode
+&lt;/h2&gt;
+
+&lt;p&gt;Enabling &lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/designMode"&gt;design mode&lt;/a&gt; will make the entire web page editable, just by clicking and typing.&lt;/p&gt;
+
+&lt;p&gt;To use it, open up the console and run:&lt;br&gt;
+&lt;/p&gt;
+
+&lt;div class="highlight js-code-highlight"&gt;
+&lt;pre class="highlight javascript"&gt;&lt;code&gt;&lt;span class="nb"&gt;document&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;designMode&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="dl"&gt;'&lt;/span&gt;&lt;span class="s1"&gt;on&lt;/span&gt;&lt;span class="dl"&gt;'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;/div&gt;
+
+
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--kuRhESt2--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/MZPYGdt/01-design-mode.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--kuRhESt2--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/MZPYGdt/01-design-mode.gif" alt="demo" width="880" height="526"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Pretty Print
+&lt;/h2&gt;
+
+&lt;p&gt;Raw files are usually minified, and therefore hard to read. Use the Pretty Print option to format it&lt;/p&gt;
+
+&lt;p&gt;In the background, Chrome is creating a new file (names &lt;code&gt;filename.js:formatted&lt;/code&gt;), closing that file will undo the formatting.&lt;/p&gt;
+
+&lt;p&gt;If doing this each time is getting boring, then there's an experimental setting to auto-enable pretty print for all sources. &lt;br&gt;
+Under &lt;code&gt;⋮&lt;/code&gt; → &lt;code&gt;Settings&lt;/code&gt; → &lt;code&gt;Experiments&lt;/code&gt; Select &lt;code&gt;Automatically pretty print in the Sources Panel&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--B6wqVCf---/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/2SRy5hw/02-pretty-print.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--B6wqVCf---/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/2SRy5hw/02-pretty-print.gif" alt="demo" width="880" height="527"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Command Pallet and Super Search
+&lt;/h2&gt;
+
+&lt;p&gt;The command pellet gives you full access to every command available within the dev tools, and is super valuable for quick navigation.&lt;/p&gt;
+
+&lt;p&gt;Type Ctrl + Shift + P to open up the &lt;a href="https://developer.chrome.com/docs/devtools/command-menu/"&gt;Command Menu&lt;/a&gt;, then start typing to filter commands and press enter to execute.&lt;/p&gt;
+
+&lt;p&gt;In the same way, if you're only looking to find a function name, you can use Ctrl + Shift + O to filter methods across files.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--A154CATm--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/3pvG891/03-command-palet.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--A154CATm--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/3pvG891/03-command-palet.gif" alt="demo" width="880" height="526"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;From the same menu, you can also search through all loaded resources by filename or code (HTML, CSS, JS, etc), all network requests, visible components, memory profiles, snippets and much more. Advanced features like RegEx are supported.&lt;/p&gt;
+
+&lt;p&gt;For an app built with a framework, you'll probably see a lot of irrelevant files (like node_modules, webpack output, etc). You can hide this under ⋮ → Hide ignore-list sources. By default, this uses the smart &lt;code&gt;x_google_ignorelist&lt;/code&gt; to detect what's likely not relevant, but you can also add your own custom sources, specified by regex under Settings.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Snippets
+&lt;/h2&gt;
+
+&lt;p&gt;So you've spent a while crafting a function in the console, and you plan on reusing it across various sites later. That's where &lt;a href="https://developer.chrome.com/docs/devtools/javascript/snippets/"&gt;snippets&lt;/a&gt; come in, they're invoked from the command pallet, and let you save code for later and execute it using the bang &lt;code&gt;!&lt;/code&gt; operator.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--Yqe1UZ1h--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/NSK7SL6/18-snippets.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--Yqe1UZ1h--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/NSK7SL6/18-snippets.gif" alt="demo" width="880" height="526"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Live Expressions
+&lt;/h2&gt;
+
+&lt;p&gt;Instead of repeatedly executing a command to monitor for changes, you can watch values in real-time using &lt;a href="https://developer.chrome.com/docs/devtools/console/live-expressions/"&gt;Live Expressions&lt;/a&gt;. Just execute a command, then pin it using the eye icon to see changes reflected automatically.&lt;/p&gt;
+
+&lt;p&gt;There's many use cases for this, but one I use often is when testing keyboard navigation of an app, pinning the &lt;code&gt;document.activeElement&lt;/code&gt; command will print a log of evertime the focused element changes, even once it's been removed from the GUI.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--SxLdH7Fv--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/mTLQ5CP/17-live-expressions.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--SxLdH7Fv--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/mTLQ5CP/17-live-expressions.gif" alt="demo" width="880" height="526"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Tracking Changes
+&lt;/h2&gt;
+
+&lt;p&gt;We've all been there, you've been editing your app's HTML, CSS and JS through the dev tools and got things working perfectly, but you can't remember exactly what you changed. That's where the &lt;a href="https://developer.chrome.com/docs/devtools/changes/"&gt;Changes Tab&lt;/a&gt; comes in. Access it through the command pallet (with Control+Shift+P, then type "Show Changes"), or through the lower draw.&lt;/p&gt;
+
+&lt;p&gt;You'll then be able to see a diff output of all your changes. From here you can Copy changes to clipboard, or revert certain changes.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--AXqvB3Ed--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/4ShJ8Fn/19-diff-check.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--AXqvB3Ed--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/4ShJ8Fn/19-diff-check.png" alt="demo" width="880" height="527"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Console Shorthand
+&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;code&gt;$()&lt;/code&gt; - Short-hand for &lt;a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector"&gt;&lt;code&gt;Document.querySelector()&lt;/code&gt;&lt;/a&gt; (to select DOM elements, jQuery-style!)&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;$$()&lt;/code&gt; - Same as above, but for &lt;code&gt;selectAll&lt;/code&gt; for when returning multiple elements in an array&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;$_&lt;/code&gt; - Returns value of last evaluated expression&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;$0&lt;/code&gt; - Returns the most recently selected DOM element (in the inspector)&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;$1&lt;/code&gt;...&lt;code&gt;$4&lt;/code&gt; can also be used to grab previously selected UI elements&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;$x()&lt;/code&gt; - Lets you select DOM elements using an Xpath query&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;keys()&lt;/code&gt; and &lt;code&gt;values()&lt;/code&gt; - Shorthand for Object.getKeys(), will return an array of either obj keys or values&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;copy()&lt;/code&gt; - Copies stuff to the clipboard&lt;/li&gt;
+&lt;li&gt;
+&lt;code&gt;monitorEvents()&lt;/code&gt; - Run command each time a given event is fireed&lt;/li&gt;
+&lt;li&gt;For certain common console commands (like &lt;code&gt;console.table()&lt;/code&gt;), you don't need to type the preceding &lt;code&gt;console.&lt;/code&gt;, just run &lt;code&gt;table()&lt;/code&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can clear the console at anytime using Ctrl + L, using the clear button, or by running &lt;code&gt;clear()&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;There's many more console shorthand commands, &lt;a href="https://developer.chrome.com/docs/devtools/console/utilities/"&gt;here's a full list&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Warning&lt;/strong&gt; These tricks only work within the dev tools console, and will not work in your code!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Find Unused Code
+&lt;/h2&gt;
+
+&lt;p&gt;Easily identify which bundles are the largest, and how much of their code is actually used, and what the load impact of each file is, using the &lt;a href="https://developer.chrome.com/docs/devtools/coverage/"&gt;Coverage&lt;/a&gt; tool. This illustrates exactly which code is being loaded but never used, and what the cost of it is.&lt;/p&gt;
+
+&lt;p&gt;Click the three dots, select coverage and reload the page. Any red bars indicate unused code, and will likely be making your app slower. Clicking an individual file will let you see specifically what code isn't being used.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--OsLvZ7tC--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/BPzqWvR/05-coverage-tool.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--OsLvZ7tC--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/BPzqWvR/05-coverage-tool.png" alt="demo" width="880" height="529"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Rendering Panel
+&lt;/h2&gt;
+
+&lt;p&gt;This tool is super useful for identifying elements that are being edited more often than possibly necessary, and which are likely negatively affecting performance and user experience.&lt;/p&gt;
+
+&lt;p&gt;The frame rendering stats is specifically useful, for monitoring CPU and GPU usage, helping you identify things before they become a problem.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--pQwqMSis--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/YW2Rp9F/05-rendering-2.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--pQwqMSis--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/YW2Rp9F/05-rendering-2.gif" alt="demo" width="880" height="526"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Network Paint Times
+&lt;/h2&gt;
+
+&lt;p&gt;Your probably familiar with the waterfall chart rendered by the Network tab, and how useful that is for detecting slower requests. But from here, you can also enable screenshots to see exactly what parts of your site will load visually for end users on slower connections.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--cb1QPsfj--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/mF6YdF0/06-network-paint-times.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--cb1QPsfj--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/mF6YdF0/06-network-paint-times.png" alt="demo" width="880" height="529"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Network Timings
+&lt;/h2&gt;
+
+&lt;p&gt;Clicking on an item shows headers and response, but head to the Timing tab, and you'll be able to see what stage the request was held up at, and specific server timings. Using the &lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Server-Timing"&gt;Server-Timing API&lt;/a&gt;, you can pass even more detailed info from your API to your client app, and view data in the Timings tab of the browser dev tools. To use this, just add the &lt;code&gt;Server-Timing&lt;/code&gt; header to your response data, and detailed charts will be visible in the dev tools.&lt;/p&gt;
+
+&lt;p&gt;To find the total size of your web page, under the Network panel, check Disable Cache, reload the page, and the info bar at the bottom will display total size, total time, total requests and other key stats.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Inspect Network Requests
+&lt;/h2&gt;
+
+&lt;p&gt;You likely already know this, but you can also view the request and response for any HTTP request your site makes, as well as view loading times and see where in the code it was triggered.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--JIMkI2hY--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/yf2tHRw/07-network-timings.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--JIMkI2hY--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/yf2tHRw/07-network-timings.png" alt="demo" width="880" height="533"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Performance
+&lt;/h2&gt;
+
+&lt;p&gt;It's really worth exploring the performance panel and all that it has to offer. Just hit the record button, then interact with your site like an end-user might. When you're finished, you'll have a really detailed breakdown of CPU usage, FPS and memory allocated to the heap. Where ever there's a spike in the timeline, that usually indicates an area of code that needs to be optimised. You can then investigate this further by drilling down on the flame chart, to see the full stack trace of everything that happened on the main thread.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--7zIkemQ1--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/KKWKdtV/08-perf-monitor.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--7zIkemQ1--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/KKWKdtV/08-perf-monitor.png" alt="demo" width="880" height="527"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Identifying Memory Leaks
+&lt;/h2&gt;
+
+&lt;p&gt;Modern browser automatically garbage-collect any data that is no longer being referenced to. But poorly written code can mean you have obsolete code references that build up over time causing a memory leak. This can be detrimental to performance and greatly hider user experience.&lt;/p&gt;
+
+&lt;p&gt;Thankfully, they're not as hard to find or debug as you might have thought. Under the Memory tab, select "Allocation instrumentation on timeline", then hit record.&lt;br&gt;
+The blue bars indicate memory that's still in use, and the grey bars show what was garbage collected. So a rapidly growing blue bar would be where your mem leak is happening, and you can then click that bar to see exactly what data objects they contain, and easily identify the cause.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--ulz4uWRZ--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/X3G0y21/09-mem-leaks-1.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--ulz4uWRZ--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/X3G0y21/09-mem-leaks-1.png" alt="demo" width="880" height="527"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Worth also noting that the web page isn't the only source of memory leaks. They can also be caused by add-ons, the browser engine itself or even data caching. Use the Statistics view to see a breakdown of what data is using memory.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--xmlDn0Mk--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/pnbQdMC/09-mem-leaks-2.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--xmlDn0Mk--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/pnbQdMC/09-mem-leaks-2.png" alt="demo" width="880" height="527"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Raw Memory Inspection
+&lt;/h2&gt;
+
+&lt;p&gt;If you're building a web assembly app, this will be particularly important to you. From the &lt;a href="https://developer.chrome.com/docs/devtools/memory-inspector/"&gt;memory inspector&lt;/a&gt;, you can drill down the scope, and inspect ArrayBuffer, TypedArray, DataView, and Wasm Memory. Here's a WASM demo:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--gDUIUALA--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/rHdHWPd/36-memory-inspector.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--gDUIUALA--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/rHdHWPd/36-memory-inspector.gif" alt="demo" width="880" height="526"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Test bfcache
+&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href="https://web.dev/bfcache/"&gt;bfcache&lt;/a&gt; is a browser feature that enables instant backward and forward navigation, it works differently from the HTTP cache because it stores a snapshot of the entire page in memory, which is what the user will see while the navigation is happening.&lt;/p&gt;
+
+&lt;p&gt;In order for the bfcache feature to work effectively on your site, you need to &lt;a href="https://web.dev/bfcache/#optimize-your-pages-for-bfcache"&gt;optimise for it&lt;/a&gt;. And that's where the &lt;a href="https://developer.chrome.com/docs/devtools/application/back-forward-cache/"&gt;Back/Forward Cache Tester&lt;/a&gt; comes in. Under Application → Back/forward cache tab, click "Test back/forward cache", and you'll be presented with the results which will list issues for each frame. Clicking each result will also give you instructions on how you can fix it.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--dkFwIM5N--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/XDqkGjw/10-bfcache-test.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--dkFwIM5N--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/XDqkGjw/10-bfcache-test.png" alt="demo" width="880" height="527"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Full Refresh
+&lt;/h2&gt;
+
+&lt;p&gt;Some errors are caused by cached content, and for those a normal refresh isn't enough. With the dev tools open, you can hold down the refresh button (for 2 seconds), and you'll see some additional refresh options, including "Empty Cache and Full Reload".&lt;br&gt;
+This is also useful for measuring first-time load metrics for new users, when nothing is previously cached.&lt;/p&gt;
+
+&lt;p&gt;To refresh all tabs at once, just reun &lt;code&gt;chrome://restart&lt;/code&gt; in the address bar.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Lighthouse
+&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href="https://developer.chrome.com/docs/lighthouse/"&gt;Lighthouse&lt;/a&gt; is an extremely useful (and easy!) tool for measuring &lt;a href="https://web.dev/learn-core-web-vitals/"&gt;Core Web Vitals&lt;/a&gt; - accessibility, SEO, responsivness, performances, security, PWA compatibility, best practices and overall user experience.&lt;/p&gt;
+
+&lt;p&gt;Just open the Lighthouse tab, and click "Start Scan".&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--F7LBfM7_--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/M2yGPbv/11-lighthouse.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--F7LBfM7_--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/M2yGPbv/11-lighthouse.png" alt="demo" width="880" height="527"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Lighthouse results can be exported in a range of formats, and there are various external viewers you can use to gain additional insight (like &lt;a href="https://googlechrome.github.io/lighthouse/viewer/"&gt;this one&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;Lighthouse scans can also be incorporated into your CI/CD system, so that you have constant visibility into your apps core vitals.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Page Size Breakdown
+&lt;/h2&gt;
+
+&lt;p&gt;Understanding what data is being loaded into your site will help you reduce overall bundle size. This can be done from the Memory and Network tabs, but sometimes a more visual view helps put things into context.&lt;br&gt;
+The Chrome Memory Treemap is really useful for this - to use, just run a Lighthouse scan, export the results in JSON, then import it into &lt;a href="https://googlechrome.github.io/lighthouse/treemap/"&gt;googlechrome.github.io/lighthouse/treemap/&lt;/a&gt;.&lt;br&gt;
+You can click any element, to zoom in and inspect additional info.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--nWio0Pi7--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/SPYsyYs/32-memory-treemap.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--nWio0Pi7--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/SPYsyYs/32-memory-treemap.png" alt="demo" width="880" height="527"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Record User Flows
+&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt; &lt;em&gt;(This feature is still in beta, and currently requires Chrome Dev Eddition)&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href="https://developer.chrome.com/docs/devtools/recorder/"&gt;Record, reply and audit user flows&lt;/a&gt; under the audit panel. Just click Start new Recording, enter a name and hit go. Everything the user does, including mouse moves, keypresses, pauses and more will be logged. You can then use Replay to view back the users journey.&lt;/p&gt;
+
+&lt;p&gt;In the replay settings each step can be expended to view details, you can also edit, add and remove steps in real-time. There are additional options for simulating things like environment of slow network connection. This is super useful for user testing.&lt;/p&gt;
+
+&lt;p&gt;You can also import and export user flows as a Pupateer scripts, to share with others.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Advanced User Flow Operations
+&lt;/h2&gt;
+
+&lt;p&gt;The recorder tool has many other valuable features which often go under-used. Being aware of what you can do, will help you supercharge your user testing.&lt;/p&gt;
+
+&lt;p&gt;Examples of when this can be useful include: sending the exact steps to recreate a bug to another developer, demonstrating to an analyst exactly how users behaved during a testing session, or slowing things down to debug complex issues.&lt;/p&gt;
+
+&lt;p&gt;Once you've recorded a user flow, you can:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Replay it (obviously!)&lt;/li&gt;
+&lt;li&gt;View detailed performance metrics over time&lt;/li&gt;
+&lt;li&gt;Export it (as JSON, Puppeteer or Puppeteer reply script)&lt;/li&gt;
+&lt;li&gt; Edit the flow (then re-import it)&lt;/li&gt;
+&lt;li&gt;  Share user flows with others (for testing or demonstration)&lt;/li&gt;
+&lt;li&gt;  Configure replay settings, such as apply throttling or device limitations&lt;/li&gt;
+&lt;li&gt;  Replay in slow mo, with detailed debugging&lt;/li&gt;
+&lt;li&gt;  Apply breakpoints, to pause and inspect at certain steps&lt;/li&gt;
+&lt;li&gt;  Import user flows generated by other tools&lt;/li&gt;
+&lt;li&gt;  Add additional steps, or remove steps&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There are several third-party tools that let you do even more, as well as import / export in additional formats, like the &lt;a href="https://chrome.google.com/webstore/detail/cypress-chrome-recorder/fellcphjglholofndfmmjmheedhomgin"&gt;Cypress add-on&lt;/a&gt;, &lt;a href="https://chrome.google.com/webstore/detail/nightwatch-chrome-recorde/nhbccjfogdgkahamfohokdhcnemjafjk/"&gt;Nightwatch add-on&lt;/a&gt;, &lt;a href="https://chrome.google.com/webstore/detail/testing-library-recorder/pnobfbfcnoeealajjgnpeodbkkhgiici"&gt;Jest add-on&lt;/a&gt;, &lt;a href="https://chrome.google.com/webstore/detail/webdriverio-chrome-record/pllimkccefnbmghgcikpjkmmcadeddfn"&gt;WebDriver add-on&lt;/a&gt; and more.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Pausing Execution with Breakpoints
+&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href="https://developer.chrome.com/docs/devtools/javascript/breakpoints/"&gt;Breakpoints&lt;/a&gt; are an absolute essential for debugging. They enable you to pause everything at a certain point to inspect state and discover issues. You're probably already aware that you can trigger a breakpoint at a certain point, either with the &lt;code&gt;debugger&lt;/code&gt; statement statement, or by clicking the margin (in the sources panel, or with a compatible IDE). But there's several other types of breakpoints, including:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Conditional line-of-code - On an exact region of code, but only when some other condition is true.&lt;/li&gt;
+&lt;li&gt;DOM - On the code that changes or removes a specific DOM node, or its children.&lt;/li&gt;
+&lt;li&gt;XHR - When an XHR URL contains a string pattern.&lt;/li&gt;
+&lt;li&gt;Event listener - On the code that runs after an event, such as click, is fired.&lt;/li&gt;
+&lt;li&gt;Exception - On the line of code that is throwing a caught or uncaught exception.&lt;/li&gt;
+&lt;li&gt;Function - Whenever a specific function is called.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can also make conditional breakpoints (represented as orange tabs), which will only pause the execution when certain conditions are met. To do so, just right-click, select Edit Breakpoint, then use JavaScript to resolve a boolean using current state. &lt;/p&gt;
+
+&lt;p&gt;If there's a specific method you want to pause on, just run &lt;code&gt;debug(methodName)&lt;/code&gt; to start, and &lt;code&gt;undebug(methodName)&lt;/code&gt; to end.&lt;/p&gt;
+
+&lt;p&gt;Once a breakpoint has been hit, you can interact with any current state through the console.&lt;/p&gt;
+
+&lt;p&gt;TODO&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Remote Debugging
+&lt;/h2&gt;
+
+&lt;p&gt;As any app developer will tell you, nothing beats testing on a real device. But when it comes to the web, the browser debugging tools are essential. That's where remote debugging comes in - it enables you to test on a physical device while continuing to have the debugging power of the browser tools.&lt;/p&gt;
+
+&lt;p&gt;The same can work in the opposite direction, where you run your dev environment locally or host it remotely, but access it on an external device.&lt;/p&gt;
+
+&lt;p&gt;This does require either port forwarding or custom domain mapping (but neither are as scary as they sound!). The &lt;a href="https://developer.chrome.com/docs/devtools/remote-debugging/local-server/"&gt;docs&lt;/a&gt; provide setup instructions and proxy configurations.&lt;/p&gt;
+
+&lt;p&gt;And if you're developing a native Android app, which has embedded web views, you can use the browser's dev tools to debug these too (&lt;a href="https://developer.chrome.com/docs/devtools/remote-debugging/webviews/"&gt;docs&lt;/a&gt;).&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Mock Location and Sensors
+&lt;/h2&gt;
+
+&lt;p&gt;In a similar way to the iOS and Android emulators, you can simulate various sensors and hardware settings. This is useful if the app your developing relies on any of this data. Under the Sensors tab, you'll be able to change your location, time zone, locale, screen lock, orientation, motion / acceleration etc.&lt;/p&gt;
+
+&lt;p&gt;If you frequently find yourself switching between locations or locales, you can add these under Settings --&amp;gt; Locations.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--Wyb8-pMx--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/fpCdNLz/13-sensors.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--Wyb8-pMx--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/fpCdNLz/13-sensors.gif" alt="demo" width="880" height="526"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Death by Errors, no more!
+&lt;/h2&gt;
+
+&lt;p&gt;If you're wading through a large code base or dealing with a poorly written library, and drowning in exceptions which are distracting you from what you're actually trying to debug, then under the settings you can opt to ignore any exceptions thrown by certain scripts or from a given framework. The ignore list can be specified by regex patterns for specific targeting. &lt;/p&gt;
+
+&lt;p&gt;You can auto-hide source files for most major frameworks by heading to  ⋮  → Ignore List, and selecting "Automatically add known third-party sources to Ignore list". This will make the stack trace in the console show less irrelevant info. You'll still be able to view the full stack for any given error, just by clicking "Show more".&lt;/p&gt;
+
+&lt;p&gt;By default the console will show output from all contexts. This means if you've got an extension installed that's throwing an error it will be cluttering up your console. Just right-click on the file name, and under Filter select Hide messages from [ext name]. You can unhide these at anytime from the same menu.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  View and Edit Storage
+&lt;/h2&gt;
+
+&lt;p&gt;While we're in the Application tab, it's worth mentioning how essential these tools are for viewing, deleting and editing data stored in local storage, session storage, cookies, IndexedDB, etc.&lt;/p&gt;
+
+&lt;p&gt;From the storage tab, you can also see a breakdown of how much your site is storing, and simulate restraints like custom storage quotas or disabling cookies.&lt;/p&gt;
+
+&lt;p&gt;Note that stored data is (usually) only accessible from the domain which set that data. So if you're debugging stored data in the console for any context other than the default one, you'll need to use the frame dropdown at the top to switch domains.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Debug Background Services
+&lt;/h2&gt;
+
+&lt;p&gt;If you app includes notifications, sync, background fetch or anything else that should continue running even when the app / current tab is not in the foreground, then these tools are invaluable. Under the Application tab's &lt;a href="https://developer.chrome.com/docs/devtools/javascript/background-services/"&gt;Background Services&lt;/a&gt; section, you can click a API category, start recording, then put your app into the background. When you come back, you'll be able to see specifically which events fired, and inspect each one.&lt;/p&gt;
+
+&lt;p&gt;Side note, you can view all registered service workers, manage, debug and de-register them from: &lt;code&gt;chrome://serviceworker-internals&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--aDpPnkcA--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/v36CkSL/30-service-workers.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--aDpPnkcA--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/v36CkSL/30-service-workers.png" alt="demo" width="880" height="527"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  HTTPS Security Checks
+&lt;/h2&gt;
+
+&lt;p&gt;The Security tab provides a good starting point, for when verifying common HTTPS issues on your site. It checks for, and highlights common SSL issues, including non-secure main origins and mixed content. You can also check web certificate chains in more detail.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--5_UVdmZB--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/frhmCr5/14-security-tab.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--5_UVdmZB--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/frhmCr5/14-security-tab.png" alt="demo" width="880" height="527"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Web Auth
+&lt;/h2&gt;
+
+&lt;p&gt;This ones a bit more niche, but absolutely essential if you're building anything with soft-tokens or 2FA. The WebAuthn tool will let you generate and emulate virtual authenticator devices using a variety of protocols (2FA, FIDO/CTAP) and interface types (USB, NFC, Bluetooth, internal) with additional options for user verification, resident keys, etc.&lt;/p&gt;
+
+&lt;p&gt;Here's a quick demo:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--vg7u_-Nm--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/ngtNnGd/15-webauthn.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--vg7u_-Nm--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/ngtNnGd/15-webauthn.gif" alt="demo" width="880" height="526"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For an overview of web auth, see &lt;a href="https://webauthn.guide/"&gt;WebAuthn.guide&lt;/a&gt;, or view the &lt;a href="https://w3c.github.io/webauthn/"&gt;W3 spec&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;On a side-note, there's an interesting article explaining &lt;a href="https://developer.chrome.com/blog/webauthn-tab/"&gt;how they built the webauthn tab&lt;/a&gt;. &lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Accessibility Tools
+&lt;/h2&gt;
+
+&lt;p&gt;Accessibility is not just important for inclusion, it's also a legal requirement for most public-facing apps and services. If you're not yet sure the core concepts of web accessibility standards, I recommend the &lt;a href="https://web.dev/learn/accessibility/"&gt;Web.Dev Accessibility Tutorial&lt;/a&gt;, which provides a great summary.&lt;/p&gt;
+
+&lt;p&gt;Lighthouse provides a good starting point for auditing accessibility, and is easy to use, and built directly into the developer tools.&lt;/p&gt;
+
+&lt;p&gt;The CSS tools also have a built-in contrast tool, which will help you apply readable colors to your site. The inspect pop-up will show a warning, and you can analyze this further in the Styles pain.&lt;/p&gt;
+
+&lt;p&gt;Beyond that, the Accessibility tab let's you view an element's position in the DOM tree, ARIA attributes, and computed accessibility properties, all of which are used by accessibility tools like screen readers.&lt;/p&gt;
+
+&lt;p&gt;There are additional add-ons which can give you much more powerful insights. Mainly, the &lt;a href="https://chrome.google.com/webstore/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd"&gt;axe DevTools&lt;/a&gt;. This will show you detailed results and instructions of how to fix.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Screenshots
+&lt;/h2&gt;
+
+&lt;p&gt;You can capture screenshots directly from the dev tools, including: full-page, specific area or single-node screenshots.&lt;br&gt;
+Either open up the command pallet and type screenshot, or for an &lt;a href="https://developer.chrome.com/blog/new-in-devtools-86/#capture-node-screenshot"&gt;element screenshot&lt;/a&gt;, just right-click on the DOM element in the inspector and select Capture Screenshot.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--3tTtcmwq--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/txXZ0wy/20-screenshot-nodes.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--3tTtcmwq--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/txXZ0wy/20-screenshot-nodes.png" alt="demo" width="880" height="527"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Super-Copying
+&lt;/h2&gt;
+
+&lt;p&gt;From the elements tab, right-click on an element and under Copy, there are several different options. Copy selector will give you a CSS selector to target that element, similarly copy JS path will give you a query string to select the element in JavaScript, and copy outer HTML will copy the actual HTML. Copying the styles of an element, will give you all the computed CSS for a given element.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Animations Timeline
+&lt;/h2&gt;
+
+&lt;p&gt;The animations panel (opened by clicking the 3-dots) lets you record any keyframe animations, and then scrub through them to inspect the actual CSS properties that are affected.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--jkJ8lE17--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/KV35Z8k/21-animation-scrubber.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--jkJ8lE17--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/KV35Z8k/21-animation-scrubber.gif" alt="demo" width="880" height="526"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Forcing Elements State
+&lt;/h2&gt;
+
+&lt;p&gt;If you need to preview the styles of a given element in a particular state (e.g. :hover, :visited, :active, :focus, etc), then either right click it and select Change pseudo class, of from the the styles editor click the :hov icon.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--SBIs5pLR--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/j8LNrwf/38-phsudo-classes.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--SBIs5pLR--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/j8LNrwf/38-phsudo-classes.gif" alt="demo" width="880" height="526"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  CSS Sizes and Units
+&lt;/h2&gt;
+
+&lt;p&gt;Do you ever inspect an element, then hold the arrow keys up/ down for literally ever until the size looks right? Well you can also drag the units horizontally to easily preview  different sizes. Similarly, for angles you can use the clock rotater to preview / apply any value. Got the wrong units? Just hover over the size, and click the drop down to quickly switch units.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--HTitsryO--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/6X35LMG/28-size-tools.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--HTitsryO--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/6X35LMG/28-size-tools.gif" alt="demo" width="880" height="526"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Color Pallets
+&lt;/h2&gt;
+
+&lt;p&gt;Most apps include only a handful of colors, and usually when your changing a color, it will be to one of those values. That's why the palette tool is so useful. By default, there are several pre-made palettes: from your pages current colors, your pages CSS variabels, the Material pelette and an empty custom palette. Switch between them with the arrows.&lt;/p&gt;
+
+&lt;p&gt;While we're here, it's worth also touching on just how powerful the color tool is. From here you can:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Change color shades, hue and transparency - with live preview&lt;/li&gt;
+&lt;li&gt;Convert between units (hex, RGB(A), HSL(A), HWB(A)) &lt;/li&gt;
+&lt;li&gt;Use the eye dropper to pick any color from your screen&lt;/li&gt;
+&lt;li&gt;Copy color value to the clipboard&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you're not already doing so, try to make use of CSS variables (not SASS vars) throughout your app. That way you can update the color in one place, and have it previewed/ applied everywhere. In the dev tools, click a variables name to go to original definition, from there you can modify it.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--Rwyq7OP9--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/VCGPNqq/27-color-picker.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--Rwyq7OP9--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/VCGPNqq/27-color-picker.gif" alt="demo" width="880" height="526"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Easy Box Shadows
+&lt;/h2&gt;
+
+&lt;p&gt;Box shadows are one of those things that are best previewed live. That's why the &lt;a href="https://developer.chrome.com/docs/devtools/css/reference/#shadow-editor"&gt;shadow-editor&lt;/a&gt; is so useful. Just click the icon next to any shadow to preview different X/Y offsets, blur, spread and directions of both inset and normal shadows.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--MmPaGLTi--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/K72x2pJ/26-box-shaddows.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--MmPaGLTi--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/K72x2pJ/26-box-shaddows.gif" alt="demo" width="880" height="526"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Easy Animations
+&lt;/h2&gt;
+
+&lt;p&gt;By clicking the &lt;a href="https://developer.chrome.com/docs/devtools/css/animations/"&gt;animation&lt;/a&gt; option, you can easily preview various transitions and effects.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--rjQIFceR--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/fdJkyDn/37-animation-editor.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--rjQIFceR--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/fdJkyDn/37-animation-editor.gif" alt="demo" width="880" height="526"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Responsive Design Mode
+&lt;/h2&gt;
+
+&lt;p&gt;Easily check that your site displays nicely on a range of devices, using the Responsive Design Mode.&lt;/p&gt;
+
+&lt;p&gt;By default only a few devices are shown, but head to Settings --&amp;gt; Devices and you'll be able to enable a whole bunch more from the list, or even create your own custom device with dimensions, user agent, platform, architecture and more.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--zastYm3f--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/bmh54tv/33-responsive-mode.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--zastYm3f--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/bmh54tv/33-responsive-mode.gif" alt="demo" width="880" height="526"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Badges
+&lt;/h2&gt;
+
+&lt;p&gt;You may have notices a little chip/ badge next to certain elements in the Elements tab. These are &lt;a href="https://developer.chrome.com/docs/devtools/elements/badges/"&gt;Badges&lt;/a&gt;, and can be used to apply overlays or add extra features to certain element types including Grids, Flex layouts, Ads, Scroll-Snaps, Containers, Slots and more. To enable badges, right-click an element in the DOM tree and select Badge settings, then check / uncheck what you'd like to be visible.&lt;/p&gt;
+
+&lt;p&gt;Many of these badges open the door to additional features, like the &lt;a href="https://developer.chrome.com/docs/devtools/css/flexbox/"&gt;Flexbox Debugger&lt;/a&gt; and &lt;a href="https://developer.chrome.com/docs/devtools/css/grid/"&gt;Grid layout debugger&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--WQWj8S0n--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/C2WhDcS/25-css-badges.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--WQWj8S0n--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/C2WhDcS/25-css-badges.png" alt="demo" width="880" height="527"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Rulers
+&lt;/h2&gt;
+
+&lt;p&gt;There's always that one front-end dev, so keen to please the designers that he's using an actual ruler to measure the elements on his screen. Well no need for that, or any dodgy ruler browser extensions, as this feature is built directly into the dev tools. Enable it under ⋮ →  Settings → Preferences → Elements → "Show rulers on hover".&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--KNaKVIGS--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/JQ98R9n/23-rulers.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--KNaKVIGS--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/JQ98R9n/23-rulers.gif" alt="demo" width="880" height="526"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;In Firefox, there is a built-in &lt;a href="https://firefox-source-docs.mozilla.org/devtools-user/measure_a_portion_of_the_page/index.html"&gt;ruler feature&lt;/a&gt;, available through the Toolbox Buttons in the top-right.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--uhyc6Ca0--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/85fDCMB/34-ruler.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--uhyc6Ca0--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/85fDCMB/34-ruler.gif" alt="demo" width="880" height="526"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Style Overview
+&lt;/h2&gt;
+
+&lt;p&gt;The &lt;a href="https://developer.chrome.com/docs/devtools/css-overview/"&gt;CSS Overview&lt;/a&gt; tab helps you quickly get an overview of CSS improvments you can make. The aim is consistency (colors, fonts, breakpoints, styles, etc).&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Color Pallet - Shows all colors used on your site. Useful for identifying elements which don't conform to your desired theme / designs&lt;/li&gt;
+&lt;li&gt;Fonts - Displays all typefaces, sizes and variations used in your page. A good webpage will be consistent with only a few fonts and text styles.&lt;/li&gt;
+&lt;li&gt;Media queries - Outputs all breakpoints used in your site, sorted by highest occurrence. You should aim to keep them consistent to make responsive testing easier&lt;/li&gt;
+&lt;li&gt;Unused Declarations - Lists key information about any unused declarations as well as styles that have no effect. Removing these will speed up load times, and make CSS easier to read.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--oDj7YH65--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/VvT8Shq/24-css-overview.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--oDj7YH65--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/VvT8Shq/24-css-overview.gif" alt="demo" width="880" height="526"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Layers
+&lt;/h2&gt;
+
+&lt;p&gt;The Layers panel (more tools → Layers) will show what's happening  both off screen and on additional layers (with 3d mode).&lt;/p&gt;
+
+&lt;p&gt;It's particularly useful for visualising how specific animations are working, from a functional perspective, without having to wade through a bunch of keyframes and obfuscated code.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--0hfyi8xA--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/1J2B6sC/29-css-layers.gif" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--0hfyi8xA--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.ibb.co/1J2B6sC/29-css-layers.gif" alt="demo" width="880" height="526"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://res.cloudinary.com/practicaldev/image/fetch/s--rjtfUT-M--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/mvZZD5s/12-layers.png" class="article-body-image-wrapper"&gt;&lt;img src="https://res.cloudinary.com/practicaldev/image/fetch/s--rjtfUT-M--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://i.ibb.co/mvZZD5s/12-layers.png" alt="demo" width="880" height="527"&gt;&lt;/a&gt;&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Saving Changes to Disk
+&lt;/h2&gt;
+
+&lt;p&gt;There are two methods to save or persist changes you've made in the dev tools. Workspaces and Local Overrides.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://developer.chrome.com/docs/devtools/workspaces/"&gt;Workspaces&lt;/a&gt; enable you to save changes you make in the devtools directly to your working copy on disk&lt;br&gt;
+Workspaces can be setup under Sources → File System → Add Folder. They support HTML, CSS and JavaScript and content can be edited, previewed and saved directly through the sources panels. Certain frameworks require some extra setup to get properly working.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://developer.chrome.com/blog/new-in-devtools-65/#overrides"&gt;Local Overrides&lt;/a&gt; enable you to persist changes across sessions (but without effecting original source files)&lt;br&gt;
+Overrides can be setup under Sources → Overrides. You can use the Changes menu to preview / export a diff of what you've changed.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Automation
+&lt;/h2&gt;
+
+&lt;p&gt;For more advanced tasks, everything in the developer tools can be automated, via the &lt;a href="https://developer.chrome.com/docs/extensions/reference/automation/"&gt;Automation APIs&lt;/a&gt; using &lt;a href="https://w3c.github.io/webdriver/"&gt;WebDriver Protocol&lt;/a&gt; (which is what tools like &lt;a href="https://www.selenium.dev/documentation/webdriver/bidirectional/chrome_devtools/"&gt;Selenium use&lt;/a&gt;). As an example, see the &lt;a href="https://www.npmjs.com/package/devtools"&gt;webdriver devtools&lt;/a&gt; package.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Familiar Shortcuts
+&lt;/h2&gt;
+
+&lt;p&gt;So almost everything within the browser developer tools has keyboard shortcuts, here's the &lt;a href="https://developer.chrome.com/docs/devtools/shortcuts"&gt;full list&lt;/a&gt;. But if you're struggling to memorise them all, then you can actually switch to familiar VS Code bindings. Under Settings --&amp;gt; Shortcuts, under the Match shortcuts from preset menu, select Visual Studio Code.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Dark Mode
+&lt;/h2&gt;
+
+&lt;p&gt;Finally, but by far the most important tip of all: dev tools dark mode!&lt;/p&gt;
+
+&lt;p&gt;Under Settings --&amp;gt; Preferences --&amp;gt; Appearances --&amp;gt; Theme, use the dropdown to switch from Light to Dark, and immediately 10x your developer experience. Because like they say... bugs are attracted to the light 🐛🔦&lt;/p&gt;
+
+&lt;p&gt;And if you're too cool for the default dark mode, you can write your own stylesheet, then enable the custom loading of CSS! There's a few pre-made stylesheets and an extension available &lt;a href="https://github.com/micjamking/devtools-author"&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Useful Add-Ons
+&lt;/h2&gt;
+
+&lt;p&gt;We're not quite done... so far we've only covered the built-in dev tools, but there are a bunch of super useful add-ons/ extensions&lt;/p&gt;
+
+&lt;p&gt;If you're working with a specific framework (like React, Svelte, Vue, etc), then adding their dev tools with give you additional debugging power over components, state and more. &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi"&gt;React Dev Tools&lt;/a&gt; - Inspect React component hierarchies and profile data&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd"&gt;Redux Dev Tools&lt;/a&gt; - Debug redux data and monitor state changes &lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://chrome.google.com/webstore/detail/graphql-network-inspector/ndlbedplllcgconngcnfmkadhokfaaln"&gt;GraphQL Network Inspector&lt;/a&gt; - Inspect GQL requests with support for relay batching&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd"&gt;Vue Dev Tools&lt;/a&gt; - Debug component hierarchy and state in Vue apps&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://chrome.google.com/webstore/detail/svelte-devtools/ckolcbmkjpjmangdbmnkpjigpkddpogn"&gt;Svelte Dev Tools&lt;/a&gt; - Inspect the Svelte state and component hierarchies &lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://chrome.google.com/webstore/detail/angular-devtools/ienfalfjdbdpebioblfackkekamfmbnh"&gt;Angular Dev Tools&lt;/a&gt; - Preview state of directives of Angular component instances&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://chrome.google.com/webstore/detail/meteor-devtools-evolved/ibniinmoafhgbifjojidlagmggecmpgf"&gt;Meteor Dev Tools&lt;/a&gt; - Debug Meteor apps&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Beyond that, almost everything else can be done nativity / without additional extensions, there's still a few QoL add-ons that can be helpful, but keep in mind, that if you use any of these, you should create a separate Dev profile within your browser, as otherwise they may negatively effect you privacy (installed extensions make you more identifiable).&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href="https://chrome.google.com/webstore/detail/visbug/cdockenadnadldjbbgcallicgledbeoc/"&gt;Visbug&lt;/a&gt; - Interact with and modify any websites, without needing any HTML or CSS knowledge&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk"&gt;Lighthouse&lt;/a&gt; - Automated performance, quality and correctness checker&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://chrome.google.com/webstore/detail/designer-tools/jiiidpmjdakhbgkbdchmhmnfbdebfnhp"&gt;Designer Tools&lt;/a&gt; - Grids and rulers for in-browser measurement and alignment &lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://chrome.google.com/webstore/detail/motion-devtools/mnbliiaiiflhmnndmoidhddombbmgcdk"&gt;Motion Tools&lt;/a&gt; - Inspect and design complex CSS animations&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://chrome.google.com/webstore/detail/perfectpixel-by-welldonec/dkaagdgjmgdmbnecmcefdhjekcoceebi"&gt;Pixel Perfect&lt;/a&gt; - Overlay designs over webpages for building pixel perfect pages&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://chrome.google.com/webstore/detail/cpu-and-memory-performanc/nmpbhigddhbbhopeeagpnnmnihgagbfk"&gt;CPU + Mem Performance Monitor&lt;/a&gt; - Add system resources overlay to sites&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://chrome.google.com/webstore/detail/meta-seo-inspector/ibkclpciafdglkjkcibmohobjkcfkaef"&gt;SEO Inspector&lt;/a&gt; - Easy inspection of Meta tags for SEO&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://chrome.google.com/webstore/detail/save-all-resources/abpdnfjocnmdomablahdcfnoggeeiedb"&gt;Save all Resources&lt;/a&gt; - Easily download everything associated with a site, preserving directory structure&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://chrome.google.com/webstore/detail/multiproxy-tool/olonnmcaipjmcckefehcmaolkpigdjji"&gt;Multi-Proxy&lt;/a&gt; - Connect to multiple proxies (simultaneously) with IP matching and blocking&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://chrome.google.com/webstore/detail/accessibility-insights-fo/pbjjkligggfmakdaogkfomddhfmpjeni"&gt;Accessibility Insights&lt;/a&gt; - Get an overview of accessibile navigation issues&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://chrome.google.com/webstore/detail/check-my-links/ojkcdipcgfaekbeaelaapakgnjflfglf%5D"&gt;Check my Links&lt;/a&gt; - Quickly find and highlight all dead links within a page&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://chrome.google.com/webstore/detail/wappalyzer-technology-pro/gppongmhjkpfnbhagpmjfkannfbllamg"&gt;Weppalizer&lt;/a&gt; - Similar to &lt;a href="https://builtwith.com/"&gt;BuiltWith&lt;/a&gt;, quickly check what tech a site is built using&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://chrome.google.com/webstore/detail/octotree-github-code-tree/bkhaagjahfmjljalopjnoealnfndnagc"&gt;Octotree&lt;/a&gt; - Adds sidebar on GitHub for much easier navigation&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+
+&lt;h2&gt;
+  
+  
+  Are we finished yet?
+&lt;/h2&gt;
+
+&lt;p&gt;Alright, this time I swear it's the last section, but I couldn't resist mentioning this too!&lt;/p&gt;
+
+&lt;p&gt;There is SO MUCH more to the browser developer tools than covered here. Even if you've been a web developer for several decades, I'm pretty sure there's still a whole bunch of handy features that even you've not yet come across. So don't be afraid to go exploring!&lt;/p&gt;
+
+&lt;p&gt;The best features are still experimental. You can try them out by enabling them under Settings --&amp;gt; Experiments. There's a link next to each item where you can view a usage tutorial as well as the API docs.&lt;/p&gt;
+
+&lt;p&gt;Other Browsers:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href="https://firefox-dev.tools/"&gt;Firefox dev tools&lt;/a&gt; has a very similar feature set and layout to Chrome, but includes a few advanced features (around audio, shaders)&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="https://developer.apple.com/safari/tools/"&gt;Safari's developer tools&lt;/a&gt; are lagging behind in terms of features, but are sometimes still required for iOS testing.&lt;/li&gt;
+&lt;li&gt;Other Chromium-based browsers (like Edge, Brave, Vivaldi, etc) inherit from the same source as Chrome, and as such have virtually identical dev tools.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The following sources are great for staying up-to-date with the latest in debug tools:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://developer.chrome.com/tags/new-in-devtools/"&gt;What's New in DevTools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/c/GoogleChromeDevelopers"&gt;Chrome Developers on YouTube&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+      <category>webdev</category>
+      <category>javascript</category>
+      <category>tooling</category>
+      <category>productivity</category>
+    </item>
+  </channel>
+</rss>
