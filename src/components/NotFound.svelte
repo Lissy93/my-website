@@ -38,7 +38,7 @@
       margin: 0.5rem;
       border: 0;
       border-radius: 4px;
-      background: var(--accent-2);
+      background: var(--accent);
       cursor: pointer;
       font-family: RedHatText;
       font-weight: bold;
