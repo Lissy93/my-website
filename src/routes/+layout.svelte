@@ -4,14 +4,24 @@
   import Footer from '$src/components/Footer.svelte';
   import { fade } from 'svelte/transition';
   import { page } from '$app/stores';
+
+  const routeBasedAccent = (pathname?: string) => {
+    const path = pathname || $page.url.pathname;
+    if (path === '/blog') return '#b45eff';
+    if (path === '/home') return '#ff0099';
+    if (path === '/contact') return '#ff0099';
+    if (path === '/projects') return '#b45eff';
+    if (path === '/about') return '#01c0f0';
+    return '#ff0099';
+  };
 </script>
 
 {#if $page.url.pathname !== '/'}
-  <NavBar />
+  <NavBar color={routeBasedAccent($page.url.pathname)} />
 {/if}
 
 {#key $page.url.pathname}
-<main>
+<main style={`--accent: ${routeBasedAccent()}`}>
   <div class="website" in:fade>
     <slot />
   </div>  
@@ -73,7 +83,7 @@
   }
 
   :global(::selection) {
-    background-color: var(--accent-1);
+    background-color: var(--accent);
     color: var(--background);
   }
 </style>
