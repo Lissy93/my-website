@@ -27,13 +27,20 @@ export const fetchPostsFromRss = (RSS_FEEDS: RssUrlList, svelteFetch?: (() => Pr
     return ''
   };
 
+  // Some feeds (aka Mastodon) don't include a title. Make an artificial title from content
+  const makeBackupTitle = (post: RssPost | NotSureYet) => {
+    const desc = findValueFromKeys(post, ['content', 'content:encoded', 'description', 'summary']);
+    const formattedDesc = desc.replace(/<(.|\n)*?>/g, '');
+    return formattedDesc.length > 36 ? formattedDesc.slice(0, 50) + '...' : formattedDesc;
+  };
+
   // This bit is quite messy, but not all RSS feeds have the same key names
   // So we have to check which properties are available for each attribute
   const normalizePosts = (rawPosts: Array<NotSureYet>): RssPosts => {
     const rssPosts: RssPost[] = [];
     rawPosts.forEach((rawPost: NotSureYet) => {
       const post: RssPost = {
-        title: rawPost.title,
+        title: rawPost.title || makeBackupTitle(rawPost),
         description: findValueFromKeys(rawPost, ['content', 'content:encoded', 'description', 'summary']),
         author: getAuthor(rawPost),
         pubDate: findValueFromKeys(rawPost, ['pubDate', 'published', 'date', 'updated']),
@@ -64,6 +71,7 @@ export const fetchPostsFromRss = (RSS_FEEDS: RssUrlList, svelteFetch?: (() => Pr
   const parseXml = (rawRssData: string): RssPosts => {
     const parser = new XMLParser();
     const rssJson = parser.parse(rawRssData);
+    console.log(rssJson);
     const hopefullyHasData = rssJson?.feed?.entry || rssJson?.rss?.channel?.item || [];
     return normalizePosts(hopefullyHasData);
   };
