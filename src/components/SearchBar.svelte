@@ -39,7 +39,7 @@ input {
   outline: none;
   border: var(--card-border);
   padding: 0.25rem 0.5rem;
-  color: var(--accent-1);
+  color: var(--accent);
   font-family: FiraCode;
   font-size: 1rem;
   border-radius: 4px;
