@@ -97,7 +97,7 @@
           display: flex;
           gap: 0.25rem;
           &:hover {
-            background: var(--accent-1);
+            background: var(--accent);
             color: var(--background);
             font-weight: bold;
           }
@@ -124,7 +124,7 @@
       border: var(--card-border);
       transition: all ease-in-out 0.25s;
       &:hover {
-        color: var(--accent-1);
+        color: var(--accent);
       }
     }
   }
