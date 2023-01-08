@@ -42,11 +42,11 @@
   :global(h6) { font-size: 1rem; }
 
   :global(a) {
-    color: var(--accent-1);
+    color: var(--accent);
     transition: all ease-in-out 0.15s;
     font-size: inherit;
     &:hover {
-      color: var(--accent-2);
+      color: var(--accent);
     }
   }
 
