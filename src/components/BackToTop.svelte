@@ -39,7 +39,7 @@
     right: 1rem;
     bottom: 1rem;
     color: var(--background);
-    background: var(--accent-2);
+    background: var(--accent);
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
     font-weight: bold;
