@@ -1,5 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores';
+  export let color: string;
+
   export const navLinks = [
     { title: 'Home', destination: '/' },
     { title: 'Blog', destination: '/blog' },
@@ -9,9 +11,9 @@
   ];
 </script>
 
-<nav>
+<nav style={`--accent: ${color};`}>
   <a class="homepage-link" href="/">
-    <h1>Website</h1>
+    <h1>Website {color}</h1>
   </a>
   <div class="nav-links">
     {#each navLinks as navLink }
@@ -49,7 +51,7 @@
       margin: 0.25rem;
       text-align: center;
       &.active, &:hover {
-        background: var(--accent-2);
+        background: var(--accent);
         color: var(--background);
       }
     }
