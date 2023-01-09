@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from 'svelte';
   import { get } from 'svelte/store';
   import { blogStore } from '$src/store/BlogStore';
   import Loading from '$src/components/Loading.svelte';
@@ -15,7 +16,16 @@
     }
   };
 
+  onMount(async () => {
+    var script = document.createElement('script');
+    script.src = '/wobble.js';
+    document.head.appendChild(script);
+    console.log('Done');
+	});
+
 </script>
+
+<canvas id="canvas"></canvas>
 
 <div class="hero">
   <h1>Alicia Sykes</h1>
@@ -48,6 +58,23 @@
   scroll-behavior: smooth;
 }
 
+canvas {
+//   width: 100vw;
+//   width: 100dvw;
+//   height: 100vh;
+//   height: 100dvh;
+  position: absolute;
+//   z-index: 2;
+}
+
+*:not(canvas){
+  z-index: 1;
+}
+
+// #canvas-shapes {
+//   z-index: 0;
+// }
+
 .hero {
   text-align: center;
   h1 {
@@ -70,7 +97,7 @@
     border-radius: 4px;
     text-decoration: none;
     padding: 0.5rem 1rem;
-    border-left: 4px solid var(--accent-2);
+    border-left: 4px solid var(--accent);
     transition: all ease-in-out 0.25s, transform ease-in-out 0.3s;
     h3 {
       font-size: 2rem;
@@ -80,7 +107,7 @@
       border-left-width: 8px;
       transform: scale(1.02);
       h3 {
-        color: var(--accent-2);
+        color: var(--accent);
       }
     }
   }
