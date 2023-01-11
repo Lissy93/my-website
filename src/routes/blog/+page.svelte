@@ -129,7 +129,7 @@
     font-family: RedHatText;
     font-size: 2.4rem;
     margin: 0.25rem calc(5vw + 1rem);
-    color: var(--accent-2);
+    color: var(--accent);
   }
 
   ul { // Configuration for the blog post grid dimensions
@@ -212,7 +212,7 @@
     button {
       border: none;
       outline: none;
-      background: var(--accent-1);
+      background: var(--accent);
       color: var(--foreground);
       border-radius: 4px;
       margin: 0 0.5rem;

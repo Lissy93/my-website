@@ -1,24 +1,26 @@
 <script lang="ts">
   import { get } from 'svelte/store';
   import { goto } from '$app/navigation';
-  import type { RssPost, RssPosts } from '$src/types/RssXml';
+  import type { RssPost, RssPosts, RssUrlList } from '$src/types/RssXml';
   import { PostStatus } from '$src/types/RssXml';
-  import { blogStore, rssFeedUrls } from '$src/store/BlogStore';
+  import { blogStore, rssFeedUrls, extraFeeds } from '$src/store/BlogStore';
   import { slugify, formatDate } from '$src/helpers/post-utils';
   import type { PageData } from './$types';
   import ArticleContent from '$src/components/ArticleContent.svelte';
   import NotFound from '$src/components/NotFound.svelte';
   import Loading from '$src/components/Loading.svelte';
   import { fetchPostsFromRss } from '$src/helpers/fetch-rss-posts';
-
+  
   export let data: PageData; // Svelte data about current page
+
+  let shouldRetry = true;
 
   let postStatus: PostStatus = PostStatus.Loading; // Will store post status
   const postSlug = data.slug; // The URL slug, to reference blog post
   let postToRender: RssPost | undefined; // Will store the blog post to render
 
-  const triggerPostLoad = () => {
-    const posts: Promise<RssPost[]> = fetchPostsFromRss(get(rssFeedUrls));
+  const triggerPostLoad = (feeds: RssUrlList) => {
+    const posts: Promise<RssPost[]> = fetchPostsFromRss(feeds);
     posts
       .then((resolvedPosts) => {
         postStatus = PostStatus.Ready;
@@ -32,9 +34,15 @@
   const updateStatus = () => {
     if ($blogStore.length === 0) {
       postStatus = PostStatus.Loading;
-      triggerPostLoad()
+      if (shouldRetry) {
+        triggerPostLoad(get(rssFeedUrls));
+      }
     } else if (!postToRender) {
       postStatus = PostStatus.NotFound;
+      if (shouldRetry) {
+        triggerPostLoad(extraFeeds);
+        shouldRetry = false;
+      }
     } else {
       postStatus = PostStatus.Ready;
     }
@@ -119,7 +127,7 @@ article {
     margin: 0.5rem;
     border: 0;
     border-radius: 4px;
-    background: var(--accent-2);
+    background: var(--accent);
     cursor: pointer;
     font-family: RedHatText;
     font-weight: bold;
