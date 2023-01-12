@@ -1,5 +1,6 @@
 import { writable, derived, type Readable } from 'svelte/store';
 import type { RssPosts, RssUrlList } from '$src/types/RssXml';
+import CONFIG from '$src/helpers/config';
 
 export const blogStore = writable<RssPosts>([]);
 
@@ -13,6 +14,10 @@ export const extraFeeds: RssUrlList = [
   { url: '/local-feeds/blogspot.atom', label: 'Blogspot' },
   { url: '/local-feeds/github.atom', label: 'GitHub' },
   { url: '/local-feeds/stackoverflow.atom', label: 'StackOverflow' },
+  { url: '/local-feeds/twitter.atom', label: 'Twitter' },
+  { url: '/local-feeds/reddit.atom', label: 'Reddit' },
+  { url: '/local-feeds/mastodon.atom', label: 'Mastodon' },
+  { url: '/local-feeds/youtube.atom', label: 'YouTube' },
 ];
 
 // RSS Feeds for Testing
