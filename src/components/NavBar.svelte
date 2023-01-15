@@ -1,26 +1,27 @@
 <script lang="ts">
   import { page } from '$app/stores';
+  import { config } from '$src/store/BlogStore';
+  
   export let color: string;
+  export const { routeLinks, routeColors } = config;
+  
+  const findRouteColor = (route: string) => {
+    return routeColors?.find((r) => r.route === route)?.color || color;
+  };
 
-  export const navLinks = [
-    { title: 'Home', destination: '/' },
-    { title: 'Blog', destination: '/blog' },
-    { title: 'Projects', destination: '/projects' },
-    { title: 'About', destination: '/about' },
-    { title: 'Contact', destination: '/contact' },
-  ];
 </script>
 
 <nav style={`--accent: ${color};`}>
   <a class="homepage-link" href="/">
-    <h1>Website {color}</h1>
+    <h1>{config.title}</h1>
   </a>
   <div class="nav-links">
-    {#each navLinks as navLink }
+    {#each routeLinks as navLink }
     <a
-      href={navLink.destination}
+      href={navLink.route}
       data-sveltekit-preload-data="hover"
-      class:active={$page.url.pathname === navLink.destination}>{navLink.title}</a>
+      style={`--accent: ${findRouteColor(navLink.route)};`}
+      class:active={$page.url.pathname === navLink.route}>{navLink.label}</a>
     {/each}
   </div>
 </nav>
