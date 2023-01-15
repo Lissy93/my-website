@@ -4,31 +4,14 @@ import CONFIG from '$src/helpers/config';
 
 export const blogStore = writable<RssPosts>([]);
 
-const initialFeeds: RssUrlList = [
-  { label: 'Notes', url: 'https://notes.aliciasykes.com/feed' },
-];
+export const config = CONFIG;
 
-export const extraFeeds: RssUrlList = [
-  { label: 'Notes', url: 'https://notes.aliciasykes.com/feed' },
-  { url: '/local-feeds/dev-to.atom', label: 'Dev.to' },
-  { url: '/local-feeds/blogspot.atom', label: 'Blogspot' },
-  { url: '/local-feeds/github.atom', label: 'GitHub' },
-  { url: '/local-feeds/stackoverflow.atom', label: 'StackOverflow' },
-  { url: '/local-feeds/twitter.atom', label: 'Twitter' },
-  { url: '/local-feeds/reddit.atom', label: 'Reddit' },
-  { url: '/local-feeds/mastodon.atom', label: 'Mastodon' },
-  { url: '/local-feeds/youtube.atom', label: 'YouTube' },
-];
+// List of RSS feeds to fetch + show on load
+export const initialFeeds: RssUrlList = config.initialFeeds;
+// List of extra feeds, that can be enabled through the UI
+export const extraFeeds: RssUrlList = config.additionalFeeds;
 
-// RSS Feeds for Testing
-// - Dave Steele:					https://davesteele.github.io/feed.xml
-// - Serge Zaitsev:				https://zserge.com/rss.xml
-// - Luke Smith: 					https://lukesmith.xyz/rss.xml
-// - Will Browning				https://willbrowning.me/feed.xml
-// - Octocats							https://octodex.github.com/atom.xml
-// - Rehan Saeed					https://rehansaeed.com/rss.xml
-
-// The list of URLs to RSS feeds to fetch
+// Set the RSS feed URLs to display, to initialFeeds
 export const rssFeedUrls = writable<RssUrlList>(initialFeeds);
 
 // Stores the users search term, for filtering posts
