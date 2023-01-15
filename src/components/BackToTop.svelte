@@ -1,5 +1,6 @@
 <script lang="ts">
   export let showOnPx = 150;
+  export let color = 'var(--accent)';
   let hidden = true;
 
   function goTop() {
@@ -25,8 +26,15 @@
 
 <svelte:window on:scroll={handleOnScroll} />
 
-<!-- svelte-ignore a11y-click-events-have-key-events -->
-<div class="back-to-top" on:click={goTop} class:hidden>↑ Back to top</div>
+<div
+  class="back-to-top"
+  on:click={goTop}
+  on:keypress={goTop}
+  class:hidden
+  style={`--accent: ${color};`}
+>
+  ↑ Back to top
+</div>
 
 <style lang="scss">
   .back-to-top {
