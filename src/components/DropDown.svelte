@@ -41,6 +41,14 @@
     }
   };
 
+  const clearAll = () => {
+    rssFeedUrls.set([]);
+  };
+
+  const selectAll = () => {
+    rssFeedUrls.set(extraFeeds);
+  };
+
 </script>
 
 <div class="dropdown-outer" use:clickOutside on:click_outside={() => { visible = false }}>
@@ -66,6 +74,12 @@
         </li>
       {/each}
       </ul>
+      <div class="quick-all">
+        <ul>
+          <li on:click={clearAll} on:keydown={clearAll}>Clear Checked</li>
+          <li on:click={selectAll} on:keydown={selectAll}>Select All</li>
+        </ul>
+      </div>
     </div>
   {/if}
 </div>
@@ -85,6 +99,7 @@
       border: var(--card-border);
       border-radius: 0 4px 4px;
       box-shadow: 8px 2px 2px #000;
+      min-width: 12rem;
       ul {
         list-style: none;
         padding: 0;
@@ -113,6 +128,14 @@
             opacity: 0.5;
           }
         }
+      }
+      .quick-all ul {
+        display: flex;
+        font-size: 0.75rem;
+        opacity: 0.7;
+        align-items: center;
+        justify-content: space-between;
+        &:hover { opacity: 1 }
       }
     }
     .chevron {
