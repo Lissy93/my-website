@@ -25,7 +25,7 @@ interface SiteConfig {
 
 const config: SiteConfig = {
   title: 'Alicia Sykes',
-  source: '',
+  source: 'https://github.com/lissy93/aggregated-blog',
   initialFeeds: [
     { label: 'Notes', url: 'https://notes.aliciasykes.com/feed' },
   ],
@@ -41,18 +41,18 @@ const config: SiteConfig = {
     { label: 'YouTube', url: '/local-feeds/youtube.atom' },
   ],
   routeLinks: [
-    { label: 'Home', route: '/home' },
+    { label: 'Home', route: '/' },
     { label: 'Blog', route: '/blog' },
     { label: 'Projects', route: '/projects' },
     { label: 'Contact', route: '/contact' },
     { label: 'About', route: '/about' },
   ],
   routeColors: [
-    { route: '/home', color: '#ff0099' },
+    { route: '/', color: '#ff0099' },
     { route: '/blog', color: '#b45eff' },
-    { route: '/about', color: '#01c0f0' },
+    { route: '/about', color: '#1de691' },
     { route: '/contact', color: '#ff0099' },
-    { route: '/projects', color: '#b45eff' },
+    { route: '/projects', color: '#01c0f0' },
   ],
   footerInfo: {
     author: 'Alicia Sykes',
