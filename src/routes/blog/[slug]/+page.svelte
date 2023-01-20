@@ -56,6 +56,16 @@
     return posts.find((post: RssPost) => slugify(post.title) === slug);
   };
 
+  /* Update page title with blog post title, or current state */
+  const makeTitle = () => {
+    let title = 'Blog';
+    if (postToRender?.title) title = postToRender.title;
+    else if (postStatus === PostStatus.Loading) title = 'LoadingPost';
+    else if (postStatus === PostStatus.NotFound) title = 'Post not Found';
+    else if (postStatus === PostStatus.Errored) title = 'Error';
+    return `${title} | Alicia Sykes's Blog`;
+  }
+
   /**
    * Navigate the user back to the main blog page
    */
@@ -75,6 +85,10 @@
     });
   }
 </script>
+
+<svelte:head>
+  <title>{makeTitle()}</title> 
+</svelte:head>
 
 {#if postStatus === PostStatus.Ready && postToRender}
   <article>
