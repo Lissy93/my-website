@@ -124,23 +124,17 @@
 
 <style lang="scss">
   @import "$src/styles/color-palette.scss";
+  @import "$src/styles/dimensions.scss";
 
   h1 {
     font-family: RedHatText;
-    font-size: 2.4rem;
+    font-size: 2.6rem;
     margin: 0.25rem calc(5vw + 1rem);
     color: var(--accent);
   }
 
-  ul { // Configuration for the blog post grid dimensions
-    --grid-item-width: 18rem;
-    --grid-item-min-height: 3.5rem;
-    --grid-item-max-height: 5rem;
-    --grid-item-spacing: 1rem;
-    --grid-max-width: 100rem;
-
+  ul { 
     --dimmed-primary: #ffffff29;
-    --curve-factor: 3px;
   }
   ul {
     display: grid;
@@ -167,7 +161,7 @@
       cursor: pointer;
       transition: all ease-in-out 0.25s, transform ease-in-out 0.3s;
       &:hover {
-        box-shadow: 1px 1px 3px #f093, 6px 6px 6px #ff00990d, 36px 36px 50px #ff009903;
+        box-shadow: 1px 1px 3px var(--accent), 6px 6px 6px #ff00990d, 36px 36px 50px #ff009903;
         transform: scale(1.05);
         time {
           color: var(--foreground);
