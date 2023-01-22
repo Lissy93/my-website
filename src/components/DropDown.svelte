@@ -53,7 +53,7 @@
 
 <div class="dropdown-outer" use:clickOutside on:click_outside={() => { visible = false }}>
   <div class="chevron" on:click={toggle} on:keyup={toggle}>
-    Feeds { visible ? '▲' : '▼'}
+    Sources { visible ? '▲' : '▼'}
   </div>
   {#if visible}
     <div class="dropdown-inner">
