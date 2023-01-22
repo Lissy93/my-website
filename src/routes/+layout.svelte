@@ -4,17 +4,22 @@
   import Footer from '$src/components/Footer.svelte';
   import { fade } from 'svelte/transition';
   import { page } from '$app/stores';
+  import { config } from '$src/store/BlogStore';
 
   const routeBasedAccent = (pathname?: string) => {
     const path = pathname || $page.url.pathname;
-    if (path === '/blog') return '#b45eff';
-    if (path === '/home') return '#ff0099';
-    if (path === '/contact') return '#ff0099';
-    if (path === '/projects') return '#b45eff';
-    if (path === '/about') return '#01c0f0';
-    return '#ff0099';
+    return config.routeColors?.find((rc) => rc.route === path)?.color || '#ff0099';
+  };
+
+  const makeTitle = (pathname: string) => {
+    const route = config.routeLinks.find((rl) => rl.route === pathname);
+    return route ? `${route.label} | ${config.title}` : config.title;
   };
 </script>
+
+<svelte:head>
+    <title>{makeTitle($page.url.pathname)}</title> 
+</svelte:head>
 
 {#if $page.url.pathname !== '/'}
   <NavBar color={routeBasedAccent($page.url.pathname)} />
@@ -28,10 +33,10 @@
 </main>
 {/key}
 
-<BackToTop />
+<BackToTop color={routeBasedAccent($page.url.pathname)} />
 
 {#if $page.url.pathname !== '/'}
-  <Footer />
+  <Footer color={routeBasedAccent($page.url.pathname)} />
 {/if}
 
 
@@ -41,6 +46,7 @@
   @import "$src/styles/color-palette.scss";
   @import "$src/styles/media-queries.scss";
   @import "$src/styles/typography.scss";
+  @import "$src/styles/dimensions.scss";
 
   main {
     min-height: 100%;
