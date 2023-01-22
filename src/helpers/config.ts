@@ -21,6 +21,10 @@ interface SiteConfig {
     licenseLink: string,
     copyright: boolean,
   },
+  githubUser: string, // GitHub username to fetch projects from
+  projects: {
+    repo: string, // GitHub repo name
+  }[],
 };
 
 const config: SiteConfig = {
@@ -31,14 +35,14 @@ const config: SiteConfig = {
   ],
   additionalFeeds: [
     { label: 'Notes', url: 'https://notes.aliciasykes.com/feed' },
-    { label: 'Dev.to', url: '/local-feeds/dev-to.atom' },
-    { label: 'BlogSpot', url: '/local-feeds/blogspot.atom' },
-    { label: 'GitHub', url: '/local-feeds/github.atom' },
-    { label: 'StackOverflow', url: '/local-feeds/stackoverflow.atom' },
-    { label: 'Twitter', url: '/local-feeds/twitter.atom' },
-    { label: 'Reddit', url: '/local-feeds/reddit.atom' },
-    { label: 'Mastodon', url: '/local-feeds/mastodon.atom' },
-    { label: 'YouTube', url: '/local-feeds/youtube.atom' },
+    { label: 'Dev.to', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/dev-to.atom' },
+    { label: 'BlogSpot', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/blogger.atom' },
+    { label: 'GitHub', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/github.atom' },
+    { label: 'StackOverflow', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/stackoverflow.atom' },
+    // { label: 'Twitter', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/___.atom' },
+    { label: 'Reddit', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/reddit.atom' },
+    { label: 'Mastodon', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/mastodon.atom' },
+    { label: 'YouTube', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/youtube.atom' },
   ],
   routeLinks: [
     { label: 'Home', route: '/' },
@@ -61,6 +65,10 @@ const config: SiteConfig = {
     licenseLink: '',
     copyright: true,
   },
+  githubUser: 'lissy93',
+  projects: [
+    { repo: 'aggregated-blog' },
+  ]
 };
 
 export default config;
