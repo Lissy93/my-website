@@ -98,7 +98,7 @@
 
 <style lang="scss">
   .project-card {
-    padding: 0.25rem 0.5rem;
+    padding: 0 0.5rem;
     border: var(--card-border);
     background: var(--card-background);
     border-radius: 4px;

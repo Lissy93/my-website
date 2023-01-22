@@ -1,7 +1,6 @@
 <script lang="ts">
   import ProjectCard from './ProjectCard.svelte';
   import type { Project } from '$src/types/Project';
-  // import DropDown from '$src/components/DropDown.svelte';
   import Saos from '$src/components/Saos.svelte';
 
   export let data;
@@ -76,16 +75,13 @@
           bind:this={searchInputRef}
         />
       </form>
-      <!-- <DropDown /> -->
     </div>
   </div>
 
 
   <div class="project-grid">
   {#each filteredRepos as repo}
-    <Saos
-      animation={'fade-in 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both'}
-      animation_out={'slide-out-fwd-center 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both'}>
+    <Saos once={true} animation={'fade-in 1s cubic-bezier(0.4, 0.6, 0.5, 1.000) both'}>
         <ProjectCard repo={repo} />
     </Saos>
   {/each}
@@ -181,19 +177,6 @@
 
   @keyframes -global-fade-in {
     0% { opacity: 0; }
-    75% { opacity: 0.9; }
     100% {opacity: 1; }
-  }
-
-
-  @keyframes -global-slide-out-fwd-center {
-    0% {
-      transform: translateZ(1);
-      opacity: 1;
-    }
-    100% {
-      transform: translateZ(600px);
-      opacity: 0;
-    }
   }
 </style>
