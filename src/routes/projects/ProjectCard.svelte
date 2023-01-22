@@ -44,11 +44,13 @@
   </h2>
   
   <!-- Project description -->
-  {#if repo.description}
-    <p class="repo-description">{repo.description}</p>
-  {:else}
-    <p><i>A mysterious project, without a description</i></p>
-  {/if}
+  <p class="repo-description">
+    {#if repo.description}
+      {repo.description}
+    {:else}
+      <i>A mysterious project, without a description</i>
+    {/if}
+  </p>
 
   <!-- Project stats -->
   <div class="repo-info">
@@ -132,6 +134,7 @@
       -webkit-box-orient: vertical;
       margin: 0.5rem 0;
       font-family: RedHatText;
+      line-height: 1.5rem;
     }
     .repo-info {
       display: flex;
