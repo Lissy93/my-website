@@ -107,6 +107,7 @@
     justify-content: space-between;
     transition: all 0.2s ease-in-out;
     cursor: default;
+    height: 100%;
     h2 {
       margin: 0;
       display: flex;
