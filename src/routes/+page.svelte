@@ -1,28 +1,29 @@
-<script>
-  import { onMount } from 'svelte';
-  import { get } from 'svelte/store';
-  import { blogStore } from '$src/store/BlogStore';
+<script lang="ts">
+  import { onMount, onDestroy } from 'svelte';
+  import { config } from '$src/store/BlogStore';
   import Loading from '$src/components/Loading.svelte';
 
-  export const tiles = [
-    { title: 'Blog', link: '/blog' },
-  ];
+  export const { routeLinks, routeColors } = config;
 
   export let showLoader = false;
 
-  export const checkIfLoadNeeded = () => {
-    if (get(blogStore).length === 0) {
-      showLoader = true;
-    }
-  };
+  const homePageLinks = routeLinks.filter(rl => rl.route !== '/');
 
   onMount(async () => {
+    document.querySelector('#funky-background-script')?.remove();
     var script = document.createElement('script');
     script.src = '/wobble.js';
+    script.id = 'funky-background-script';
     document.head.appendChild(script);
-    console.log('Done');
 	});
 
+  // onDestroy(async () => {
+  //   document.querySelector('#funky-background-script')?.remove();
+  // });
+
+  const findRouteColor = (route: string) => {
+    return routeColors?.find((r) => r.route === route)?.color || 'var(--accent)';
+  };
 </script>
 
 <canvas id="canvas"></canvas>
@@ -37,18 +38,16 @@
 
 {#if !showLoader}
   <div class="tiles">
-    <a class="tile" href="/blog" on:click={checkIfLoadNeeded}>
-      <h3>Blog</h3>
+    {#each homePageLinks as navLink }
+    <a
+      class="tile"
+      href={navLink.route}
+      style={`--accent: ${findRouteColor(navLink.route)};`}
+      on:click={() => { showLoader = true; }}
+    >
+      <h3>{navLink.label}</h3>
     </a>
-    <a class="tile" href="/projects">
-      <h3>Projects</h3>
-    </a>
-    <a class="tile" href="/about">
-      <h3>About</h3>
-    </a>
-    <a class="tile" href="/contact">
-      <h3>Contact</h3>
-    </a>
+    {/each}
   </div>
 {/if}
 
@@ -59,21 +58,12 @@
 }
 
 canvas {
-//   width: 100vw;
-//   width: 100dvw;
-//   height: 100vh;
-//   height: 100dvh;
   position: absolute;
-//   z-index: 2;
 }
 
 *:not(canvas){
   z-index: 1;
 }
-
-// #canvas-shapes {
-//   z-index: 0;
-// }
 
 .hero {
   text-align: center;
