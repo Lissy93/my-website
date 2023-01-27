@@ -7,6 +7,7 @@
   import SearchBar from '$src/components/SearchBar.svelte';
   import Loading from '$src/components/Loading.svelte';
   import DropDown from '$src/components/DropDown.svelte';
+  import AnimateOnScroll from '$src/components/AnimateOnScroll.svelte';
 
   export let data;
 
@@ -105,18 +106,20 @@
 
 <ul>
   {#each $filtered as post}
-    <li
-      on:click={() => postClicked(post.title)}
-      on:keydown={()=> postClicked(post.title)}
-      title={makeHoverText(post)}
-    >
-      <a href={makeHref(post.title)} rel="noreferrer">
-        {post.title}
-      </a>
-      <time datetime={post.pubDate}>
-        {formatDate(post.pubDate)}
-      </time>
-    </li>
+    <AnimateOnScroll once={true} animation={'fade-in 1s cubic-bezier(0.4, 0.6, 0.5, 1.000) both'}>
+      <li
+        on:click={() => postClicked(post.title)}
+        on:keydown={()=> postClicked(post.title)}
+        title={makeHoverText(post)}
+      >
+        <a href={makeHref(post.title)} rel="noreferrer">
+          {post.title}
+        </a>
+        <time datetime={post.pubDate}>
+          {formatDate(post.pubDate)}
+        </time>
+      </li>
+    </AnimateOnScroll>
   {/each}
 </ul>
 
@@ -160,6 +163,7 @@
       border-radius: var(--curve-factor);
       cursor: pointer;
       transition: all ease-in-out 0.25s, transform ease-in-out 0.3s;
+      height: 100%;
       &:hover {
         box-shadow: 1px 1px 3px var(--accent), 6px 6px 6px #ff00990d, 36px 36px 50px #ff009903;
         transform: scale(1.05);
