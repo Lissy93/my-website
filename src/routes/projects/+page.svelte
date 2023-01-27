@@ -1,7 +1,7 @@
 <script lang="ts">
   import ProjectCard from './ProjectCard.svelte';
   import type { Project } from '$src/types/Project';
-  import Saos from '$src/components/Saos.svelte';
+  import AnimateOnScroll from '$src/components/AnimateOnScroll.svelte';
 
   export let data;
   let searchTerm = '';
@@ -81,9 +81,9 @@
 
   <div class="project-grid">
   {#each filteredRepos as repo}
-    <Saos once={true} animation={'fade-in 1s cubic-bezier(0.4, 0.6, 0.5, 1.000) both'}>
+    <AnimateOnScroll once={true} animation={'fade-in 1s cubic-bezier(0.4, 0.6, 0.5, 1.000) both'}>
         <ProjectCard repo={repo} />
-    </Saos>
+    </AnimateOnScroll>
   {/each}
   </div>
     

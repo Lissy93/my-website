@@ -1,3 +1,4 @@
+
 <script lang="ts">
   import type { Project } from '$src/types/Project';
   import LinkButton from '$src/components/LinkButton.svelte';
@@ -98,7 +99,7 @@
 
 <style lang="scss">
   .project-card {
-    padding: 0 0.5rem;
+    padding: 0.5rem;
     border: var(--card-border);
     background: var(--card-background);
     border-radius: 4px;
