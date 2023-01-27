@@ -100,6 +100,7 @@
       border-radius: 0 4px 4px;
       box-shadow: 8px 2px 2px #000;
       min-width: 12rem;
+      z-index: 1;
       ul {
         list-style: none;
         padding: 0;

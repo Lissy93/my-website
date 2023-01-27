@@ -16,7 +16,7 @@
   footer {
     bottom: 0;
     padding: 0.5rem 1rem;
-    width: calc(100vw - 2rem);
+    width: calc(100vw - 3rem);
     background: var(--card-background);
     p {
       margin: 0;
