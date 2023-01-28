@@ -3,10 +3,10 @@
   import { config } from '$src/store/BlogStore';
   
   export let color: string;
-  export const { routeLinks, routeColors } = config;
+  export const { routeLinks } = config;
   
   const findRouteColor = (route: string) => {
-    return routeColors?.find((r) => r.route === route)?.color || color;
+    return routeLinks?.find((r) => r.route === route)?.color || color;
   };
 
 </script>
