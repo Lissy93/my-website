@@ -8,7 +8,7 @@
 
   const routeBasedAccent = (pathname?: string) => {
     const path = pathname || $page.url.pathname;
-    return config.routeColors?.find((rc) => rc.route === path)?.color || '#ff0099';
+    return config.routeLinks?.find((rc) => rc.route === path)?.color || '#ff0099';
   };
 
   const makeTitle = (pathname: string) => {
