@@ -1,5 +1,6 @@
 
 import type { RssUrlList } from '$src/types/RssXml';
+import type { Usernames } from '$src/types/Socials';
 
 interface SiteConfig {
   title: string, // Website title / name
@@ -9,9 +10,6 @@ interface SiteConfig {
   routeLinks: { // List of route links to show in the navbar
     route: string,
     label: string,
-  }[],
-  routeColors?: { // Accent colors for each route (may be hex code, or CSS variable)
-    route: string,
     color: string,
   }[],
   footerInfo: { // Meta and legal info to display in the footer
@@ -25,6 +23,12 @@ interface SiteConfig {
   projects: {
     repo: string, // GitHub repo name
   }[],
+  contact: {
+    name: string, // Full name associated with contact email
+    email: string, // Email address to display
+    socials: Usernames, // Keyed list of social media usernames
+    socialButtonLimit: number, // Number of social links to show, before show-more clicked
+  },
 };
 
 const config: SiteConfig = {
@@ -39,24 +43,17 @@ const config: SiteConfig = {
     { label: 'BlogSpot', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/blogger.atom' },
     { label: 'GitHub', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/github.atom' },
     { label: 'StackOverflow', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/stackoverflow.atom' },
-    // { label: 'Twitter', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/___.atom' },
+    // { label: 'Twitter', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/twitter.atom' },
     { label: 'Reddit', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/reddit.atom' },
     { label: 'Mastodon', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/mastodon.atom' },
     { label: 'YouTube', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/youtube.atom' },
   ],
   routeLinks: [
-    { label: 'Home', route: '/' },
-    { label: 'Blog', route: '/blog' },
-    { label: 'Projects', route: '/projects' },
-    { label: 'Contact', route: '/contact' },
-    { label: 'About', route: '/about' },
-  ],
-  routeColors: [
-    { route: '/', color: '#ff0099' },
-    { route: '/blog', color: '#b45eff' },
-    { route: '/about', color: '#1de691' },
-    { route: '/contact', color: '#ff0099' },
-    { route: '/projects', color: '#01c0f0' },
+    { label: 'Home', route: '/', color: '#ff0099' },
+    { label: 'Blog', route: '/blog', color: '#b45eff' },
+    { label: 'Projects', route: '/projects', color: '#01c0f0' },
+    { label: 'Contact', route: '/contact', color: '#ff0099' },
+    { label: 'About', route: '/about', color: '#1de691' },
   ],
   footerInfo: {
     author: 'Alicia Sykes',
@@ -68,7 +65,28 @@ const config: SiteConfig = {
   githubUser: 'lissy93',
   projects: [
     { repo: 'aggregated-blog' },
-  ]
+  ],
+  contact: {
+    name: 'Alicia Sykes',
+    email: 'alicia@omg.lol',
+    socials: {
+      Twitter: 'Lissy_Sykes',
+      GitHub: 'Lissy93',
+      'Dev.to': 'Lissy93',
+      Mastodon: '@Lissy93',
+      LinkedIn: 'in/AliciaSykes',
+      Instagram: 'liss.sykes',
+      YouTube: 'AliciaSykes',
+      Reddit: 'lissy93',
+      StackOverflow: '979052/alicia',
+      KeyBase: 'AliciaSykes',
+      Facebook: 'Liss.Sykes',
+      PeerList: 'alicia',
+      CodersRank: 'lissy93',
+      'OMG.lol': 'alicia',
+    },
+    socialButtonLimit: 6,
+  },
 };
 
 export default config;
