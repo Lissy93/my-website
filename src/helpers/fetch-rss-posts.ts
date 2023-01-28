@@ -71,7 +71,6 @@ export const fetchPostsFromRss = (RSS_FEEDS: RssUrlList, svelteFetch?: (() => Pr
   const parseXml = (rawRssData: string): RssPosts => {
     const parser = new XMLParser();
     const rssJson = parser.parse(rawRssData);
-    console.log(rssJson);
     const hopefullyHasData = rssJson?.feed?.entry || rssJson?.rss?.channel?.item || [];
     return normalizePosts(hopefullyHasData);
   };
