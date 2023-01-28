@@ -1,61 +1,65 @@
 <script lang="ts">
 import SocialLink from '$src/components/SocialLink.svelte';
+import type { SupportedSocials, UserSocial, Usernames } from '$src/types/Socials';
+import { socialNetworks } from '$src/helpers/constants';
+import config from '$src/helpers/config';
 
-const socials = [
-  { name: 'Twitter', icon: 'twitter', tone: '#1DA1F2', link: 'https://twitter.com/', user: 'Lissy_Sykes' },
-  { name: 'GitHub', icon: 'github2', tone: '#585858', link: 'https://github.com/', user: 'Lissy93' },
-  { name: 'Dev.to', icon: 'dev-to', tone: '#f1f155', link: 'https://dev.to/', user: 'Lissy93' },
-  { name: 'Mastodon', icon: 'mastodon', tone: '#6364FF', link: 'https://mastodon.social/', user: '@Lissy93' },
-  { name: 'LinkedIn', icon: 'linkedin', tone: '#0A66C2', link: 'https://www.linkedin.com/in/', user: 'AliciaSykes' },
-  { name: 'Instagram', icon: 'instagram', tone: '#E4405F', link: 'https://www.instagram.com/', user: 'liss.sykes' },
-];
+// Static config for contact page
+const { contact } = config;
 
-// 'github',
-//     'website',
-//     'star',
-//     'fork',
-//     'github2',
-//     'dev-to',
-//     'stackoverflow',
-//     'mastodon',
-//     'linkedin',
-//     'youtube',
-//     'twitter',
-//     'reddit',
-//     'keybase',
-//     'matrix',
-//     'email',
-//     'pgp',
+// Dynamically fetched data (social metrics)
+export let data;
+
+// Append usernames to available socials
+let socials: UserSocial[] = socialNetworks.map((social, index) => {
+  const network: typeof SupportedSocials[number] = social.name;
+  return { ...social, user: contact.socials[network] };
+});
+
+// Append metrics to socials
+const metrics = data.props;
+socials.map((social) => {
+  if (social.name === 'Twitter' && metrics.twitter) social.metrics = metrics.twitter;
+  if (social.name === 'Reddit' && metrics.reddit) social.metrics = metrics.reddit;
+  if (social.name === 'GitHub' && metrics.github) social.metrics = metrics.github;
+  if (social.name === 'StackOverflow' && metrics.stackoverflow) social.metrics = metrics.stackoverflow;
+  if (social.name === 'Dev.to' && metrics.devto) social.metrics = metrics.devto;
+  if (social.name === 'CodersRank' && metrics.codersrank) social.metrics = metrics.codersrank;
+  if (social.name === 'Mastodon' && metrics.mastodon) social.metrics = metrics.mastodon;
+  if (social.name === 'KeyBase' && metrics.keybase) social.metrics = metrics.keybase;
+  if (social.name === 'Instagram' && metrics.instagram) social.metrics = metrics.instagram;
+});
+
+// Limit number of socials to display
+let numSocialsToDisplay = contact.socialButtonLimit || 6;
+
+// Show / hide more socials
+const toggleSocialLimit = () => {
+  const defLimit = contact.socialButtonLimit;
+  numSocialsToDisplay = numSocialsToDisplay === defLimit ? socials.length : defLimit;
+};
 
 </script>
 
 <section class="main">
   <div class="social-wrapper">
     <h2>Connect</h2>
-    {#each socials as social}
+    <!-- Links to social media profiles -->
+    <div class="social-buttons">
+    {#each socials.slice(0, numSocialsToDisplay) as social}
       <SocialLink {...social} />
     {/each}
-
-<!-- Twitter: https://twitter.com/Lissy_Sykes
-Instagram: https://www.instagram.com/liss.sykes
-Facebook: https://www.facebook.com/liss.sykes
-LinkedIn: https://www.linkedin.com/in/aliciasykes
-YouTube: https://youtube.com/@AliciaSykes
-YouTube: https://www.youtube.com/c/AliciaSykes
-Reddit: https://www.reddit.com/user/lissy93
-Mastodon:  -->
-
-
-<!-- GitHub: https://github.com/Lissy93
-StackOverflow: https://stackoverflow.com/users/979052/alicia
-Dev.to: https://dev.to/lissy93
-Coders Rank: https://profile.codersrank.io/user/lissy93
-GitStar: https://gitstar-ranking.com/Lissy93 -->
-
+    </div>
+    <!-- Show more/ less button -->
+    {#if socials.length > contact.socialButtonLimit}
+      <button class="toggle-limit" on:click={toggleSocialLimit}>
+        {numSocialsToDisplay > contact.socialButtonLimit ? 'Show Less' : 'Show More'}
+      </button>
+    {/if}
 
   </div>
   <form class="contact-form">
-    <h2>Send me a message</h2>
+    <h2>Message</h2>
     <div class="user-deets">
       <div class="input-group">
         <label for="name">Name</label>
@@ -68,7 +72,6 @@ GitStar: https://gitstar-ranking.com/Lissy93 -->
     </div>
     <label for="message">Message</label>
     <textarea name="message" id="message" rows="5"></textarea>
-
     <button type="submit">Send</button>
   </form>
 </section>
@@ -136,6 +139,11 @@ GitStar: https://gitstar-ranking.com/Lissy93 -->
           box-shadow: 1px 1px 8px #ff00994a;
         }
       }
+      textarea {
+        resize: vertical;
+        min-height: 5rem;
+        max-height: 15rem;
+      }
       label {
         margin-right: 0.5rem;
       }
@@ -145,6 +153,26 @@ GitStar: https://gitstar-ranking.com/Lissy93 -->
           background: var(--accent);
           color: var(--card-background);
         }
+      }
+    }
+    .social-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      transition: all ease-in-out 0.25s;
+    }
+    button.toggle-limit {
+      background: none;
+      border: none;
+      border-radius: var(--curve-factor);
+      color: var(--foreground);
+      font-family: FiraCode, monospace;
+      width: fit-content;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: all ease-in-out 0.1s;
+      &:hover {
+        color: var(--accent);
       }
     }
   }
