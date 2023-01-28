@@ -3,7 +3,7 @@
   import { config } from '$src/store/BlogStore';
   import Loading from '$src/components/Loading.svelte';
 
-  export const { routeLinks, routeColors } = config;
+  export const { routeLinks } = config;
 
   export let showLoader = false;
 
@@ -22,7 +22,7 @@
   // });
 
   const findRouteColor = (route: string) => {
-    return routeColors?.find((r) => r.route === route)?.color || 'var(--accent)';
+    return routeLinks?.find((r) => r.route === route)?.color || 'var(--accent)';
   };
 </script>
 
