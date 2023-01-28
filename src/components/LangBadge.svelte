@@ -57,7 +57,6 @@
   }
 
   const getLangAttributes = (lang: string): LanguageAttributes | null => {
-    if (!badgeConfigs[lang?.toLocaleLowerCase()]) console.log(lang);
     return badgeConfigs[lang?.toLocaleLowerCase()] || null;
   };
 
