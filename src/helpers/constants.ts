@@ -1,5 +1,7 @@
 import type { SocialNetwork } from '$src/types/Socials';
 
+export const emailJsEndpoint = 'https://api.emailjs.com/api/v1.0/email/send';
+
 export const socialNetworks: SocialNetwork[] = [
   { name: 'Twitter', icon: 'twitter', tone: '#1DA1F2', link: 'https://twitter.com/' },
   { name: 'GitHub', icon: 'github2', tone: '#585858', link: 'https://github.com/' },
