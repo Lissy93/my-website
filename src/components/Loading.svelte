@@ -3,8 +3,10 @@
 import { onDestroy } from "svelte";
 import LinkButton from '$src/components/LinkButton.svelte';
 
+export let title: string = ''; // An optional custom title to show
 export let message: string = ''; // An optional custom loading message to show
 export let onlyShowLoading = false; // If set to true, won't show warning if taking too long
+export let hideHomeButton = false; // If set to true, won't show home button if something goes wrong
 
 const times = ['just-now', 'short-while', 'bloody-ages', 'probably-broken'] as const;
 type TimeSpan = typeof times[number];
@@ -29,7 +31,7 @@ onDestroy(()=> {
 </script>
 
 <div class="gotta-be-patient">
-  <h1>Loading</h1>
+  <h1>{ title || 'Loading'}</h1>
   {#if waitingFor === 'just-now' || onlyShowLoading}
     <h2>{ message || 'This shouldn\'t take a sec...' }</h2>
   {:else if waitingFor === 'short-while'}
@@ -42,7 +44,7 @@ onDestroy(()=> {
   
   {#if waitingFor !== 'probably-broken'}
     <span class="loader"></span>
-  {:else}
+  {:else if !hideHomeButton}
     <LinkButton to="/">Go back Home</LinkButton>
   {/if}
 </div>
