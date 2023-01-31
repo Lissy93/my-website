@@ -9,6 +9,7 @@
   import ArticleContent from '$src/components/ArticleContent.svelte';
   import NotFound from '$src/components/NotFound.svelte';
   import Loading from '$src/components/Loading.svelte';
+  import Heading from '$src/components/Heading.svelte';
   import { fetchPostsFromRss } from '$src/helpers/fetch-rss-posts';
   
   export let data: PageData; // Svelte data about current page
@@ -93,7 +94,11 @@
 {#if postStatus === PostStatus.Ready && postToRender}
   <article>
     <button class="back-button" on:click={goBackToPostPage}>← Back</button>
-    <h1>{postToRender.title}</h1>
+    <div class="title">
+      <Heading level="h1" size="2.2rem" font="RedHatText" commandStyle={false} color="var(--foreground)">
+        {postToRender.title || formatDate(postToRender.pubDate) || 'Un-named Update'}
+      </Heading>
+    </div>
     <div class="meta">
       <time
         datetime={postToRender.pubDate}
@@ -130,10 +135,8 @@ article {
   padding: 0 0 1rem 0;
   min-height: 50vh;
 
-  h1 {
-    margin: 0.5rem 1.5rem;
-    font-size: 2.2rem;
-    font-weight: 800;
+  .title {
+    margin: 0 1.5rem;
   }
 
   button.back-button {

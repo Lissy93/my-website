@@ -2,6 +2,7 @@
   import { slide } from 'svelte/transition';
 import { emailJsEndpoint } from '$src/helpers/constants';
 import Loading from '$src/components/Loading.svelte';
+import Heading from '$src/components/Heading.svelte';
 import config from '$src/helpers/config';
 
 // Email form values
@@ -55,7 +56,7 @@ const sendEmail = () => {
 
 
 <form class="contact-form" on:submit={sendEmail}>
-  <h2>send_message</h2>
+  <Heading level="h2">send_message</Heading>
   {#if showMailForm}
   <div class="user-deets">
     <div class="input-group">

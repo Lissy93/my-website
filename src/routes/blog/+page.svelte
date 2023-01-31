@@ -7,6 +7,7 @@
   import SearchBar from '$src/components/SearchBar.svelte';
   import Loading from '$src/components/Loading.svelte';
   import DropDown from '$src/components/DropDown.svelte';
+  import Heading from '$src/components/Heading.svelte';
   import AnimateOnScroll from '$src/components/AnimateOnScroll.svelte';
 
   export let data;
@@ -72,8 +73,9 @@
   };
 </script>
 
-<h1>Blog</h1>
-
+<div class="heading">
+  <Heading>Blog</Heading>
+</div>
 <div class="post-filter-options">
   <div>
     {#if $searchTerm }
@@ -129,11 +131,15 @@
   @import "$src/styles/color-palette.scss";
   @import "$src/styles/dimensions.scss";
 
-  h1 {
-    font-family: RedHatText;
-    font-size: 2.6rem;
-    margin: 0.25rem calc(5vw + 1rem);
-    color: var(--accent);
+  // h1 {
+  //   font-family: RedHatText;
+  //   font-size: 2.6rem;
+  //   margin: 0.25rem calc(5vw + 1rem);
+  //   color: var(--accent);
+  // }
+
+  .heading {
+    margin: 0 calc(5vw + 1rem);
   }
 
   ul { 

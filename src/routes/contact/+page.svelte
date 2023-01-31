@@ -5,6 +5,7 @@ import { socialNetworks } from '$src/helpers/constants';
 import config from '$src/helpers/config';
 
 import SocialLink from '$src/components/SocialLink.svelte';
+import Heading from '$src/components/Heading.svelte';
 import EmailForm from './EmailForm.svelte';
 import PGPKeys from './PgpKeys.svelte';
 
@@ -34,7 +35,7 @@ const toggleSocialLimit = () => {
 
 <section class="main">
   <div class="social-wrapper">
-    <h2>lets_connect</h2>
+    <Heading level="h2">lets_connect</Heading>
     <!-- Links to social media profiles -->
     <div class="social-buttons">
     {#each socials.slice(0, numSocialsToDisplay) as social}
@@ -55,15 +56,6 @@ const toggleSocialLimit = () => {
 
 <style lang="scss">
 
-  h2 {
-    font-size: 2rem;
-    margin: 1rem 0;
-    color: var(--accent);
-    &:before {
-      content: ">";
-      margin-right: 6px;
-    }
-  }
   section.main {
     width: 90vw;
     margin: 2rem auto 1rem auto;

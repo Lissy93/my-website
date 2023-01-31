@@ -1,6 +1,7 @@
 
 <script>
   import { slide } from 'svelte/transition';
+  import Heading from '$src/components/Heading.svelte';
 
   import config from '$src/helpers/config';
 
@@ -21,7 +22,7 @@
 </script>
 
 <div class="pgp-container">
-  <h2>keys</h2>
+  <Heading level="h2">keys</Heading>
 
   {#each keys as key}
     <div class="key-row">

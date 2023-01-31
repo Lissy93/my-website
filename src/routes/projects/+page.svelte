@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Heading from '$src/components/Heading.svelte';
   import ProjectCard from './ProjectCard.svelte';
   import type { Project } from '$src/types/Project';
   import AnimateOnScroll from '$src/components/AnimateOnScroll.svelte';
@@ -53,7 +54,9 @@
 <svelte:window on:keydown={handleKeydown} />
 
 <section>
-  <h1>Projects</h1>
+  <div class="title">
+    <Heading level="h2" size="2.5rem">projects</Heading>
+  </div>
 
   <div class="post-filter-options">
     <div>
@@ -97,11 +100,8 @@
     text-align: left;
     width: 100%;
   }
-  h1 {
-    font-family: RedHatText;
-    font-size: 2.5rem;
-    margin: 0.25rem calc(5vw + 1rem);
-    color: var(--accent);
+  .title {
+    margin: 0 calc(5vw + 1rem);
   }
   .project-grid {
     display: grid;
