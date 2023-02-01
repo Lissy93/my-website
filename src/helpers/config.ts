@@ -38,6 +38,11 @@ interface SiteConfig {
     },
     pgpPublicKey: string, // PGP public key to display
   },
+  about: {
+    intro: string,
+    bio: string[],
+    picture: string,
+  },
 };
 
 // {
@@ -146,6 +151,34 @@ const config: SiteConfig = {
       =dpLK
       -----END PGP PUBLIC KEY BLOCK-----
 `,
+  },
+  about: {
+    intro: 'Just your average dev...',
+    bio: [
+      'I\'m Alicia, a London-based software engineer.',
+
+      `I have a particular interest in privacy-respecting software, as well as security.
+      I've carried out a few audits, and authored the initial versions of
+      <a href="https://github.com/Lissy93/personal-security-checklist">Personal Security Checklist</a>
+      and <a href="https://github.com/Lissy93/awesome-privacy">Awesome Privacy</a>.`,
+
+      `I enjoy going to (<a href="https://notes.aliciasykes.com/p/0s5s3uOtKj">and sometimes winning!</a>) hackathons.
+      And if you're London-based, you'll probably have bumped into me at a tech meetup.`,
+
+      `I love Linux, and (imo) have a neat
+      <a href="https://github.com/lissy93/dotfiles">dotfiles setup</a> which I'm always tweaking.
+      And I have a small homelab, that I'm using to learn more about system administration,
+      and host my own services to (attempt to) escape big tech.
+      I made <a href="https://github.com/Lissy93/dashy">dashboard app</a> for it.
+      `,
+
+      `For work, I'm a principal software engineer at <a href="https://and.digital/">AND.Digital</a>,
+      where I work across various client projects, help to upskill and mentor junior and mid-level
+      developers and ensure that the code we're delivering is the best it can be.`,
+
+      `Away from the keyboard, I like sports, hanging out with friends, and going to Church.`,
+    ],
+    picture: 'https://i.ibb.co/svxHFMD/alicia-sykes-3.jpg',
   },
 };
 
