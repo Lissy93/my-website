@@ -16,4 +16,6 @@ export interface Project {
   forks: number;
   issues: number;
   topics: string[];
+  thumbnail?: string;
+  hidden?: boolean;
 };
