@@ -20,8 +20,9 @@ interface SiteConfig {
     copyright: boolean,
   },
   githubUser: string, // GitHub username to fetch projects from
-  projects: {
-    repo: string, // GitHub repo name
+  projectComplimentaryData: {
+    name: string, // GitHub repo name
+    thumbnail: string, // URL to thumbnail image
   }[],
   contact: {
     name: string, // Full name associated with contact email
@@ -44,13 +45,6 @@ interface SiteConfig {
     picture: string,
   },
 };
-
-// {
-//   service_id: 'gmail',
-//   template_id: 'website-contact-form',
-//   user_id: 'user_K6F041q1dQvz8SJLSOZCR',
-//   template_params: templateParams,
-// };
 
 const config: SiteConfig = {
   title: 'Alicia Sykes',
@@ -84,8 +78,16 @@ const config: SiteConfig = {
     copyright: true,
   },
   githubUser: 'lissy93',
-  projects: [
-    { repo: 'aggregated-blog' },
+  projectComplimentaryData: [
+    { name: 'quick-example-of-testing-in-nodejs', thumbnail: 'https://i.ibb.co/WDpBStz/better-test3.png' },
+    // { name: 'personal-security-checklist', thumbnail: 'https://repository-images.githubusercontent.com/123631418/75bac380-b260-11ea-8cc4-c2272744feab' },
+    { name: 'dashy', thumbnail: 'https://repository-images.githubusercontent.com/343078060/82f850a2-b1af-4e9f-9245-c92700d74856' },
+    { name: 'awesome-privacy', thumbnail: 'https://repository-images.githubusercontent.com/512269935/6b38d78e-6e4d-484e-bbc8-e0dd81c97e0a' },
+    { name: 'email-comparison', thumbnail: 'https://i.ibb.co/f8ZfxmW/email-comparison-screenshot.png' },
+    { name: 'twitter-sentiment-visualisation', thumbnail: 'https://i.ibb.co/W0f10Vv/sentiment-sweep-grid.png' },
+    { name: 'espanso-config', thumbnail: 'https://repository-images.githubusercontent.com/362820466/b1ef9380-a909-11eb-9d34-2aaf94ed5d95' },
+    { name: '', thumbnail: '' },
+    { name: '', thumbnail: '' },
   ],
   contact: {
     name: 'Alicia Sykes',
