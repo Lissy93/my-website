@@ -7,6 +7,14 @@
 
   export let repo: Project;
 
+  let isScootched = !!repo.thumbnail;
+
+  const scootch = (newState?: boolean) => {
+    if (!repo.thumbnail) return false;
+    else if (newState === undefined) isScootched = !isScootched;
+    else isScootched = !newState;
+  };
+
   /* Make large numbers easier to read, with commas */
   const putCommasInBigNum = (bigNum: number): string => {
     return bigNum.toLocaleString();
@@ -20,23 +28,30 @@
 
   /* Get amount of time ago (e.g. 5 days, 1 year) */
   const calculateTimeAgo = (inputDate: string) => {
-  const seconds = Math.floor((new Date().getTime() - new Date(inputDate).getTime()) / 1000);  
-  const intervals = [31536000, 2592000, 86400, 3600, 60];
-  const intervalNames = ['year', 'month', 'day', 'hour', 'minute'];
+    const seconds = Math.floor((new Date().getTime() - new Date(inputDate).getTime()) / 1000);  
+    const intervals = [31536000, 2592000, 86400, 3600, 60];
+    const intervalNames = ['year', 'month', 'day', 'hour', 'minute'];
 
-  for (let i = 0; i < intervals.length; i++) {
-    const interval = Math.floor(seconds / intervals[i]);
-    if (interval >= 1) {
-      return `${interval} ${intervalNames[i]}${interval > 1 ? 's' : ''} ago`;
+    for (let i = 0; i < intervals.length; i++) {
+      const interval = Math.floor(seconds / intervals[i]);
+      if (interval >= 1) {
+        return `${interval} ${intervalNames[i]}${interval > 1 ? 's' : ''} ago`;
+      }
     }
+    return `${Math.floor(seconds)} seconds ago`;
   }
-  return `${Math.floor(seconds)} seconds ago`;
-}
 
 </script>
 
 
-<div class="project-card">
+<div class="project-card {isScootched ? 'scootch' : repo.thumbnail ? 'fixed' : ''}"
+  on:mouseenter={() => scootch(true)} on:mouseleave={() => scootch(false)}
+  >
+
+  <!-- Optional thumbnail -->
+  {#if repo.thumbnail}
+    <div class="thumbnail" style={`background-image: url(${repo.thumbnail})`}></div>
+  {/if}
   
   <!-- Project name, and fork badge if applicable -->
   <h2>
@@ -106,9 +121,23 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.15s ease-in-out;
     cursor: default;
     height: 100%;
+    max-height: 18rem;
+    &.fixed {
+      height: 16rem;
+    }
+    .thumbnail {
+      width: 100%;
+      height: 120px;
+      background-size: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: all 0.15s ease-in-out;
+      border-radius: var(--curve-factor);
+      height: 0;
+    }    
     h2 {
       margin: 0;
       display: flex;
@@ -137,6 +166,7 @@
       margin: 0.5rem 0;
       font-family: RedHatText;
       line-height: 1.5rem;
+      transition: all 0.15s ease-in-out;
     }
     .repo-info {
       display: flex;
@@ -144,7 +174,7 @@
       align-items: center;
       justify-content: inherit;
       opacity: 0.65;
-      transition: all 0.2s ease-in-out;
+      transition: all 0.15s ease-in-out;
       .info-item {
         display: flex;
         gap: 0.25rem;
@@ -171,6 +201,19 @@
     &:hover {
       .repo-info {
         opacity: 1;
+      }
+    }
+    &.scootch {
+      height: 16rem;
+      .thumbnail {
+        height: 150px;
+      }
+      .repo-description {
+        -webkit-line-clamp: 1;
+        margin: 0;
+      }
+      .view-buttons {
+        display: none;
       }
     }
   }
