@@ -3,6 +3,8 @@ import type { Project } from '$src/types/Project';
 
 const makeProjectList = async (ghResponse: any): Promise<Project[]> => {
   return ghResponse.map((repo: any) => {
+    const projectComplimentaryData =
+      config.projectComplimentaryData.find((p) => p.name.toLocaleLowerCase() === repo.name) || {};
       return {
         id: repo.id,
         name: repo.name,
@@ -20,6 +22,7 @@ const makeProjectList = async (ghResponse: any): Promise<Project[]> => {
         forks: repo.forks_count,
         issues: repo.open_issues_count,
         topics: repo.topics,
+        ...projectComplimentaryData, // Append and merge with any hard-coded data from config
       }
   })
   .sort((a, b) => {
