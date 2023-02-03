@@ -9,6 +9,7 @@
   export let bottom = 0;
   export let css_observer = "";
   export let css_animation = "";
+  export let style = '';
 
   const dispatch = createEventDispatcher();
   $: dispatch('update', {'observing': observing});
@@ -59,7 +60,7 @@
   });
 </script>
 
-<div id={countainer} style={css_observer}>
+<div id={countainer} style={css_observer + style}>
   {#if observing}
     <div style="animation: {animation}; {css_animation}">
       <slot />

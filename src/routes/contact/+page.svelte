@@ -61,7 +61,7 @@ const toggleSocialLimit = () => {
     margin: 2rem auto 1rem auto;
     text-align: left;
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
     flex-wrap: wrap;
     h2 {
       font-size: 2rem;

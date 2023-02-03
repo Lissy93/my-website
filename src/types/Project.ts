@@ -18,4 +18,5 @@ export interface Project {
   topics: string[];
   thumbnail?: string;
   hidden?: boolean;
+  featured?: boolean;
 };

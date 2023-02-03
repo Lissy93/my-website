@@ -49,6 +49,8 @@
     }
   }
 
+  const isSpan = (repo: Project) => repo.featured ? 'grid-row-start: span 2; grid-column-start: span 2;' : '';
+
 </script>
 
 <svelte:window on:keydown={handleKeydown} />
@@ -84,7 +86,9 @@
 
   <div class="project-grid">
   {#each filteredRepos as repo}
-    <AnimateOnScroll once={true} animation={'fade-in 1s cubic-bezier(0.4, 0.6, 0.5, 1.000) both'}>
+    <AnimateOnScroll
+      once={true} animation={'fade-in 1s cubic-bezier(0.4, 0.6, 0.5, 1.000) both'} style={isSpan(repo)}
+      >
         <ProjectCard repo={repo} />
     </AnimateOnScroll>
   {/each}

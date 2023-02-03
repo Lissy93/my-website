@@ -44,7 +44,7 @@
 </script>
 
 
-<div class="project-card {isScootched ? 'scootch' : repo.thumbnail ? 'fixed' : ''}"
+<div class="project-card {isScootched ? 'scootch' : repo.thumbnail ? 'fixed' : ''} {repo.featured ? 'featured' : ''}"
   on:mouseenter={() => scootch(true)} on:mouseleave={() => scootch(false)}
   >
 
@@ -124,8 +124,10 @@
     transition: all 0.15s ease-in-out;
     cursor: default;
     height: 100%;
-    max-height: 18rem;
-    &.fixed {
+    &:not(.featured) {
+      max-height: 18rem;
+    }
+    &.fixed:not(.featured) {
       height: 16rem;
     }
     .thumbnail {
@@ -203,7 +205,7 @@
         opacity: 1;
       }
     }
-    &.scootch {
+    &.scootch:not(.featured) {
       height: 16rem;
       .thumbnail {
         height: 150px;
@@ -214,6 +216,20 @@
       }
       .view-buttons {
         display: none;
+      }
+    }
+    &.featured {
+      height: 100%;
+      .thumbnail {
+        height: 80%;
+        min-height: 200px;
+      }
+      .repo-description {
+        -webkit-line-clamp: 4;
+        margin: 0.5rem 0;
+      }
+      .view-buttons {
+        // display: none;
       }
     }
   }

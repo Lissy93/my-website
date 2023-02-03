@@ -81,7 +81,7 @@ const config: SiteConfig = {
   projectComplimentaryData: [
     { name: 'quick-example-of-testing-in-nodejs', thumbnail: 'https://i.ibb.co/WDpBStz/better-test3.png' },
     // { name: 'personal-security-checklist', thumbnail: 'https://repository-images.githubusercontent.com/123631418/75bac380-b260-11ea-8cc4-c2272744feab' },
-    { name: 'dashy', thumbnail: 'https://repository-images.githubusercontent.com/343078060/82f850a2-b1af-4e9f-9245-c92700d74856' },
+    { name: 'dashy', featured: true, thumbnail: 'https://repository-images.githubusercontent.com/343078060/82f850a2-b1af-4e9f-9245-c92700d74856' },
     { name: 'awesome-privacy', thumbnail: 'https://repository-images.githubusercontent.com/512269935/6b38d78e-6e4d-484e-bbc8-e0dd81c97e0a' },
     { name: 'email-comparison', thumbnail: 'https://i.ibb.co/f8ZfxmW/email-comparison-screenshot.png' },
     { name: 'twitter-sentiment-visualisation', thumbnail: 'https://i.ibb.co/W0f10Vv/sentiment-sweep-grid.png' },
