@@ -76,14 +76,29 @@ const scootch = (newState?: boolean) => {
     {/if}
     <!-- Star count -->
     {#if repo.stars > 3}
-    <div class="info-item">
-      {putCommasInBigNum(repo.stars)} <Icon name="star" color="var(--foreground)" />
+    <div class="info-item star-count" title="{repo.stars} Stars">
+      {putCommasInBigNum(repo.stars)} <Icon name="star" color="var(--foreground)" hoverColor="var(--warning)" />
     </div>
     {/if}
     <!-- Fork count -->
     {#if repo.forks > 1}
-    <div class="info-item">
+    <div class="info-item fork-count" title="{repo.forks} Forks">
       {putCommasInBigNum(repo.forks)} <Icon name="fork" color="var(--foreground)" />
+    </div>
+    {/if}
+    {#if repo.issues > 0 && repo.featured}
+    <div class="info-item issue-count" title="{repo.issues} Open Issues">
+      {putCommasInBigNum(repo.issues)} <Icon name="issue" color="var(--foreground)" />
+    </div>
+    {/if}
+    {#if repo.license && (repo.featured || repo.stars <= 3)}
+    <div class="info-item license-type" title="Licensed under {repo.license}">
+      {repo.license.replace('License', '')} <Icon name="license" color="var(--foreground)" />
+    </div>
+    {/if}
+    {#if repo.size && repo.featured}
+    <div class="info-item size-value" title="Size: {repo.size} KB">
+      {Math.round(repo.size/1024)} mb <Icon name="size" color="var(--foreground)" />
     </div>
     {/if}
     <!-- Dates created and last updated -->
@@ -114,7 +129,7 @@ const scootch = (newState?: boolean) => {
 
 <style lang="scss">
   .project-card {
-    padding: 0.5rem;
+    // padding: 0.5rem;
     border: var(--card-border);
     background: var(--card-background);
     border-radius: 4px;
@@ -124,6 +139,9 @@ const scootch = (newState?: boolean) => {
     transition: all 0.15s ease-in-out;
     cursor: default;
     height: 100%;
+    h2, .repo-description, .repo-info, .view-buttons {
+      padding: 0.5rem;
+    }
     &:not(.featured) {
       max-height: 18rem;
     }
@@ -195,7 +213,6 @@ const scootch = (newState?: boolean) => {
       }
     }
     .view-buttons {
-      padding: 0.5rem 0;
       display: flex;
       gap: 1rem;
       justify-content: space-between;
@@ -204,6 +221,11 @@ const scootch = (newState?: boolean) => {
       .repo-info {
         opacity: 1;
       }
+      .star-count :global(svg path) { fill: var(--warning); }
+      .fork-count :global(svg path) { fill: var(--success); }
+      .issue-count :global(svg path) { fill: var(--error); }
+      .license-type :global(svg path) { fill: var(--info); }
+      .size-value :global(svg path) { fill: var(--misc); }
     }
     &.scootch:not(.featured) {
       height: 16rem;
@@ -227,9 +249,6 @@ const scootch = (newState?: boolean) => {
       .repo-description {
         -webkit-line-clamp: 4;
         margin: 0.5rem 0;
-      }
-      .view-buttons {
-        // display: none;
       }
     }
   }
