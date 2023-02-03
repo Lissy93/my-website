@@ -50,6 +50,7 @@ export const fetchPostsFromRss = (RSS_FEEDS: RssUrlList, svelteFetch?: (() => Pr
       }
       rssPosts.push(post);
     });
+    console.log(rssPosts);
     return rssPosts;
   };
 

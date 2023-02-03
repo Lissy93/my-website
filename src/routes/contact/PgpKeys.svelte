@@ -58,12 +58,13 @@
       }
     }
     .pgp-key {
+      margin: 1rem 0;
       white-space: pre;
+      font-size: 0.75rem;
+      padding: 0.5rem 1rem;
+      color: var(--dimmed-text);
       background: var(--card-background);
       border-radius: var(--curve-factor);
-      padding: 0.5rem 1rem;
-      font-size: 0.75rem;
-      margin: 1rem 0;
     }
     .key-row {
       display: flex;

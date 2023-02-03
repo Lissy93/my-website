@@ -85,6 +85,7 @@
       updateStatus();
     });
   }
+
 </script>
 
 <svelte:head>

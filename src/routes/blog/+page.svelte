@@ -131,13 +131,6 @@
   @import "$src/styles/color-palette.scss";
   @import "$src/styles/dimensions.scss";
 
-  // h1 {
-  //   font-family: RedHatText;
-  //   font-size: 2.6rem;
-  //   margin: 0.25rem calc(5vw + 1rem);
-  //   color: var(--accent);
-  // }
-
   .heading {
     margin: 0 calc(5vw + 1rem);
   }

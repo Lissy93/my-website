@@ -2,10 +2,11 @@ import { config } from '$src/store/BlogStore';
 import type { Project } from '$src/types/Project';
 
 const makeProjectList = async (ghResponse: any): Promise<Project[]> => {
+  if (!ghResponse || !Array.isArray(ghResponse)) return [];
   return ghResponse.map((repo: any) => {
     const projectComplimentaryData =
-      config.projectComplimentaryData.find((p) => p.name.toLocaleLowerCase() === repo.name) || {};
-      return {
+    config.projectComplimentaryData.find((p) => p.name.toLocaleLowerCase() === repo.name) || {};  
+    return {
         id: repo.id,
         name: repo.name,
         user: repo.owner.login,

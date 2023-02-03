@@ -86,9 +86,7 @@
 
   <div class="project-grid">
   {#each filteredRepos as repo}
-    <AnimateOnScroll
-      once={true} animation={'fade-in 1s cubic-bezier(0.4, 0.6, 0.5, 1.000) both'} style={isSpan(repo)}
-      >
+    <AnimateOnScroll once={true} animation={'fade-in 1s cubic-bezier(0.4, 0.6, 0.5, 1.000) both'}>
         <ProjectCard repo={repo} />
     </AnimateOnScroll>
   {/each}

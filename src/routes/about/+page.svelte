@@ -22,19 +22,24 @@
     {/each}  
   </section>
 
-  <section class="ugly-picture">
-    <img src={picture} alt="Users profile" />
-    <div class="pages">
+  <div class="sec-wrap">
+    <section class="ugly-picture">
+      <img src={picture} alt="Users profile" />
+    </section>
+
+    <section class="pages">
       {#each morePages as page}
         <a href={page.route} style={`--page-color: ${page.color}`}>{page.label}</a>
       {/each}
-    </div>
-  </section>
+    </section>
+  </div>
 
 </div>
 
 
 <style lang="scss">
+@import "$src/styles/media-queries.scss";
+
 .heading {
   margin: 1rem calc(5vw + 1rem) 0;
 }
@@ -44,6 +49,12 @@
   gap: 1rem;
   margin: 1rem auto;
   max-width: calc(90% - 1rem);
+  @include tablet-down {
+    flex-wrap: wrap;
+    .ugly-picture img {
+      max-width: 250px;
+    }
+  }
 }
 
 section {
@@ -72,7 +83,7 @@ section {
   }
   &.ugly-picture {
     max-width: 300px;
-    height: fit-content;
+    height: 100%;
     text-align: center;
     img {
       width: 100%;
@@ -81,8 +92,7 @@ section {
     }
   }
 
-  .pages {
-    margin: 1rem 0;
+  &.pages {
     opacity: 0.7;
     &:hover { opacity: 1; }
     a {
@@ -99,7 +109,13 @@ section {
       }
     }
   }
-  
+}
+
+.sec-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 </style>

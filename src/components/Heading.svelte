@@ -26,6 +26,7 @@ $: computedClasses = (blinkCursor ? 'blink-cursor ' : '')
 <style lang="scss">
   h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
+    transition: all .25s ease-in-out;
     font-family: var(--headingFont, FiraCode);
     color: var(--headingColor, var(--accent));
     &.command-style:before {

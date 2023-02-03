@@ -10,7 +10,8 @@ interface SiteConfig {
   routeLinks: { // List of route links to show in the navbar
     route: string,
     label: string,
-    color: string,
+    color?: string,
+    description?: string,
   }[],
   footerInfo: { // Meta and legal info to display in the footer
     author: string,
@@ -65,10 +66,10 @@ const config: SiteConfig = {
   ],
   routeLinks: [
     { label: 'Home', route: '/', color: '#ff0099' },
-    { label: 'Blog', route: '/blog', color: '#b45eff' },
-    { label: 'Projects', route: '/projects', color: '#01c0f0' },
-    { label: 'Contact', route: '/contact', color: '#ff0099' },
-    { label: 'About', route: '/about', color: '#1de691' },
+    { label: 'Blog', route: '/blog', color: '#b45eff', description: 'Published articles, notes, tutorials and updates' },
+    { label: 'Projects', route: '/projects', color: '#01c0f0', description: 'Personal projects and open source work' },
+    { label: 'Contact', route: '/contact', color: '#ff0099', description: 'Social profile links, GPG keys and contact form' },
+    { label: 'About', route: '/about', color: '#1de691', description: 'Bio and professional experience' },
   ],
   footerInfo: {
     author: 'Alicia Sykes',

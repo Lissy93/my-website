@@ -9,11 +9,11 @@
 
   let isScootched = !!repo.thumbnail;
 
-  const scootch = (newState?: boolean) => {
-    if (!repo.thumbnail) return false;
-    else if (newState === undefined) isScootched = !isScootched;
-    else isScootched = !newState;
-  };
+const scootch = (newState?: boolean) => {
+  if (!repo.thumbnail) return false;
+  else if (newState === undefined) isScootched = !isScootched;
+  else isScootched = !newState;
+};
 
   /* Make large numbers easier to read, with commas */
   const putCommasInBigNum = (bigNum: number): string => {
@@ -28,18 +28,18 @@
 
   /* Get amount of time ago (e.g. 5 days, 1 year) */
   const calculateTimeAgo = (inputDate: string) => {
-    const seconds = Math.floor((new Date().getTime() - new Date(inputDate).getTime()) / 1000);  
-    const intervals = [31536000, 2592000, 86400, 3600, 60];
-    const intervalNames = ['year', 'month', 'day', 'hour', 'minute'];
+  const seconds = Math.floor((new Date().getTime() - new Date(inputDate).getTime()) / 1000);  
+  const intervals = [31536000, 2592000, 86400, 3600, 60];
+  const intervalNames = ['year', 'month', 'day', 'hour', 'minute'];
 
-    for (let i = 0; i < intervals.length; i++) {
-      const interval = Math.floor(seconds / intervals[i]);
-      if (interval >= 1) {
-        return `${interval} ${intervalNames[i]}${interval > 1 ? 's' : ''} ago`;
-      }
+  for (let i = 0; i < intervals.length; i++) {
+    const interval = Math.floor(seconds / intervals[i]);
+    if (interval >= 1) {
+      return `${interval} ${intervalNames[i]}${interval > 1 ? 's' : ''} ago`;
     }
-    return `${Math.floor(seconds)} seconds ago`;
   }
+  return `${Math.floor(seconds)} seconds ago`;
+}
 
 </script>
 

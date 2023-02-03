@@ -2,6 +2,7 @@
   import { onMount, onDestroy } from 'svelte';
   import { config } from '$src/store/BlogStore';
   import Loading from '$src/components/Loading.svelte';
+  import Heading from '$src/components/Heading.svelte';
 
   export const { routeLinks } = config;
 
@@ -45,13 +46,15 @@
       style={`--accent: ${findRouteColor(navLink.route)};`}
       on:click={() => { showLoader = true; }}
     >
-      <h3>{navLink.label}</h3>
+      <Heading level="h3" size="2rem" color="currentcolor">{navLink.label}</Heading>
+      <p class="subtitle">{navLink.description}</p>
     </a>
     {/each}
   </div>
 {/if}
 
 <style lang="scss">
+@import "$src/styles/media-queries.scss";
 
 :global(html) {
   scroll-behavior: smooth;
@@ -80,26 +83,40 @@ canvas {
   max-width: 70rem;
   margin: auto;
   padding: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 1rem;
+  width: 80vw;
+  @include tablet-down {
+    display: flex;
+    flex-direction: column;
+  }
   a.tile {
     color: var(--foreground);
     border: var(--card-border);
     background: var(--card-background);
     border-radius: 4px;
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    padding: 1.5rem 1rem;
     border-left: 4px solid var(--accent);
     transition: all ease-in-out 0.25s, transform ease-in-out 0.3s;
-    h3 {
-      font-size: 2rem;
-      transition: all .25s ease-in-out;
+    overflow: hidden;
+
+    p.subtitle {
+      position: absolute;
+      color: var(--dimmed-text);
+      margin: 0;
+      transform: translateX(-20rem) translateY(2rem) scale(0.5) rotate(5deg);
+      transition: all ease-in-out 0.2s;
+      opacity: 0;
     }
+    
     &:hover {
+      :global(h3) { color: var(--accent); }
       border-left-width: 8px;
       transform: scale(1.02);
-      h3 {
-        color: var(--accent);
+      p.subtitle {
+        transform: translateX(0) translateY(-0.75rem) scale(1) rotate(0);
+        opacity: 1;
       }
     }
   }
