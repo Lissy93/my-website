@@ -50,7 +50,7 @@ export const fetchPostsFromRss = (RSS_FEEDS: RssUrlList, svelteFetch?: (() => Pr
       }
       rssPosts.push(post);
     });
-    console.log(rssPosts);
+    // console.log(rssPosts);
     return rssPosts;
   };
 
@@ -78,6 +78,7 @@ export const fetchPostsFromRss = (RSS_FEEDS: RssUrlList, svelteFetch?: (() => Pr
 
   // Fetches data from an RSS endpoint, and initiates the parsing of the XML
   const fetchSinglePost = async (rssUrl: string) => {
+    console.log('fetching', rssUrl);
     const fetchMethod = svelteFetch || fetch;
     return fetchMethod(rssUrl)
       .then((response) => response.text())

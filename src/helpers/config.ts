@@ -24,6 +24,11 @@ interface SiteConfig {
   projectComplimentaryData: {
     name: string, // GitHub repo name
     thumbnail: string, // URL to thumbnail image
+    featured?: boolean, // If true, project will displayed in large size
+  }[],
+  postComplimentaryData: { // Optional extra data to attach to posts
+    title: string, // Post title to attach to
+    thumbnail: string, // URL to thumbnail image
   }[],
   contact: {
     name: string, // Full name associated with contact email
@@ -89,6 +94,9 @@ const config: SiteConfig = {
     { name: 'espanso-config', thumbnail: 'https://repository-images.githubusercontent.com/362820466/b1ef9380-a909-11eb-9d34-2aaf94ed5d95' },
     { name: '', thumbnail: '' },
     { name: '', thumbnail: '' },
+  ],
+  postComplimentaryData: [
+    { title: 'CLI tools you cant live without', thumbnail: 'https://i.ibb.co/WDpBStz/better-test3.png' },
   ],
   contact: {
     name: 'Alicia Sykes',

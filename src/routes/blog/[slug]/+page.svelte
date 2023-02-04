@@ -14,7 +14,8 @@
   
   export let data: PageData; // Svelte data about current page
 
-  let shouldRetry = true;
+  let fetchedPrimary = false;
+  let fetchedExtra = false;
 
   let postStatus: PostStatus = PostStatus.Loading; // Will store post status
   const postSlug = data.slug; // The URL slug, to reference blog post
@@ -35,14 +36,15 @@
   const updateStatus = () => {
     if ($blogStore.length === 0) {
       postStatus = PostStatus.Loading;
-      if (shouldRetry) {
+      if (!fetchedPrimary) {
         triggerPostLoad(get(rssFeedUrls));
+        fetchedPrimary = true;
       }
     } else if (!postToRender) {
       postStatus = PostStatus.NotFound;
-      if (shouldRetry) {
+      if (!fetchedExtra) {
         triggerPostLoad(extraFeeds);
-        shouldRetry = false;
+        fetchedExtra = true;
       }
     } else {
       postStatus = PostStatus.Ready;
