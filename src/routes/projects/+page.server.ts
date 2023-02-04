@@ -1,4 +1,5 @@
 import { config } from '$src/store/BlogStore';
+import { GITHUB_TOKEN } from '$env/static/private';
 import type { Project } from '$src/types/Project';
 
 const makeProjectList = async (ghResponse: any): Promise<Project[]> => {
@@ -34,10 +35,11 @@ const makeProjectList = async (ghResponse: any): Promise<Project[]> => {
 /** @type {import('./$types').PageLoad} */
 export async function load({ fetch }) {
   const githubApiUrl = `https://api.github.com/users/${config.githubUser}/repos?per_page=100`;
-  const repos = await fetch(githubApiUrl)
+  const githubRequest = {
+    headers: GITHUB_TOKEN ? { Authorization: `Bearer ${GITHUB_TOKEN}`} : {},
+  };
+  const repos = await fetch(githubApiUrl, githubRequest)
   .then((res: any) => res.json())
   .then(makeProjectList);
-  return {
-    repos,
-  };
+  return { repos };
 }

@@ -1,14 +1,14 @@
+
+import { TWITTER_TOKEN, GITHUB_TOKEN } from '$env/static/private';
 import type { SocialMetric } from '$src/types/Socials';
 import config from '$src/helpers/config';
-
-const twitterBearerToken = 'AAAAAAAAAAAAAAAAAAAAAPwAlgEAAAAAxW95qCdkgURKybZRUGdgCZ2ZWM0%3DS5QivX7gI8jhbtP1J72KXbNXTjd9C7QTFnEhXJ2g5Nnm6cdNNf';
 
 export const _getTwitterInfo = async (username: string) => {
   const twitterEndpoint = `https://api.twitter.com/2/users/by/username/${username}?user.fields=public_metrics`;
   return await fetch(
     twitterEndpoint,
     { headers: {
-      Authorization: `Bearer ${twitterBearerToken}`,
+      Authorization: `Bearer ${TWITTER_TOKEN}`,
       "Content-Type": "application/x-www-form-urlencoded",
     } }
   )
@@ -48,7 +48,10 @@ export const _getRedditInfo = async (username: string) => {
 
 export const _getGithubInfo = async (username: string) => {
   const githubEndpoint = `https://api.github.com/users/${username}`;
-  return await fetch(githubEndpoint)
+  const githubRequest = { headers: {
+    Authorization: `Bearer ${GITHUB_TOKEN}`,
+  } };
+  return await fetch(githubEndpoint, githubRequest)
   .then((res) => res.json())
   .then((stats) => {
     if (stats.public_repos) {
