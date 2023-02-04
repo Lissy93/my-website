@@ -1,4 +1,5 @@
 import { XMLParser } from 'fast-xml-parser';
+import config from '$src/helpers/config';
 import type { RssPost, RssPosts, RssUrlList } from '$src/types/RssXml';
 
 // Datatype for JSON parsed from RSS
@@ -34,6 +35,14 @@ export const fetchPostsFromRss = (RSS_FEEDS: RssUrlList, svelteFetch?: (() => Pr
     return formattedDesc.length > 36 ? formattedDesc.slice(0, 50) + '...' : formattedDesc;
   };
 
+  // Since RSS is a bit limited, we can manually attach extra data to certain posts
+  const appendAdditionalInfo = (post: RssPost) => {
+    const extraInfo = config.postComplimentaryData || [];
+    const makeRef = (ref: string) => ref.toLocaleLowerCase().replace(/\W+/g, '') || '___';
+    const match = extraInfo.find((info) => makeRef(post.title).includes(makeRef(info.postRef)));
+    return match || {};
+  };
+
   // This bit is quite messy, but not all RSS feeds have the same key names
   // So we have to check which properties are available for each attribute
   const normalizePosts = (rawPosts: Array<NotSureYet>): RssPosts => {
@@ -48,7 +57,7 @@ export const fetchPostsFromRss = (RSS_FEEDS: RssUrlList, svelteFetch?: (() => Pr
         tags: findValueFromKeys(rawPost, ['tags', 'category']),
         thumbnail: '',
       }
-      rssPosts.push(post);
+      rssPosts.push({ ...post, ...appendAdditionalInfo(post) });
     });
     // console.log(rssPosts);
     return rssPosts;

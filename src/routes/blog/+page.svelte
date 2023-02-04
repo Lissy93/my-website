@@ -108,12 +108,19 @@
 
 <ul>
   {#each $filtered as post}
-    <AnimateOnScroll once={true} animation={'fade-in 1s cubic-bezier(0.4, 0.6, 0.5, 1.000) both'}>
+    <AnimateOnScroll once={true}
+      animation={'fade-in 1s cubic-bezier(0.4, 0.6, 0.5, 1.000) both'}
+      style={post.thumbnail ? 'grid-row-start: span 2' : ''}
+    >
       <li
         on:click={() => postClicked(post.title)}
         on:keydown={()=> postClicked(post.title)}
         title={makeHoverText(post)}
       >
+        {#if post.thumbnail}
+          <div class="thumbnail" style={`background-image: url(${post.thumbnail})`}></div>
+          <!-- <img src={post.thumbnail} /> -->
+        {/if}
         <a href={makeHref(post.title)} rel="noreferrer">
           {post.title}
         </a>
@@ -151,7 +158,7 @@
       display: flex;
       flex-direction: column;
       min-height: var(--grid-item-min-height);
-      max-height: var(--grid-item-max-height);
+      // max-height: var(--grid-item-max-height);
       font-size: 1.2rem;
       line-height: 1.5;
       overflow: hidden;
@@ -184,6 +191,15 @@
         color: var(--dimmed-text);
         font-family: RedHatText;
         transition: color 0.75s ease-in-out;
+      }
+      .thumbnail {
+        width: 100%;
+        height: 120px;
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: all 0.15s ease-in-out;
+        border-radius: var(--curve-factor);
       }
     }
   }

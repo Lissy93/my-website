@@ -27,7 +27,7 @@ interface SiteConfig {
     featured?: boolean, // If true, project will displayed in large size
   }[],
   postComplimentaryData: { // Optional extra data to attach to posts
-    title: string, // Post title to attach to
+    postRef: string, // Post title to attach to
     thumbnail: string, // URL to thumbnail image
   }[],
   contact: {
@@ -96,7 +96,12 @@ const config: SiteConfig = {
     { name: '', thumbnail: '' },
   ],
   postComplimentaryData: [
-    { title: 'CLI tools you cant live without', thumbnail: 'https://i.ibb.co/WDpBStz/better-test3.png' },
+    { postRef: 'CLI tools you cant live without', thumbnail: 'https://i.ibb.co/F4THZ2T/cli-tools-banner.png' },
+    { postRef: '20 git commands', thumbnail: 'https://i.ibb.co/yqtrTTS/git-commands-banner.png' },
+    { postRef: 'useful css resources', thumbnail: 'https://i.ibb.co/CMxy3tz/css-resources-2.png' },
+    { postRef: '', thumbnail: '' },
+    { postRef: '', thumbnail: '' },
+    { postRef: '', thumbnail: '' },
   ],
   contact: {
     name: 'Alicia Sykes',
