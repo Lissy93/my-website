@@ -140,6 +140,7 @@
   }
   ul {
     display: grid;
+    grid-auto-flow: dense;
     grid-template-columns: repeat(auto-fit, minmax(var(--grid-item-width), 1fr));
     gap: var(--grid-item-spacing);
     padding: var(--grid-item-spacing);

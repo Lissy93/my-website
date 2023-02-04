@@ -80,6 +80,7 @@ canvas {
 
 .tiles {
   display: grid;
+  grid-auto-flow: dense;
   max-width: 70rem;
   margin: auto;
   padding: 1rem;
