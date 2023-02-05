@@ -11,6 +11,7 @@
   import Loading from '$src/components/Loading.svelte';
   import Heading from '$src/components/Heading.svelte';
   import { fetchPostsFromRss } from '$src/helpers/fetch-rss-posts';
+  import config from '$src/helpers/config';
   
   export let data: PageData; // Svelte data about current page
 
@@ -61,12 +62,18 @@
 
   /* Update page title with blog post title, or current state */
   const makeTitle = () => {
-    let title = 'Blog';
+    let title = 'Read Article';
     if (postToRender?.title) title = postToRender.title;
-    else if (postStatus === PostStatus.Loading) title = 'LoadingPost';
+    else if (postStatus === PostStatus.Loading) title = 'Loading Post';
     else if (postStatus === PostStatus.NotFound) title = 'Post not Found';
     else if (postStatus === PostStatus.Errored) title = 'Error';
     return `${title} | Alicia Sykes's Blog`;
+  }
+
+  const makeDescription = () => {
+    return postToRender ?
+      postToRender?.description.replace(/<\/?[^>]+(>|$)/g, '').substring(0, 200)+'...'
+      : 'Read this article, and many more on Alicia Sykes\'s blog';
   }
 
   /**
@@ -88,10 +95,36 @@
     });
   }
 
+  $:title = makeTitle();
+  $:description = makeDescription();
+
 </script>
 
 <svelte:head>
-  <title>{makeTitle()}</title> 
+  <!-- Primary Meta Tags -->
+  <title>{title}</title>
+  <meta name="title" content={title}>
+  <meta name="description" content={description}>
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content={config.baseUrl}>
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  
+  <!-- Image, if present -->
+  {#if postToRender?.thumbnail}
+    <meta property="og:image" content={postToRender?.thumbnail}>
+    <meta property="twitter:image" content={postToRender?.thumbnail}>
+  {/if}
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content={config.baseUrl}>
+  <meta property="twitter:title" content={title}>
+  <meta property="twitter:description" content={description}>
+  
+
 </svelte:head>
 
 {#if postStatus === PostStatus.Ready && postToRender}

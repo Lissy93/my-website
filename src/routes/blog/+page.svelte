@@ -119,7 +119,6 @@
       >
         {#if post.thumbnail}
           <div class="thumbnail" style={`background-image: url(${post.thumbnail})`}></div>
-          <!-- <img src={post.thumbnail} /> -->
         {/if}
         <a href={makeHref(post.title)} rel="noreferrer">
           {post.title}

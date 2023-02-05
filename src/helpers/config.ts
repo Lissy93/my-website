@@ -5,6 +5,7 @@ import type { Usernames } from '$src/types/Socials';
 interface SiteConfig {
   title: string, // Website title / name
   source: string, // Link to project source (e.g. on GitHub)
+  baseUrl: string, // The URL where the site is hosted
   initialFeeds: RssUrlList, // List of RSS feeds to fetch + show on load
   additionalFeeds: RssUrlList, // List of all available feeds to add to filter dropdown
   routeLinks: { // List of route links to show in the navbar
@@ -55,6 +56,7 @@ interface SiteConfig {
 const config: SiteConfig = {
   title: 'Alicia Sykes',
   source: 'https://github.com/lissy93/aggregated-blog',
+  baseUrl: 'https://as93.net',
   initialFeeds: [
     { label: 'Notes', url: 'https://notes.aliciasykes.com/feed' },
   ],
