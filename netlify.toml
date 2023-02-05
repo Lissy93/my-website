@@ -1,0 +1,24 @@
+# Confliguration file for deploying Devolio to Netlify
+# Without the need to set anything in through the UI
+# Docs: https://netlify.com/docs/netlify-toml-reference/
+
+# Main site config
+[build]
+  base = "/"
+  command = "npm run build"
+  publish = "build/"
+  functions = "functions/"
+
+# Meta config, for the 1-Click deploy listing
+[template.environment]
+  STATUSKIT_PAGE_TITLE = "Devolio"
+  STATUSKIT_COMPANY_LOGO = "https://github.com/Lissy93/devolio/raw/master/static/pwa/android-chrome-512x512.png"
+  STATUSKIT_SUPPORT_CONTACT_LINK = "https://github.com/lissy93/devolio"
+  STATUSKIT_RESOURCES_LINK = "https://github.com/lissy93/devolio"
+
+# Set any security headers here
+[[headers]]
+  for = "/*"
+  [headers.values]
+  # Uncomment to enable Netlify user control. Requires premium plan.
+  # Basic-Auth = "someuser:somepassword anotheruser:anotherpassword"
