@@ -172,9 +172,12 @@
       height: 100%;
       &:hover {
         box-shadow: 1px 1px 3px var(--accent), 6px 6px 6px #ff00990d, 36px 36px 50px #ff009903;
-        transform: scale(1.05);
+        transform: scale(1.025);
         time {
           color: var(--foreground);
+        }
+        .thumbnail {
+          background-size: 110%;
         }
       }
       a {
@@ -197,7 +200,7 @@
         background-size: 100%;
         background-position: center;
         background-repeat: no-repeat;
-        transition: all 0.15s ease-in-out;
+        transition: all 0.35s ease-in-out;
         border-radius: var(--curve-factor);
       }
     }

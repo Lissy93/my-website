@@ -143,9 +143,11 @@
       </time>
       <p class="view-original">
         {#if postToRender.author}
-        Published by {postToRender.author},
+          Published by {postToRender.author},
         {/if}
-        View <a href={postToRender.link} title="Read: {postToRender.title}">original</a>
+        {#if postToRender.link && postToRender.link.length > 5}
+          View <a href={postToRender.link} title="Read: {postToRender.title}">original</a>
+        {/if}
       </p>
     </div>
     <div class="article-content">
