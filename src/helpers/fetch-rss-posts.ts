@@ -24,8 +24,7 @@ export const fetchPostsFromRss = (RSS_FEEDS: RssUrlList, svelteFetch?: (() => Pr
   // Author data structure in RSS varies, so check if it's a string/ object of summin else
   const getAuthor = (dataMass: NotSureYet) => {
     if (dataMass.author && typeof dataMass.author === 'string') return dataMass.author;
-    if (dataMass.author?.name) return dataMass.author?.name;
-    return ''
+    return dataMass.author?.name || dataMass['dc:creator'] || '';
   };
 
   // Some feeds (aka Mastodon) don't include a title. Make an artificial title from content
@@ -55,11 +54,10 @@ export const fetchPostsFromRss = (RSS_FEEDS: RssUrlList, svelteFetch?: (() => Pr
         pubDate: findValueFromKeys(rawPost, ['pubDate', 'published', 'date', 'updated']),
         link: findValueFromKeys(rawPost, ['link', 'guid']),
         tags: findValueFromKeys(rawPost, ['tags', 'category']),
-        thumbnail: '',
+        thumbnail: findValueFromKeys(rawPost, ['media:thumbnail']) || '',
       }
       rssPosts.push({ ...post, ...appendAdditionalInfo(post) });
     });
-    // console.log(rssPosts);
     return rssPosts;
   };
 
@@ -87,7 +85,6 @@ export const fetchPostsFromRss = (RSS_FEEDS: RssUrlList, svelteFetch?: (() => Pr
 
   // Fetches data from an RSS endpoint, and initiates the parsing of the XML
   const fetchSinglePost = async (rssUrl: string) => {
-    console.log('fetching', rssUrl);
     const fetchMethod = svelteFetch || fetch;
     return fetchMethod(rssUrl)
       .then((response) => response.text())

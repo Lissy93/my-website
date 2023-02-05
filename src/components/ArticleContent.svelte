@@ -11,6 +11,8 @@
 
 .article-content {
 
+  overflow-x: auto;
+
   :global(p),
   :global(a),
   :global(li),
