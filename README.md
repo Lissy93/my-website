@@ -12,14 +12,79 @@
 </p>
 
 
+<details>
+<summary><b>Contents</b></summary>
+
+<!-- TOC start -->
+- [**About**](#about)
+  * [Intro](#intro)
+  * [Pages](#pages)
+    + [Portfolio](#portfolio)
+    + [Blog](#blog)
+    + [Contact](#contact)
+    + [About](#about-1)
+  * [Quality Gates](#quality-gates)
+  * [Tech Stack](#tech-stack)
+- [**Getting Started**](#getting-started)
+  * [Developing](#developing)
+  * [Deploying](#deploying)
+  * [Configuring](#configuring)
+    + [Basic Data](#basic-data)
+    + [Secrets](#secrets)
+    + [Styles](#styles)
+    + [Languages](#languages)
+    + [More](#more)
+- [**Community**](#community)
+  * [Report an Issue](#report-an-issue)
+  * [Contributing](#contributing)
+  * [Support](#support)
+  * [Credits](#credits)
+- [**License**](#license)
+<!-- TOC end -->
+
+</details>
+
+
 ## About
 
-#### Intro
+### Intro
 Devolio is a self-hosted developer homepage, where you can showcase your projects, blog posts, coding stats and more.<br>
 Data fetched from existing sources (GitHub, RSS, Dev.to etc), so there's no backend to manage.<br>
 It's easy to make it your own, with custom styles and a simple config file.<br>
 
-#### Quality Gates
+### Pages
+
+The app is split into several pages: [Portfolio](#portfolio) | [Blog](#blog) | [Contact](#contact) | [About](#about-1)
+
+#### Portfolio
+The portfolio page displays the projects you've built. Data is fetched from your GitHub profile. 
+
+Each project can include: name, description, thumbnail, language, star/fork/issue count, license, size, date create/updated and links to the repo and project website. Featured projects can be made to span multiple cells, in order to display more info. When a thumbnail is present, the user can hover over the card to view full details.
+
+You can add or override any project data in the config file, as well as manually add more projects.
+
+#### Blog
+The blog page displays posts that you've published. Data is fetched and aggregated from one or more RSS feeds defined in the config. Post content is rendered as HTML, as well as metadata including author, date, link to original and optional thumbnail.
+
+Start typing to filter results, and use the keyboard to navigate posts.
+
+There's also the option to include secondary feeds, which can be toggled by the user using the dropdown menu. This may be useful for including less important updates, without them cluttering up your main feed.
+
+#### Contact
+The contact page includes links to social profiles, a contact form, and space for GPG keys.
+
+Hover over the social media links, to show relevant user stats, like follower count, karma/ rep, join date and more.
+
+The contact form let's users write you a message, and include their name + mail address. Upon sending, the message will be emailed to you, using [EmailJS](https://emailjs.com).
+
+There's also space for including PGP key, and links to encrypted messenger apps.
+
+#### About
+The about page has space for a short bio, profile image, and work experience.
+
+### Features
+
+### Quality Gates
 ✅ Localized with multi-language support<br>
 ✅ Unit tested<br>
 ✅ Fast load speeds<br>
@@ -27,13 +92,14 @@ It's easy to make it your own, with custom styles and a simple config file.<br>
 ✅ Meets accessibility standards<br>
 ✅ Fully responsive<br>
 
-#### Tech Stack
+### Tech Stack
 Built with Svelte, using SvelteKit (1.0.0) and written in TypeScript.
 The build system is Vite/ Rollup, with dependencies managed with PNPM.
 Standards implemented with ESLint and Prettier, with testing done using Vitest and Playwright.
 Styles are composed in SCSS with CSS variables for theming.
 There's an optional Dockerfile with a Deno web server.
 
+---
 
 ## Getting Started
 
@@ -52,24 +118,62 @@ pnpm run dev -- --open
 
 ### Deploying
 - Fork the repo, then follow the steps above to clone and install dependencies
-- Make any desired changes
-  - Edit the main config, in [`config.ts`](#)
-  - Add any API keys to [`.env`](#)
-  - Modify the theme within [`styles/`](#)
+- Make any desired changes (see [Configuring](#configuring) below)
 - Push changes to your repository
 - Enable the build action, to deploy to a service of your choice
 
 You can also build the site yourself `pnpm build`, then preview locally with `pnpm preview`.
 To deploy, upload the output of `.sveltekit/output` to your server, or use an appropriate [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
 
-## Report an Issue
+### Configuring
+
+#### Basic Data
+All site data is located in [`config.ts`](https://github.com/Lissy93/devolio/blob/master/src/helpers/config.ts). Here you can specify site name, URLs to RSS feeds, GitHub username to fetch projects from, contact details, etc.
+
+#### Secrets
+Sensitive data, like API keys are set as environmental variables. These can either be set in the [`.env`](https://github.com/Lissy93/devolio/blob/master/.env) file, or in the admin panel for your hosting provider (e.g. for Netlify: Site settings --> Environmental Variables)
+
+Accepted Values
+- `GITHUB_TOKEN` - A scoped API key for fetching repositories, and displaying social stats on the contact page. Optional, but you may experience rate limits if not specified
+- `TWITTER_TOKEN` - Bearer token for showing follower count on the contact page.
+
+#### Styles
+Style values are managed with CSS variables, for easy configuration. These values are defined in the SCSS files within [`styles/`](https://github.com/Lissy93/devolio/tree/master/src/styles). For more advanced theming, you can edit the content of the `<style>` blocks within individual routes and components.
+
+Variables are split into the following files:
+- `color-palette.scss` - Colors
+- `dimensions.scss` - Sizes
+- `media-queries.scss` - Breakpoints
+- `typography.scss` - Fonts
+
+
+#### Languages
+The app is fully translatable, with all hard-coded copy located in [`locales`](#). The users language can be detected automatically based on browser/ OS preference, or manually set using the dropdown in the UI. To add a new language, simply create a new file named by your locale's ISO code, populate the contents (use `en` as a template), then import it in [`app`](#).
+
+Currently, the following languages are supported:
+- English (`en-GB`)
+
+#### More
+If you'd like to configure anything else, then it should be pretty straight-forward by directly editing the specific routes or components. If you need any help with any of this, feel free to raise an issue :)
+
+---
+
+## Community
+
+### Report an Issue
 Found something that's not working? [Open an issue](https://github.com/Lissy93/devolio/issues/new/choose), and describe the problem, steps to reproduce alond with expected and actual output. If relevant, also include details about your environment. I'll try and fix / respond to any tickets within 48-hours.
 
-## Contributing
-Contributions of any kind are very welcome, and would be much appreiciated.
+### Contributing
+Contributions of any kind are very welcome, and would be much appreciated.
 For Code of Conduct, see [Contributor Convent](https://www.contributor-covenant.org/version/2/1/code_of_conduct/).
 
 To get started, fork the repo, make your changes, add, commit and push the code, then come back here to open a pull request. If you're new to GitHub or open source, [this guide](https://www.freecodecamp.org/news/how-to-make-your-first-pull-request-on-github-3#let-s-make-our-first-pull-request-) or the [git docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) may help you get started, but feel free to reach out if you need any support.
+
+### Support
+
+### Credits
+
+---
 
 ## License
 
