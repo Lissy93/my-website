@@ -1,57 +1,5 @@
 
-import type { RssUrlList } from '$src/types/RssXml';
-import type { Usernames } from '$src/types/Socials';
-
-interface SiteConfig {
-  title: string, // Website title / name
-  source: string, // Link to project source (e.g. on GitHub)
-  baseUrl: string, // The URL where the site is hosted
-  initialFeeds: RssUrlList, // List of RSS feeds to fetch + show on load
-  additionalFeeds: RssUrlList, // List of all available feeds to add to filter dropdown
-  routeLinks: { // List of route links to show in the navbar
-    route: string,
-    label: string,
-    color?: string,
-    description?: string,
-  }[],
-  footerInfo: { // Meta and legal info to display in the footer
-    author: string,
-    authorSite: string,
-    license: string,
-    licenseLink: string,
-    copyright: boolean,
-  },
-  githubUser: string, // GitHub username to fetch projects from
-  projectComplimentaryData: {
-    name: string, // GitHub repo name
-    thumbnail: string, // URL to thumbnail image
-    featured?: boolean, // If true, project will displayed in large size
-  }[],
-  postComplimentaryData: { // Optional extra data to attach to posts
-    postRef: string, // Post title to attach to
-    thumbnail: string, // URL to thumbnail image
-  }[],
-  contact: {
-    name: string, // Full name associated with contact email
-    email: string, // Email address to display
-    socials: Usernames, // Keyed list of social media usernames
-    socialButtonLimit: number, // Number of social links to show, before show-more clicked
-    mailerConfig: { // Config for sending mail client-side via emailjs
-      service_id: string, // The ID of the service to use
-      template_id: string, // The ID of the template to use
-      user_id: string, // The users ID / public key
-      template_params: {
-        [key: string]: string, // And additional template params
-      },
-    },
-    pgpPublicKey: string, // PGP public key to display
-  },
-  about: {
-    intro: string,
-    bio: string[],
-    picture: string,
-  },
-};
+import type { SiteConfig } from '$src/types/Config';
 
 const config: SiteConfig = {
   title: 'Alicia Sykes',
@@ -71,12 +19,13 @@ const config: SiteConfig = {
     { label: 'Mastodon', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/mastodon.atom' },
     { label: 'YouTube', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/youtube.atom' },
   ],
+
   routeLinks: [
-    { label: 'Home', route: '/', color: '#ff0099' },
-    { label: 'Blog', route: '/blog', color: '#b45eff', description: 'Published articles, notes, tutorials and updates' },
-    { label: 'Projects', route: '/projects', color: '#01c0f0', description: 'Personal projects and open source work' },
-    { label: 'Contact', route: '/contact', color: '#ff0099', description: 'Social profile links, GPG keys and contact form' },
-    { label: 'About', route: '/about', color: '#1de691', description: 'Bio and professional experience' },
+    { label: 'Home', route: '/', color: 'var(--accent-1, #ff0099)' },
+    { label: 'Blog', route: '/blog', color: 'var(--accent-2, #b45eff)', description: 'Published articles, notes, tutorials and updates' },
+    { label: 'Projects', route: '/projects', color: 'var(--accent-3, #01c0f0)', description: 'Personal projects and open source work' },
+    { label: 'Contact', route: '/contact', color: 'var(--accent-1, #ff0099)', description: 'Social profile links, GPG keys and contact form' },
+    { label: 'About', route: '/about', color: 'var(--accent-4, #1de691)', description: 'Bio and professional experience' },
   ],
   footerInfo: {
     author: 'Alicia Sykes',
@@ -86,6 +35,54 @@ const config: SiteConfig = {
     copyright: true,
   },
   githubUser: 'lissy93',
+  defaultTheme: 'dark',
+  colorSchemes: {
+    dark: {
+      primary: '#ff0099',
+    },
+    light: {
+      primary: '#ff0099',
+      secondary: '#b45eff',
+      accent: '#01c0f0',
+    },
+    callisto: {
+      background: '#0B1021',
+      foreground: '#f8f8f2',
+      'card-background': '#060913',
+      primary: '#00CCB4',
+    },
+    ugly: {
+      background: 'red',
+      foreground: 'blue',
+      accent: 'green',
+    },
+
+
+      // Core, background, foreground
+  // --background: #101010;
+  // --foreground: #fafafa;
+  // --dimmed-text: #808080;
+  
+  // // Special component colors
+  // --card-background: #1b1b1b;
+  // --card-border: 1px solid #2a2a2a;
+  // --code-background: #333;
+  
+  // // Accent colors (can vary based on route)
+  // --accent: #01c0f0;
+  // --accent-1: #ff0099;
+  // --accent-2: #b45eff;
+  // --accent-3: #01c0f0;
+  // --accent-4: #1de691;
+  
+  // // Action colors
+  // --info: #35c9fa;
+  // --success: #88ff88;
+  // --warning: #ece715;
+  // --error: #f80363;
+  // --misc: #b45eff;
+
+  },
   projectComplimentaryData: [
     { name: 'quick-example-of-testing-in-nodejs', thumbnail: 'https://i.ibb.co/WDpBStz/better-test3.png' },
     // { name: 'personal-security-checklist', thumbnail: 'https://repository-images.githubusercontent.com/123631418/75bac380-b260-11ea-8cc4-c2272744feab' },
