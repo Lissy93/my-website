@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores';
   import { config } from '$src/store/BlogStore';
+  import ThemeSwitcher from '$src/components/ThemeSwitcher.svelte';
   
   export let color: string;
   export const { routeLinks } = config;
@@ -23,6 +24,7 @@
       style={`--accent: ${findRouteColor(navLink.route)};`}
       class:active={$page.url.pathname === navLink.route}>{navLink.label}</a>
     {/each}
+    <ThemeSwitcher />
   </div>
 </nav>
 
