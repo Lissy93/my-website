@@ -84,7 +84,6 @@
   @import "$src/styles/media-queries.scss";
   @import "$src/styles/typography.scss";
   @import "$src/styles/dimensions.scss";
-  @import "$src/styles/themes.scss";
 
   main {
     min-height: 100%;
