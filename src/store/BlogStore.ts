@@ -1,14 +1,10 @@
 import { writable, derived, type Readable } from 'svelte/store';
 import type { RssPosts, RssUrlList } from '$src/types/RssXml';
-import type { Theme } from '$src/types/Config';
 import CONFIG from '$src/helpers/config';
 
 export const blogStore = writable<RssPosts>([]);
 
 export const config = CONFIG;
-
-// The users selected color theme (e.g. light, dark, system, etc)
-export const theme = writable<Theme>(config.defaultTheme);
 
 // List of RSS feeds to fetch + show on load
 export const initialFeeds: RssUrlList = config.initialFeeds;

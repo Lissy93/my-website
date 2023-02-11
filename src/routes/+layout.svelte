@@ -1,64 +1,35 @@
 <script lang="ts">
-  import { browser } from '$app/environment';
-  import { get } from 'svelte/store';
   import BackToTop from '$src/components/BackToTop.svelte';
   import NavBar from '$src/components/NavBar.svelte';
   import Footer from '$src/components/Footer.svelte';
   import { fade } from 'svelte/transition';
   import { page } from '$app/stores';
-  import { config, theme } from '$src/store/BlogStore';
-  import type { Theme } from '$src/types/Config';
-  import { onDestroy } from 'svelte';
+  import { config } from '$src/store/BlogStore';
+  import { theme, encodedThemeCss } from '$src/store/ThemeStore';
   
-  const routeBasedAccent = (pathname?: string) => {
-    const path = pathname || $page.url.pathname;
-    return config.routeLinks?.find((rc) => rc.route === path)?.color || '#ff0099';
-  };
-
+  // Returns page title, based on current route
   const makeTitle = (pathname: string) => {
     const route = config.routeLinks.find((rl) => rl.route === pathname);
     return route ? `${route.label} | ${config.title}` : config.title;
   };
 
-  const encodeB64 = (str: string) => {
-    return browser ? window.btoa(str) : Buffer.from(str, 'utf-8').toString('base64');
-  }
+  // Returns an accent color based on the current route
+  const routeBasedAccent = (pathname?: string) => {
+    const path = pathname || $page.url.pathname;
+    return config.routeLinks?.find((rc) => rc.route === path)?.color || '#ff0099';
+  };
 
-  /* Based on the currently selected theme, make CSS variables from color config */
-  const makeCSSVars = (themeToUse: string) => {
-    let results = '';
-    const themeData = ((config.colorSchemes || {})[themeToUse]) || {};
-    Object.keys(themeData).forEach((varName: string) => {
-      results += `--${varName}:${themeData[varName]} !important; `;
-    });
-    return `:root { ${results} }`;
-  }
-
-  const makeEncodedCSS = (t: Theme) => {
-    return `data:text/css;base64,${encodeB64(makeCSSVars(t))}`;
-  }
-
-  let encodedCss = makeEncodedCSS($theme);
-
-  theme.subscribe(() => {
-    encodedCss = makeEncodedCSS($theme);
-  });
-
-  onDestroy(() => {
-    console.log('Layout destroyed');
-  });
-
+  const shouldShowNavBar = (pagePath: string) => !['/'].includes(pagePath);
 
 </script>
 
 <svelte:head>
-    <title>{makeTitle($page.url.pathname)}</title> 
-    <meta name="color-scheme" content={$theme} />
-    <!-- <link rel="stylesheet" href="/" /> -->
-    <link rel="stylesheet" href={encodedCss} />
+  <title>{makeTitle($page.url.pathname)}</title> 
+  <meta name="color-scheme" content={$theme} />
+  <link rel="stylesheet" href={$encodedThemeCss} />
 </svelte:head>
 
-{#if $page.url.pathname !== '/'}
+{#if shouldShowNavBar($page.url.pathname)}
   <NavBar color={routeBasedAccent($page.url.pathname)} />
 {/if}
 

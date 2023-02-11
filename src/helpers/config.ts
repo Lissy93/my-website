@@ -49,7 +49,11 @@ const config: SiteConfig = {
       background: '#0B1021',
       foreground: '#f8f8f2',
       'card-background': '#060913',
-      primary: '#00CCB4',
+      'card-border': '1px solid #ffffff1a',
+      'accent-1': '#00ccb4',
+      'accent-2': '#00ccb4',
+      'accent-3': '#00ccb4',
+      'accent-4': '#00ccb4',
     },
     ugly: {
       background: 'red',

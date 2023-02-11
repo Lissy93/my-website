@@ -2,7 +2,7 @@
   import { slide } from 'svelte/transition';
   import config from '$src/helpers/config';
   import type { Theme } from '$src/types/Config';
-  import { theme } from '$src/store/BlogStore';
+  import { theme } from '$src/store/ThemeStore';
   import clickOutside from '$src/directives/clickOutside';
   
   const themes = Object.keys(config.colorSchemes || {});
@@ -13,11 +13,16 @@
     dropdownOpen = !dropdownOpen;
   };
 
+  const closeDropdown = () => {
+    dropdownOpen = false;
+  };
+
   const updateTheme = (newTheme: string) => {
     if (themes.includes(newTheme)) {
       theme.set(newTheme as Theme);
       document.documentElement.setAttribute('data-theme', newTheme);
     }
+    closeDropdown();
   };
 
 </script>
@@ -25,7 +30,7 @@
 <button on:click={toggleDropdown} class="open-theme-menu" title="Theme">🎨</button>
 
 {#if dropdownOpen}
-  <ul class="theme-switcher" transition:slide use:clickOutside on:click_outside={() => dropdownOpen = false }>
+  <ul class="theme-switcher" transition:slide use:clickOutside on:click_outside={closeDropdown}>
   {#each themes as eachTheme}
     <li
       on:click={() => updateTheme(eachTheme)}
@@ -63,13 +68,15 @@
       cursor: pointer;
       font-family: FiraCode;
       text-align: left;
+      transition: all 0.2s ease-in-out;
+      padding-left: 1.6rem;
       &.active {
-        background: var(--accent);
-        color: var(--background);
         border: 1px solid transparent;
+        padding-left: 0.25rem;
+        cursor: default;
         &::before {
           content: '✔';
-          margin-right: 0.5rem;
+          margin-right: 0.25rem;
         }
         &:hover {
           border: 1px solid var(--accent);
