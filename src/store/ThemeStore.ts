@@ -21,7 +21,7 @@ export const encodedThemeCss: Readable<string> = derived(
     let cssProperties = '';
     const themeData = ((config.colorSchemes || {})[$theme]) || {};
     Object.keys(themeData).forEach((varName: string) => {
-      cssProperties += `--${varName}:${themeData[varName]}; `;
+      cssProperties += `--${varName}:${themeData[varName]} !important;`;
     });
     const computedCss = `:root { ${cssProperties} }`;
     const encodedCss = browser ? window.btoa(computedCss)

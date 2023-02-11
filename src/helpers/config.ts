@@ -38,16 +38,27 @@ const config: SiteConfig = {
   defaultTheme: 'dark',
   colorSchemes: {
     dark: {
-      primary: '#ff0099',
+      background: '#101010',
+      foreground: '#fafafa',
+      'dimmed-text': '#808080',
+      'card-background': '#1b1b1b',
+      'card-border': '1px solid #2a2a2a',
+      'code-background': '#333',
+      accent: '#01c0f0',
+      'accent-1': '#ff0099',
+      'accent-2': '#b45eff',
+      'accent-3': '#01c0f0',
+      'accent-4': '#1de691',
     },
     light: {
-      primary: '#ff0099',
-      secondary: '#b45eff',
-      accent: '#01c0f0',
+      background: '#F8F8FF',
+      foreground: '#2a3367',
+      'card-background': '#ffffff',
+      'card-border': '1px solid #0000001a',
     },
     callisto: {
       background: '#0B1021',
-      foreground: '#f8f8f2',
+      foreground: '#dcdcdc',
       'card-background': '#060913',
       'card-border': '1px solid #ffffff1a',
       'accent-1': '#00ccb4',
@@ -55,37 +66,6 @@ const config: SiteConfig = {
       'accent-3': '#00ccb4',
       'accent-4': '#00ccb4',
     },
-    ugly: {
-      background: 'red',
-      foreground: 'blue',
-      accent: 'green',
-    },
-
-
-      // Core, background, foreground
-  // --background: #101010;
-  // --foreground: #fafafa;
-  // --dimmed-text: #808080;
-  
-  // // Special component colors
-  // --card-background: #1b1b1b;
-  // --card-border: 1px solid #2a2a2a;
-  // --code-background: #333;
-  
-  // // Accent colors (can vary based on route)
-  // --accent: #01c0f0;
-  // --accent-1: #ff0099;
-  // --accent-2: #b45eff;
-  // --accent-3: #01c0f0;
-  // --accent-4: #1de691;
-  
-  // // Action colors
-  // --info: #35c9fa;
-  // --success: #88ff88;
-  // --warning: #ece715;
-  // --error: #f80363;
-  // --misc: #b45eff;
-
   },
   projectComplimentaryData: [
     { name: 'quick-example-of-testing-in-nodejs', thumbnail: 'https://i.ibb.co/WDpBStz/better-test3.png' },

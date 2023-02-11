@@ -10,10 +10,12 @@
   let dropdownOpen = false;
 
   const toggleDropdown = () => {
+    console.log('Toggle');
     dropdownOpen = !dropdownOpen;
   };
 
   const closeDropdown = () => {
+    console.log('Close');
     dropdownOpen = false;
   };
 
@@ -27,7 +29,7 @@
 
 </script>
 
-<button on:click={toggleDropdown} class="open-theme-menu" title="Theme">🎨</button>
+<button on:click={toggleDropdown} class="open-theme-menu" title="Theme" data-ignore-outside-click>🎨</button>
 
 {#if dropdownOpen}
   <ul class="theme-switcher" transition:slide use:clickOutside on:click_outside={closeDropdown}>
