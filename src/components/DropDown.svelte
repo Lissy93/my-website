@@ -2,6 +2,7 @@
   import { get } from 'svelte/store';
   import { slide } from 'svelte/transition';
   import { rssFeedUrls, extraFeeds } from '$src/store/BlogStore';
+  import clickOutside from '$src/directives/clickOutside';
   import type { RssUrlItem } from '$src/types/RssXml';
 
   // Controls if dropdown open / closed
@@ -10,23 +11,7 @@
   // Opens or closes the dropdown
   const toggle = () => visible = !visible;
 
-  /**
-   * A directive for handling any click outside that of the element
-   * Used for closing the dropdown, when the user clicks away
-   */
-  const clickOutside = (node: HTMLElement) => {
-    const handleClick = (event: any) => {
-      if (node && !node.contains(event.target) && !event.defaultPrevented) {
-        node.dispatchEvent(new CustomEvent('click_outside'));
-      }
-    }
-    document.addEventListener('click', handleClick, true);
-    return {
-      destroy() {
-        document.removeEventListener('click', handleClick, true);
-      }
-    }
-  }
+  const hide = () => { visible = false; }
 
   /**
    * For a given feed object, either remove or add it to the store
@@ -51,7 +36,7 @@
 
 </script>
 
-<div class="dropdown-outer" use:clickOutside on:click_outside={() => { visible = false }}>
+<div class="dropdown-outer" use:clickOutside on:click_outside={hide}>
   <div class="chevron" on:click={toggle} on:keyup={toggle}>
     Sources { visible ? '▲' : '▼'}
   </div>

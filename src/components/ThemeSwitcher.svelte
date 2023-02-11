@@ -1,8 +1,9 @@
 <script lang="ts">
+  import { slide } from 'svelte/transition';
   import config from '$src/helpers/config';
   import type { Theme } from '$src/types/Config';
   import { theme } from '$src/store/BlogStore';
-  import { slide } from 'svelte/transition';
+  import clickOutside from '$src/directives/clickOutside';
   
   const themes = Object.keys(config.colorSchemes || {});
 
@@ -24,10 +25,11 @@
 <button on:click={toggleDropdown} class="open-theme-menu" title="Theme">🎨</button>
 
 {#if dropdownOpen}
-  <ul class="theme-switcher" transition:slide>
+  <ul class="theme-switcher" transition:slide use:clickOutside on:click_outside={() => dropdownOpen = false }>
   {#each themes as eachTheme}
     <li
       on:click={() => updateTheme(eachTheme)}
+      on:keyup={() => updateTheme(eachTheme)}
       class:active={eachTheme === $theme}
     >
       {eachTheme}
