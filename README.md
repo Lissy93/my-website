@@ -145,6 +145,7 @@ To deploy, upload the output of `.sveltekit/output` to your server, or use an ap
 Use the 1-click deploy to get up and running in seconds.
 
 ![[Deploy Devolio to Netlify](https://app.netlify.com/start/deploy?repository=https://github.com/lissy93/devolio)](https://img.shields.io/badge/Deploy-Netlify-%2330c8c9?style=for-the-badge&logo=netlify&labelColor=1e0e41)
+[![Deploy Devolio to Vercel](https://img.shields.io/badge/Deploy-Vercel-%23000000?style=for-the-badge&logo=vercel&labelColor=FFFFFF&logoColor=000000)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Flissy93%2Fdevolio&env=GITHUB_TOKEN,TWITTER_TOKEN&project-name=devolio&repository-name=devolio_My-Developer-Portfolio)
 
 ### Configuring
 
