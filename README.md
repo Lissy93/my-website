@@ -7,7 +7,7 @@
 </p>
 <p align="center">
   <a href="https://devolio.netlify.app">
-    <img width="600" src="#" />
+    <!-- <img width="600" src="#" /> -->
   </a>
 </p>
 
@@ -63,6 +63,10 @@ Each project can include: name, description, thumbnail, language, star/fork/issu
 
 You can add or override any project data in the config file, as well as manually add more projects.
 
+<p align="center">
+<img width="600" src="https://i.ibb.co/PT6pWVD/Screenshot-from-2023-02-12-14-59-33.png?" />
+</p>
+
 #### Blog
 The blog page displays posts that you've published. Data is fetched and aggregated from one or more RSS feeds defined in the config. Post content is rendered as HTML, as well as metadata including author, date, link to original and optional thumbnail.
 
@@ -70,6 +74,10 @@ Start typing to filter results, and use the keyboard to navigate posts.
 
 There's also the option to include secondary feeds, which can be toggled by the user using the dropdown menu. This may be useful for including less important updates, without them cluttering up your main feed.
 
+<p align="center">
+<img width="600" src="https://i.ibb.co/2jv15CG/Screenshot-from-2023-02-12-15-01-59.png?" />
+</p>
+  
 #### Contact
 The contact page includes links to social profiles, a contact form, and space for GPG keys.
 
@@ -79,8 +87,16 @@ The contact form let's users write you a message, and include their name + mail 
 
 There's also space for including PGP key, and links to encrypted messenger apps.
 
+<p align="center">
+<img width="600" src="https://i.ibb.co/Chm3LCD/Screenshot-from-2023-02-12-15-00-01.png?" />
+</p>
+  
 #### About
 The about page has space for a short bio, profile image, and work experience.
+
+<p align="center">
+<img width="600" src="https://i.ibb.co/mvWCZHq/Screenshot-from-2023-02-12-15-02-20.png??" />
+</p>
 
 ### Features
 
