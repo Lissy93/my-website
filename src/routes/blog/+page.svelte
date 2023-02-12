@@ -1,6 +1,7 @@
 
 <script lang="ts">
   import { goto } from '$app/navigation';
+  import { t } from '$src/store/Language';
   import { blogStore, filtered, searchTerm, rssFeedUrls } from '$src/store/BlogStore';
   import { slugify, formatDate } from '$src/helpers/post-utils';
   import { PostStatus, type RssPost } from '$src/types/RssXml';
@@ -74,14 +75,14 @@
 </script>
 
 <div class="heading">
-  <Heading>Blog</Heading>
+  <Heading>{$t('pages.blog')}</Heading>
 </div>
 <div class="post-filter-options">
   <div>
     {#if $searchTerm }
       <div class="results-info">
         <p>Showing {$filtered.length} results for '<i>{$searchTerm}</i>'</p>
-        <button class="clear-search" on:click={cancelSearch}>✗ Clear</button>
+        <button class="clear-search" on:click={cancelSearch}>✗ {$t('blog.search.clear')}</button>
       </div>
     {/if}
   </div>
@@ -94,16 +95,16 @@
 
 {#if $filtered.length === 0}
   <div class="no-results">
-    <h4>No Results :(</h4>
+    <h4>{$t('blog.results.none')} :(</h4>
     <p>
-      There were no posts returned.
-      Try selecting more feeds in the dropdown, or broadening your search term
+      {$t('blog.results.none-1')}
+      {$t('blog.results.none-2')}
     </p>
   </div>
 {:else if $filtered.length === 0}
   <Loading />
 {:else if fetchStatus === PostStatus.Errored}
-  <p>Oh no, something real bad happened</p>
+  <p>{$t('blog.error')}</p>
 {/if}
 
 <ul>

@@ -1,6 +1,7 @@
 <script lang="ts">
   import { get } from 'svelte/store';
   import { slide } from 'svelte/transition';
+  import { t } from '$src/store/Language';
   import { rssFeedUrls, extraFeeds } from '$src/store/BlogStore';
   import clickOutside from '$src/directives/clickOutside';
   import type { RssUrlItem } from '$src/types/RssXml';
@@ -38,7 +39,7 @@
 
 <div class="dropdown-outer" use:clickOutside on:click_outside={hide}>
   <div class="chevron" on:click={toggle} on:keyup={toggle}>
-    Sources { visible ? '▲' : '▼'}
+    {$t('blog.sources-menu')} { visible ? '▲' : '▼'}
   </div>
   {#if visible}
     <div class="dropdown-inner">
@@ -61,8 +62,8 @@
       </ul>
       <div class="quick-all">
         <ul>
-          <li on:click={clearAll} on:keydown={clearAll}>Clear Checked</li>
-          <li on:click={selectAll} on:keydown={selectAll}>Select All</li>
+          <li on:click={clearAll} on:keydown={clearAll}>{$t('blog.sources-none')}</li>
+          <li on:click={selectAll} on:keydown={selectAll}>{$t('blog.sources-all')}</li>
         </ul>
       </div>
     </div>
