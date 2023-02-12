@@ -141,6 +141,11 @@ pnpm run dev -- --open
 You can also build the site yourself `pnpm build`, then preview locally with `pnpm preview`.
 To deploy, upload the output of `.sveltekit/output` to your server, or use an appropriate [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
 
+### Quick Deploy
+Use the 1-click deploy to get up and running in seconds.
+
+![[Deploy Devolio to Netlify](https://app.netlify.com/start/deploy?repository=https://github.com/lissy93/devolio)](https://img.shields.io/badge/Deploy-Netlify-%2330c8c9?style=for-the-badge&logo=netlify&labelColor=1e0e41)
+
 ### Configuring
 
 #### Basic Data
