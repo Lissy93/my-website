@@ -1,5 +1,7 @@
 import autoAdapter from '@sveltejs/adapter-auto';
 import netlifyAdapter from '@sveltejs/adapter-netlify';
+import vercelAdapter from '@sveltejs/adapter-vercel';
+
 
 import { vitePreprocess } from '@sveltejs/kit/vite';
 
@@ -17,7 +19,7 @@ const multiAdapter = (adapters) => {
 const config = {
   preprocess: vitePreprocess(),
   kit: {
-    adapter: multiAdapter([autoAdapter(), netlifyAdapter()]),
+    adapter: multiAdapter([autoAdapter(), netlifyAdapter(), vercelAdapter()]),
     alias: {
       '$src/*': 'src/*',
     },
