@@ -1,8 +1,14 @@
-
 services:
-  - type: web
-    name: sveltekit
-    env: node
-    buildCommand: npm install && npm run build
-    startCommand: node build/index.js
-    autoDeploy: false
+  - name: Devolio
+    type: web
+    env: docker
+    repo: https://github.com/lissy93/devolio.git
+    plan: starter
+    branch: master
+    numInstances: 1
+    healthCheckPath: /app/health-check
+    envVars:
+      - key: GITHUB_TOKEN
+        value: ''
+      - key: TWITTER_TOKEN
+        value: ''
