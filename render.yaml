@@ -6,7 +6,7 @@ services:
     plan: starter
     branch: master
     numInstances: 1
-    healthCheckPath: /app/health-check
+    # healthCheckPath: /app/health-check
     envVars:
       - key: GITHUB_TOKEN
         value: ''
