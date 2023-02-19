@@ -1,5 +1,6 @@
 <script lang="ts">
   import Heading from '$src/components/Heading.svelte';
+  import { t } from '$src/store/Language';
 
   import config from '$src/helpers/config';
 
@@ -10,7 +11,7 @@
 </script>
 
 <div class="heading">
-  <Heading level="h2" size="2.5rem">About</Heading>
+  <Heading level="h2" size="2.5rem">{$t('pages.about')}</Heading>
 </div>
 
 <div class="content">
