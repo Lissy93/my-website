@@ -1,6 +1,6 @@
 {
   "name": "aggregated-blog",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": true,
   "scripts": {
     "dev": "vite dev",
@@ -32,7 +32,6 @@
     "prettier-plugin-svelte": "^2.8.1",
     "sass": "^1.57.0",
     "svelte": "^3.54.0",
-    "svelte-adapter-deno": "^0.9.0",
     "svelte-check": "^2.9.2",
     "tslib": "^2.4.1",
     "typescript": "^4.9.3",

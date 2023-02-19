@@ -2,8 +2,6 @@ import autoAdapter from '@sveltejs/adapter-auto';
 import netlifyAdapter from '@sveltejs/adapter-netlify';
 import vercelAdapter from '@sveltejs/adapter-vercel';
 import nodeAdapter from '@sveltejs/adapter-node';
-import denoAdapter from 'svelte-adapter-deno';
-
 
 import { vitePreprocess } from '@sveltejs/kit/vite';
 
@@ -21,7 +19,7 @@ const multiAdapter = (adapters) => {
 const config = {
   preprocess: vitePreprocess(),
   kit: {
-    adapter: multiAdapter([autoAdapter(), netlifyAdapter(), vercelAdapter(), nodeAdapter(), denoAdapter()]),
+    adapter: multiAdapter([autoAdapter(), netlifyAdapter(), vercelAdapter(), nodeAdapter()]),
     alias: {
       '$src/*': 'src/*',
     },
