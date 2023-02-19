@@ -1,5 +1,3 @@
-> **Warning** This project is a work-in-progress. Check back next week :)
-
 <h1 align="center">✨ Devolio</h1>
 <p align="center">
   <i>An aggregated portfolio and blog site for developers</i><br>
@@ -10,7 +8,6 @@
     <!-- <img width="600" src="#" /> -->
   </a>
 </p>
-
 
 <details>
 <summary><b>Contents</b></summary>
@@ -43,6 +40,8 @@
 <!-- TOC end -->
 
 </details>
+
+<sup>A mirror is available at **[codeberg.org/alicia/devolio](https://codeberg.org/alicia/devolio)**</sup>
 
 
 ## About
@@ -132,27 +131,42 @@ pnpm install
 pnpm run dev -- --open
 ```
 
-### Deploying
+### Manual Deploy
 - Fork the repo, then follow the steps above to clone and install dependencies
 - Make any desired changes (see [Configuring](#configuring) below)
 - Push changes to your repository
 - Enable the build action, to deploy to a service of your choice
 
-You can also build the site yourself `pnpm build`, then preview locally with `pnpm preview`.
-To deploy, upload the output of `.sveltekit/output` to your server, or use an appropriate [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+You can also build the site yourself `npm run build`, then either run `node build` to start the server, or use an appropriate [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
 
 ### Quick Deploy
 Use the 1-click deploy to get up and running in seconds.
 
-#### Netlify
+[![Depoly Devolio to Netlify](https://img.shields.io/badge/Deploy-Netlify-%2330c8c9?style=for-the-badge&logo=netlify&labelColor=1e0e41 "Deploy Devolio to Netlify, via 1-Click Script")](https://app.netlify.com/start/deploy?repository=https://github.com/lissy93/devolio "Deploy Devolio to Render, via 1-Click Script")
 
-![[Deploy Devolio to Netlify](https://app.netlify.com/start/deploy?repository=https://github.com/lissy93/devolio)](https://img.shields.io/badge/Deploy-Netlify-%2330c8c9?style=for-the-badge&logo=netlify&labelColor=1e0e41 "Deploy Devolio to Netlify, via 1-Click Script")
-
-#### Vercel
-[![Deploy Devolio to Vercel](https://img.shields.io/badge/Deploy-Vercel-%23000000?style=for-the-badge&logo=vercel&labelColor=FFFFFF&logoColor=000000)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Flissy93%2Fdevolio&env=GITHUB_TOKEN,TWITTER_TOKEN&project-name=devolio&repository-name=devolio_My-Developer-Portfolio "Deploy Devolio to Vercel, via 1-Click Script")
-
-#### Render
 [![Depoly Devolio to Render](https://img.shields.io/badge/Deploy-Render-%236c83fa?style=for-the-badge&logo=render&labelColor=1e0e41&logoColor=6c83fa)](https://render.com/deploy?repo=https://github.com/lissy93/devolio "Deploy Devolio to Render, via 1-Click Script")
+
+[![Deploy Devolio to Railway](https://img.shields.io/badge/Deploy-Railway-%23853bce?style=for-the-badge&logo=railway&labelColor=1e0e41&logoColor=853bce)](https://railway.app/new/template/hROvhb "Deploy Devolio to Railway, via 1-Click Script")
+
+[![Deploy Devolio to Vercel](https://img.shields.io/badge/Deploy-Vercel-%23ffffff?style=for-the-badge&logo=vercel&labelColor=1e0e41)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Flissy93%2Fdevolio&env=GITHUB_TOKEN,TWITTER_TOKEN&project-name=devolio&repository-name=devolio_My-Developer-Portfolio "Deploy Devolio to Vercel, via 1-Click Script")
+
+
+### Docker Deploy
+
+There's a multi-arch [`Dockerfile`](https://github.com/Lissy93/devolio/blob/master/Dockerfile) published on DockerHub under [`lissy93/devolio`](https://hub.docker.com/r/docker/lissy93/devolio) using [this workflow](https://github.com/Lissy93/devolio/blob/master/.github/workflows/docker-build-publish.yml)
+
+To run the container directly from DockerHub or GHCR, use: `docker run -p 3000:80 lissy93/devolio`
+
+Alternatively, use the [`docker-compose.yml`](https://github.com/Lissy93/devolio/blob/master/docker-compose.yml) as a template, and run `docker compose up`
+
+[![Test on PWD](https://img.shields.io/badge/Try-Play_with_Docker-%232496ED?style=for-the-badge&logo=docker&labelColor=1e0e41)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/Lissy93/devolio/master/docker-compose.yml "Deploy Devolio to PWD, via 1-Click Script")
+
+<details>
+<summary>Config</summary>
+
+_You can pass in your own [`config.ts`](https://github.com/Lissy93/devolio/blob/master/src/helpers/config.ts) with `-v ./my-config.ts:/app/src/helpers/config.ts`, and rebuild with `docker exec -it [container-id] yarn build` where container ID can be found with `docker ps`)_
+
+</details>
 
 ### Configuring
 
