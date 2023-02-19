@@ -214,7 +214,17 @@ To get started, fork the repo, make your changes, add, commit and push the code,
 
 ### Support
 
+[![Sponsor Lissy93 on GitHub](https://img.shields.io/badge/Sponsor_on_GitHub-Lissy93-%23ff4dda?style=for-the-badge&logo=githubsponsors&logoColor=ff4dda)](https://github.com/sponsors/Lissy93)
+
 ### Credits
+
+#### Sponsors
+<!-- readme: sponsors -start -->
+<!-- readme: sponsors -end -->
+
+#### Contributors
+<!-- readme: contributors -start -->
+<!-- readme: contributors -end -->
 
 ---
 
