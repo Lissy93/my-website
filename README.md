@@ -41,7 +41,7 @@
 
 </details>
 
-<sub>A tutorial, for to this project is available on **[DEV.to](https://dev.to/lissy93/sveltekit-10-build-an-blog-fetching-posts-from-your-dev-profile-4ghe-temp-slug-6277063?preview=3b06c75cf240901df536654cb7a852a576e0427d3afd64d2b8126a9b4ba43720558e7a13a399389c219830932cabb1fb4c48afb05e34defa04bb2084)**</sub>
+<sub>A tutorial, for to this project is available on **[DEV.to](https://dev.to/lissy93/sveltekit-10-build-an-blog-fetching-posts-from-your-dev-profile-29f)**</sub>
 
 <sup>A mirror is available at **[codeberg.org/alicia/devolio](https://codeberg.org/alicia/devolio)**</sup>
 
