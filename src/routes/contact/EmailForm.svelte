@@ -55,7 +55,7 @@ const sendEmail = () => {
 </script>
 
 
-<form class="contact-form" on:submit={sendEmail}>
+<form on:submit={sendEmail} class="contact-form" name="website-contact-form" data-netlify="true">
   <Heading level="h2">send_message</Heading>
   {#if showMailForm}
   <div class="user-deets">
