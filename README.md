@@ -5,7 +5,7 @@
 </p>
 <p align="center">
   <a href="https://devolio.netlify.app">
-    <!-- <img width="600" src="#" /> -->
+    <img width="600" src="https://i.ibb.co/jbzfSzs/Screenshot-from-2023-02-20-16-59-37.png" />
   </a>
 </p>
 
@@ -41,6 +41,8 @@
 
 </details>
 
+<sub>A tutorial, for to this project is available on **[DEV.to](https://dev.to/lissy93/sveltekit-10-build-an-blog-fetching-posts-from-your-dev-profile-4ghe-temp-slug-6277063?preview=3b06c75cf240901df536654cb7a852a576e0427d3afd64d2b8126a9b4ba43720558e7a13a399389c219830932cabb1fb4c48afb05e34defa04bb2084)**</sub>
+
 <sup>A mirror is available at **[codeberg.org/alicia/devolio](https://codeberg.org/alicia/devolio)**</sup>
 
 
@@ -63,7 +65,7 @@ Each project can include: name, description, thumbnail, language, star/fork/issu
 You can add or override any project data in the config file, as well as manually add more projects.
 
 <p align="center">
-<img width="600" src="https://i.ibb.co/PT6pWVD/Screenshot-from-2023-02-12-14-59-33.png?" />
+  <img width="800" src="https://i.ibb.co/nmwLZTr/projects-page.gif" />
 </p>
 
 #### Blog
@@ -74,7 +76,7 @@ Start typing to filter results, and use the keyboard to navigate posts.
 There's also the option to include secondary feeds, which can be toggled by the user using the dropdown menu. This may be useful for including less important updates, without them cluttering up your main feed.
 
 <p align="center">
-<img width="600" src="https://i.ibb.co/2jv15CG/Screenshot-from-2023-02-12-15-01-59.png?" />
+<img width="800" src="https://i.ibb.co/XVC9YZy/blog-page-gif.gif" />
 </p>
   
 #### Contact
@@ -87,7 +89,8 @@ The contact form let's users write you a message, and include their name + mail 
 There's also space for including PGP key, and links to encrypted messenger apps.
 
 <p align="center">
-<img width="600" src="https://i.ibb.co/Chm3LCD/Screenshot-from-2023-02-12-15-00-01.png?" />
+  <img width="400" src="https://i.ibb.co/xSvJRbZ/social-previews.gif" />
+  <img width="600" src="https://i.ibb.co/Chm3LCD/Screenshot-from-2023-02-12-15-00-01.png?" />
 </p>
   
 #### About
@@ -211,6 +214,8 @@ Contributions of any kind are very welcome, and would be much appreciated.
 For Code of Conduct, see [Contributor Convent](https://www.contributor-covenant.org/version/2/1/code_of_conduct/).
 
 To get started, fork the repo, make your changes, add, commit and push the code, then come back here to open a pull request. If you're new to GitHub or open source, [this guide](https://www.freecodecamp.org/news/how-to-make-your-first-pull-request-on-github-3#let-s-make-our-first-pull-request-) or the [git docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) may help you get started, but feel free to reach out if you need any support.
+
+[![Submit a PR](https://img.shields.io/badge/Submit_a_PR-GitHub-%23060606?style=for-the-badge&logo=github&logoColor=fff)](https://github.com/Lissy93/devolio/compare)
 
 ### Support
 
@@ -352,6 +357,17 @@ To get started, fork the repo, make your changes, add, commit and push the code,
     </td></tr>
 </table>
 <!-- readme: contributors -end -->
+
+#### Stargazers
+[![Recent Star Gazers](https://reporoster.com/stars/dark/Lissy93/devolio)](https://github.com/Lissy93/devolio/stargazers)
+
+---
+
+## Status
+
+
+[![🐳 Build + Publish Multi-Platform Image](https://github.com/Lissy93/devolio/actions/workflows/docker-build-publish.yml/badge.svg)](https://github.com/Lissy93/devolio/actions/workflows/docker-build-publish.yml) [![🏷️ Tag new Versions](https://github.com/Lissy93/devolio/actions/workflows/tag-versions.yml/badge.svg)](https://github.com/Lissy93/devolio/actions/workflows/tag-versions.yml) [![🪞 Mirror to Codeberg](https://github.com/Lissy93/devolio/actions/workflows/sync-mirror.yml/badge.svg)](https://github.com/Lissy93/devolio/actions/workflows/sync-mirror.yml) [![💓 Inserts Contributor & Sponsors](https://github.com/Lissy93/devolio/actions/workflows/insert-contributors.yml/badge.svg)](https://github.com/Lissy93/devolio/actions/workflows/insert-contributors.yml)
+
 
 ---
 
