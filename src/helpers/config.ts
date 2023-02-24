@@ -35,7 +35,7 @@ const config: SiteConfig = {
     copyright: true,
   },
   githubUser: 'lissy93',
-  defaultTheme: 'dark',
+  defaultTheme: 'callisto',
   colorSchemes: {
     dark: {
       background: '#101010',
@@ -53,7 +53,7 @@ const config: SiteConfig = {
     light: {
       background: '#F8F8FF',
       foreground: '#2a3367',
-      'card-background': '#ffffff',
+      'card-background': '#ededed',
       'card-border': '1px solid #0000001a',
     },
     callisto: {
