@@ -79,7 +79,7 @@ const sendEmail = () => {
 
 <form on:submit={sendEmail} class="contact-form" name="website-contact-form" data-netlify="true">
   <Heading level="h2">send_message</Heading>
-  {#if showMailForm}
+  {#if showMailForm && mailSendStatus != 'sending'}
   <div class="user-deets">
     <div class="input-group">
       <label for="name">Name</label>
