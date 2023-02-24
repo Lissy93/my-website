@@ -6,7 +6,7 @@ export const socialNetworks: SocialNetwork[] = [
   { name: 'Twitter', icon: 'twitter', tone: '#1DA1F2', link: 'https://twitter.com/' },
   { name: 'GitHub', icon: 'github2', tone: '#585858', link: 'https://github.com/' },
   { name: 'Dev.to', icon: 'dev-to', tone: '#f1f155', link: 'https://dev.to/' },
-  { name: 'Mastodon', icon: 'mastodon', tone: '#6364FF', link: 'https://mastodon.social/' },
+  { name: 'Mastodon', icon: 'mastodon', tone: '#6364FF', link: 'https://mastodon.social/', noAt: true },
   { name: 'LinkedIn', icon: 'linkedin', tone: '#0A66C2', link: 'https://www.linkedin.com/', noAt: true },
   { name: 'Instagram', icon: 'instagram', tone: '#E4405F', link: 'https://www.instagram.com/' },
   { name: 'YouTube', icon: 'youtube', tone: '#FF0000', link: 'https://www.youtube.com/c/' },
