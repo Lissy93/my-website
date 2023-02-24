@@ -20,6 +20,25 @@ const reShowMailForm = () => {
   showMailForm = true;
 };
 
+const sendViaNetlify = () => {
+  const encode = (data: any) => {
+    return Object
+      .keys(data)
+      .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+      .join('&');
+  };
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: encode({
+      'form-name': 'contact-form',
+      name,
+      email,
+      message,
+    }),
+  });
+};
+
 const sendEmail = () => {
 
   // Update state in UI
@@ -34,7 +53,7 @@ const sendEmail = () => {
 
   // Get mailer config, and combine with users input
   const mailConfig = config.contact.mailerConfig;
-  mailConfig.template_params = { ...mailConfig.template_params, ...templateParams};
+  mailConfig.template_params = { ...mailConfig.template_params, ...templateParams };
 
   const reqParams = {
     method: 'POST',
@@ -51,6 +70,9 @@ const sendEmail = () => {
   .catch(() => {
     mailSendStatus = 'error';
   });
+
+  // Sending via Netlify
+  sendViaNetlify();
 };
 </script>
 
