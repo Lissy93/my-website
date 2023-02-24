@@ -3,6 +3,8 @@
   import { config } from '$src/store/BlogStore';
   import Loading from '$src/components/Loading.svelte';
   import Heading from '$src/components/Heading.svelte';
+  import { socialNetworks } from '$src/helpers/constants';
+  import Icon from '$src/components/Icon.svelte';
 
   export const { routeLinks } = config;
 
@@ -18,6 +20,22 @@
     document.head.appendChild(script);
 	});
 
+  const socialLinks = () => {
+    const userSocials = Object.keys(config.contact.socials);
+    const limit = config.contact.socialButtonLimit; 
+    return userSocials.slice(0, limit).map((social) => {
+      const socialProps = socialNetworks.find((sn) => sn.name === social);
+      if (!socialProps) return null;
+      const user = config.contact.socials[social];
+      return {
+        ...socialProps,
+        user,
+        href: socialProps.link + user,
+        title: `${socialProps.noAt ? '' : '@'}${user} on ${socialProps.name}`,
+      };
+    });
+  };
+
   // onDestroy(async () => {
   //   document.querySelector('#funky-background-script')?.remove();
   // });
@@ -29,8 +47,19 @@
 
 <canvas id="canvas"></canvas>
 
+<main class="homepage">
+
 <div class="hero">
-  <h1>Alicia Sykes</h1>
+  <Heading level="h1" commandStyle={false} blinkCursor={true} size="4rem" color="var(--foreground)">Alicia Sykes</Heading>
+  <div class="socials">
+    {#each socialLinks() as social}
+      {#if social}
+        <a href={social.href} class="social-link" title={social.title}>
+          <Icon name={social.icon} color="var(--foreground)" width="1.8rem" height="1.8rem" hoverColor={social.tone} />
+        </a>
+      {/if}
+    {/each}
+  </div>
 </div>
 
 {#if showLoader}
@@ -53,6 +82,8 @@
   </div>
 {/if}
 
+</main>
+
 <style lang="scss">
 @import "$src/styles/media-queries.scss";
 
@@ -70,11 +101,31 @@ canvas {
   z-index: 1;
 }
 
+main.homepage {
+  min-height: 99vh;
+}
+
 .hero {
   text-align: center;
+  // background: var(--card-background);
+  // border-bottom: var(--card-border);
+  min-height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   h1 {
     font-size: 4rem;
     cursor: default;
+  }
+  .socials {
+    opacity: 0.85;
+    .social-link {
+      text-decoration: none;
+    }
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
@@ -97,7 +148,7 @@ canvas {
     background: var(--card-background);
     border-radius: 4px;
     text-decoration: none;
-    padding: 1.5rem 1rem;
+    padding: 1rem;
     border-left: 4px solid var(--accent);
     transition: all ease-in-out 0.25s, transform ease-in-out 0.3s;
     overflow: hidden;
@@ -112,11 +163,14 @@ canvas {
     }
     
     &:hover {
-      :global(h3) { color: var(--accent); }
+      :global(h3) {
+        color: var(--accent);
+        transform: translateY(-1rem);
+      }
       border-left-width: 8px;
       transform: scale(1.02);
       p.subtitle {
-        transform: translateX(0) translateY(-0.75rem) scale(1) rotate(0);
+        transform: translateX(0) translateY(-1.5rem) scale(1) rotate(0);
         opacity: 1;
       }
     }
