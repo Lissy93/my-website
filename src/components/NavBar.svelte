@@ -20,6 +20,7 @@
     {#each routeLinks as navLink }
     <a
       href={navLink.route}
+      title={navLink.description || navLink.label}
       data-sveltekit-preload-data="hover"
       style={`--accent: ${findRouteColor(navLink.route)};`}
       class:active={$page.url.pathname === navLink.route}>{navLink.label}</a>
@@ -29,6 +30,7 @@
 </nav>
 
 <style lang="scss">
+  @import "$src/styles/media-queries.scss";
   nav {
     display: flex;
     justify-content: space-between;
@@ -44,19 +46,26 @@
         color: var(--foreground);
       }
     }
-    .nav-links a {
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: var(--foreground);
-      text-decoration: none;
-      border-radius: 4px;
-      padding: 0.25rem 0.5rem;
-      margin: 0.25rem;
-      text-align: center;
-      &.active, &:hover {
-        background: var(--accent);
-        color: var(--background);
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      a {
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--foreground);
+        text-decoration: none;
+        border-radius: 4px;
+        padding: 0.25rem 0.5rem;
+        margin: 0.25rem;
+        text-align: center;
+        &.active, &:hover {
+          background: var(--accent);
+          color: var(--background);
+        }
       }
+    }
+    @include tablet-down {
+      flex-direction: column;
     }
   }
 </style>
