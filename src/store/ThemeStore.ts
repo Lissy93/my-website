@@ -14,6 +14,17 @@ theme && theme.subscribe((newTheme: Theme) => {
   if (browser) localStorage.theme = newTheme
 });
 
+export const themeColors = derived(
+  [theme],
+  ([$theme]) => {
+    const themeData = ((config.colorSchemes || {})[$theme]) || {};
+    return Object.keys(themeData).reduce((acc, key) => {
+      acc[key] = themeData[key];
+      return acc;
+    }, {} as {[index: string]:any});
+  }
+);
+
 // Fetch, compute and encoded CSS properties for the selected theme, ready for injection
 export const encodedThemeCss: Readable<string> = derived(
   [theme], 
