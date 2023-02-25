@@ -54,7 +54,7 @@
   <div class="socials">
     {#each socialLinks() as social}
       {#if social}
-        <a href={social.href} class="social-link" title={social.title}>
+        <a href={social.href} class="social-link" title={social.title} target="_blank">
           <Icon name={social.icon} color="var(--foreground)" width="1.8rem" height="1.8rem" hoverColor={social.tone} />
         </a>
       {/if}

@@ -5,7 +5,7 @@
   import { fade } from 'svelte/transition';
   import { page } from '$app/stores';
   import { config } from '$src/store/BlogStore';
-  import { theme, encodedThemeCss } from '$src/store/ThemeStore';
+  import { theme, encodedThemeCss, themeColors } from '$src/store/ThemeStore';
   
   // Returns page title, based on current route
   const makeTitle = (pathname: string) => {
@@ -16,7 +16,9 @@
   // Returns an accent color based on the current route
   const routeBasedAccent = (pathname?: string) => {
     const path = pathname || $page.url.pathname;
-    return config.routeLinks?.find((rc) => rc.route === path)?.color || '#ff0099';
+    return config.routeLinks?.find((rc) => rc.route === path)?.color
+      || $themeColors['accent-1']
+      || '#ff0099';
   };
 
   const shouldShowNavBar = (pagePath: string) => !['/'].includes(pagePath);

@@ -146,7 +146,8 @@
           Published by {postToRender.author},
         {/if}
         {#if postToRender.link && postToRender.link.length > 5}
-          View <a href={postToRender.link} title="Read: {postToRender.title}">original</a>
+          View
+          <a href={postToRender.link} title="Read: {postToRender.title}" target="_blank">original</a>
         {/if}
       </p>
     </div>
