@@ -229,7 +229,7 @@ To get started, fork the repo, make your changes, add, commit and push the code,
 <tr>
     <td align="center">
         <a href="https://github.com/koconder">
-            <img src="https://avatars.githubusercontent.com/u/25068?v=4" width="80;" alt="koconder"/>
+            <img src="https://avatars.githubusercontent.com/u/25068?u=582657b23622aaa3dfe68bd028a780f272f456fa&v=4" width="80;" alt="koconder"/>
             <br />
             <sub><b>Vincent Koc</b></sub>
         </a>
@@ -245,19 +245,19 @@ To get started, fork the repo, make your changes, add, commit and push the code,
         <a href="https://github.com/peng1can">
             <img src="https://avatars.githubusercontent.com/u/225854?v=4" width="80;" alt="peng1can"/>
             <br />
-            <sub><b>peng1can</b></sub>
+            <sub><b>Peng1can</b></sub>
         </a>
     </td>
     <td align="center">
         <a href="https://github.com/emlazzarin">
-            <img src="https://avatars.githubusercontent.com/u/1141361?v=4" width="80;" alt="emlazzarin"/>
+            <img src="https://avatars.githubusercontent.com/u/1141361?u=714e3487a3f2e0df721b01a0133945f075d3ff68&v=4" width="80;" alt="emlazzarin"/>
             <br />
             <sub><b>Eddy Lazzarin</b></sub>
         </a>
     </td>
     <td align="center">
         <a href="https://github.com/AnandChowdhary">
-            <img src="https://avatars.githubusercontent.com/u/2841780?v=4" width="80;" alt="AnandChowdhary"/>
+            <img src="https://avatars.githubusercontent.com/u/2841780?u=ca8e292b15abcc6cddaeae0abded0115c51b4789&v=4" width="80;" alt="AnandChowdhary"/>
             <br />
             <sub><b>Anand Chowdhary</b></sub>
         </a>
@@ -272,35 +272,35 @@ To get started, fork the repo, make your changes, add, commit and push the code,
 <tr>
     <td align="center">
         <a href="https://github.com/k-rol">
-            <img src="https://avatars.githubusercontent.com/u/4050412?v=4" width="80;" alt="k-rol"/>
+            <img src="https://avatars.githubusercontent.com/u/4050412?u=1162510eec7b7aeb31d4c7c65d51d4f773d823b0&v=4" width="80;" alt="k-rol"/>
             <br />
             <sub><b>Carol Ouellet</b></sub>
         </a>
     </td>
     <td align="center">
         <a href="https://github.com/bile0026">
-            <img src="https://avatars.githubusercontent.com/u/5022496?v=4" width="80;" alt="bile0026"/>
+            <img src="https://avatars.githubusercontent.com/u/5022496?u=aec96ad173c0ea9baaba93807efa8a848af6595c&v=4" width="80;" alt="bile0026"/>
             <br />
             <sub><b>Zach Biles</b></sub>
         </a>
     </td>
     <td align="center">
         <a href="https://github.com/UlisesGascon">
-            <img src="https://avatars.githubusercontent.com/u/5110813?v=4" width="80;" alt="UlisesGascon"/>
+            <img src="https://avatars.githubusercontent.com/u/5110813?u=3c41facd8aa26154b9451de237c34b0f78d672a5&v=4" width="80;" alt="UlisesGascon"/>
             <br />
             <sub><b>Ulises Gascón</b></sub>
         </a>
     </td>
     <td align="center">
         <a href="https://github.com/BOZG">
-            <img src="https://avatars.githubusercontent.com/u/6022344?v=4" width="80;" alt="BOZG"/>
+            <img src="https://avatars.githubusercontent.com/u/6022344?u=a52f42b946a1e1156f7bb9d7f65e9e28bb2da89f&v=4" width="80;" alt="BOZG"/>
             <br />
             <sub><b>Stephen Rigney</b></sub>
         </a>
     </td>
     <td align="center">
         <a href="https://github.com/bmcgonag">
-            <img src="https://avatars.githubusercontent.com/u/7346620?v=4" width="80;" alt="bmcgonag"/>
+            <img src="https://avatars.githubusercontent.com/u/7346620?u=2a0f9284f3e12ac1cc15288c254d1ec68a5081e8&v=4" width="80;" alt="bmcgonag"/>
             <br />
             <sub><b>Brian McGonagill</b></sub>
         </a>
@@ -315,7 +315,7 @@ To get started, fork the repo, make your changes, add, commit and push the code,
 <tr>
     <td align="center">
         <a href="https://github.com/iJasonWade">
-            <img src="https://avatars.githubusercontent.com/u/12824479?v=4" width="80;" alt="iJasonWade"/>
+            <img src="https://avatars.githubusercontent.com/u/12824479?u=8fa860e47bed4f84c8ff70cb2691d77edbb43d8f&v=4" width="80;" alt="iJasonWade"/>
             <br />
             <sub><b>Jason Ash</b></sub>
         </a>
@@ -328,8 +328,15 @@ To get started, fork the repo, make your changes, add, commit and push the code,
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/DRXAquosus">
+            <img src="https://avatars.githubusercontent.com/u/45409262?v=4" width="80;" alt="DRXAquosus"/>
+            <br />
+            <sub><b>DRXAquosus</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/ratty222">
-            <img src="https://avatars.githubusercontent.com/u/92832598?v=4" width="80;" alt="ratty222"/>
+            <img src="https://avatars.githubusercontent.com/u/92832598?u=137b65530cbd5f5af9c24cde51baa6cc77cc934b&v=4" width="80;" alt="ratty222"/>
             <br />
             <sub><b>Brent</b></sub>
         </a>
@@ -338,7 +345,7 @@ To get started, fork the repo, make your changes, add, commit and push the code,
         <a href="https://github.com/jtfinley72">
             <img src="https://avatars.githubusercontent.com/u/96497997?v=4" width="80;" alt="jtfinley72"/>
             <br />
-            <sub><b>jtfinley72</b></sub>
+            <sub><b>Jtfinley72</b></sub>
         </a>
     </td></tr>
 </table>
