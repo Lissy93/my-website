@@ -50,6 +50,7 @@
     rust: { name: 'Rust', color: 'e86243', icon: 'rust' },
     scala: { name: 'Scala', color: 'DC322F', icon: 'scala' },
     shell: { name: 'Shell', color: '4EAA25', icon: 'gnubash' },
+    svelte: { name: 'Svelte', color: 'ff3e00', icon: 'svelte' },
     swift: { name: 'Swift', color: 'F05138', icon: 'swift' },
     typescript: { name: 'TypeScript', color: '3178C6', icon: 'typescript' },
     vue: { name: 'Vue.js', color: '4FC08D', icon: 'vuedotjs' },
