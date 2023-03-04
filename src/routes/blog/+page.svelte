@@ -159,6 +159,7 @@
       flex-direction: column;
       min-height: var(--grid-item-min-height);
       // max-height: var(--grid-item-max-height);
+      max-width: 40rem;
       font-size: 1.2rem;
       line-height: 1.5;
       overflow: hidden;
@@ -211,10 +212,12 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    max-width: var(--grid-max-width);
+    margin: 0 5vw;
+    padding: 0 var(--grid-item-spacing);
     .filter-controls {
       display: flex;
       gap: 1rem;
-      margin: 0 calc(5vw + 1rem);
     }
   }
 
@@ -222,7 +225,6 @@
     display: flex;
     align-items: center;
     flex-direction: row;
-    margin: 0.25rem calc(5vw + 1rem);
     p {
       margin: 0;
     }
