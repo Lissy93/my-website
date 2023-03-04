@@ -36,6 +36,7 @@ const config: SiteConfig = {
   },
   githubUser: 'lissy93',
   defaultTheme: 'callisto',
+  defaultLanguage: 'en',
   colorSchemes: {
     dark: {
       background: '#101010',
