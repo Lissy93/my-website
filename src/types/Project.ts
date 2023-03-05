@@ -1,4 +1,3 @@
-
 export interface Project {
   id: number;
   name: string;
@@ -19,4 +18,4 @@ export interface Project {
   thumbnail?: string;
   hidden?: boolean;
   featured?: boolean;
-};
+}

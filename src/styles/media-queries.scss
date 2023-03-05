@@ -1,4 +1,3 @@
-
 /* Widths in px */
 $very-very-tiny: 400px;
 $tiny: 600px;
@@ -78,8 +77,9 @@ $extra-large: 2800px;
 }
 
 @mixin safari {
-  _::-webkit-full-page-media, _:future, :root .safari_only {
+  _::-webkit-full-page-media,
+  _:future,
+  :root .safari_only {
     @content;
   }
 }
-

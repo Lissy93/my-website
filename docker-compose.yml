@@ -2,7 +2,7 @@
 # Welcome to Devolio! Your personal developer portfolio website
 # To get started, just run `docker compose up -d`
 # You can configure your container here, by modifying this file
-version: "3.8"
+version: '3.8'
 services:
   devolio:
     container_name: Devolio

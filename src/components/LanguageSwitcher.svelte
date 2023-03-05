@@ -1,13 +1,9 @@
 <script lang="ts">
   import { slide } from 'svelte/transition';
-  import config from '$src/helpers/config';
   import type { Locale } from '$src/types/Language';
   import { locale, locales, languageMeta } from '$src/store/Language';
   import clickOutside from '$src/directives/clickOutside';
   import { supportedLanguages } from '$src/helpers/translations';
-  import { get } from 'svelte/store';
-  
-  const themes = Object.keys(config.colorSchemes || {});
 
   let dropdownOpen = false;
 
@@ -26,24 +22,34 @@
     }
     closeDropdown();
   };
-
 </script>
 
-<button on:click={toggleDropdown} class="open-theme-menu" title="Language" data-ignore-outside-click>
+<button
+  on:click={toggleDropdown}
+  class="open-theme-menu"
+  title="Language"
+  data-ignore-outside-click
+>
   {$languageMeta?.flag}
 </button>
 
 {#if dropdownOpen}
-  <ul class="theme-switcher" transition:slide use:clickOutside on:click_outside={closeDropdown}>
-  {#each supportedLanguages as eachLanguage}
-    <li
-      on:click={() => updateLanguage(eachLanguage.code)}
-      on:keyup={() => updateLanguage(eachLanguage.code)}
-      class:active={eachLanguage.code === $locale}
-    >
-      {eachLanguage.flag} {eachLanguage.name}
-  </li>
-  {/each}
+  <ul
+    class="theme-switcher"
+    transition:slide
+    use:clickOutside
+    on:click_outside={closeDropdown}
+  >
+    {#each supportedLanguages as eachLanguage}
+      <li
+        on:click={() => updateLanguage(eachLanguage.code)}
+        on:keyup={() => updateLanguage(eachLanguage.code)}
+        class:active={eachLanguage.code === $locale}
+      >
+        {eachLanguage.flag}
+        {eachLanguage.name}
+      </li>
+    {/each}
   </ul>
 {/if}
 

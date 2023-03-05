@@ -19,7 +19,9 @@
   /* Update displayed repositories, based on users search term */
   const updateFilteredRepos = () => {
     const doesValInclude = (searchVal: string, dataItem: string | null) => {
-      return (dataItem && dataItem.toLowerCase().includes(searchVal.toLowerCase()));
+      return (
+        dataItem && dataItem.toLowerCase().includes(searchVal.toLowerCase())
+      );
     };
     // Search by name
     filteredRepos = repos.filter((repo: Project) => {
@@ -28,9 +30,11 @@
     // If no results, then expand search to include description, language and homepage
     if (filteredRepos.length === 0) {
       filteredRepos = repos.filter((repo: Project) => {
-        return doesValInclude(searchTerm, repo.description)
-          || doesValInclude(searchTerm, repo.language)
-          || doesValInclude(searchTerm, repo.homepage);
+        return (
+          doesValInclude(searchTerm, repo.description) ||
+          doesValInclude(searchTerm, repo.language) ||
+          doesValInclude(searchTerm, repo.homepage)
+        );
       });
     }
   };
@@ -47,10 +51,10 @@
       cancelSearch();
       searchInputRef.blur();
     }
-  }
+  };
 
-  const isSpan = (repo: Project) => repo.featured ? 'grid-row-start: span 2; grid-column-start: span 2;' : '';
-
+  const isSpan = (repo: Project) =>
+    repo.featured ? 'grid-row-start: span 2; grid-column-start: span 2;' : '';
 </script>
 
 <svelte:window on:keydown={handleKeydown} />
@@ -62,9 +66,11 @@
 
   <div class="post-filter-options">
     <div>
-      {#if searchTerm }
+      {#if searchTerm}
         <div class="results-info">
-          <p>Showing {filteredRepos.length} results for '<i>{searchTerm}</i>'</p>
+          <p>
+            Showing {filteredRepos.length} results for '<i>{searchTerm}</i>'
+          </p>
           <button class="clear-search" on:click={cancelSearch}>✗ Clear</button>
         </div>
       {/if}
@@ -83,20 +89,21 @@
     </div>
   </div>
 
-
   <div class="project-grid">
-  {#each filteredRepos as repo}
-    <AnimateOnScroll once={true} animation={'fade-in 1s cubic-bezier(0.4, 0.6, 0.5, 1.000) both'} style={isSpan(repo)}>
-        <ProjectCard repo={repo} />
-    </AnimateOnScroll>
-  {/each}
+    {#each filteredRepos as repo}
+      <AnimateOnScroll
+        once={true}
+        animation={'fade-in 1s cubic-bezier(0.4, 0.6, 0.5, 1.000) both'}
+        style={isSpan(repo)}
+      >
+        <ProjectCard {repo} />
+      </AnimateOnScroll>
+    {/each}
   </div>
-    
-
 </section>
 
 <style lang="scss">
-  @import "$src/styles/dimensions.scss";
+  @import '$src/styles/dimensions.scss';
   section {
     margin: 1rem auto;
     text-align: left;
@@ -108,13 +115,15 @@
   .project-grid {
     display: grid;
     grid-auto-flow: dense;
-    grid-template-columns: repeat(auto-fit, minmax(var(--grid-item-width), 1fr));
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(var(--grid-item-width), 1fr)
+    );
     gap: var(--grid-item-spacing);
     padding: var(--grid-item-spacing);
     margin: var(--grid-item-spacing) 5vw;
     list-style: none;
   }
-
 
   .post-filter-options {
     display: flex;
@@ -179,7 +188,11 @@
   }
 
   @keyframes -global-fade-in {
-    0% { opacity: 0; }
-    100% {opacity: 1; }
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 </style>

@@ -22,7 +22,8 @@ const translations: Translations = {
     'blog.search.clear': 'Clear',
     'blog.results.none': 'No Results',
     'blog.results.none-1': 'There were no results returned.',
-    'blog.results.none-2': 'Try selecting more feeds in the dropdown, or broadening your search term',
+    'blog.results.none-2':
+      'Try selecting more feeds in the dropdown, or broadening your search term',
     'blog.error': 'Oh no, something real bad happened',
   },
   fr: {
@@ -32,7 +33,7 @@ const translations: Translations = {
     'pages.about': 'À propos',
     'pages.contact': 'Contact',
     'pages.projects': 'Projets',
-  
+
     // Blog page text
     'blog.sources-menu': 'Sources',
     'blog.sources-all': 'Tout sélectionner',
@@ -45,8 +46,9 @@ const translations: Translations = {
     'blog.search.showing': 'Affichage de {{count}} résultats pour "{{query}}"',
     'blog.search.clear': 'Effacer',
     'blog.results.none': 'Aucun résultat',
-    'blog.results.none-1': 'Aucun résultat n\'a été trouvé.',
-    'blog.results.none-2': 'Essayez de sélectionner plus de flux dans le menu déroulant, ou élargissez votre terme de recherche',
+    'blog.results.none-1': "Aucun résultat n'a été trouvé.",
+    'blog.results.none-2':
+      'Essayez de sélectionner plus de flux dans le menu déroulant, ou élargissez votre terme de recherche',
     'blog.error': 'Oh non, quelque chose de vraiment mauvais est arrivé',
   },
 };

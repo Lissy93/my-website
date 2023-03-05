@@ -1,135 +1,157 @@
 <script lang="ts">
   import { slide } from 'svelte/transition';
-import { emailJsEndpoint } from '$src/helpers/constants';
-import Loading from '$src/components/Loading.svelte';
-import Heading from '$src/components/Heading.svelte';
-import config from '$src/helpers/config';
+  import { emailJsEndpoint } from '$src/helpers/constants';
+  import Loading from '$src/components/Loading.svelte';
+  import Heading from '$src/components/Heading.svelte';
+  import config from '$src/helpers/config';
 
-// Email form values
-let name: string = '';
-let email: string = '';
-let message: string = '';
+  // Email form values
+  let name: string = '';
+  let email: string = '';
+  let message: string = '';
 
-// Mail send status
-type MessageStatus = 'pending' | 'sending' | 'success' | 'error';
-let mailSendStatus: MessageStatus = 'pending';
-let showMailForm = true;
+  // Mail send status
+  type MessageStatus = 'pending' | 'sending' | 'success' | 'error';
+  let mailSendStatus: MessageStatus = 'pending';
+  let showMailForm = true;
 
-const reShowMailForm = () => {
-  mailSendStatus = 'pending';
-  showMailForm = true;
-};
-
-const sendViaNetlify = () => {
-  const encode = (data: any) => {
-    return Object
-      .keys(data)
-      .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
-      .join('&');
-  };
-  fetch('/static.html', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: encode({
-      'form-name': 'contact-form',
-      name,
-      email,
-      message,
-    }),
-  });
-};
-
-const sendEmail = () => {
-
-  // Update state in UI
-  mailSendStatus = 'sending';
-
-   // Grab users input from the form
-  const templateParams = {
-    from_name: name,
-    reply_email: email,
-    message_body: message,
+  const reShowMailForm = () => {
+    mailSendStatus = 'pending';
+    showMailForm = true;
   };
 
-  // Get mailer config, and combine with users input
-  const mailConfig = config.contact.mailerConfig;
-  mailConfig.template_params = { ...mailConfig.template_params, ...templateParams };
-
-  const reqParams = {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(mailConfig),
+  const sendViaNetlify = () => {
+    const encode = (data: any) => {
+      return Object.keys(data)
+        .map(
+          (key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+        )
+        .join('&');
+    };
+    fetch('/static.html', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': 'contact-form',
+        name,
+        email,
+        message,
+      }),
+    });
   };
 
-  // Send mail
-  fetch(emailJsEndpoint, reqParams)
-  .then((response) => {
-    mailSendStatus = response.status === 200 ? 'success' : 'error';
-    showMailForm = false;
-  })
-  .catch(() => {
-    mailSendStatus = 'error';
-  });
+  const sendEmail = () => {
+    // Update state in UI
+    mailSendStatus = 'sending';
 
-  // Sending via Netlify
-  sendViaNetlify();
-};
+    // Grab users input from the form
+    const templateParams = {
+      from_name: name,
+      reply_email: email,
+      message_body: message,
+    };
+
+    // Get mailer config, and combine with users input
+    const mailConfig = config.contact.mailerConfig;
+    mailConfig.template_params = {
+      ...mailConfig.template_params,
+      ...templateParams,
+    };
+
+    const reqParams = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(mailConfig),
+    };
+
+    // Send mail
+    fetch(emailJsEndpoint, reqParams)
+      .then((response) => {
+        mailSendStatus = response.status === 200 ? 'success' : 'error';
+        showMailForm = false;
+      })
+      .catch(() => {
+        mailSendStatus = 'error';
+      });
+
+    // Sending via Netlify
+    sendViaNetlify();
+  };
 </script>
 
-
-<form on:submit={sendEmail} class="contact-form" name="website-contact-form" data-netlify="true">
+<form
+  on:submit={sendEmail}
+  class="contact-form"
+  name="website-contact-form"
+  data-netlify="true"
+>
   <Heading level="h2">send_message</Heading>
   {#if showMailForm && mailSendStatus != 'sending'}
-  <div class="user-deets">
-    <div class="input-group">
-      <label for="name">Name</label>
-      <input bind:value={name}
-        required minlength="5" maxlength="30"
-        type="text" name="name" id="name"
-      />
+    <div class="user-deets">
+      <div class="input-group">
+        <label for="name">Name</label>
+        <input
+          bind:value={name}
+          required
+          minlength="5"
+          maxlength="30"
+          type="text"
+          name="name"
+          id="name"
+        />
+      </div>
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input
+          bind:value={email}
+          required
+          minlength="5"
+          maxlength="40"
+          type="email"
+          name="email"
+          id="email"
+        />
+      </div>
     </div>
-    <div class="input-group">
-      <label for="email">Email</label>
-      <input bind:value={email}
-        required minlength="5" maxlength="40"
-        type="email" name="email" id="email"
-      />
-    </div>
-  </div>
-  <label for="message">Message</label>
-  <textarea bind:value={message}
-    required minlength="20" maxlength="500"
-    name="message" id="message" rows="5"
-  ></textarea>
-  <button type="submit">Send</button>
+    <label for="message">Message</label>
+    <textarea
+      bind:value={message}
+      required
+      minlength="20"
+      maxlength="500"
+      name="message"
+      id="message"
+      rows="5"
+    />
+    <button type="submit">Send</button>
   {/if}
 
   {#if mailSendStatus === 'sending'}
     <Loading title="Sending" hideHomeButton={true} />
   {:else if mailSendStatus !== 'pending'}
-  <div class="response-info" transition:slide>
-    {#if mailSendStatus === 'success'}
-    <p class="success">Message Sent :)</p>
-    {:else if mailSendStatus === 'error'}
-    <p class="error">Snap! Failed to send :(</p>
-    {/if}
-    <button type="button" on:click={reShowMailForm}>Return to Message</button>
-  </div>
+    <div class="response-info" transition:slide>
+      {#if mailSendStatus === 'success'}
+        <p class="success">Message Sent :)</p>
+      {:else if mailSendStatus === 'error'}
+        <p class="error">Snap! Failed to send :(</p>
+      {/if}
+      <button type="button" on:click={reShowMailForm}>Return to Message</button>
+    </div>
   {/if}
 </form>
 
 <style lang="scss">
-h2 {
-  font-size: 2rem;
-  margin: 1rem 0;
-  color: var(--accent);
-  &:before {
-    content: ">";
-    margin-right: 6px;
-    opacity: 0.8;
+  h2 {
+    font-size: 2rem;
+    margin: 1rem 0;
+    color: var(--accent);
+    &:before {
+      content: '>';
+      margin-right: 6px;
+      opacity: 0.8;
+    }
   }
-}
-form {
+  form {
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -173,7 +195,9 @@ form {
         margin: 0;
       }
     }
-    input, textarea, button {
+    input,
+    textarea,
+    button {
       background: var(--card-background);
       border: var(--card-border);
       color: var(--foreground);

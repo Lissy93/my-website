@@ -1,4 +1,3 @@
-
 export const SupportedSocials: readonly string[] = [
   'Twitter',
   'GitHub',
@@ -20,17 +19,17 @@ export interface SocialNetwork {
   tone: string;
   link: string;
   noAt?: boolean;
-};
+}
 
 export interface SocialMetric {
   label: string;
   value: string | number;
-};
+}
 
 export interface UserSocial extends SocialNetwork {
   user: string;
   metrics?: SocialMetric[];
-};
+}
 
 export type Usernames = {
   [key in typeof SupportedSocials[number]]: string;
@@ -39,4 +38,4 @@ export type Usernames = {
 export interface SocialMetric {
   label: string;
   value: string | number;
-};
+}

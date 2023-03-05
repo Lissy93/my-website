@@ -10,9 +10,11 @@
   export let visible = false;
 
   // Opens or closes the dropdown
-  const toggle = () => visible = !visible;
+  const toggle = () => (visible = !visible);
 
-  const hide = () => { visible = false; }
+  const hide = () => {
+    visible = false;
+  };
 
   /**
    * For a given feed object, either remove or add it to the store
@@ -20,9 +22,13 @@
    */
   const toggleFeed = (feed: RssUrlItem): void => {
     const isFound = get(rssFeedUrls).find((cFeed) => cFeed.url === feed.url);
-    if (isFound) { // Remove specified feed from store
-      rssFeedUrls.set(get(rssFeedUrls).filter((cFeed) => cFeed.url !== feed.url ));
-    } else { // Append specified feed to store
+    if (isFound) {
+      // Remove specified feed from store
+      rssFeedUrls.set(
+        get(rssFeedUrls).filter((cFeed) => cFeed.url !== feed.url)
+      );
+    } else {
+      // Append specified feed to store
       rssFeedUrls.set([...get(rssFeedUrls), feed]);
     }
   };
@@ -34,36 +40,40 @@
   const selectAll = () => {
     rssFeedUrls.set(extraFeeds);
   };
-
 </script>
 
 <div class="dropdown-outer" use:clickOutside on:click_outside={hide}>
   <div class="chevron" on:click={toggle} on:keyup={toggle}>
-    {$t('blog.sources-menu')} { visible ? '▲' : '▼'}
+    {$t('blog.sources-menu')}
+    {visible ? '▲' : '▼'}
   </div>
   {#if visible}
     <div class="dropdown-inner">
       <ul>
-      {#each extraFeeds as feed (feed.url)}
-        <li
-          transition:slide
-          title={feed.url}
-          on:click={() => toggleFeed(feed)}
-          on:keyup={() => toggleFeed(feed)}
-        >
-          <div class="checkbox">
-            {#if $rssFeedUrls.find((f) => f.url === feed.url)}
-            ✔
-            {/if}
-          </div>
-          {feed.label}
-        </li>
-      {/each}
+        {#each extraFeeds as feed (feed.url)}
+          <li
+            transition:slide
+            title={feed.url}
+            on:click={() => toggleFeed(feed)}
+            on:keyup={() => toggleFeed(feed)}
+          >
+            <div class="checkbox">
+              {#if $rssFeedUrls.find((f) => f.url === feed.url)}
+                ✔
+              {/if}
+            </div>
+            {feed.label}
+          </li>
+        {/each}
       </ul>
       <div class="quick-all">
         <ul>
-          <li on:click={clearAll} on:keydown={clearAll}>{$t('blog.sources-none')}</li>
-          <li on:click={selectAll} on:keydown={selectAll}>{$t('blog.sources-all')}</li>
+          <li on:click={clearAll} on:keydown={clearAll}>
+            {$t('blog.sources-none')}
+          </li>
+          <li on:click={selectAll} on:keydown={selectAll}>
+            {$t('blog.sources-all')}
+          </li>
         </ul>
       </div>
     </div>
@@ -71,7 +81,7 @@
 </div>
 
 <style lang="scss">
-  @import "$src/styles/color-palette.scss";
+  @import '$src/styles/color-palette.scss';
 
   .dropdown-outer {
     display: flex;
@@ -122,7 +132,9 @@
         opacity: 0.7;
         align-items: center;
         justify-content: space-between;
-        &:hover { opacity: 1 }
+        &:hover {
+          opacity: 1;
+        }
       }
     }
     .chevron {
@@ -138,5 +150,4 @@
       }
     }
   }
-
 </style>

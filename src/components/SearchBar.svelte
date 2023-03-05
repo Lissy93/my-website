@@ -25,23 +25,23 @@
 </form>
 
 <style lang="scss">
-@import "$src/styles/color-palette.scss";
-form {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-label {
-  margin-right: 1rem;
-}
-input {
-  background: var(--card-background);
-  outline: none;
-  border: var(--card-border);
-  padding: 0.25rem 0.5rem;
-  color: var(--accent);
-  font-family: FiraCode;
-  font-size: 1rem;
-  border-radius: 4px;
-}
+  @import '$src/styles/color-palette.scss';
+  form {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  label {
+    margin-right: 1rem;
+  }
+  input {
+    background: var(--card-background);
+    outline: none;
+    border: var(--card-border);
+    padding: 0.25rem 0.5rem;
+    color: var(--accent);
+    font-family: FiraCode;
+    font-size: 1rem;
+    border-radius: 4px;
+  }
 </style>

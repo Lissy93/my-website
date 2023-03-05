@@ -36,8 +36,8 @@ export enum PostStatus {
 }
 
 export interface RssUrlItem {
-  label: string,
-  url: string,
+  label: string;
+  url: string;
 }
 
 export type RssUrlList = RssUrlItem[] | [];

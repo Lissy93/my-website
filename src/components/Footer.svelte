@@ -7,10 +7,11 @@
 
 <footer style={`--accent: ${color};`}>
   <p>
-  © <a href={footerInfo.authorSite} target="_blank">{footerInfo.author}</a>
-  {new Date().getFullYear()} - Licensed under
-  <a href={footerInfo.licenseLink} target="_blank">{footerInfo.license}</a> -
-  View on <a href={source} target="_blank">GitHub <Icon name="github" color="var(--accent)" /></a>
+    © <a href={footerInfo.authorSite} target="_blank" rel="noreferrer">{footerInfo.author}</a>
+    {new Date().getFullYear()} - Licensed under
+    <a href={footerInfo.licenseLink} target="_blank" rel="noreferrer">{footerInfo.license}</a> -
+    View on <a href={source} target="_blank" rel="noreferrer">
+      GitHub <Icon name="github" color="var(--accent)" /></a>
   </p>
 </footer>
 

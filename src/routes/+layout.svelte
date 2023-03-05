@@ -6,7 +6,7 @@
   import { page } from '$app/stores';
   import { config } from '$src/store/BlogStore';
   import { theme, encodedThemeCss, themeColors } from '$src/store/ThemeStore';
-  
+
   // Returns page title, based on current route
   const makeTitle = (pathname: string) => {
     const route = config.routeLinks.find((rl) => rl.route === pathname);
@@ -16,17 +16,18 @@
   // Returns an accent color based on the current route
   const routeBasedAccent = (pathname?: string) => {
     const path = pathname || $page.url.pathname;
-    return config.routeLinks?.find((rc) => rc.route === path)?.color
-      || $themeColors['accent-1']
-      || '#ff0099';
+    return (
+      config.routeLinks?.find((rc) => rc.route === path)?.color ||
+      $themeColors['accent-1'] ||
+      '#ff0099'
+    );
   };
 
   const shouldShowNavBar = (pagePath: string) => !['/'].includes(pagePath);
-
 </script>
 
 <svelte:head>
-  <title>{makeTitle($page.url.pathname)}</title> 
+  <title>{makeTitle($page.url.pathname)}</title>
   <meta name="color-scheme" content={$theme} />
   <link rel="stylesheet" href={$encodedThemeCss} />
 </svelte:head>
@@ -36,11 +37,11 @@
 {/if}
 
 {#key $page.url.pathname}
-<main style={`--accent: ${routeBasedAccent()}`}>
-  <div class="website" in:fade>
-    <slot />
-  </div>  
-</main>
+  <main style={`--accent: ${routeBasedAccent()}`}>
+    <div class="website" in:fade>
+      <slot />
+    </div>
+  </main>
 {/key}
 
 <BackToTop color={routeBasedAccent($page.url.pathname)} />
@@ -49,14 +50,12 @@
   <Footer color={routeBasedAccent($page.url.pathname)} />
 {/if}
 
-
 <style lang="scss">
-  
   // Import reused SCSS variables and global styles
-  @import "$src/styles/color-palette.scss";
-  @import "$src/styles/media-queries.scss";
-  @import "$src/styles/typography.scss";
-  @import "$src/styles/dimensions.scss";
+  @import '$src/styles/color-palette.scss';
+  @import '$src/styles/media-queries.scss';
+  @import '$src/styles/typography.scss';
+  @import '$src/styles/dimensions.scss';
 
   main {
     min-height: 100%;
@@ -104,10 +103,11 @@
     color: var(--background);
   }
 
-//   :global([data-theme='light']) {
-//     @include light-theme;
-//   }
-//   :global([data-theme='callisto']) {
-//     @include callisto-theme;
-//   }
-// </style>
+  //   :global([data-theme='light']) {
+  //     @include light-theme;
+  //   }
+  //   :global([data-theme='callisto']) {
+  //     @include callisto-theme;
+  //   }
+  //
+</style>

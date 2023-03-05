@@ -12,7 +12,11 @@ const httpWhat = isSsl ? https : http;
 
 /* Location of the server to test */
 const isDocker = !!process.env.IS_DOCKER;
-const port = isSsl ? (process.env.SSL_PORT || (isDocker ? 443 : 4001)) : (process.env.PORT || isDocker ? 80 : 4000);
+const port = isSsl
+  ? process.env.SSL_PORT || (isDocker ? 443 : 4001)
+  : process.env.PORT || isDocker
+  ? 80
+  : 4000;
 const host = process.env.HOST || '0.0.0.0';
 const timeout = 2000;
 
@@ -38,7 +42,9 @@ const healthCheck = httpWhat.request(requestOptions, (response) => {
 
 /* If the server is not running, then print the error code, and exit with 1 */
 healthCheck.on('error', (err) => {
-  console.error(`\x1b[31mHealthceck Failed, Error: ${'\x1b[33m'}${err.code}\x1b[0m`);
+  console.error(
+    `\x1b[31mHealthceck Failed, Error: ${'\x1b[33m'}${err.code}\x1b[0m`
+  );
   process.exit(1);
 });
 

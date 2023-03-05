@@ -9,25 +9,26 @@ const fallbackLocale: Locale = 'en';
 
 // Gets the initial language, either from local storage (if browser), or from the config
 const initialLocale = browser
-  ? localStorage.getItem('locale') as Locale
+  ? (localStorage.getItem('locale') as Locale)
   : null || config.defaultLanguage || 'en';
 
-  // The currently selected language
+// The currently selected language
 export const locale = writable<Locale>(initialLocale);
 
 // Full list of available languages
 export const locales = Object.keys(translations) as Locale[];
 
 // When lang updated, save in localStorage ready for next time
-locale && locale.subscribe((newLocale: Locale) => {
-  if (browser) localStorage.locale = newLocale
-});
+locale &&
+  locale.subscribe((newLocale: Locale) => {
+    if (browser) localStorage.locale = newLocale;
+  });
 
 // The main translation function, which returns a value for given key and locale
 function translate(locale: Locale, key: string, vars: Translations[Locale]) {
-
   // Throw error if locale not found
-  if (!translations[locale]) throw new Error(`No translations found for ${locale}`);
+  if (!translations[locale])
+    throw new Error(`No translations found for ${locale}`);
 
   // Get the text from the translations for locale or fallback to default locale
   let text = translations[locale][key] || translations[fallbackLocale][key];
@@ -45,8 +46,11 @@ function translate(locale: Locale, key: string, vars: Translations[Locale]) {
 }
 
 // For use within component, with $t('key', { vars }) to return actual text
-export const t = derived(locale, ($locale) => (key: string, vars = {}) =>
-  translate($locale, key, vars)
+export const t = derived(
+  locale,
+  ($locale) =>
+    (key: string, vars = {}) =>
+      translate($locale, key, vars)
 );
 
 // Returns the meta data for the current language (flag, name, etc)

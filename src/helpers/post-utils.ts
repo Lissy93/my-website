@@ -23,7 +23,10 @@ export const formatDate = (inputDate: string): string => {
   // const localFormat = navigator ? navigator.language : 'en-GB';
   const localFormat = 'en-GB';
   const dateFormat: Intl.DateTimeFormatOptions = {
-    weekday: 'long', day: 'numeric', month: 'short', year: 'numeric',
+    weekday: 'long',
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
   };
   return new Date(inputDate).toLocaleDateString(localFormat, dateFormat);
 };

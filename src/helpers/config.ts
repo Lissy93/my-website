@@ -1,31 +1,69 @@
-
 import type { SiteConfig } from '$src/types/Config';
 
 const config: SiteConfig = {
   title: 'Alicia Sykes',
   source: 'https://github.com/lissy93/aggregated-blog',
   baseUrl: 'https://as93.net',
-  initialFeeds: [
-    { label: 'Notes', url: 'https://notes.aliciasykes.com/feed' },
-  ],
+  initialFeeds: [{ label: 'Notes', url: 'https://notes.aliciasykes.com/feed' }],
   additionalFeeds: [
     { label: 'Notes', url: 'https://notes.aliciasykes.com/feed' },
-    { label: 'Dev.to', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/dev-to.atom' },
-    { label: 'BlogSpot', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/blogger.atom' },
-    { label: 'GitHub', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/github.atom' },
-    { label: 'StackOverflow', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/stackoverflow.atom' },
+    {
+      label: 'Dev.to',
+      url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/dev-to.atom',
+    },
+    {
+      label: 'BlogSpot',
+      url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/blogger.atom',
+    },
+    {
+      label: 'GitHub',
+      url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/github.atom',
+    },
+    {
+      label: 'StackOverflow',
+      url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/stackoverflow.atom',
+    },
     // { label: 'Twitter', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/twitter.atom' },
-    { label: 'Reddit', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/reddit.atom' },
-    { label: 'Mastodon', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/mastodon.atom' },
-    { label: 'YouTube', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/youtube.atom' },
+    {
+      label: 'Reddit',
+      url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/reddit.atom',
+    },
+    {
+      label: 'Mastodon',
+      url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/mastodon.atom',
+    },
+    {
+      label: 'YouTube',
+      url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/youtube.atom',
+    },
   ],
 
   routeLinks: [
     { label: 'Home', route: '/', color: 'var(--accent-1, #ff0099)' },
-    { label: 'Blog', route: '/blog', color: 'var(--accent-2, #b45eff)', description: 'Published articles, notes, tutorials and updates' },
-    { label: 'Projects', route: '/projects', color: 'var(--accent-3, #01c0f0)', description: 'Personal projects and open source work' },
-    { label: 'Contact', route: '/contact', color: 'var(--accent-1, #ff0099)', description: 'Social profile links, GPG keys and contact form' },
-    { label: 'About', route: '/about', color: 'var(--accent-4, #1de691)', description: 'Bio and professional experience' },
+    {
+      label: 'Blog',
+      route: '/blog',
+      color: 'var(--accent-2, #b45eff)',
+      description: 'Published articles, notes, tutorials and updates',
+    },
+    {
+      label: 'Projects',
+      route: '/projects',
+      color: 'var(--accent-3, #01c0f0)',
+      description: 'Personal projects and open source work',
+    },
+    {
+      label: 'Contact',
+      route: '/contact',
+      color: 'var(--accent-1, #ff0099)',
+      description: 'Social profile links, GPG keys and contact form',
+    },
+    {
+      label: 'About',
+      route: '/about',
+      color: 'var(--accent-4, #1de691)',
+      description: 'Bio and professional experience',
+    },
   ],
   footerInfo: {
     author: 'Alicia Sykes',
@@ -69,30 +107,91 @@ const config: SiteConfig = {
     },
   },
   projectComplimentaryData: [
-    { name: 'quick-example-of-testing-in-nodejs', thumbnail: 'https://i.ibb.co/WDpBStz/better-test3.png' },
+    {
+      name: 'quick-example-of-testing-in-nodejs',
+      thumbnail: 'https://i.ibb.co/WDpBStz/better-test3.png',
+    },
     // { name: 'personal-security-checklist', thumbnail: 'https://repository-images.githubusercontent.com/123631418/75bac380-b260-11ea-8cc4-c2272744feab' },
-    { name: 'dashy', featured: true, thumbnail: 'https://repository-images.githubusercontent.com/343078060/82f850a2-b1af-4e9f-9245-c92700d74856' },
-    { name: 'awesome-privacy', thumbnail: 'https://repository-images.githubusercontent.com/512269935/6b38d78e-6e4d-484e-bbc8-e0dd81c97e0a' },
-    { name: 'email-comparison', thumbnail: 'https://i.ibb.co/f8ZfxmW/email-comparison-screenshot.png' },
-    { name: 'twitter-sentiment-visualisation', thumbnail: 'https://i.ibb.co/W0f10Vv/sentiment-sweep-grid.png' },
-    { name: 'espanso-config', thumbnail: 'https://repository-images.githubusercontent.com/362820466/b1ef9380-a909-11eb-9d34-2aaf94ed5d95' },
+    {
+      name: 'dashy',
+      featured: true,
+      thumbnail:
+        'https://repository-images.githubusercontent.com/343078060/82f850a2-b1af-4e9f-9245-c92700d74856',
+    },
+    {
+      name: 'awesome-privacy',
+      thumbnail:
+        'https://repository-images.githubusercontent.com/512269935/6b38d78e-6e4d-484e-bbc8-e0dd81c97e0a',
+    },
+    {
+      name: 'email-comparison',
+      thumbnail: 'https://i.ibb.co/f8ZfxmW/email-comparison-screenshot.png',
+    },
+    {
+      name: 'twitter-sentiment-visualisation',
+      thumbnail: 'https://i.ibb.co/W0f10Vv/sentiment-sweep-grid.png',
+    },
+    {
+      name: 'espanso-config',
+      thumbnail:
+        'https://repository-images.githubusercontent.com/362820466/b1ef9380-a909-11eb-9d34-2aaf94ed5d95',
+    },
     { name: '', thumbnail: '' },
     { name: '', thumbnail: '' },
   ],
   postComplimentaryData: [
-    { postRef: 'CLI tools you cant live without', thumbnail: 'https://i.ibb.co/F4THZ2T/cli-tools-banner.png' },
-    { postRef: '20 git commands', thumbnail: 'https://i.ibb.co/yqtrTTS/git-commands-banner.png' },
-    { postRef: 'useful css resources', thumbnail: 'https://i.ibb.co/CMxy3tz/css-resources-2.png' },
-    { postRef: 'my top 50 windows apps', thumbnail: 'https://i.ibb.co/nmPRGgp/open-source-windows-apps.png' },
-    { postRef: 'my top 50 android apps', thumbnail: 'https://i.ibb.co/cc8WP4K/App-icons-banner-medium.png' },
-    { postRef: 'pimping up your duckduckgo', thumbnail: 'https://i.ibb.co/6XYydtq/Duck-Duck-Go-Themes.png' },
-    { postRef: 'custom styling for listed', thumbnail: 'https://i.ibb.co/dMh1y13/listed-dark.png' },
-    { postRef: 'fun with realtime data', thumbnail: 'https://i.ibb.co/HqJ77Mf/Fun-with-live-data-banner.png' },
-    { postRef: 'fave youtube chanels', thumbnail: 'https://i.ibb.co/185MLZq/youtube-channels-banner.png' },
-    { postRef: 'top 25 raspberry pi projects', thumbnail: 'https://i.ibb.co/LP1wZtc/Top-Raspberry-Pi-Projects.png' },
-    { postRef: 'using espanso to boost efficiency', thumbnail: 'https://i.ibb.co/6W1Bqyz/espanso-config-banner.png' },
-    { postRef: 'hello world', thumbnail: 'https://i.ibb.co/0rfWV1f/DSCN0566-1.jpg' },
-    { postRef: 'dashy a selfhosted homelab dashboard', thumbnail: 'https://i.ibb.co/c6kTRch/dashy-theme.png' },
+    {
+      postRef: 'CLI tools you cant live without',
+      thumbnail: 'https://i.ibb.co/F4THZ2T/cli-tools-banner.png',
+    },
+    {
+      postRef: '20 git commands',
+      thumbnail: 'https://i.ibb.co/yqtrTTS/git-commands-banner.png',
+    },
+    {
+      postRef: 'useful css resources',
+      thumbnail: 'https://i.ibb.co/CMxy3tz/css-resources-2.png',
+    },
+    {
+      postRef: 'my top 50 windows apps',
+      thumbnail: 'https://i.ibb.co/nmPRGgp/open-source-windows-apps.png',
+    },
+    {
+      postRef: 'my top 50 android apps',
+      thumbnail: 'https://i.ibb.co/cc8WP4K/App-icons-banner-medium.png',
+    },
+    {
+      postRef: 'pimping up your duckduckgo',
+      thumbnail: 'https://i.ibb.co/6XYydtq/Duck-Duck-Go-Themes.png',
+    },
+    {
+      postRef: 'custom styling for listed',
+      thumbnail: 'https://i.ibb.co/dMh1y13/listed-dark.png',
+    },
+    {
+      postRef: 'fun with realtime data',
+      thumbnail: 'https://i.ibb.co/HqJ77Mf/Fun-with-live-data-banner.png',
+    },
+    {
+      postRef: 'fave youtube chanels',
+      thumbnail: 'https://i.ibb.co/185MLZq/youtube-channels-banner.png',
+    },
+    {
+      postRef: 'top 25 raspberry pi projects',
+      thumbnail: 'https://i.ibb.co/LP1wZtc/Top-Raspberry-Pi-Projects.png',
+    },
+    {
+      postRef: 'using espanso to boost efficiency',
+      thumbnail: 'https://i.ibb.co/6W1Bqyz/espanso-config-banner.png',
+    },
+    {
+      postRef: 'hello world',
+      thumbnail: 'https://i.ibb.co/0rfWV1f/DSCN0566-1.jpg',
+    },
+    {
+      postRef: 'dashy a selfhosted homelab dashboard',
+      thumbnail: 'https://i.ibb.co/c6kTRch/dashy-theme.png',
+    },
     { postRef: '', thumbnail: '' },
   ],
   contact: {
@@ -163,7 +262,7 @@ const config: SiteConfig = {
   about: {
     intro: 'Just your average dev...',
     bio: [
-      'I\'m Alicia, a London-based software engineer.',
+      "I'm Alicia, a London-based software engineer.",
 
       `I have a particular interest in privacy-respecting software, as well as security.
       I've carried out a few audits, and authored the initial versions of

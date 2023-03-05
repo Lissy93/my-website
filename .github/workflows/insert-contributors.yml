@@ -24,14 +24,14 @@ jobs:
     runs-on: ubuntu-latest
     name: Inserts Contributors 💓
     steps:
-    - name: Updates readme with contributors
-      uses: akhilmhdh/contributors-readme-action@v2.3.4
-      env:
+      - name: Updates readme with contributors
+        uses: akhilmhdh/contributors-readme-action@v2.3.4
+        env:
           GITHUB_TOKEN: ${{ secrets.BOT_TOKEN || secrets.GITHUB_TOKEN }}
-      with:
-        image_size: 80
-        readme_path: README.md
-        columns_per_row: 6
-        commit_message: 'docs: Updates contributors list'
-        committer_username: liss-bot
-        committer_email: liss-bot@d0h.co
+        with:
+          image_size: 80
+          readme_path: README.md
+          columns_per_row: 6
+          commit_message: 'docs: Updates contributors list'
+          committer_username: liss-bot
+          committer_email: liss-bot@d0h.co

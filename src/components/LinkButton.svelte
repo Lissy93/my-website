@@ -8,7 +8,7 @@
   export let icon: string | null = null;
 </script>
 
-<a href={to} target={target} class={priority} style={`--textColor: ${textColor}`}>
+<a href={to} {target} class={priority} style={`--textColor: ${textColor}`}>
   {#if icon}
     <Icon name={icon} class={priority} color={textColor} />
   {/if}
@@ -16,37 +16,37 @@
 </a>
 
 <style lang="scss">
-a {
-  text-decoration: none;
-  padding: 0.25rem 0.5rem;
-  margin: 0;
-  border: 0;
-  border-radius: 4px;
-  cursor: pointer;
-  font-family: RedHatText;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  filter: grayscale(15%);
-  transition: all 0.2s ease-in-out;
-  &:hover {
-    filter: grayscale(0%);
-    transform: scale(1.05) rotate(1deg);
-  }
-  &.primary {
-    background: var(--accent);
-    color: var(--background);
-    font-weight: bold;
-  }
-  &.secondary {
-    background: var(--card-background);
-    color: var(--foreground);
-    border: var(--card-border);
+  a {
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    margin: 0;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: RedHatText;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    filter: grayscale(15%);
+    transition: all 0.2s ease-in-out;
     &:hover {
-      transform: scale(1.04) rotate(-0.8deg);
+      filter: grayscale(0%);
+      transform: scale(1.05) rotate(1deg);
     }
+    &.primary {
+      background: var(--accent);
+      color: var(--background);
+      font-weight: bold;
+    }
+    &.secondary {
+      background: var(--card-background);
+      color: var(--foreground);
+      border: var(--card-border);
+      &:hover {
+        transform: scale(1.04) rotate(-0.8deg);
+      }
+    }
+    color: var(--textColor, currentcolor);
   }
-  color: var(--textColor, currentcolor);
-}
 </style>

@@ -1,18 +1,18 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount } from 'svelte';
   import { createEventDispatcher } from 'svelte';
 
-  export let animation = "none";
-  export let animation_out = "none; opacity: 0";
+  export let animation = 'none';
+  export let animation_out = 'none; opacity: 0';
   export let once = false;
   export let top = 0;
   export let bottom = 0;
-  export let css_observer = "";
-  export let css_animation = "";
+  export let css_observer = '';
+  export let css_animation = '';
   export let style = '';
 
   const dispatch = createEventDispatcher();
-  $: dispatch('update', {'observing': observing});
+  $: dispatch('update', { observing: observing });
 
   let observing = true;
 
@@ -43,11 +43,11 @@
     observing = c.top + top < window.innerHeight && c.bottom - bottom > 0;
 
     if (observing && once) {
-      window.removeEventListener("scroll", verify);
+      window.removeEventListener('scroll', bounding_verify);
     }
 
-    window.addEventListener("scroll", bounding_verify);
-    return () => window.removeEventListener("scroll", bounding_verify);
+    window.addEventListener('scroll', bounding_verify);
+    return () => window.removeEventListener('scroll', bounding_verify);
   }
 
   onMount(() => {

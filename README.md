@@ -13,29 +13,30 @@
 <summary><b>Contents</b></summary>
 
 <!-- TOC start -->
+
 - [**About**](#about)
-  * [Intro](#intro)
-  * [Pages](#pages)
-    + [Portfolio](#portfolio)
-    + [Blog](#blog)
-    + [Contact](#contact)
-    + [About](#about-1)
-  * [Quality Gates](#quality-gates)
-  * [Tech Stack](#tech-stack)
+  - [Intro](#intro)
+  - [Pages](#pages)
+    - [Portfolio](#portfolio)
+    - [Blog](#blog)
+    - [Contact](#contact)
+    - [About](#about-1)
+  - [Quality Gates](#quality-gates)
+  - [Tech Stack](#tech-stack)
 - [**Getting Started**](#getting-started)
-  * [Developing](#developing)
-  * [Deploying](#deploying)
-  * [Configuring](#configuring)
-    + [Basic Data](#basic-data)
-    + [Secrets](#secrets)
-    + [Styles](#styles)
-    + [Languages](#languages)
-    + [More](#more)
+  - [Developing](#developing)
+  - [Deploying](#deploying)
+  - [Configuring](#configuring)
+    - [Basic Data](#basic-data)
+    - [Secrets](#secrets)
+    - [Styles](#styles)
+    - [Languages](#languages)
+    - [More](#more)
 - [**Community**](#community)
-  * [Report an Issue](#report-an-issue)
-  * [Contributing](#contributing)
-  * [Support](#support)
-  * [Credits](#credits)
+  - [Report an Issue](#report-an-issue)
+  - [Contributing](#contributing)
+  - [Support](#support)
+  - [Credits](#credits)
 - [**License**](#license)
 <!-- TOC end -->
 
@@ -45,10 +46,10 @@
 
 <sup>A mirror is available at **[codeberg.org/alicia/devolio](https://codeberg.org/alicia/devolio)**</sup>
 
-
 ## About
 
 ### Intro
+
 Devolio is a self-hosted developer homepage, where you can showcase your projects, blog posts, coding stats and more.<br>
 Data fetched from existing sources (GitHub, RSS, Dev.to etc), so there's no backend to manage.<br>
 It's easy to make it your own, with custom styles and a simple config file.<br>
@@ -58,7 +59,8 @@ It's easy to make it your own, with custom styles and a simple config file.<br>
 The app is split into several pages: [Portfolio](#portfolio) | [Blog](#blog) | [Contact](#contact) | [About](#about-1)
 
 #### Portfolio
-The portfolio page displays the projects you've built. Data is fetched from your GitHub profile. 
+
+The portfolio page displays the projects you've built. Data is fetched from your GitHub profile.
 
 Each project can include: name, description, thumbnail, language, star/fork/issue count, license, size, date create/updated and links to the repo and project website. Featured projects can be made to span multiple cells, in order to display more info. When a thumbnail is present, the user can hover over the card to view full details.
 
@@ -69,6 +71,7 @@ You can add or override any project data in the config file, as well as manually
 </p>
 
 #### Blog
+
 The blog page displays posts that you've published. Data is fetched and aggregated from one or more RSS feeds defined in the config. Post content is rendered as HTML, as well as metadata including author, date, link to original and optional thumbnail.
 
 Start typing to filter results, and use the keyboard to navigate posts.
@@ -103,6 +106,7 @@ The about page has space for a short bio, profile image, and work experience.
 ### Features
 
 ### Quality Gates
+
 ✅ Localized with multi-language support<br>
 ✅ Unit tested<br>
 ✅ Fast load speeds<br>
@@ -111,6 +115,7 @@ The about page has space for a short bio, profile image, and work experience.
 ✅ Fully responsive<br>
 
 ### Tech Stack
+
 Built with Svelte, using SvelteKit (1.0.0) and written in TypeScript.
 The build system is Vite/ Rollup, with dependencies managed with PNPM.
 Standards implemented with ESLint and Prettier, with testing done using Vitest and Playwright.
@@ -135,6 +140,7 @@ pnpm run dev -- --open
 ```
 
 ### Manual Deploy
+
 - Fork the repo, then follow the steps above to clone and install dependencies
 - Make any desired changes (see [Configuring](#configuring) below)
 - Push changes to your repository
@@ -143,16 +149,16 @@ pnpm run dev -- --open
 You can also build the site yourself `npm run build`, then either run `node build` to start the server, or use an appropriate [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
 
 ### Quick Deploy
+
 Use the 1-click deploy to get up and running in seconds.
 
-[![Depoly Devolio to Netlify](https://img.shields.io/badge/Deploy-Netlify-%2330c8c9?style=for-the-badge&logo=netlify&labelColor=1e0e41 "Deploy Devolio to Netlify, via 1-Click Script")](https://app.netlify.com/start/deploy?repository=https://github.com/lissy93/devolio "Deploy Devolio to Render, via 1-Click Script")
+[![Depoly Devolio to Netlify](https://img.shields.io/badge/Deploy-Netlify-%2330c8c9?style=for-the-badge&logo=netlify&labelColor=1e0e41 'Deploy Devolio to Netlify, via 1-Click Script')](https://app.netlify.com/start/deploy?repository=https://github.com/lissy93/devolio 'Deploy Devolio to Render, via 1-Click Script')
 
-[![Depoly Devolio to Render](https://img.shields.io/badge/Deploy-Render-%236c83fa?style=for-the-badge&logo=render&labelColor=1e0e41&logoColor=6c83fa)](https://render.com/deploy?repo=https://github.com/lissy93/devolio "Deploy Devolio to Render, via 1-Click Script")
+[![Depoly Devolio to Render](https://img.shields.io/badge/Deploy-Render-%236c83fa?style=for-the-badge&logo=render&labelColor=1e0e41&logoColor=6c83fa)](https://render.com/deploy?repo=https://github.com/lissy93/devolio 'Deploy Devolio to Render, via 1-Click Script')
 
-[![Deploy Devolio to Railway](https://img.shields.io/badge/Deploy-Railway-%23853bce?style=for-the-badge&logo=railway&labelColor=1e0e41&logoColor=853bce)](https://railway.app/new/template/hROvhb "Deploy Devolio to Railway, via 1-Click Script")
+[![Deploy Devolio to Railway](https://img.shields.io/badge/Deploy-Railway-%23853bce?style=for-the-badge&logo=railway&labelColor=1e0e41&logoColor=853bce)](https://railway.app/new/template/hROvhb 'Deploy Devolio to Railway, via 1-Click Script')
 
-[![Deploy Devolio to Vercel](https://img.shields.io/badge/Deploy-Vercel-%23ffffff?style=for-the-badge&logo=vercel&labelColor=1e0e41)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Flissy93%2Fdevolio&env=GITHUB_TOKEN,TWITTER_TOKEN&project-name=devolio&repository-name=devolio_My-Developer-Portfolio "Deploy Devolio to Vercel, via 1-Click Script")
-
+[![Deploy Devolio to Vercel](https://img.shields.io/badge/Deploy-Vercel-%23ffffff?style=for-the-badge&logo=vercel&labelColor=1e0e41)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Flissy93%2Fdevolio&env=GITHUB_TOKEN,TWITTER_TOKEN&project-name=devolio&repository-name=devolio_My-Developer-Portfolio 'Deploy Devolio to Vercel, via 1-Click Script')
 
 ### Docker Deploy
 
@@ -162,7 +168,7 @@ To run the container directly from DockerHub or GHCR, use: `docker run -p 3000:8
 
 Alternatively, use the [`docker-compose.yml`](https://github.com/Lissy93/devolio/blob/master/docker-compose.yml) as a template, and run `docker compose up`
 
-[![Test on PWD](https://img.shields.io/badge/Try-Play_with_Docker-%232496ED?style=for-the-badge&logo=docker&labelColor=1e0e41)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/Lissy93/devolio/master/docker-compose.yml "Deploy Devolio to PWD, via 1-Click Script")
+[![Test on PWD](https://img.shields.io/badge/Try-Play_with_Docker-%232496ED?style=for-the-badge&logo=docker&labelColor=1e0e41)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/Lissy93/devolio/master/docker-compose.yml 'Deploy Devolio to PWD, via 1-Click Script')
 
 <details>
 <summary>Config</summary>
@@ -174,32 +180,39 @@ _You can pass in your own [`config.ts`](https://github.com/Lissy93/devolio/blob/
 ### Configuring
 
 #### Basic Data
+
 All site data is located in [`config.ts`](https://github.com/Lissy93/devolio/blob/master/src/helpers/config.ts). Here you can specify site name, URLs to RSS feeds, GitHub username to fetch projects from, contact details, etc.
 
 #### Secrets
+
 Sensitive data, like API keys are set as environmental variables. These can either be set in the [`.env`](https://github.com/Lissy93/devolio/blob/master/.env) file, or in the admin panel for your hosting provider (e.g. for Netlify: Site settings --> Environmental Variables)
 
 Accepted Values
+
 - `GITHUB_TOKEN` - A scoped API key for fetching repositories, and displaying social stats on the contact page. Optional, but you may experience rate limits if not specified
 - `TWITTER_TOKEN` - Bearer token for showing follower count on the contact page.
 
 #### Styles
+
 Style values are managed with CSS variables, for easy configuration. These values are defined in the SCSS files within [`styles/`](https://github.com/Lissy93/devolio/tree/master/src/styles). For more advanced theming, you can edit the content of the `<style>` blocks within individual routes and components.
 
 Variables are split into the following files:
+
 - `color-palette.scss` - Colors
 - `dimensions.scss` - Sizes
 - `media-queries.scss` - Breakpoints
 - `typography.scss` - Fonts
 
-
 #### Languages
+
 The app is fully translatable, with all hard-coded copy located in [`locales`](#). The users language can be detected automatically based on browser/ OS preference, or manually set using the dropdown in the UI. To add a new language, simply create a new file named by your locale's ISO code, populate the contents (use `en` as a template), then import it in [`app`](#).
 
 Currently, the following languages are supported:
+
 - English (`en-GB`)
 
 #### More
+
 If you'd like to configure anything else, then it should be pretty straight-forward by directly editing the specific routes or components. If you need any help with any of this, feel free to raise an issue :)
 
 ---
@@ -207,9 +220,11 @@ If you'd like to configure anything else, then it should be pretty straight-forw
 ## Community
 
 ### Report an Issue
+
 Found something that's not working? [Open an issue](https://github.com/Lissy93/devolio/issues/new/choose), and describe the problem, steps to reproduce alond with expected and actual output. If relevant, also include details about your environment. I'll try and fix / respond to any tickets within 48-hours.
 
 ### Contributing
+
 Contributions of any kind are very welcome, and would be much appreciated.
 For Code of Conduct, see [Contributor Convent](https://www.contributor-covenant.org/version/2/1/code_of_conduct/).
 
@@ -224,6 +239,7 @@ To get started, fork the repo, make your changes, add, commit and push the code,
 ### Credits
 
 #### Sponsors
+
 <!-- readme: sponsors -start -->
 <table>
 <tr>
@@ -352,6 +368,7 @@ To get started, fork the repo, make your changes, add, commit and push the code,
 <!-- readme: sponsors -end -->
 
 #### Contributors
+
 <!-- readme: contributors -start -->
 <table>
 <tr>
@@ -366,38 +383,36 @@ To get started, fork the repo, make your changes, add, commit and push the code,
 <!-- readme: contributors -end -->
 
 #### Stargazers
+
 [![Recent Star Gazers](https://reporoster.com/stars/dark/Lissy93/devolio)](https://github.com/Lissy93/devolio/stargazers)
 
 ---
 
 ## Status
 
-
 [![🐳 Build + Publish Multi-Platform Image](https://github.com/Lissy93/devolio/actions/workflows/docker-build-publish.yml/badge.svg)](https://github.com/Lissy93/devolio/actions/workflows/docker-build-publish.yml) [![🏷️ Tag new Versions](https://github.com/Lissy93/devolio/actions/workflows/tag-versions.yml/badge.svg)](https://github.com/Lissy93/devolio/actions/workflows/tag-versions.yml) [![🪞 Mirror to Codeberg](https://github.com/Lissy93/devolio/actions/workflows/sync-mirror.yml/badge.svg)](https://github.com/Lissy93/devolio/actions/workflows/sync-mirror.yml) [![💓 Inserts Contributor & Sponsors](https://github.com/Lissy93/devolio/actions/workflows/insert-contributors.yml/badge.svg)](https://github.com/Lissy93/devolio/actions/workflows/insert-contributors.yml)
-
 
 ---
 
 ## License
 
-> _**[Lissy93/Devolio](https://github.com/Lissy93/devolio)** is licensed under [MIT](https://gist.github.com/Lissy93/143d2ee01ccc5c052a17) © [Alicia Sykes](https://aliciasykes.com) 2022._<br>
-> <sup align="right">For information, see <a href="https://tldrlegal.com/license/mit-license">TLDR Legal > MIT</a></sup>
+> _**[Lissy93/Devolio](https://github.com/Lissy93/devolio)** is licensed under [MIT](https://gist.github.com/Lissy93/143d2ee01ccc5c052a17) © [Alicia Sykes](https://aliciasykes.com) 2022._<br> > <sup align="right">For information, see <a href="https://tldrlegal.com/license/mit-license">TLDR Legal > MIT</a></sup>
 
 <details>
 <summary>Expand License</summary>
 
 ```
 The MIT License (MIT)
-Copyright (c) Alicia Sykes <alicia@omg.com> 
+Copyright (c) Alicia Sykes <alicia@omg.com>
 
-Permission is hereby granted, free of charge, to any person obtaining a copy 
-of this software and associated documentation files (the "Software"), to deal 
-in the Software without restriction, including without limitation the rights 
-to use, copy, modify, merge, publish, distribute, sub-license, and/or sell 
-copies of the Software, and to permit persons to whom the Software is furnished 
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sub-license, and/or sell
+copies of the Software, and to permit persons to whom the Software is furnished
 to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included install 
+The above copyright notice and this permission notice shall be included install
 copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
@@ -421,7 +436,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 </p>
 
 <!-- Dinosaur -->
-<!-- 
+<!--
                         . - ~ ~ ~ - .
       ..     _      .-~               ~-.
      //|     \ `..~                      `.

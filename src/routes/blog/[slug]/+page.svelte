@@ -12,7 +12,7 @@
   import Heading from '$src/components/Heading.svelte';
   import { fetchPostsFromRss } from '$src/helpers/fetch-rss-posts';
   import config from '$src/helpers/config';
-  
+
   export let data: PageData; // Svelte data about current page
 
   let fetchedPrimary = false;
@@ -27,8 +27,9 @@
     posts
       .then((resolvedPosts) => {
         postStatus = PostStatus.Ready;
-        blogStore.set(resolvedPosts)
-      }).catch(() => {
+        blogStore.set(resolvedPosts);
+      })
+      .catch(() => {
         postStatus = PostStatus.Errored;
       });
   };
@@ -68,13 +69,15 @@
     else if (postStatus === PostStatus.NotFound) title = 'Post not Found';
     else if (postStatus === PostStatus.Errored) title = 'Error';
     return `${title} | Alicia Sykes's Blog`;
-  }
+  };
 
   const makeDescription = () => {
-    return postToRender ?
-      postToRender?.description.replace(/<\/?[^>]+(>|$)/g, '').substring(0, 200)+'...'
-      : 'Read this article, and many more on Alicia Sykes\'s blog';
-  }
+    return postToRender
+      ? postToRender?.description
+          .replace(/<\/?[^>]+(>|$)/g, '')
+          .substring(0, 200) + '...'
+      : "Read this article, and many more on Alicia Sykes's blog";
+  };
 
   /**
    * Navigate the user back to the main blog page
@@ -95,50 +98,56 @@
     });
   }
 
-  $:title = makeTitle();
-  $:description = makeDescription();
-
+  $: title = makeTitle();
+  $: description = makeDescription();
 </script>
 
 <svelte:head>
   <!-- Primary Meta Tags -->
   <title>{title}</title>
-  <meta name="title" content={title}>
-  <meta name="description" content={description}>
+  <meta name="title" content={title} />
+  <meta name="description" content={description} />
 
   <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="article">
-  <meta property="og:url" content={config.baseUrl}>
-  <meta property="og:title" content={title}>
-  <meta property="og:description" content={description}>
-  
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content={config.baseUrl} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+
   <!-- Image, if present -->
   {#if postToRender?.thumbnail}
-    <meta property="og:image" content={postToRender?.thumbnail}>
-    <meta property="twitter:image" content={postToRender?.thumbnail}>
+    <meta property="og:image" content={postToRender?.thumbnail} />
+    <meta property="twitter:image" content={postToRender?.thumbnail} />
   {/if}
 
   <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content={config.baseUrl}>
-  <meta property="twitter:title" content={title}>
-  <meta property="twitter:description" content={description}>
-  
-
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={config.baseUrl} />
+  <meta property="twitter:title" content={title} />
+  <meta property="twitter:description" content={description} />
 </svelte:head>
 
 {#if postStatus === PostStatus.Ready && postToRender}
   <article>
     <button class="back-button" on:click={goBackToPostPage}>← Back</button>
     <div class="title">
-      <Heading level="h1" size="2.2rem" font="RedHatText" commandStyle={false} color="var(--foreground)">
-        {postToRender.title || formatDate(postToRender.pubDate) || 'Un-named Update'}
+      <Heading
+        level="h1"
+        size="2.2rem"
+        font="RedHatText"
+        commandStyle={false}
+        color="var(--foreground)"
+      >
+        {postToRender.title ||
+          formatDate(postToRender.pubDate) ||
+          'Un-named Update'}
       </Heading>
     </div>
     <div class="meta">
       <time
         datetime={postToRender.pubDate}
-        title="First published on: {postToRender.pubDate}">
+        title="First published on: {postToRender.pubDate}"
+      >
         {formatDate(postToRender.pubDate)}
       </time>
       <p class="view-original">
@@ -147,7 +156,11 @@
         {/if}
         {#if postToRender.link && postToRender.link.length > 5}
           View
-          <a href={postToRender.link} title="Read: {postToRender.title}" target="_blank">original</a>
+          <a
+            href={postToRender.link}
+            title="Read: {postToRender.title}"
+            target="_blank">original</a
+          >
         {/if}
       </p>
     </div>
@@ -164,57 +177,57 @@
 {/if}
 
 <style lang="scss">
-article {
-  color: var(--foreground);
-  background: var(--card-background);
-  font-family: RedHatText;
-  border-radius: 6px;
-  border: var(--card-border);
-  margin: 1rem 5vw;
-  padding: 0 0 1rem 0;
-  min-height: 50vh;
-
-  .title {
-    margin: 0 1.5rem;
-  }
-
-  button.back-button {
-    padding: 0.25rem 0.5rem;
-    margin: 0.5rem;
-    border: 0;
-    border-radius: 4px;
-    background: var(--accent);
-    cursor: pointer;
+  article {
+    color: var(--foreground);
+    background: var(--card-background);
     font-family: RedHatText;
-    font-weight: bold;
-    font-size: 1rem;
-  }
-  .article-content {
-    padding: 1rem 1.5rem;
-  }
+    border-radius: 6px;
+    border: var(--card-border);
+    margin: 1rem 5vw;
+    padding: 0 0 1rem 0;
+    min-height: 50vh;
 
-  .meta {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 1rem 1.5rem;
-    border-bottom: 1px dashed var(--dimmed-text);
+    .title {
+      margin: 0 1.5rem;
+    }
 
-    time, .view-original {
-      margin: 0;
-      font-size: 0.8rem;
-      letter-spacing: 0.1rem;
-      text-transform: uppercase;
-      color: var(--dimmed-text);
+    button.back-button {
+      padding: 0.25rem 0.5rem;
+      margin: 0.5rem;
+      border: 0;
+      border-radius: 4px;
+      background: var(--accent);
+      cursor: pointer;
       font-family: RedHatText;
-      transition: color 0.75s ease-in-out;
-      a {
+      font-weight: bold;
+      font-size: 1rem;
+    }
+    .article-content {
+      padding: 1rem 1.5rem;
+    }
+
+    .meta {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px dashed var(--dimmed-text);
+
+      time,
+      .view-original {
+        margin: 0;
+        font-size: 0.8rem;
+        letter-spacing: 0.1rem;
+        text-transform: uppercase;
         color: var(--dimmed-text);
+        font-family: RedHatText;
+        transition: color 0.75s ease-in-out;
+        a {
+          color: var(--dimmed-text);
+        }
       }
     }
   }
-}
-
 </style>

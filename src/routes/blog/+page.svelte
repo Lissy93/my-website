@@ -1,8 +1,12 @@
-
 <script lang="ts">
   import { goto } from '$app/navigation';
   import { t } from '$src/store/Language';
-  import { blogStore, filtered, searchTerm, rssFeedUrls } from '$src/store/BlogStore';
+  import {
+    blogStore,
+    filtered,
+    searchTerm,
+    rssFeedUrls,
+  } from '$src/store/BlogStore';
   import { slugify, formatDate } from '$src/helpers/post-utils';
   import { PostStatus, type RssPost } from '$src/types/RssXml';
   import SearchBar from '$src/components/SearchBar.svelte';
@@ -63,14 +67,19 @@
       cancelSearch();
       searchInputRef.blur();
     }
-  }
+  };
 
   const makeHoverText = (post: RssPost) => {
-    const secondsDifference = new Date().getTime() - new Date(post.pubDate).getTime();
+    const secondsDifference =
+      new Date().getTime() - new Date(post.pubDate).getTime();
     const daysBack = Math.round(secondsDifference / (1000 * 60 * 60 * 24));
-    const timeAgo = daysBack <= 365 ?
-      `${daysBack} days ago` : `${Math.round(daysBack / 365)} years ago`;
-    return `Read: ${post.title}${post.author ? `\nFrom: ${post.author}`:''}\nPublished: ${timeAgo}`;
+    const timeAgo =
+      daysBack <= 365
+        ? `${daysBack} days ago`
+        : `${Math.round(daysBack / 365)} years ago`;
+    return `Read: ${post.title}${
+      post.author ? `\nFrom: ${post.author}` : ''
+    }\nPublished: ${timeAgo}`;
   };
 </script>
 
@@ -79,10 +88,12 @@
 </div>
 <div class="post-filter-options">
   <div>
-    {#if $searchTerm }
+    {#if $searchTerm}
       <div class="results-info">
         <p>Showing {$filtered.length} results for '<i>{$searchTerm}</i>'</p>
-        <button class="clear-search" on:click={cancelSearch}>✗ {$t('blog.search.clear')}</button>
+        <button class="clear-search" on:click={cancelSearch}
+          >✗ {$t('blog.search.clear')}</button
+        >
       </div>
     {/if}
   </div>
@@ -91,7 +102,6 @@
     <DropDown />
   </div>
 </div>
-
 
 {#if $filtered.length === 0}
   <div class="no-results">
@@ -109,17 +119,21 @@
 
 <ul>
   {#each $filtered as post}
-    <AnimateOnScroll once={true}
+    <AnimateOnScroll
+      once={true}
       animation={'fade-in 1s cubic-bezier(0.4, 0.6, 0.5, 1.000) both'}
       style={post.thumbnail ? 'grid-row-start: span 2' : ''}
     >
       <li
         on:click={() => postClicked(post.title)}
-        on:keydown={()=> postClicked(post.title)}
+        on:keydown={() => postClicked(post.title)}
         title={makeHoverText(post)}
       >
         {#if post.thumbnail}
-          <div class="thumbnail" style={`background-image: url(${post.thumbnail})`}></div>
+          <div
+            class="thumbnail"
+            style={`background-image: url(${post.thumbnail})`}
+          />
         {/if}
         <a href={makeHref(post.title)} rel="noreferrer">
           {post.title}
@@ -135,20 +149,23 @@
 <svelte:window on:keydown={handleKeydown} />
 
 <style lang="scss">
-  @import "$src/styles/color-palette.scss";
-  @import "$src/styles/dimensions.scss";
+  @import '$src/styles/color-palette.scss';
+  @import '$src/styles/dimensions.scss';
 
   .heading {
     margin: 0 calc(5vw + 1rem);
   }
 
-  ul { 
+  ul {
     --dimmed-primary: #ffffff29;
   }
   ul {
     display: grid;
     grid-auto-flow: dense;
-    grid-template-columns: repeat(auto-fit, minmax(var(--grid-item-width), 1fr));
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(var(--grid-item-width), 1fr)
+    );
     gap: var(--grid-item-spacing);
     padding: var(--grid-item-spacing);
     margin: var(--grid-item-spacing) 5vw;
@@ -173,7 +190,8 @@
       transition: all ease-in-out 0.25s, transform ease-in-out 0.3s;
       height: 100%;
       &:hover {
-        box-shadow: 1px 1px 3px var(--accent), 6px 6px 6px #ff00990d, 36px 36px 50px #ff009903;
+        box-shadow: 1px 1px 3px var(--accent), 6px 6px 6px #ff00990d,
+          36px 36px 50px #ff009903;
         transform: scale(1.025);
         time {
           color: var(--foreground);
@@ -251,6 +269,4 @@
       margin: 0.5rem 0;
     }
   }
-
-
 </style>

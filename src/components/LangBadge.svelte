@@ -2,11 +2,11 @@
   export let language = '';
 
   interface LanguageAttributes {
-    name: string,
-    icon: string,
-    color: string,
-    homepage?: string,
-  };
+    name: string;
+    icon: string;
+    color: string;
+    homepage?: string;
+  }
 
   interface BadgeConfigs {
     [key: string]: LanguageAttributes;
@@ -18,7 +18,11 @@
     c: { name: 'C', color: 'A8B9CC', icon: 'c' },
     'c++': { name: 'C++', color: '00599C', icon: 'cplusplus' },
     'c#': { name: 'C#', color: '239120', icon: 'csharp' },
-    coffeescript: { name: 'CoffeeScript', color: '2F2625', icon: 'coffeescript' },
+    coffeescript: {
+      name: 'CoffeeScript',
+      color: '2F2625',
+      icon: 'coffeescript',
+    },
     crystal: { name: 'crystal', color: '000000', icon: 'crystal' },
     css: { name: 'CSS', color: '563D7C', icon: 'css3' },
     dart: { name: 'Dart', color: '#0175C2', icon: 'dart' },
@@ -55,7 +59,7 @@
     typescript: { name: 'TypeScript', color: '3178C6', icon: 'typescript' },
     vue: { name: 'Vue.js', color: '4FC08D', icon: 'vuedotjs' },
     webassembly: { name: 'WebAssembly', color: '654FF0', icon: 'webassembly' },
-  }
+  };
 
   const getLangAttributes = (lang: string): LanguageAttributes | null => {
     return badgeConfigs[lang?.toLocaleLowerCase()] || null;
@@ -70,12 +74,15 @@
 
   export const langAttributes = getLangAttributes(language);
   export const badgeUrl = langAttributes ? getBadgeUrl(langAttributes) : null;
-
 </script>
 
 <div>
   {#if badgeUrl}
-    <img src={badgeUrl} class={$$props.class} alt="Written in {langAttributes?.name}" />
+    <img
+      src={badgeUrl}
+      class={$$props.class}
+      alt="Written in {langAttributes?.name}"
+    />
   {/if}
 </div>
 

@@ -3,14 +3,13 @@
   import { config } from '$src/store/BlogStore';
   import ThemeSwitcher from '$src/components/ThemeSwitcher.svelte';
   import LanguageSwitcher from '$src/components/LanguageSwitcher.svelte';
-  
+
   export let color: string;
   export const { routeLinks } = config;
-  
+
   const findRouteColor = (route: string) => {
     return routeLinks?.find((r) => r.route === route)?.color || color;
   };
-
 </script>
 
 <nav style={`--accent: ${color};`}>
@@ -18,13 +17,14 @@
     <h1>{config.title}</h1>
   </a>
   <div class="nav-links">
-    {#each routeLinks as navLink }
-    <a
-      href={navLink.route}
-      title={navLink.description || navLink.label}
-      data-sveltekit-preload-data="hover"
-      style={`--accent: ${findRouteColor(navLink.route)};`}
-      class:active={$page.url.pathname === navLink.route}>{navLink.label}</a>
+    {#each routeLinks as navLink}
+      <a
+        href={navLink.route}
+        title={navLink.description || navLink.label}
+        data-sveltekit-preload-data="hover"
+        style={`--accent: ${findRouteColor(navLink.route)};`}
+        class:active={$page.url.pathname === navLink.route}>{navLink.label}</a
+      >
     {/each}
     <ThemeSwitcher />
     <LanguageSwitcher />
@@ -32,7 +32,7 @@
 </nav>
 
 <style lang="scss">
-  @import "$src/styles/media-queries.scss";
+  @import '$src/styles/media-queries.scss';
   nav {
     display: flex;
     justify-content: space-between;
@@ -60,7 +60,8 @@
         padding: 0.25rem 0.5rem;
         margin: 0.25rem;
         text-align: center;
-        &.active, &:hover {
+        &.active,
+        &:hover {
           background: var(--accent);
           color: var(--background);
         }

@@ -1,4 +1,3 @@
-
 <script lang="ts">
   export let message = 'Page not Found';
 </script>
@@ -22,7 +21,9 @@
     margin: 5vh auto;
     padding: 2rem 5rem;
     cursor: default;
-    h1, h2, a {
+    h1,
+    h2,
+    a {
       margin: 0.25rem auto;
     }
     h1 {

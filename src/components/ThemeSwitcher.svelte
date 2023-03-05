@@ -4,7 +4,7 @@
   import type { Theme } from '$src/types/Config';
   import { theme } from '$src/store/ThemeStore';
   import clickOutside from '$src/directives/clickOutside';
-  
+
   const themes = Object.keys(config.colorSchemes || {});
 
   let dropdownOpen = false;
@@ -24,22 +24,31 @@
     }
     closeDropdown();
   };
-
 </script>
 
-<button on:click={toggleDropdown} class="open-theme-menu" title="Theme" data-ignore-outside-click>🎨</button>
+<button
+  on:click={toggleDropdown}
+  class="open-theme-menu"
+  title="Theme"
+  data-ignore-outside-click>🎨</button
+>
 
 {#if dropdownOpen}
-  <ul class="theme-switcher" transition:slide use:clickOutside on:click_outside={closeDropdown}>
-  {#each themes as eachTheme}
-    <li
-      on:click={() => updateTheme(eachTheme)}
-      on:keyup={() => updateTheme(eachTheme)}
-      class:active={eachTheme === $theme}
-    >
-      {eachTheme}
-  </li>
-  {/each}
+  <ul
+    class="theme-switcher"
+    transition:slide
+    use:clickOutside
+    on:click_outside={closeDropdown}
+  >
+    {#each themes as eachTheme}
+      <li
+        on:click={() => updateTheme(eachTheme)}
+        on:keyup={() => updateTheme(eachTheme)}
+        class:active={eachTheme === $theme}
+      >
+        {eachTheme}
+      </li>
+    {/each}
   </ul>
 {/if}
 

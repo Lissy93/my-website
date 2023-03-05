@@ -4,10 +4,13 @@ import type { Project } from '$src/types/Project';
 
 const makeProjectList = async (ghResponse: any): Promise<Project[]> => {
   if (!ghResponse || !Array.isArray(ghResponse)) return [];
-  return ghResponse.map((repo: any) => {
-    const projectComplimentaryData =
-    config.projectComplimentaryData.find((p) => p.name.toLocaleLowerCase() === repo.name) || {};  
-    return {
+  return ghResponse
+    .map((repo: any) => {
+      const projectComplimentaryData =
+        config.projectComplimentaryData.find(
+          (p) => p.name.toLocaleLowerCase() === repo.name
+        ) || {};
+      return {
         id: repo.id,
         name: repo.name,
         user: repo.owner.login,
@@ -25,21 +28,21 @@ const makeProjectList = async (ghResponse: any): Promise<Project[]> => {
         issues: repo.open_issues_count,
         topics: repo.topics,
         ...projectComplimentaryData, // Append and merge with any hard-coded data from config
-      }
-  })
-  .sort((a, b) => {
-    return b.stars - a.stars; 
-  });
+      };
+    })
+    .sort((a, b) => {
+      return b.stars - a.stars;
+    });
 };
 
 /** @type {import('./$types').PageLoad} */
 export async function load({ fetch }) {
   const githubApiUrl = `https://api.github.com/users/${config.githubUser}/repos?per_page=100`;
   const githubRequest = {
-    headers: GITHUB_TOKEN ? { Authorization: `Bearer ${GITHUB_TOKEN}`} : {},
+    headers: GITHUB_TOKEN ? { Authorization: `Bearer ${GITHUB_TOKEN}` } : {},
   };
   const repos = await fetch(githubApiUrl, githubRequest)
-  .then((res: any) => res.json())
-  .then(makeProjectList);
+    .then((res: any) => res.json())
+    .then(makeProjectList);
   return { repos };
 }

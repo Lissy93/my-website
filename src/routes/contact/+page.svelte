@@ -1,36 +1,36 @@
 <script lang="ts">
+  import type { SupportedSocials, UserSocial } from '$src/types/Socials';
+  import { socialNetworks } from '$src/helpers/constants';
+  import config from '$src/helpers/config';
 
-import type { SupportedSocials, UserSocial } from '$src/types/Socials';
-import { socialNetworks } from '$src/helpers/constants';
-import config from '$src/helpers/config';
+  import SocialLink from '$src/components/SocialLink.svelte';
+  import Heading from '$src/components/Heading.svelte';
+  import EmailForm from './EmailForm.svelte';
+  import PGPKeys from './PgpKeys.svelte';
 
-import SocialLink from '$src/components/SocialLink.svelte';
-import Heading from '$src/components/Heading.svelte';
-import EmailForm from './EmailForm.svelte';
-import PGPKeys from './PgpKeys.svelte';
+  // Static config for contact page
+  const { contact } = config;
 
-// Static config for contact page
-const { contact } = config;
+  // Dynamically fetched data (social metrics)
+  export let data;
 
-// Dynamically fetched data (social metrics)
-export let data;
+  // Append usernames, and (if available) metrics to available socials
+  let socials: UserSocial[] = socialNetworks.map((social, index) => {
+    const network: typeof SupportedSocials[number] = social.name;
+    const metrics =
+      data?.props[social.name.toLowerCase().replace(/\W/g, '')] || [];
+    return { ...social, user: contact.socials[network], metrics };
+  });
 
-// Append usernames, and (if available) metrics to available socials
-let socials: UserSocial[] = socialNetworks.map((social, index) => {
-  const network: typeof SupportedSocials[number] = social.name;
-  const metrics = data?.props[social.name.toLowerCase().replace(/\W/g, '')] || [];
-  return { ...social, user: contact.socials[network], metrics };
-});
+  // Limit number of socials to display
+  let numSocialsToDisplay = contact.socialButtonLimit || 6;
 
-// Limit number of socials to display
-let numSocialsToDisplay = contact.socialButtonLimit || 6;
-
-// Show / hide more socials
-const toggleSocialLimit = () => {
-  const defLimit = contact.socialButtonLimit;
-  numSocialsToDisplay = numSocialsToDisplay === defLimit ? socials.length : defLimit;
-};
-
+  // Show / hide more socials
+  const toggleSocialLimit = () => {
+    const defLimit = contact.socialButtonLimit;
+    numSocialsToDisplay =
+      numSocialsToDisplay === defLimit ? socials.length : defLimit;
+  };
 </script>
 
 <section class="main">
@@ -38,24 +38,24 @@ const toggleSocialLimit = () => {
     <Heading level="h2">lets_connect</Heading>
     <!-- Links to social media profiles -->
     <div class="social-buttons">
-    {#each socials.slice(0, numSocialsToDisplay) as social}
-      <SocialLink {...social} />
-    {/each}
+      {#each socials.slice(0, numSocialsToDisplay) as social}
+        <SocialLink {...social} />
+      {/each}
     </div>
     <!-- Show more/ less button -->
     {#if socials.length > contact.socialButtonLimit}
       <button class="toggle-limit" on:click={toggleSocialLimit}>
-        {numSocialsToDisplay > contact.socialButtonLimit ? 'Show Less' : 'Show More'}
+        {numSocialsToDisplay > contact.socialButtonLimit
+          ? 'Show Less'
+          : 'Show More'}
       </button>
     {/if}
-
   </div>
   <EmailForm />
   <PGPKeys />
 </section>
 
 <style lang="scss">
-
   section.main {
     width: 90vw;
     margin: 2rem auto 1rem auto;

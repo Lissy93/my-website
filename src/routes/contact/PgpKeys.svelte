@@ -1,4 +1,3 @@
-
 <script>
   import { slide } from 'svelte/transition';
   import Heading from '$src/components/Heading.svelte';
@@ -13,11 +12,27 @@
   };
 
   const keys = [
-    { label: 'PGP', value: 'FEDB 68F5 5C02 83A7', link: 'https://keybase.io/aliciasykes/pgp_keys.asc?fingerprint=0688f8d34587d954e9e51fb8fedb68f55c0283a7' },
-    { label: 'Email', value: 'alicia at omg dot lol', link: 'mailto:alicia@omg.lol' },
-    { label: 'Matrix', value: '@lissy93:matrix.org', link: 'https://matrix.to/#/@lissy93:matrix.org' },
-    { label: 'XMPP', value: 'alicia@xmpp.is', link: 'xmpp:alicia@xmpp.is?join' },
-    { label: 'Signal', value: 'trusted contacts only', link: '' }
+    {
+      label: 'PGP',
+      value: 'FEDB 68F5 5C02 83A7',
+      link: 'https://keybase.io/aliciasykes/pgp_keys.asc?fingerprint=0688f8d34587d954e9e51fb8fedb68f55c0283a7',
+    },
+    {
+      label: 'Email',
+      value: 'alicia at omg dot lol',
+      link: 'mailto:alicia@omg.lol',
+    },
+    {
+      label: 'Matrix',
+      value: '@lissy93:matrix.org',
+      link: 'https://matrix.to/#/@lissy93:matrix.org',
+    },
+    {
+      label: 'XMPP',
+      value: 'alicia@xmpp.is',
+      link: 'xmpp:alicia@xmpp.is?join',
+    },
+    { label: 'Signal', value: 'trusted contacts only', link: '' },
   ];
 </script>
 
@@ -28,21 +43,22 @@
     <div class="key-row">
       <span class="key-label">{key.label}</span>
       {#if key.link}
-        <a class="key-link" href="{key.link}"><code>{key.value}</code></a>  
+        <a class="key-link" href={key.link}><code>{key.value}</code></a>
       {:else}
-        <code class="key-no-link">{key.value}</code>  
+        <code class="key-no-link">{key.value}</code>
       {/if}
     </div>
   {/each}
 
-  <button class="toggle-key" on:click={toggleKeyVisibility}>{showPubKey ? 'Hide' : 'Show'} Armoured Public Key</button>
+  <button class="toggle-key" on:click={toggleKeyVisibility}
+    >{showPubKey ? 'Hide' : 'Show'} Armoured Public Key</button
+  >
 
   {#if showPubKey}
-  <div class="pgp-key" transition:slide>
-    <code>{pgpPublicKey.replaceAll('  ', '')}</code>
-  </div>
+    <div class="pgp-key" transition:slide>
+      <code>{pgpPublicKey.replaceAll('  ', '')}</code>
+    </div>
   {/if}
-
 </div>
 
 <style lang="scss">
@@ -53,7 +69,7 @@
       margin: 1rem 0;
       color: var(--accent);
       &:before {
-        content: ">";
+        content: '>';
         margin-right: 6px;
       }
     }
@@ -75,7 +91,8 @@
       font-weight: bold;
       min-width: 4rem;
     }
-    a.key-link, .key-no-link {
+    a.key-link,
+    .key-no-link {
       color: var(--accent);
       text-decoration: none;
       padding: 0.1rem 0.5rem;

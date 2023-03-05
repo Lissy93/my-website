@@ -13,7 +13,7 @@ export const _loadPosts = (fetch: (() => Promise<Response>) | undefined) => {
   posts
     .then((resolvedPosts) => {
       fetchStatus = PostStatus.Ready;
-      return blogStore.set(resolvedPosts)
+      return blogStore.set(resolvedPosts);
     })
     .catch(() => {
       fetchStatus = PostStatus.Errored;
@@ -24,11 +24,9 @@ export const _loadPosts = (fetch: (() => Promise<Response>) | undefined) => {
 
 /** @type {import('./$types').PageLoad} */
 export const load = async ({ fetch }: PageServerLoad) => {
-
   if (get(blogStore)?.length > 0) {
-    return { posts: get(blogStore) }
+    return { posts: get(blogStore) };
   }
 
   return _loadPosts(fetch);
-  };
-
+};

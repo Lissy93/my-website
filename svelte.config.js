@@ -8,10 +8,12 @@ import { vitePreprocess } from '@sveltejs/kit/vite';
 const multiAdapter = (adapters) => {
   return {
     async adapt(argument) {
-      await Promise.all(adapters.map(item =>
-        Promise.resolve(item).then(resolved => resolved.adapt(argument))
-      ))
-    }
+      await Promise.all(
+        adapters.map((item) =>
+          Promise.resolve(item).then((resolved) => resolved.adapt(argument))
+        )
+      );
+    },
   };
 };
 
@@ -19,7 +21,12 @@ const multiAdapter = (adapters) => {
 const config = {
   preprocess: vitePreprocess(),
   kit: {
-    adapter: multiAdapter([autoAdapter(), netlifyAdapter(), vercelAdapter(), nodeAdapter()]),
+    adapter: multiAdapter([
+      autoAdapter(),
+      netlifyAdapter(),
+      vercelAdapter(),
+      nodeAdapter(),
+    ]),
     alias: {
       '$src/*': 'src/*',
     },

@@ -20,14 +20,18 @@
       "short_name": "Blog",
       "description": "Browse recent posts",
       "url": "/blog",
-      "icons": [{ "src": "/pwa/android-chrome-192x192.png", "sizes": "192x192" }]
+      "icons": [
+        { "src": "/pwa/android-chrome-192x192.png", "sizes": "192x192" }
+      ]
     },
     {
       "name": "Projects - View recent projects",
       "short_name": "Projects",
       "description": "Browse recent projects",
       "url": "/projects",
-      "icons": [{ "src": "/pwa/android-chrome-192x192.png", "sizes": "192x192" }]
+      "icons": [
+        { "src": "/pwa/android-chrome-192x192.png", "sizes": "192x192" }
+      ]
     }
   ]
 }
