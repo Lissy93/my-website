@@ -5,6 +5,7 @@
   import { locale, locales, languageMeta } from '$src/store/Language';
   import clickOutside from '$src/directives/clickOutside';
   import { supportedLanguages } from '$src/helpers/translations';
+  import { get } from 'svelte/store';
   
   const themes = Object.keys(config.colorSchemes || {});
 
@@ -18,9 +19,9 @@
     dropdownOpen = false;
   };
 
-  const updateLanguage = (newLanguage: string) => {
-    if (themes.includes(newLanguage)) {
-      locale.set(newLanguage as Locale);
+  const updateLanguage = (newLanguage: Locale) => {
+    if (locales.includes(newLanguage)) {
+      locale.set(newLanguage);
       document.documentElement.setAttribute('data-lang', newLanguage);
     }
     closeDropdown();

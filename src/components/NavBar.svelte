@@ -2,6 +2,7 @@
   import { page } from '$app/stores';
   import { config } from '$src/store/BlogStore';
   import ThemeSwitcher from '$src/components/ThemeSwitcher.svelte';
+  import LanguageSwitcher from '$src/components/LanguageSwitcher.svelte';
   
   export let color: string;
   export const { routeLinks } = config;
@@ -26,6 +27,7 @@
       class:active={$page.url.pathname === navLink.route}>{navLink.label}</a>
     {/each}
     <ThemeSwitcher />
+    <LanguageSwitcher />
   </div>
 </nav>
 

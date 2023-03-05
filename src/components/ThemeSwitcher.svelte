@@ -10,12 +10,10 @@
   let dropdownOpen = false;
 
   const toggleDropdown = () => {
-    console.log('Toggle');
     dropdownOpen = !dropdownOpen;
   };
 
   const closeDropdown = () => {
-    console.log('Close');
     dropdownOpen = false;
   };
 
@@ -72,6 +70,7 @@
       text-align: left;
       transition: all 0.2s ease-in-out;
       padding-left: 1.6rem;
+      text-transform: capitalize;
       &.active {
         border: 1px solid transparent;
         padding-left: 0.25rem;
@@ -102,5 +101,6 @@
     align-items: center;
     gap: 0.5rem;
     font-size: 1.2rem;
+    margin: 0 0.25rem;
   }
 </style>
