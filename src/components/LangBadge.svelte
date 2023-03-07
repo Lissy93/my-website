@@ -1,5 +1,6 @@
 <script lang="ts">
   export let language = '';
+  export let size: number | null = null;
 
   interface LanguageAttributes {
     name: string;
@@ -81,6 +82,7 @@
     <img
       src={badgeUrl}
       class={$$props.class}
+      height={size || null}
       alt="Written in {langAttributes?.name}"
     />
   {/if}
