@@ -47,6 +47,19 @@
         transform: scale(1.04) rotate(-0.8deg);
       }
     }
+    &.outline {
+      background: var(--background);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      &:hover {
+        transform: scale(1.04) rotate(-0.8deg);
+        background: var(--accent);
+        color: var(--background);
+        :global(svg) {
+          fill: var(--background);
+        }
+      }
+    }
     color: var(--textColor, currentcolor);
   }
 </style>

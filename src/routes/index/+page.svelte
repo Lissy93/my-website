@@ -1,4 +1,5 @@
 <script lang="ts">
+import config from '$src/helpers/config';
 import Heading from '$src/components/Heading.svelte';
 import Icon from '$src/components/Icon.svelte';
 import LangBadge from '$src/components/LangBadge.svelte';
@@ -6,6 +7,7 @@ import LinkButton from '$src/components/LinkButton.svelte';
 import { slugify, formatDate } from '$src/helpers/post-utils';
 
 export let data: any;
+let projectCount = 20;
 
 console.log(data);
 </script>
@@ -16,8 +18,14 @@ console.log(data);
   <section>
   <Heading level="h2">Posts</Heading>
   <div class="buttons">
-    <LinkButton to="/">View All</LinkButton>
-    <LinkButton to="/">Go to Blog</LinkButton>
+    <LinkButton to="/blog" icon="more-arrow">See All</LinkButton>
+    <LinkButton
+      to="https://notes.aliciasykes.com"
+      icon="website"
+      priority="outline"
+      textColor="var(--accent)"
+      target="_blank"
+    >View Blog</LinkButton>
   </div>
   <ul>
     <li class="first"><span class="line">┬</span></li>
@@ -35,13 +43,27 @@ console.log(data);
   <!-- Projects Summary Section -->
   <section>
   <Heading level="h2">Projects</Heading>
+  <div class="buttons">
+    <LinkButton to="/projects" icon="more-arrow">See All</LinkButton>
+    <LinkButton
+      to="https://github.com/{config.githubUser}"
+      icon="github"
+      priority="outline"
+      textColor="var(--accent)"
+      target="_blank"
+    >View GitHub</LinkButton>
+  </div>
   <ul class="projects-list">
     <li class="first"><span class="line">┬</span></li>
-  {#each data.repos.slice(0,20) as project, index}
+  {#each data.repos.slice(0,projectCount) as project, index}
     <li>
-      <span class="line">{index+1 === data.posts.length ? '└' : '├'}<br>│<br>│</span>
-      <a href={project.url} target="_blank" rel="noreferrer">
-        <span class="txt">{project.name}</span>
+      <span class="line">{index+1 === projectCount ? '└' : '├'}
+        {#if index != projectCount-1 }<br>│<br>│{/if}
+      </span>
+      <a href={project.url} target="_blank" rel="noreferrer" title="View {project.name} on GitHub">
+        <span class="txt">{project.name}
+          {#if project.isFork}<span class="fork"><Icon name="fork" height="10"/>FORK</span>{/if}
+        </span>
         <span class="project-description">
           {project.description}
         </span>
@@ -61,6 +83,9 @@ console.log(data);
   <!-- About / Contact / Socials section -->
   <section>
   <Heading level="h2">Contact</Heading>
+  <div class="buttons">
+    <LinkButton to="/contact" icon="more-arrow">Get in Touch</LinkButton>
+  </div>
   </section>
 
 </div>
@@ -80,6 +105,10 @@ console.log(data);
 
   section {
     margin: 1rem auto;
+    .buttons {
+      display: flex;
+      gap: 1rem;
+    }
   }
   ul {
     list-style: none;
@@ -182,6 +211,14 @@ console.log(data);
       }
       .line {
         line-height: 1.6rem;
+      }
+      .fork {
+        color: var(--dimmed-text);
+        border: var(--card-border);
+        border-radius: var(--curve-factor);
+        opacity: 0.8;
+        font-size: 0.8rem;
+        padding: 0.1rem 0.3rem;
       }
     }
 
