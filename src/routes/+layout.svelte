@@ -23,7 +23,7 @@
     );
   };
 
-  const shouldShowNavBar = (pagePath: string) => !['/'].includes(pagePath);
+  const shouldShowNavBar = (pagePath: string) => !['/', '/index'].includes(pagePath);
 </script>
 
 <svelte:head>
