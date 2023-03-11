@@ -4,18 +4,48 @@ import Heading from '$src/components/Heading.svelte';
 import Icon from '$src/components/Icon.svelte';
 import LangBadge from '$src/components/LangBadge.svelte';
 import LinkButton from '$src/components/LinkButton.svelte';
+import SocialLink from '$src/components/SocialLink.svelte';
 import { slugify, formatDate } from '$src/helpers/post-utils';
+import { socialNetworks } from '$src/helpers/constants';
+import type { SupportedSocials, UserSocial } from '$src/types/Socials';
+
 
 export let data: any;
 let projectCount = 20;
 
+// Append usernames, and (if available) metrics to available socials
+let socials: UserSocial[] = socialNetworks.map((social) => {
+  const network: typeof SupportedSocials[number] = social.name;
+  const metrics =
+    data?.socials[social.name.toLowerCase().replace(/\W/g, '')] || [];
+  return { ...social, user: config.contact.socials[network], metrics };
+});
+
+// Limit number of socials to display
+let numSocialsToDisplay = config.contact.socialButtonLimit || 6;
+
+// Show / hide more socials
+const toggleSocialLimit = () => {
+  const defLimit = config.contact.socialButtonLimit;
+  numSocialsToDisplay =
+    numSocialsToDisplay === defLimit ? socials.length : defLimit;
+};
+
 console.log(data);
 </script>
+
+<a href={config.contact.website} class="title-link" title="Go to {config.contact.website}">
+  <Heading level="h1"
+    color="var(--foreground)" size="4rem"
+    commandStyle={false} blinkCursor={true}>
+    {config.title}
+  </Heading>
+</a>
 
 <div class="index-page">
 
   <!-- Blog Summary Section -->
-  <section>
+  <section class="blog-section">
   <Heading level="h2">Posts</Heading>
   <div class="buttons">
     <LinkButton to="/blog" icon="more-arrow">See All</LinkButton>
@@ -41,7 +71,7 @@ console.log(data);
   </section>
 
   <!-- Projects Summary Section -->
-  <section>
+  <section class="projects-section">
   <Heading level="h2">Projects</Heading>
   <div class="buttons">
     <LinkButton to="/projects" icon="more-arrow">See All</LinkButton>
@@ -81,11 +111,50 @@ console.log(data);
   </section>
 
   <!-- About / Contact / Socials section -->
-  <section>
+  <section class="contact-section">
   <Heading level="h2">Contact</Heading>
   <div class="buttons">
     <LinkButton to="/contact" icon="more-arrow">Get in Touch</LinkButton>
+    <LinkButton
+      to="{config.contact.pgpKeyLink}"
+      icon="pgp"
+      priority="outline"
+      textColor="var(--accent)"
+      target="_blank"
+    >View GPG Key</LinkButton>
   </div>
+  <div class="social-buttons">
+    {#each socials.slice(0, numSocialsToDisplay) as social} <SocialLink {...social} isSmall /> {/each}
+  </div>
+    <!-- Show more/ less button -->
+    {#if socials.length > config.contact.socialButtonLimit}
+    <button class="toggle-limit" on:click={toggleSocialLimit}>
+      {numSocialsToDisplay > config.contact.socialButtonLimit
+        ? 'Show Less'
+        : 'Expand to Show More'}
+    </button>
+    {/if}
+  </section>
+
+  <!-- About section -->
+  <section class="about-section">
+    <Heading level="h2">About</Heading>
+    <div class="buttons">
+      <LinkButton to="/about" icon="more-arrow">Keep Reading</LinkButton>
+      <LinkButton
+        to="https://linkedin.com/in/aliciasykes"
+        icon="linkedin"
+        priority="outline"
+        textColor="var(--accent)"
+        target="_blank"
+      >View LinkedIn</LinkButton>
+    </div>
+    <br>
+    <i>{config.about.intro}</i>
+    <img width="150" src={config.about.picture} alt="Users profile" class="profile-pic" />
+    {#each config.about.bio as bioLine}
+      <p class="bio">{@html bioLine}</p>
+    {/each}
   </section>
 
 </div>
@@ -93,21 +162,33 @@ console.log(data);
 <style lang="scss">
   @import '$src/styles/media-queries.scss';
 
+  .title-link {
+    text-decoration: none;
+    margin: 0.5rem auto 0 auto;
+    :global(h1) {
+      cursor: pointer;
+    }
+  }
+
   .index-page {
     display: grid;
-    // grid-template-columns: 2fr 1fr;
-    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 0.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    grid-column-gap: 2rem;
     grid-row-gap: 0.5rem;
     padding: 1rem;
+    width: 95vw;
+    margin: 0 auto;
   }
 
   section {
     margin: 1rem auto;
+    width: 100%;
     .buttons {
       display: flex;
       gap: 1rem;
+    }
+    &.projects-section, &.blog-section {
+      grid-row-start: span 3;
     }
   }
   ul {
@@ -189,6 +270,12 @@ console.log(data);
       display: flex;
       a {
         flex-direction: column;
+        &:hover {
+          .proj-info :global(svg) {
+            fill: var(--warning);
+            // transform: rotate(72deg);
+          }
+        }
       }
       .project-description {
         font-size: 0.8rem;
@@ -221,6 +308,60 @@ console.log(data);
         padding: 0.1rem 0.3rem;
       }
     }
+  }
 
+  .contact-section {
+    width: 100%;
+    .social-buttons {
+      display: grid;
+      grid-auto-flow: dense;
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(12.5rem, 1fr)
+      );
+      gap: 1rem;
+      margin: 1rem auto;
+    }
+    button.toggle-limit {
+      background: none;
+      border: none;
+      border-radius: var(--curve-factor);
+      color: var(--foreground);
+      font-family: FiraCode, monospace;
+      width: fit-content;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: all ease-in-out 0.1s;
+      &:hover {
+        color: var(--accent);
+      }
+    }
+  }
+
+  .about-section {
+    img.profile-pic {
+      margin: 0.5rem;
+      float: right;
+      border-radius: var(--curve-factor);
+      border: var(--card-border);
+    }
+    i {
+      color: var(--dimmed-text);
+    }
+    p.bio {
+      :global(p) {
+        margin: 1rem 0;
+        font-size: 1.25rem;
+        line-height: 1.8rem;
+        font-family: RedHatText;
+      }
+      :global(a) {
+        color: var(--accent);
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
   }
 </style>
