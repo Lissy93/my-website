@@ -9,6 +9,7 @@
   export let icon: string;
   export let tone: string;
   export let noAt = false;
+  export let isSmall = false;
   export let metrics: SocialMetric[] | null = null;
 
   let hover = false;
@@ -28,6 +29,7 @@
   target="_blank"
   rel="noreferrer"
   style={`--social-tone-dimmed: ${tone}4A; --social-tone: ${tone};`}
+  class:isSmall
   transition:slide
   on:mouseenter={() => toggleHover(true)}
   on:mouseleave={() => toggleHover(false)}
@@ -86,8 +88,6 @@
         opacity: 0.75;
         transform: translateY(1.5rem);
         transition: all ease-in-out 0.25s;
-        .metric-label {
-        }
         .metric-value {
           color: var(--social-tone);
         }
@@ -106,6 +106,27 @@
       }
       .social-metrics {
         transform: translateY(-1rem);
+      }
+    }
+    &.isSmall {
+      font-size: 1rem;
+      min-width: 12rem;
+      height: 2.2rem;
+      gap: 0.5rem;
+      width: 90%;
+      
+      .text-part {
+        height: 2.2rem;
+      }
+      .social-user {
+        font-size: 0.9rem;
+      }
+      .social-metrics {
+        font-size: 0.6rem;
+      }
+      :global(svg) {
+        width: 28px;
+        height: 28px;
       }
     }
   }
