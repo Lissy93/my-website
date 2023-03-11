@@ -29,6 +29,7 @@
   h5,
   h6 {
     font-weight: 700;
+    cursor: default;
     transition: all 0.25s ease-in-out;
     font-family: var(--headingFont, FiraCode);
     color: var(--headingColor, var(--accent));
@@ -39,7 +40,7 @@
     }
     &.blink-cursor:after {
       content: '';
-      width: 1rem;
+      width: calc(var(--headingSize, 2rem) / 3);
       height: 0.25rem;
       margin-left: 0.1rem;
       display: inline-block;
