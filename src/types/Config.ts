@@ -47,6 +47,7 @@ export interface SiteConfig {
   contact: {
     name: string; // Full name associated with contact email
     email: string; // Email address to display
+    website: string; // URL of personal website
     socials: Usernames; // Keyed list of social media usernames
     socialButtonLimit: number; // Number of social links to show, before show-more clicked
     mailerConfig: {
@@ -58,6 +59,7 @@ export interface SiteConfig {
         [key: string]: string; // And additional template params
       };
     };
+    pgpKeyLink: string; // Link to PGP public key
     pgpPublicKey: string; // PGP public key to display
   };
   about: {

@@ -197,6 +197,7 @@ const config: SiteConfig = {
   contact: {
     name: 'Alicia Sykes',
     email: 'alicia@omg.lol',
+    website: 'https://aliciasykes.com',
     socials: {
       Twitter: 'Lissy_Sykes',
       GitHub: 'Lissy93',
@@ -220,6 +221,7 @@ const config: SiteConfig = {
       user_id: 'user_K6F041q1dQvz8SJLSOZCR',
       template_params: {},
     },
+    pgpKeyLink: 'https://keybase.io/aliciasykes/pgp_keys.asc?fingerprint=0688f8d34587d954e9e51fb8fedb68f55c0283a7',
     pgpPublicKey: `-----BEGIN PGP PUBLIC KEY BLOCK-----
       mQENBFqbwpsBCACxoSZKSkr6zPUSVijbeFV9c7KphqXJxzJqKlWQbMOFL+rj52+Q
       F/wy16+Jze4seOGUNA9OiOcpM/YhSQoeFOBPdj5hOc9IXOTx86bhYi3+84D9o1cW
