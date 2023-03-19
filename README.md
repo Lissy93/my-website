@@ -323,7 +323,7 @@ To get started, fork the repo, make your changes, add, commit and push the code,
     </td>
     <td align="center">
         <a href="https://github.com/YoungC0DE">
-            <img src="https://avatars.githubusercontent.com/u/68437256?v=4" width="80;" alt="YoungC0DE"/>
+            <img src="https://avatars.githubusercontent.com/u/68437256?u=f894d71c7565d2e6662b4477bad598f41a246252&v=4" width="80;" alt="YoungC0DE"/>
             <br />
             <sub><b>Rafael Anjos</b></sub>
         </a>
