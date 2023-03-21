@@ -4,9 +4,8 @@ import type { Theme } from '$src/types/Config';
 import config from '$src/helpers/config';
 
 // Gets the initial theme, either from local storage (if browser), or from the config
-const initialTheme = browser
-  ? (localStorage.getItem('theme') as Theme)
-  : null || config.defaultTheme;
+const initialTheme = (browser ? (localStorage.getItem('theme') as Theme) : null)
+  || config.defaultTheme;
 
 // The users selected color theme (e.g. light, dark, system, etc)
 export const theme = writable<Theme>(initialTheme);
