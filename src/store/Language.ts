@@ -8,9 +8,9 @@ import config from '$src/helpers/config';
 const fallbackLocale: Locale = 'en';
 
 // Gets the initial language, either from local storage (if browser), or from the config
-const initialLocale = browser
-  ? (localStorage.getItem('locale') as Locale)
-  : null || config.defaultLanguage || 'en';
+const initialLocale = (browser ? (localStorage.getItem('locale') as Locale) : null)
+  || config.defaultLanguage
+  || 'en';
 
 // The currently selected language
 export const locale = writable<Locale>(initialLocale);
