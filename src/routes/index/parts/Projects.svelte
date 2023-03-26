@@ -43,6 +43,32 @@ let projectCount = 20;
           {/if}
           <Icon name="star" color="var(--foreground)" hoverColor="var(--warning)" />
           {project.stars.toLocaleString()}
+          <div class="more-stats">
+            {#if project.forks > 1}
+              <div class="info-item fork-count" title="{project.forks} Forks">
+                <Icon name="fork" color="var(--foreground)" />
+                {project.forks.toLocaleString()}
+              </div>
+            {/if}
+            {#if project.issues > 0}
+              <div class="info-item issue-count" title="{project.issues} Open Issues">
+                <Icon name="issue" color="var(--foreground)" />
+                {project.issues.toLocaleString()}
+              </div>
+            {/if}
+            {#if project.license && project.license !== 'Other'}
+              <div class="info-item license-type" title="Licensed under {project.license}">
+                <Icon name="license" color="var(--foreground)" />
+                {project.license.replace('License', '')}
+              </div>
+            {/if}
+            {#if project.size && project.size > 500 }
+              <div class="info-item size-value" title="Size: {project.size} KB">
+                <Icon name="size" color="var(--foreground)" />
+                {Math.round(project.size / 1024)} mb
+              </div>
+            {/if}
+          </div>
         </span>
       </a>
     </li>
@@ -165,6 +191,26 @@ ul.projects-list {
         .proj-info :global(svg) {
           fill: var(--warning);
         }
+        .star-count :global(svg path) {
+          fill: var(--warning);
+        }
+        .fork-count :global(svg path) {
+          fill: var(--success);
+        }
+        .issue-count :global(svg path) {
+          fill: var(--error);
+        }
+        .license-type :global(svg path) {
+          fill: var(--info);
+        }
+        .size-value :global(svg path) {
+          fill: var(--misc);
+        }
+        .more-stats {
+          opacity: 1;
+          transition: opacity 0.5s ease-in-out, transform 0.2s ease-in-out;
+          transform: translateX(0);
+        }
       }
     }
     .project-description {
@@ -188,13 +234,13 @@ ul.projects-list {
     .line {
       line-height: 1.6rem;
     }
-    .fork {
-      color: var(--dimmed-text);
-      border: var(--card-border);
-      border-radius: var(--curve-factor);
-      opacity: 0.8;
-      font-size: 0.8rem;
-      padding: 0.1rem 0.3rem;
+    .more-stats {
+      display: flex;
+      opacity: 0;
+      overflow: hidden;
+      gap: 0.5rem;
+      margin-left: 1rem;
+      transform: translateX(1rem);
     }
   }
 }

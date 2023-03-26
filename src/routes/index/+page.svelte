@@ -4,6 +4,7 @@ import PostsSection from './parts/Posts.svelte';
 import ProjectsSection from './parts/Projects.svelte';
 import AboutSection from './parts/About.svelte';
 import ContactSection from './parts/Contact.svelte';
+import TechStackSection from './parts/TechStackSection.svelte';
 
 export let data: any;
 
@@ -16,6 +17,7 @@ export let data: any;
   <ProjectsSection projects={data.repos} />
   <ContactSection returnedSocials={data.socials} />
   <AboutSection />
+  <TechStackSection />
 </div>
 
 <style lang="scss">
