@@ -79,7 +79,6 @@
         font-size: 1rem;
         opacity: 0.75;
         color: var(--dimmed-text);
-        text-emphasis: italic;
         text-transform: capitalize;
         transition: all ease-in-out 0.25s;
       }
