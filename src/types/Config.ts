@@ -4,6 +4,11 @@ import type { Locale } from '$src/types/Language';
 
 export type Theme = 'dark' | 'light' | 'system' | 'callisto';
 
+export interface TechStackItem {
+  language: string;
+  projects: string[];
+};
+
 export interface SiteConfig {
   title: string; // Website title / name
   source: string; // Link to project source (e.g. on GitHub)
@@ -66,5 +71,8 @@ export interface SiteConfig {
     intro: string;
     bio: string[];
     picture: string;
+  };
+  techStack: {
+    [key: string]: TechStackItem[],
   };
 }

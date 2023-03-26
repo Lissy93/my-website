@@ -289,6 +289,103 @@ const config: SiteConfig = {
     ],
     picture: 'https://i.ibb.co/svxHFMD/alicia-sykes-3.jpg',
   },
+  techStack: {
+    backend: [
+      {
+        language: 'Go',
+        projects: ['go-apod'],
+      },
+      {
+        language: 'Node',
+        projects: [' twitter-sentiment-visualisation', 'quick-example-of-testing-in-nodejs'],
+      },
+      {
+        language: 'Python',
+        projects: ['gh-trending-no-cors', 'tfl-lift-availability-dash', 'pax'],
+      },
+      {
+        language: 'Java',
+        projects: ['Minesweper', 'AlternativeVoteSystem', 'TuneSender', 'TreasureHunt'],
+      },
+      {
+        language: 'PHP',
+        projects: [ 'revision-quizzes', 'intern-magnet', 'usermonkey' ],
+      },
+    ],
+    frontend: [
+      {
+        language: 'Vue',
+        projects: ['dashy', 'all-the-countries', 'alicia-sykes-website', 'tfl-lift-availability-dash'],
+      },
+      {
+        language: 'Angular',
+        projects: ['happy-app', 'realtime-speech-analytics'],
+      },
+      {
+        language: 'Svelte',
+        projects: ['devolio', 'cheat-code'],
+      },
+      {
+        language: 'D3',
+        projects: ['twitter-sentiment-visualisation', 'voronoi-site-template', 'happy-app', 'realtime-speech-analytics'],
+      },
+      {
+        language: 'HTML',
+        projects: ['md-cv-maker', 'email-extractor', 'bullet-convertor', 'cyber-defence-presentation', 'voronoi-site-template', 'web-dev-school'],
+      },
+      {
+        language: 'CoffeeScript',
+        projects: ['sentiment-analysis'],
+      },
+    ],
+    mobile: [
+      {
+        language: 'Swift',
+        projects: ['hasami-shogi', 'Spotter'],
+      },
+      {
+        language: 'Kotlin',
+        projects: ['anti-theft-charge'],
+      },
+      {
+        language: 'Flutter',
+        projects: ['nfu'],
+      },
+      {
+        language: 'Android',
+        projects: ['Minesweper', 'anti-theft-charge', 'TuneSender', 'TreasureHunt', 'got-home-safe', 'Study-Time'],
+      },
+      // {
+      //   language: 'React Native',
+      //   projects: [''],
+      // },
+    ],
+    other: [
+      {
+        language: 'Bash',
+        projects: ['minimal-terminal-prompt'],
+      },
+      {
+        language: 'Docker',
+        projects: ['docker-tcpdump', 'dashy'],
+      },
+      {
+        language: 'Config',
+        projects: ['dotfiles', 'espanso-config', 'conky-system-stats-widget', 'Brewfile'],
+      },
+      {
+        language: 'Markdown',
+        projects: ['personal-security-checklist', 'awesome-privacy'],
+      },
+    ],
+  }
+  
+  // [
+  //   {
+  //     language: 'JavaScript',
+  //     projects: [ 'alicia', 'thing' ],
+  //   },
+  // ],
 };
 
 export default config;
