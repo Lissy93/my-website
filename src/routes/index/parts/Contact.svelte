@@ -5,7 +5,8 @@ import LinkButton from '$src/components/LinkButton.svelte';
 import SocialLink from '$src/components/SocialLink.svelte';
 import { socialNetworks } from '$src/helpers/constants';
 import type { SupportedSocials, UserSocial } from '$src/types/Socials';
-  
+
+export let accent = 'var(--accent)';
 
 export let returnedSocials: any;
 
@@ -28,7 +29,7 @@ const toggleSocialLimit = () => {
 };
 </script>
   
-<section class="contact-section">
+<section class="contact-section" style="--accent:{accent};">
   <Heading level="h2">Contact</Heading>
   <div class="buttons">
     <LinkButton to="/contact" icon="more-arrow">Get in Touch</LinkButton>

@@ -7,9 +7,11 @@
 
   const techStacks = Object.keys(config.techStack);
 
+  export let accent = 'var(--accent)';
+
   </script>
   
-  <section class="tech-stack-section">
+  <section class="tech-stack-section" style="--accent:{accent};">
     <Heading level="h2">Tech Stack</Heading>
     <div class="buttons">
       <LinkButton to="/projects" icon="more-arrow">See All</LinkButton>

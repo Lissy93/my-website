@@ -5,13 +5,15 @@ import Icon from '$src/components/Icon.svelte';
 import LangBadge from '$src/components/LangBadge.svelte';
 import LinkButton from '$src/components/LinkButton.svelte';
 import type { Project } from '$src/types/Project';
+  import type { Var } from 'svelte/types/compiler/interfaces';
 
 export let projects: Project[];
+export let accent = 'var(--accent)';
 let projectCount = 20;
 
 </script>
 
-<section class="projects-section">
+<section class="projects-section" style="--accent:{accent};">
   <Heading level="h2">Projects</Heading>
   <div class="buttons">
     <LinkButton to="/projects" icon="more-arrow">See All</LinkButton>
@@ -145,7 +147,7 @@ ul {
       display: inline-block;
       transition: all 0.2s ease-in-out;
       &::before {
-        content: '🮥';
+        content: '›';
         position: absolute;
         left: -1em;
         opacity: 0;

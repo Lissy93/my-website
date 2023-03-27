@@ -6,9 +6,11 @@ import type { RssPosts } from '$src/types/RssXml';
 
 export let posts: RssPosts;
 
+export let accent = 'var(--accent)';
+
 </script>
 
-<section class="blog-section">
+<section class="blog-section" style="--accent:{accent};">
   <Heading level="h2">Posts</Heading>
   <div class="buttons">
     <LinkButton to="/blog" icon="more-arrow">See All</LinkButton>
@@ -84,7 +86,7 @@ export let posts: RssPosts;
         display: inline-block;
         transition: all 0.2s ease-in-out;
         &::before {
-          content: '🮥';
+          content: '›';
           position: absolute;
           left: -1em;
           opacity: 0;

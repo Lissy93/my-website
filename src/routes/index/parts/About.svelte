@@ -2,9 +2,11 @@
 import config from '$src/helpers/config';
 import Heading from '$src/components/Heading.svelte';
 import LinkButton from '$src/components/LinkButton.svelte';
+
+export let accent = 'var(--accent)';
 </script>
 
-<section class="about-section">
+<section class="about-section" style="--accent:{accent};">
   <Heading level="h2">About</Heading>
   <div class="buttons">
     <LinkButton to="/about" icon="more-arrow">Keep Reading</LinkButton>

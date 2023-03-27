@@ -13,11 +13,11 @@ export let data: any;
 <TitleSection />
 
 <div class="index-page">
-  <PostsSection posts={data.posts} />
-  <ProjectsSection projects={data.repos} />
-  <ContactSection returnedSocials={data.socials} />
-  <AboutSection />
-  <TechStackSection />
+  <PostsSection posts={data.posts}  accent="var(--accent-1)" />
+  <ProjectsSection projects={data.repos} accent="var(--accent-2)" />
+  <ContactSection returnedSocials={data.socials}  accent="var(--accent-3)" />
+  <AboutSection  accent="var(--accent-4)" />
+  <TechStackSection  accent="var(--accent-1)" />
 </div>
 
 <style lang="scss">
