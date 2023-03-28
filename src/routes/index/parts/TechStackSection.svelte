@@ -42,7 +42,7 @@
             <div class="stack-label">
               <LangBadge language={ts.language} size={20} />
             </div>
-            <div class="stack-projects">
+            <div class="stack-content">
               {#each ts.projects as project}
                 <a class="repo-link" target="_blank" rel="noreferrer"
                   href="https://github.com/{config.githubUser}/{project}">
@@ -51,6 +51,15 @@
                 </a>
               {/each}
             </div>
+            <!-- <div class="stack-projects">
+              {#each ts.projects as project}
+                <a class="repo-link" target="_blank" rel="noreferrer"
+                  href="https://github.com/{config.githubUser}/{project}">
+                  <Icon name="github2" size={20} />
+                  <span>{project}</span>
+                </a>
+              {/each}
+            </div> -->
           </div>
         {/each}
       </div>
@@ -70,61 +79,96 @@
       margin: 0.5rem 0;
       color: var(--dimmed-text);
     }
-    .stack-table {
-      // display: grid;
-      // grid-template-columns: fit-content(8ch) 1fr;
-      .stack-name {
-        // writing-mode: vertical-rl;
-        // text-orientation: upright;
-        font-size: 1.5rem;
-        letter-spacing: 0.2rem;
-        color: var(--accent);
-        opacity: 0.4;
-        margin: 0.5rem 0 0 0;
-        h4 { margin: 0; }
+    .stack-row {
+      .stack-label {
+        transform: rotate(0) translateY(0);
+        width: auto;
+      }
+      .stack-content {
+        height: 0;
+        padding-bottom: 0;
       }
     }
-    .stack-row {
-      display: flex;
-      padding: 0.5rem;
-      gap: 0.5rem;
-      &:not(:last-child) {
-        border-bottom: 1px dashed var(--dimmed-text);
-      }
-      .stack-label {
-        min-width: 6rem;
-      }
-      .stack-projects {
-        display: flex;
-        gap: 0.5rem;
-        flex-grow: 1;
-        flex-wrap: wrap;
-        .repo-link {
-          color: var(--foreground);
-          text-decoration: none;
-          border: 1px solid transparent;
-          border-radius: var(--curve-factor);
-          padding: 0.1rem 0.25rem;
-          font-size: 0.8rem;
-          display: flex;
-          gap: 0.5rem;
-          transition: all 0.1s ease-in-out;
-          &:hover {
-            transform: scale(1.05) rotate(-0.5deg);
-            border: 1px solid var(--foreground);
-          }
-          span {
-            max-width: 15rem;
-            overflow: hidden;
-            word-break: break-all;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 1;
-            line-clamp: 1; 
-          }
+    &:hover {
+      .stack-row {
+        .stack-label {
+          transform: rotate(-40deg) translateY(2rem);
+          width: 2rem;
+        }
+        .stack-content {
+          height: 5rem;
+          padding-bottom: 1rem;
         }
       }
+    }
+  }
+
+  .stack-section {
+    display: flex;
+  }
+  .stack-row {
+    transition: all 0.3s 100ms ease-in-out;
+    width: auto;
+    padding: 0.25rem;
+    .stack-label {
+      transform: rotate(-40deg) translateY(2rem);
+      width: 2rem;
+      transition: all 0.2s 100ms ease-in-out;
+    }
+    .stack-content {
+      overflow: hidden;
+      width: 0;
+      margin-left: 2rem;
+      height: 5rem;
+      padding: 0.5rem 0 1rem 0;
+      transition: all 0.2s 100ms ease-in-out;
+    }
+    &:hover,  {
+      .stack-label {
+        transform: rotate(0) translateX(4em) scale(1.1);
+      }
+      .stack-content {
+        width: 10rem;
+        height: auto;
+        min-height: 5rem;
+        padding: 0.5rem 0.5rem 1rem 1rem;
+        margin-right: 0;
+      }
+    }
+  }
+
+  .stack-name {
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
+    color: var(--accent);
+    opacity: 0.4;
+    margin: 0.5rem 0 0 0;
+    h4 { margin: 0; }
+  }
+
+  .repo-link {
+    color: var(--foreground);
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: var(--curve-factor);
+    padding: 0.1rem 0.25rem;
+    font-size: 0.8rem;
+    display: flex;
+    gap: 0.5rem;
+    transition: all 0.1s ease-in-out;
+    &:hover {
+      transform: scale(1.05) rotate(-0.5deg);
+      border: 1px solid var(--foreground);
+    }
+    span {
+      max-width: 15rem;
+      overflow: hidden;
+      word-break: break-all;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      line-clamp: 1; 
     }
   }
   </style>
