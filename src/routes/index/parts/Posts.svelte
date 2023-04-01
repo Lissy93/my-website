@@ -89,9 +89,11 @@ export let accent = 'var(--accent)';
           content: '›';
           position: absolute;
           left: -1em;
+          top: -0.3rem;
           opacity: 0;
-          font-size: 1rem;
-          transition: opacity 0.3s ease-out, left 0.3s ease-out;
+          font-size: 1.8rem;
+          transform: scale(1, 0.2) rotate(90deg);
+          transition: opacity 0.3s ease-out, left 0.3s ease-out, transform 0.15s ease-out;
         }
       }
       .line {
@@ -109,6 +111,7 @@ export let accent = 'var(--accent)';
           &::before {
             opacity: 1;
             left: -1.5rem;
+            transform: scale(1) rotate(0deg);
           }
         }
 
