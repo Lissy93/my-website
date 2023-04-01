@@ -6,6 +6,7 @@
   import Icon from '$src/components/Icon.svelte';
 
   const techStacks = Object.keys(config.techStack);
+  const extraStacks = Object.keys(config.techStackExtras);
 
   export let accent = 'var(--accent)';
 
@@ -32,6 +33,7 @@
       The following technologies are the ones I'm most familiar with, and I've linked to code that I've written with each.
     </p>
     <div class="stack-table">
+      <p class="hover-info">Hover over a technology, to see projects built using it</p>
       {#each techStacks as stackName}
       <div class="stack-name">
         <h4>{stackName}</h4>
@@ -39,7 +41,7 @@
       <div class="stack-section">
         {#each config.techStack[stackName] as ts}
           <div class="stack-row">
-            <div class="stack-label">
+            <div class="stack-label" title={`${ts.projects.length} public projects built with ${ts.language}`}>
               <LangBadge language={ts.language} size={20} />
             </div>
             <div class="stack-content">
@@ -51,16 +53,17 @@
                 </a>
               {/each}
             </div>
-            <!-- <div class="stack-projects">
-              {#each ts.projects as project}
-                <a class="repo-link" target="_blank" rel="noreferrer"
-                  href="https://github.com/{config.githubUser}/{project}">
-                  <Icon name="github2" size={20} />
-                  <span>{project}</span>
-                </a>
-              {/each}
-            </div> -->
           </div>
+        {/each}
+      </div>
+      {/each}
+      {#each extraStacks as stackName}
+      <div class="stack-name">
+        <h4>{stackName}</h4>
+      </div>
+      <div class="stack-section extra-stacks">
+        {#each config.techStackExtras[stackName] as ts}
+          <LangBadge language={ts} size={20} />
         {/each}
       </div>
       {/each}
@@ -69,6 +72,7 @@
   
   <style lang="scss">
   .tech-stack-section {
+    --transition:  0.3s 0.1s all ease-in-out;
     .buttons {
       display: flex;
       gap: 1rem;
@@ -100,11 +104,19 @@
           padding-bottom: 1rem;
         }
       }
+      .hover-info {
+        opacity: 1;
+      }
     }
   }
 
   .stack-section {
     display: flex;
+  }
+  .hover-info {
+    opacity: 0;
+    margin: 0;
+    transition: var(--transition);
   }
   .stack-row {
     transition: all 0.3s 100ms ease-in-out;
@@ -113,7 +125,7 @@
     .stack-label {
       transform: rotate(-40deg) translateY(2rem);
       width: 2rem;
-      transition: all 0.2s 100ms ease-in-out;
+      transition: var(--transition);
     }
     .stack-content {
       overflow: hidden;
@@ -121,9 +133,9 @@
       margin-left: 2rem;
       height: 5rem;
       padding: 0.5rem 0 1rem 0;
-      transition: all 0.2s 100ms ease-in-out;
+      transition: var(--transition);
     }
-    &:hover,  {
+    &:hover  {
       .stack-label {
         transform: rotate(0) translateX(4em) scale(1.1);
       }
@@ -170,5 +182,10 @@
       -webkit-line-clamp: 1;
       line-clamp: 1; 
     }
+  }
+
+  .extra-stacks {
+    gap: 0.5rem;
+    margin-top: 0.25rem;
   }
   </style>
