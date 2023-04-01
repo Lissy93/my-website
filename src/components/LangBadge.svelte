@@ -14,6 +14,7 @@
   }
 
   const badgeConfigs: BadgeConfigs = {
+    // Programming Languages
     android: { name: 'Android', color: '3DDC84', icon: 'android' },
     angular: { name: 'Angular', color: 'DD0031', icon: 'angular' },
     bash: { name: 'Bash', color: '4EAA25', icon: 'gnubash' },
@@ -34,6 +35,7 @@
     fsharp: { name: 'F#', color: 'B845FC', icon: 'fsharp' },
     flutter: { name: 'Flutter', color: '02569B', icon: 'flutter' },
     go: { name: 'Go Lang', color: '00ADD8', icon: 'go' },
+    graphql: { name: 'GraphQL', color: 'E10098', icon: 'graphql' },
     html: { name: 'HTML', color: 'E34F26', icon: 'html5' },
     haskell: { name: ' Haskell', color: '5D4F85', icon: ' haskell' },
     java: { name: 'Java', color: '007396', icon: 'mocha' },
@@ -62,6 +64,39 @@
     typescript: { name: 'TypeScript', color: '3178C6', icon: 'typescript' },
     vue: { name: 'Vue.js', color: '4FC08D', icon: 'vuedotjs' },
     webassembly: { name: 'WebAssembly', color: '654FF0', icon: 'webassembly' },
+
+    // DevOps
+    ansible: { name: 'Ansible', color: 'EE0000', icon: 'ansible' },
+    kubernetes: { name: 'Kubernetes', color: '326CE5', icon: 'kubernetes' },
+    githubactions: { name: 'GitHub Actions', color: '2088FF', icon: 'githubactions' },
+    prometheus: { name: 'Prometheus', color: 'E6522C', icon: 'prometheus' },
+    grafana: { name: 'Grafana', color: 'F46800', icon: 'grafana' },
+
+    // Cloud
+    netlify: { name: 'Netlify', color: '00C7B7', icon: 'netlify' },
+    vercel: { name: 'Vercel', color: '000000', icon: 'vercel' },
+    cloudflare: { name: 'CloudFlare', color: 'F38020', icon: 'cloudflare' },
+    aws: { name: 'AWS', color: '232F3E', icon: 'amazonaws' },
+    azure: { name: 'Azure', color: '0089D6', icon: 'azuredevops' },
+    gcp: { name: 'GCP', color: '4285F4', icon: 'googlecloud' },
+
+    // Databases
+    mysql: { name: 'MySQL', color: '4479A1', icon: 'mysql' },
+    mongodb: { name: 'MongoDB', color: '47A248', icon: 'mongodb' },
+    redis: { name: 'Redis', color: 'DC382D', icon: 'redis' },
+    sqlite: { name: 'SQLite', color: '003B57', icon: 'sqlite' },
+
+    // Testing
+    jest: { name: 'Jest', color: 'C21325', icon: 'jest' },
+    puppeteer: { name: 'Puppeteer', color: '40B5A4', icon: 'puppeteer' },
+    enzyme: { name: 'Testing Library', color: 'E33332', icon: 'testinglibrary' },
+    cypress: { name: 'Cypress', color: '17202C', icon: 'cypress' },
+
+    // Security
+    nmap: { name: 'Nmap', color: '4F5D95', icon: 'nmap' },
+    owaspzap: { name: 'OWASP ZAP', color: '4B8BBE', icon: 'owasp' },
+    burpsuite: { name: 'Burp Suite', color: 'FAC748', icon: 'burpsuite' },
+    wireshark: { name: 'Wireshark', color: '1679A7', icon: 'wireshark' },
   };
 
   const getLangAttributes = (lang: string): LanguageAttributes | null => {
