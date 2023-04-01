@@ -5,7 +5,6 @@ import Icon from '$src/components/Icon.svelte';
 import LangBadge from '$src/components/LangBadge.svelte';
 import LinkButton from '$src/components/LinkButton.svelte';
 import type { Project } from '$src/types/Project';
-  import type { Var } from 'svelte/types/compiler/interfaces';
 
 export let projects: Project[];
 export let accent = 'var(--accent)';
@@ -79,7 +78,7 @@ let projectCount = 20;
   </section>
 
 <style lang="scss">
- @import '$src/styles/media-queries.scss';
+@import '$src/styles/media-queries.scss';
 
 .title-link {
   text-decoration: none;
@@ -87,16 +86,6 @@ let projectCount = 20;
   :global(h1) {
     cursor: pointer;
   }
-}
-
-.index-page {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-  grid-column-gap: 2rem;
-  grid-row-gap: 0.5rem;
-  padding: 1rem;
-  width: 95vw;
-  margin: 0 auto;
 }
 
 section {
@@ -150,8 +139,9 @@ ul {
         content: '›';
         position: absolute;
         left: -1em;
+        top: -0.5rem;
         opacity: 0;
-        font-size: 1rem;
+        font-size: 1.8rem;
         transition: opacity 0.3s ease-out, left 0.3s ease-out;
       }
     }
