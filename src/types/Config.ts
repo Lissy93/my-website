@@ -75,4 +75,7 @@ export interface SiteConfig {
   techStack: {
     [key: string]: TechStackItem[],
   };
+  techStackExtras: {
+    [key: string]: string[],
+  };
 }

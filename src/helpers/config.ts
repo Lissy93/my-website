@@ -378,14 +378,24 @@ const config: SiteConfig = {
         projects: ['personal-security-checklist', 'awesome-privacy'],
       },
     ],
-  }
-  
-  // [
-  //   {
-  //     language: 'JavaScript',
-  //     projects: [ 'alicia', 'thing' ],
-  //   },
-  // ],
+  },
+  techStackExtras: {
+    devOps: [
+      'Ansible', 'Kubernetes', 'Prometheus', 'GitHubActions', 'Grafana',
+    ],
+    cloud: [
+      'Netlify', 'Vercel', 'CloudFlare', 'Azure', 'AWS', 'GCP',
+    ],
+    databases: [
+      'MySQL', 'MongoDB', 'SQLite', 'Redis',
+    ],
+    testing: [
+      'Jest', 'Puppeteer', 'Enzyme', 'Cypress',
+    ],
+    security: [
+      'Nmap', 'OWASPZAP', 'BurpSuite', 'Wireshark',
+    ],
+  },
 };
 
 export default config;
