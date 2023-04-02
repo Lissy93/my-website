@@ -5,6 +5,7 @@
   import Icon from '$src/components/Icon.svelte';
 
   const techStacks = Object.keys(config.techStack);
+  const techStackExtras = Object.keys(config.techStackExtras);
 
   export let accent = 'var(--accent)';
 
@@ -44,6 +45,18 @@
       </div>
       {/each}
     </div>
+    <div class="stack-table stack-extras">
+      {#each techStackExtras as stackName}
+        <div class="stack-name">
+          <h4>{stackName}</h4>
+        </div>
+        <div class="stack-extras-tech">
+          {#each config.techStackExtras[stackName] as technology}
+            <LangBadge language={technology} size={20} />
+          {/each}
+        </div>
+      {/each}
+    </div>
   </section>
   
   <style lang="scss">
@@ -59,11 +72,7 @@
       color: var(--dimmed-text);
     }
     .stack-table {
-      // display: grid;
-      // grid-template-columns: fit-content(8ch) 1fr;
       .stack-name {
-        // writing-mode: vertical-rl;
-        // text-orientation: upright;
         font-size: 1.5rem;
         letter-spacing: 0.2rem;
         color: var(--accent);
@@ -72,12 +81,15 @@
         h4 { margin: 0; }
       }
     }
-    .stack-row {
+    .stack-row, .stack-extras-tech {
       display: flex;
       padding: 0.5rem;
       gap: 0.5rem;
       &:not(:last-child) {
         border-bottom: 1px dashed var(--dimmed-text);
+      }
+      &.stack-extras-tech {
+        flex-wrap: wrap;
       }
       .stack-label {
         min-width: 6rem;
