@@ -106,6 +106,89 @@ const config: SiteConfig = {
       'accent-4': '#00ccb4',
     },
   },
+  // workExperience: {
+  //   company: string;
+  //   companyUrl: string;
+  //   companyLogo: string;
+  //   jobTitle: string;
+  //   responsibilities: string;
+  // }[];
+  workExperience: [
+
+// https://i.ibb.co/gv6mbKw/Army.jpg
+// https://i.ibb.co/6NLzFZM/Gov.jpg
+
+    {
+      company: 'AND.Digital',
+      companyUrl: 'https://and.digital/',
+      companyLogo: 'https://and.digital/favicon.ico',
+      jobTitle: 'Principle Engineer',
+      datesWorked: 'August 2022 - Present',
+      responsibilities: 'Hello World',
+      projects: [
+        { name: 'Frasers Group', logo: 'https://i.ibb.co/sQcvxmG/Frasers.png', description: '', },
+        { name: 'Lloyds Bank', logo: 'https://i.ibb.co/GCSDPCq/Lloyds-bank.jpg', description: '', },
+      ],
+    },
+    {
+      company: 'Galaxy',
+      companyUrl: 'https://galaxy.com/',
+      companyLogo: 'https://i.ibb.co/fX2rF84/galaxy-digital.png',
+      jobTitle: 'VP Frontend Engineer',
+      datesWorked: 'Jan 2021 - July 2022',
+      responsibilities: '',
+    },
+    {
+      company: 'Freelance',
+      companyUrl: 'https://aliciasykes.com/',
+      companyLogo: 'https://i.ibb.co/Dt6kGFQ/brick.png',
+      jobTitle: 'Full-Stack Developer',
+      datesWorked: 'February 2019 - Jan 2021',
+      responsibilities: '',
+      projects: [
+        { name: 'Futr.AI', logo: 'https://i.ibb.co/SyjxvhT/Futr-ai.png', description: '', },
+        { name: 'Shell', logo: 'https://i.ibb.co/7r1K9cb/Shell.png', description: '', },
+        { name: 'Shell Recharge', logo: 'https://i.ibb.co/BBdP2Wh/Shell-recharge.jpg', description: ''  },
+        { name: 'Machine Max', logo: 'https://i.ibb.co/XzXTKWF/machine-max.png', description: '', },
+        { name: 'Ctemplar', logo: 'https://i.ibb.co/2Sg6G3s/Ctemplar.png', description: '', },
+      ],
+    },
+    {
+      company: 'Accenture',
+      companyUrl: 'https://www.accenture.com/',
+      companyLogo: 'https://i.ibb.co/kcCKDF1/accenture.png',
+      jobTitle: 'Software Developer',
+      datesWorked: 'June 2014 - February 2019',
+      responsibilities: '',
+      projects: [
+        { name: 'E.ON', logo: 'https://i.ibb.co/4PcVN4B/Eon.png', description: '', },
+        { name: 'B&Q', logo: 'https://i.ibb.co/F79xSDK/Bandq.jpg', description: '', },
+        { name: 'Boots', logo: 'https://i.ibb.co/SnPtC8t/Boots.jpg', description: '', },
+        { name: 'TK Maxx', logo: 'https://i.ibb.co/MBkQVs1/tkmaxx.jpg', description: '', },
+        { name: 'Vodafone', logo: 'https://i.ibb.co/Zh1SwbR/Vodafone.png', description: '', },
+        { name: 'UKI Innovation Center', logo: 'https://i.ibb.co/1JX4Q9Y/Accenture-innovation.jpg', description: '', },
+      ],
+    },
+    {
+      company: 'University of Oxford',
+      companyUrl: 'https://www.ox.ac.uk/',
+      companyLogo: 'https://i.ibb.co/QYmLPTX/oxford-uni.jpg',
+      jobTitle: 'Intern',
+      datesWorked: 'June 2013 - September 2013',
+      responsibilities: '',
+      projects: [
+        { name: 'WWARN', logo: 'https://i.ibb.co/1R657nh/Wwarn.jpg', description: '', },
+      ],
+    },
+    // {
+    //   company: '',
+    //   companyUrl: '',
+    //   companyLogo: '',
+    //   jobTitle: '',
+    //   datesWorked: '',
+    //   responsibilities: '',
+    // },
+  ],
   projectComplimentaryData: [
     {
       name: 'quick-example-of-testing-in-nodejs',
