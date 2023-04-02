@@ -39,6 +39,19 @@ export interface SiteConfig {
     copyright: boolean;
   };
   githubUser: string; // GitHub username to fetch projects from
+  workExperience: {
+    company: string;
+    companyUrl: string;
+    companyLogo: string;
+    jobTitle: string;
+    datesWorked: string;
+    responsibilities: string;
+    projects?: {
+      name: string;
+      logo: string;
+      description: string;
+    }[];
+  }[];
   projectComplimentaryData: {
     name: string; // GitHub repo name
     thumbnail: string; // URL to thumbnail image
