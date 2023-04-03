@@ -17,6 +17,7 @@
     // Programming Languages
     android: { name: 'Android', color: '3DDC84', icon: 'android' },
     angular: { name: 'Angular', color: 'DD0031', icon: 'angular' },
+    babel: { name: 'Babel', color: 'F9DC3E', icon: 'babel' },
     bash: { name: 'Bash', color: '4EAA25', icon: 'gnubash' },
     c: { name: 'C', color: 'A8B9CC', icon: 'c' },
     'c++': { name: 'C++', color: '00599C', icon: 'cplusplus' },
@@ -35,7 +36,6 @@
     fsharp: { name: 'F#', color: 'B845FC', icon: 'fsharp' },
     flutter: { name: 'Flutter', color: '02569B', icon: 'flutter' },
     go: { name: 'Go Lang', color: '00ADD8', icon: 'go' },
-    graphql: { name: 'GraphQL', color: 'E10098', icon: 'graphql' },
     html: { name: 'HTML', color: 'E34F26', icon: 'html5' },
     haskell: { name: ' Haskell', color: '5D4F85', icon: ' haskell' },
     java: { name: 'Java', color: '007396', icon: 'mocha' },
@@ -54,6 +54,7 @@
     python: { name: 'Python', color: '3C78A9', icon: 'python' },
     r: { name: 'R', color: '198CE7', icon: 'r' },
     react: { name: 'React', color: '61DAFB', icon: 'react' },
+    reactnative: { name: 'React Native', color: '09D3AC', icon: 'react' },
     red: { name: 'Red', color: 'B32629', icon: 'red' },
     ruby: { name: 'Ruby', color: 'CC342D', icon: 'ruby' },
     rust: { name: 'Rust', color: 'e86243', icon: 'rust' },
@@ -79,6 +80,7 @@
     aws: { name: 'AWS', color: '232F3E', icon: 'amazonaws' },
     azure: { name: 'Azure', color: '0089D6', icon: 'azuredevops' },
     gcp: { name: 'GCP', color: '4285F4', icon: 'googlecloud' },
+    ibmcloud: { name: 'IBM Cloud', color: '1261FE', icon: 'ibmcloud' },
 
     // Databases
     mysql: { name: 'MySQL', color: '4479A1', icon: 'mysql' },
@@ -91,26 +93,78 @@
     puppeteer: { name: 'Puppeteer', color: '40B5A4', icon: 'puppeteer' },
     enzyme: { name: 'Testing Library', color: 'E33332', icon: 'testinglibrary' },
     cypress: { name: 'Cypress', color: '17202C', icon: 'cypress' },
+    storybook: { name: 'Storybook', color: 'FF4785', icon: 'storybook' },
+    junit: { name: 'JUnit', color: '25A162', icon: 'junit5' },
 
     // Security
     nmap: { name: 'Nmap', color: '4F5D95', icon: 'nmap' },
     owaspzap: { name: 'OWASP ZAP', color: '4B8BBE', icon: 'owasp' },
     burpsuite: { name: 'Burp Suite', color: 'FAC748', icon: 'burpsuite' },
     wireshark: { name: 'Wireshark', color: '1679A7', icon: 'wireshark' },
+    hackthebox: { name: 'Hack The Box', color: '9FEF00', icon: 'hackthebox' },
+
+    // Servers
+    apachetomcat: { name: 'Apache Tomcat', color: 'F8DC75', icon: 'apachetomcat' },
+    nginx: { name: 'Nginx', color: '269539', icon: 'nginx' },
+    apache: { name: 'Apache', color: 'D22128', icon: 'apache' },
+    caddy: { name: 'Caddy', color: '0D597F', icon: 'caddy' },
+    lighttpd: { name: 'Lighttpd', color: 'FFB500', icon: 'lighttpd' },
+
+    // APIs
+    graphql: { name: 'GraphQL', color: 'E10098', icon: 'graphql' },
+
+    // Servers
+    debian: { name: 'Debian', color: 'A81D33', icon: 'debian' },
+    gitlab: { name: 'GitLab', color: 'FC6D26', icon: 'gitlab' },
+
+    // Tools
+    gradle: { name: 'Gradle', color: '02303A', icon: 'gradle' },
+
+    // DevOps
+    rabbitMq: { name: 'RabbitMQ', color: 'FF6600', icon: 'rabbitmq' },
+    nixos: { name: 'NixOS', color: '41439B', icon: 'nixos' },
+    rancher: { name: 'Rancher', color: '0075A8', icon: 'rancher' },
+    raspberrypi: { name: 'Raspberry Pi', color: 'A22846', icon: 'raspberrypi' },
+
+    // Web3
+    ethereum: { name: 'Ethereum', color: '3C3C3D', icon: 'ethereum' },
+    solana: { name: 'Solana', color: '3C3C3D', icon: 'solana' },
+    polkadot: { name: 'Polkadot', color: 'E6007A', icon: 'polkadot' },
+    substrate: { name: 'Substrate', color: 'E6007A', icon: 'substrate' },
+    near: { name: 'NEAR', color: '222222', icon: 'near' },
+    avalanche: { name: 'Avalanche', color: '62B0D9', icon: 'avalanche' },
+    harmony: { name: 'Harmony', color: 'FFC300', icon: 'harmony' },
+    opensea: { name: 'OpenSea', color: '2081E2', icon: 'opensea' },
+    web3js: { name: 'Web3.js', color: 'F16822', icon: 'web3dotjs' },
   };
 
+  // Check if hex code of badge is very pale, so we can use black icon instead
+  const getIconColor = (badgeColor: string) => {
+    const hex = badgeColor.replace('#', '') || '000000';
+    const [r, g, b] = hex.match(/.{2}/g).map(x => parseInt(x, 16));
+    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+    return brightness > 170 ? '000000' : 'FFFFFF';
+  }
+
+  // Get the language info (if present) for the languages passed as a prop
   const getLangAttributes = (lang: string): LanguageAttributes | null => {
     const defaultConfig = {name: lang, color: '000000', icon: '' };
-    return badgeConfigs[lang?.toLocaleLowerCase()] || defaultConfig;
+    return badgeConfigs[lang?.toLocaleLowerCase().replaceAll(' ', '')] || defaultConfig;
   };
 
+  // Make the URL to the language badge, using Shields.io
   const getBadgeUrl = (attributes: LanguageAttributes) => {
     if (!attributes) return null;
     const { name, color, icon } = attributes;
     const badgeEndpoint = 'https://img.shields.io/static/v1';
-    return `${badgeEndpoint}?label=&message=${name}&color=${color}&logo=${icon}&logoColor=FFFFFF`;
+    return `${badgeEndpoint}?`
+      + `label=&message=${encodeURIComponent(name)}`
+      + `&color=${color}`
+      + `&logo=${icon}`
+      + `&logoColor=${getIconColor(color)}`;
   };
 
+  // Make both badge URL and language info available to the component
   export const langAttributes = getLangAttributes(language);
   export const badgeUrl = langAttributes ? getBadgeUrl(langAttributes) : null;
 </script>
@@ -121,7 +175,7 @@
       src={badgeUrl}
       class={$$props.class}
       height={size || null}
-      alt="Written in {langAttributes?.name}"
+      alt={langAttributes?.name}
     />
   {/if}
 </div>
