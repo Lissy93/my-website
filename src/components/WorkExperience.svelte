@@ -33,6 +33,14 @@
           {/each}
         </div>
       {/if}
+      {#if job.technologies && job.technologies.length > 0}
+        <h6>Core Technologies</h6>
+        <div class="technologies">
+          {#each job.technologies as tech}
+            <LangBadge language={tech} />
+          {/each}
+        </div>
+      {/if}
     </div>
   </div>
 {/each}
@@ -94,7 +102,7 @@
       flex-grow: 1;
       padding-bottom: 1rem;
       h6 {
-        margin: 0 0 0.5rem 0;
+        margin: 0.5rem 0;
         font-size: 1rem;
         font-weight: 500;
         color: var(--dimmed-text);
@@ -143,6 +151,11 @@
             }
           }
         }
+      }
+      .technologies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
       }
     }
   }
