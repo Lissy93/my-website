@@ -45,12 +45,13 @@ export interface SiteConfig {
     companyLogo: string;
     jobTitle: string;
     datesWorked: string;
-    responsibilities: string;
+    responsibilities?: string;
     projects?: {
       name: string;
       logo: string;
       description: string;
     }[];
+    technologies?: string[];
   }[];
   projectComplimentaryData: {
     name: string; // GitHub repo name

@@ -124,11 +124,11 @@ const config: SiteConfig = {
       companyLogo: 'https://and.digital/favicon.ico',
       jobTitle: 'Principle Engineer',
       datesWorked: 'August 2022 - Present',
-      responsibilities: 'Hello World',
       projects: [
         { name: 'Frasers Group', logo: 'https://i.ibb.co/sQcvxmG/Frasers.png', description: '', },
         { name: 'Lloyds Bank', logo: 'https://i.ibb.co/GCSDPCq/Lloyds-bank.jpg', description: '', },
       ],
+      technologies: [ 'TypeScript', 'React Native', 'Azure' ],
     },
     {
       company: 'Galaxy',
@@ -137,6 +137,7 @@ const config: SiteConfig = {
       jobTitle: 'VP Frontend Engineer',
       datesWorked: 'Jan 2021 - July 2022',
       responsibilities: '',
+      technologies: [ 'React', 'StoryBook', 'Cypress', 'web3js',],
     },
     {
       company: 'Freelance',
@@ -152,6 +153,7 @@ const config: SiteConfig = {
         { name: 'Machine Max', logo: 'https://i.ibb.co/XzXTKWF/machine-max.png', description: '', },
         { name: 'Ctemplar', logo: 'https://i.ibb.co/2Sg6G3s/Ctemplar.png', description: '', },
       ],
+      technologies: [ 'React', 'React Native', 'TypeScript', 'GraphQL', 'GCP' ],
     },
     {
       company: 'Accenture',
@@ -168,6 +170,7 @@ const config: SiteConfig = {
         { name: 'Vodafone', logo: 'https://i.ibb.co/Zh1SwbR/Vodafone.png', description: '', },
         { name: 'UKI Innovation Center', logo: 'https://i.ibb.co/1JX4Q9Y/Accenture-innovation.jpg', description: '', },
       ],
+      technologies: [ 'C#', 'Angular', 'Node', 'AWS' ],
     },
     {
       company: 'University of Oxford',
@@ -175,19 +178,14 @@ const config: SiteConfig = {
       companyLogo: 'https://i.ibb.co/QYmLPTX/oxford-uni.jpg',
       jobTitle: 'Intern',
       datesWorked: 'June 2013 - September 2013',
-      responsibilities: '',
+      responsibilities: 'Worked on developing a Java application which would calculate the most '
+        + 'effective mg of drug, per kg or patient body weight, to prevent resistance malaria vaccines.'
+        + 'Involved dealing with millions of patient records, which were often in varying formats and units.',
       projects: [
         { name: 'WWARN', logo: 'https://i.ibb.co/1R657nh/Wwarn.jpg', description: '', },
       ],
+      technologies: [ 'Java', 'apachetomcat', 'junit', 'gradle' ],
     },
-    // {
-    //   company: '',
-    //   companyUrl: '',
-    //   companyLogo: '',
-    //   jobTitle: '',
-    //   datesWorked: '',
-    //   responsibilities: '',
-    // },
   ],
   projectComplimentaryData: [
     {
