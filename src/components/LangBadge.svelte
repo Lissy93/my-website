@@ -141,7 +141,7 @@
   // Check if hex code of badge is very pale, so we can use black icon instead
   const getIconColor = (badgeColor: string) => {
     const hex = badgeColor.replace('#', '') || '000000';
-    const [r, g, b] = hex.match(/.{2}/g).map(x => parseInt(x, 16));
+    const [r, g, b] = hex.match(/.{2}/g)?.map(x => parseInt(x, 16)) || [255, 255, 255];
     const brightness = (r * 299 + g * 587 + b * 114) / 1000;
     return brightness > 170 ? '000000' : 'FFFFFF';
   }
