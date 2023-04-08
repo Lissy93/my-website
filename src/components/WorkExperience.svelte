@@ -21,9 +21,9 @@
         <a class="company" href={job.companyUrl}>{job.company}</a>
       </h5>
       <p class="date">{job.datesWorked}</p>
-      <p class="description">{job.responsibilities}</p>
+      <p class="description">{job.responsibilities || ''}</p>
       {#if job.projects && job.projects.length > 0}
-        <h6>Projects / Clients</h6>
+        <h6>{job.projectType || 'Projects' }</h6>
         <div class="projects">
           {#each job.projects as project}
             <div class="sub-project">
@@ -52,8 +52,9 @@
     display: flex;
     gap: 1rem;
     .line {
-      border-left: 2px solid var(--dimmed-text);
+      background: var(--dimmed-text);
       transform: translateX(2.9rem);
+      width: 2px;
       z-index: 1;
       flex-grow: 0;
     }
@@ -156,6 +157,11 @@
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
+      }
+    }
+    &:last-child {
+      .line {
+        border-radius: 50%;
       }
     }
   }
