@@ -96,9 +96,10 @@ const config: SiteConfig = {
       'card-border': '1px solid #0000001a',
     },
     callisto: {
-      background: '#0B1021',
+      background: '#0a192f',
       foreground: '#dcdcdc',
-      'card-background': '#060913',
+      'dimmed-text': '#8892b0',
+      'card-background': '#0b1021ba',
       'card-border': '1px solid #ffffff1a',
       'accent-1': '#00ccb4',
       'accent-2': '#00ccb4',
@@ -106,24 +107,14 @@ const config: SiteConfig = {
       'accent-4': '#00ccb4',
     },
   },
-  // workExperience: {
-  //   company: string;
-  //   companyUrl: string;
-  //   companyLogo: string;
-  //   jobTitle: string;
-  //   responsibilities: string;
-  // }[];
   workExperience: [
-
-// https://i.ibb.co/gv6mbKw/Army.jpg
-// https://i.ibb.co/6NLzFZM/Gov.jpg
-
     {
       company: 'AND.Digital',
       companyUrl: 'https://and.digital/',
       companyLogo: 'https://and.digital/favicon.ico',
       jobTitle: 'Principle Engineer',
       datesWorked: 'August 2022 - Present',
+      projectType: 'Clients',
       projects: [
         { name: 'Frasers Group', logo: 'https://i.ibb.co/sQcvxmG/Frasers.png', description: '', },
         { name: 'Lloyds Bank', logo: 'https://i.ibb.co/GCSDPCq/Lloyds-bank.jpg', description: '', },
@@ -136,7 +127,7 @@ const config: SiteConfig = {
       companyLogo: 'https://i.ibb.co/fX2rF84/galaxy-digital.png',
       jobTitle: 'VP Frontend Engineer',
       datesWorked: 'Jan 2021 - July 2022',
-      responsibilities: '',
+      responsibilities: 'Worked on real-time React-based Web3 trading application',
       technologies: [ 'React', 'StoryBook', 'Cypress', 'web3js',],
     },
     {
@@ -146,6 +137,7 @@ const config: SiteConfig = {
       jobTitle: 'Full-Stack Developer',
       datesWorked: 'February 2019 - Jan 2021',
       responsibilities: '',
+      projectType: 'Projects',
       projects: [
         { name: 'Futr.AI', logo: 'https://i.ibb.co/SyjxvhT/Futr-ai.png', description: '', },
         { name: 'Shell', logo: 'https://i.ibb.co/7r1K9cb/Shell.png', description: '', },
@@ -161,8 +153,12 @@ const config: SiteConfig = {
       companyLogo: 'https://i.ibb.co/kcCKDF1/accenture.png',
       jobTitle: 'Software Developer',
       datesWorked: 'June 2014 - February 2019',
-      responsibilities: '',
-      projects: [
+      responsibilities: ''
+        + 'After joining as an associate, I had the opportunity to work on a range of exciting client projects, '
+        + 'each with their own challenges, his helped me to develop my skills and knowledge in a variety of areas. '
+        + 'Over time I worked my way up to a senior role, where I could actively deliver high quality solutions to clients.',
+        projectType: 'Clients',
+        projects: [
         { name: 'E.ON', logo: 'https://i.ibb.co/4PcVN4B/Eon.png', description: '', },
         { name: 'B&Q', logo: 'https://i.ibb.co/F79xSDK/Bandq.jpg', description: '', },
         { name: 'Boots', logo: 'https://i.ibb.co/SnPtC8t/Boots.jpg', description: '', },
@@ -179,12 +175,27 @@ const config: SiteConfig = {
       jobTitle: 'Intern',
       datesWorked: 'June 2013 - September 2013',
       responsibilities: 'Worked on developing a Java application which would calculate the most '
-        + 'effective mg of drug, per kg or patient body weight, to prevent resistance malaria vaccines.'
+        + 'effective mg of antimalarial drug, per kg or patient body weight, to prevent vaccine resistance building up. '
         + 'Involved dealing with millions of patient records, which were often in varying formats and units.',
-      projects: [
+        projectType: 'Projects',
+        projects: [
         { name: 'WWARN', logo: 'https://i.ibb.co/1R657nh/Wwarn.jpg', description: '', },
       ],
       technologies: [ 'Java', 'apachetomcat', 'junit', 'gradle' ],
+    },
+    {
+      company: 'British Army',
+      companyUrl: 'https://www.army.mod.uk/',
+      companyLogo: 'https://i.ibb.co/gv6mbKw/Army.jpg',
+      jobTitle: 'Soldier',
+      datesWorked: '',
+      responsibilities: '',
+      projectType: 'Regiments',
+      projects: [
+        { name: 'Signals', logo: 'https://i.ibb.co/F5mhzkr/Signals.png', description: '', },
+        { name: 'Oxford UOTC', logo: 'https://i.ibb.co/ZMH1TWq/ouotc.jpg', description: '', },
+        { name: 'Intelligence Corps', logo: 'https://i.ibb.co/svn2XLq/mi.jpg', description: '', },
+      ],
     },
   ],
   projectComplimentaryData: [

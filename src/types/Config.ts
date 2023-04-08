@@ -46,6 +46,7 @@ export interface SiteConfig {
     jobTitle: string;
     datesWorked: string;
     responsibilities?: string;
+    projectType?: 'Projects' | 'Clients' | 'Regiments' | string;
     projects?: {
       name: string;
       logo: string;
