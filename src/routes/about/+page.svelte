@@ -32,7 +32,7 @@
     <img src={picture} alt="Users profile" />
     <div class="pages">
       {#each morePages as page}
-        <a href={page.route} style={`--page-color: ${page.color}`}>{page.label}</a>
+        <a href={page.route} style={`--page-color: ${page.color};`}>{page.label}</a>
       {/each}
     </div>
   </section>
@@ -58,6 +58,10 @@
   .content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    @include laptop-up {
+      // There's probably a better way to scale this grid, bit idk how
+      grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    }
     grid-column-gap: 1rem;
     grid-row-gap: 1rem;
     padding: 1rem;
@@ -110,11 +114,14 @@
         a {
           color: var(--page-color, var(--accent));
           border-radius: var(--curve-factor);
-          padding: 0.1rem 0.25rem;
+          padding: 0.25rem 0.5rem;
           margin: 0.5rem;
           font-weight: bold;
           text-decoration: none;
           transition: all ease-in-out 0.2s;
+          min-width: 5rem;
+          text-align: center;
+          border: 1px solid var(--page-color, var(--accent));
           &:hover {
             color: var(--background);
             background: var(--page-color, var(--accent));
