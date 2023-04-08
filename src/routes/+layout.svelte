@@ -102,12 +102,4 @@
     background-color: var(--accent);
     color: var(--background);
   }
-
-  //   :global([data-theme='light']) {
-  //     @include light-theme;
-  //   }
-  //   :global([data-theme='callisto']) {
-  //     @include callisto-theme;
-  //   }
-  //
 </style>
