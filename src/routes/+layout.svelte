@@ -30,6 +30,10 @@
   <title>{makeTitle($page.url.pathname)}</title>
   <meta name="color-scheme" content={$theme} />
   <link rel="stylesheet" href={$encodedThemeCss} />
+  {#if config.plausible}
+    <script defer data-domain={config.plausible?.domain}
+        src={config.plausible?.scriptSrc}></script>
+  {/if}
 </svelte:head>
 
 {#if shouldShowNavBar($page.url.pathname)}

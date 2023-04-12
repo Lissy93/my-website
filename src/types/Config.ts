@@ -94,4 +94,8 @@ export interface SiteConfig {
   techStackExtras: {
     [key: string]: string[],
   };
+  plausible?: {
+    scriptSrc: string;
+    domain: string;
+  },
 }

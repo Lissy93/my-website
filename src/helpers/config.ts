@@ -488,6 +488,10 @@ const config: SiteConfig = {
       'Nmap', 'OWASPZAP', 'BurpSuite', 'Wireshark',
     ],
   },
+  plausible: {
+    scriptSrc: 'https://no-track.as93.net/js/script.js',
+    domain: 'as93.net',
+  },
 };
 
 export default config;
