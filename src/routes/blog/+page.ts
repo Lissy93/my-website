@@ -2,13 +2,13 @@ import { get } from 'svelte/store';
 import type { PageServerLoad } from './$types';
 import { blogStore, rssFeedUrls } from '$src/store/BlogStore';
 import { fetchPostsFromRss } from '$src/helpers/fetch-rss-posts';
-import { type RssPost, PostStatus } from '$src/types/RssXml';
+import { type RssPost, PostStatus, type RssUrlList } from '$src/types/RssXml';
 
-export const _loadPosts = (fetch: (() => Promise<Response>) | undefined) => {
+export const _loadPosts = (fetch: (() => Promise<Response>) | undefined,  feeds: RssUrlList | undefined) => {
   let fetchStatus: PostStatus = PostStatus.Loading;
 
   // Get promise of all posts from array of RSS feeds
-  const posts: Promise<RssPost[]> = fetchPostsFromRss(get(rssFeedUrls), fetch);
+  const posts: Promise<RssPost[]> = fetchPostsFromRss(feeds || get(rssFeedUrls), fetch);
   // When resolved, update the store to save for later
   posts
     .then((resolvedPosts) => {
@@ -23,10 +23,10 @@ export const _loadPosts = (fetch: (() => Promise<Response>) | undefined) => {
 };
 
 /** @type {import('./$types').PageLoad} */
-export const load = async ({ fetch }: PageServerLoad) => {
+export const load = async ({ fetch }: PageServerLoad, feeds: RssUrlList | undefined) => {
   if (get(blogStore)?.length > 0) {
     return { posts: get(blogStore) };
   }
 
-  return _loadPosts(fetch);
+  return _loadPosts(fetch, feeds);
 };
