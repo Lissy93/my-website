@@ -24,9 +24,8 @@ export const _loadPosts = (fetch: (() => Promise<Response>) | undefined,  feeds:
 
 /** @type {import('./$types').PageLoad} */
 export const load = async ({ fetch }: PageServerLoad, feeds: RssUrlList | undefined) => {
-  if (get(blogStore)?.length > 0) {
-    return { posts: get(blogStore) };
-  }
-
+  // if (get(blogStore)?.length > 0) {
+  //   return { posts: get(blogStore) };
+  // }
   return _loadPosts(fetch, feeds);
 };
