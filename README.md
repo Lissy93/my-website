@@ -335,13 +335,6 @@ To get started, fork the repo, make your changes, add, commit and push the code,
             <br />
             <sub><b>Jtfinley72</b></sub>
         </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/baifengheixi">
-            <img src="https://avatars.githubusercontent.com/u/98794233?u=73763035da00be68ea05f3a577b96e47784bd748&v=4" width="80;" alt="baifengheixi"/>
-            <br />
-            <sub><b>Baifengheixi</b></sub>
-        </a>
     </td></tr>
 </table>
 <!-- readme: sponsors -end -->
@@ -356,6 +349,13 @@ To get started, fork the repo, make your changes, add, commit and push the code,
             <img src="https://avatars.githubusercontent.com/u/1862727?v=4" width="80;" alt="Lissy93"/>
             <br />
             <sub><b>Alicia Sykes</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/liss-bot">
+            <img src="https://avatars.githubusercontent.com/u/87835202?v=4" width="80;" alt="liss-bot"/>
+            <br />
+            <sub><b>Alicia Bot</b></sub>
         </a>
     </td></tr>
 </table>
