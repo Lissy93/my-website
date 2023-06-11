@@ -203,12 +203,23 @@ const config: SiteConfig = {
       name: 'quick-example-of-testing-in-nodejs',
       thumbnail: 'https://i.ibb.co/WDpBStz/better-test3.png',
     },
-    // { name: 'personal-security-checklist', thumbnail: 'https://repository-images.githubusercontent.com/123631418/75bac380-b260-11ea-8cc4-c2272744feab' },
+    { name: 'personal-security-checklist', thumbnail: 'https://i.ibb.co/mTvmYGJ/personal-security-checklist.png' },
+    { name: 'dotfiles', thumbnail: 'https://i.ibb.co/rH30RbM/Dotfiles.png' },
+    { name: 'brewfile', thumbnail: 'https://i.postimg.cc/FRHyvxtr/lissy93-brewfile-banner.png', },
     {
       name: 'dashy',
-      featured: true,
+      // featured: true,
       thumbnail:
         'https://repository-images.githubusercontent.com/343078060/82f850a2-b1af-4e9f-9245-c92700d74856',
+    },
+    {
+      name: 'AdGuardian-Term',
+      // featured: true,
+      thumbnail: 'https://i.ibb.co/wgJDXs2/adguardian-banner-2.png',
+    },
+    {
+      name: 'portainer-templates',
+      thumbnail: 'https://i.ibb.co/J2g5Czy/portainer-templates-banner.png',
     },
     {
       name: 'awesome-privacy',
