@@ -8,7 +8,7 @@ const makeProjectList = async (ghResponse: any): Promise<Project[]> => {
     .map((repo: any) => {
       const projectComplimentaryData =
         config.projectComplimentaryData.find(
-          (p) => p.name.toLocaleLowerCase() === repo.name
+          (p) => p.name.toLocaleLowerCase() === repo.name.toLocaleLowerCase()
         ) || {};
       return {
         id: repo.id,
