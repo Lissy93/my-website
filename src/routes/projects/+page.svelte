@@ -1,14 +1,23 @@
 <script lang="ts">
   import Heading from '$src/components/Heading.svelte';
   import ProjectCard from './ProjectCard.svelte';
+  import ProjectRow from './ProjectRow.svelte';
   import type { Project } from '$src/types/Project';
   import AnimateOnScroll from '$src/components/AnimateOnScroll.svelte';
+  import Icon from '$src/components/Icon.svelte';
 
   export let data;
   let searchTerm = '';
   let filteredRepos = data.repos;
   const repos = data.repos;
   let searchInputRef: any | HTMLElement; // Has to be any, as used in context of <svelte:element>
+  
+  type DisplayModes = 'grid' | 'list' | null;
+  let displayMode: DisplayModes = null;
+
+  const toggleDisplayMode = (newVal: DisplayModes) => {
+    displayMode = newVal;
+  };
 
   /* Resets search field, shows all results again. Triggered by Clear btn or Esc key*/
   const cancelSearch = () => {
@@ -54,7 +63,7 @@
   };
 
   const isSpan = (repo: Project) =>
-    repo.featured ? 'grid-row-start: span 2; grid-column-start: span 2;' : '';
+    repo.featured ? 'grid-row: span 2; grid-column: span 2;' : '';
 </script>
 
 <svelte:window on:keydown={handleKeydown} />
@@ -77,6 +86,13 @@
     </div>
     <div class="filter-controls">
       <form class="filter-form">
+        <label on:click={() => toggleDisplayMode(null)}>View</label>
+        <button class="display-btn" class:selected="{displayMode === 'grid'}" on:click={() => toggleDisplayMode('grid')}>
+          <Icon name="grid" />
+        </button>
+        <button class="display-btn" class:selected="{displayMode === 'list'}" on:click={() => toggleDisplayMode('list')}>
+          <Icon name="list" />
+        </button>
         <label for="filter-input">Search</label>
         <input
           bind:value={searchTerm}
@@ -89,8 +105,31 @@
     </div>
   </div>
 
+  {#if !displayMode}
   <div class="project-grid">
-    {#each filteredRepos as repo}
+    {#each filteredRepos as repo, index}
+        {#if index < 5 && searchTerm === ''}
+        <AnimateOnScroll
+        once={true}
+        animation={'fade-in 1s cubic-bezier(0.4, 0.6, 0.5, 1.000) both'}
+        style="grid-column: 1 / -1;"
+      >
+        <ProjectRow {repo} />
+        </AnimateOnScroll>
+        {:else}
+        <AnimateOnScroll
+        once={true}
+        animation={'fade-in 1s cubic-bezier(0.4, 0.6, 0.5, 1.000) both'}
+        style={isSpan(repo)}
+      >
+        <ProjectCard {repo} />
+      </AnimateOnScroll>
+        {/if}
+    {/each}
+  </div>
+  {:else if displayMode === 'grid'}
+  <div class="project-grid">
+    {#each filteredRepos as repo, index}
       <AnimateOnScroll
         once={true}
         animation={'fade-in 1s cubic-bezier(0.4, 0.6, 0.5, 1.000) both'}
@@ -100,6 +139,19 @@
       </AnimateOnScroll>
     {/each}
   </div>
+  {:else}
+  <div class="project-list">
+    {#each filteredRepos as repo}
+      <AnimateOnScroll
+        once={true}
+        animation={'fade-in 1s cubic-bezier(0.4, 0.6, 0.5, 1.000) both'}
+        style={isSpan(repo)}
+      >
+        <ProjectRow {repo} />
+      </AnimateOnScroll>
+    {/each}
+  </div>
+  {/if}
 </section>
 
 <style lang="scss">
@@ -115,14 +167,19 @@
   .project-grid {
     display: grid;
     grid-auto-flow: dense;
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(var(--grid-item-width), 1fr)
-    );
+    grid-template-columns: repeat(auto-fit, minmax(var(--grid-item-width), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(var(--grid-item-width), 1fr));
     gap: var(--grid-item-spacing);
     padding: var(--grid-item-spacing);
     margin: var(--grid-item-spacing) 5vw;
     list-style: none;
+  }
+
+  .project-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--grid-item-spacing);
+    margin: var(--grid-item-spacing) 5vw;
   }
 
   .post-filter-options {
@@ -153,6 +210,29 @@
     font-family: FiraCode;
     font-size: 1rem;
     border-radius: 4px;
+  }
+
+  .display-btn {
+    background: var(--card-background);
+    border: var(--card-border);
+    border-radius: var(--curve-factor);
+    margin-right: 0.25rem;
+    display: flex;
+    padding: 0.35rem;
+    color: var(--foreground);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:last-of-type {
+      margin-right: 1rem;
+    }
+    &:hover {
+      color: var(--accent);
+      transform: scale(1.05);
+    }
+    &.selected {
+      // color: var(--accent);
+      border: 1px solid var(--accent);
+    }
   }
 
   .results-info {

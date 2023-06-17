@@ -3,6 +3,13 @@
   import LinkButton from '$src/components/LinkButton.svelte';
   import LangBadge from '$src/components/LangBadge.svelte';
   import Icon from '$src/components/Icon.svelte';
+  import {
+    formatTitle,
+    putCommasInBigNum,
+    getMonthYear,
+    calculateTimeAgo
+  } from './card-helpers';
+
 
   export let repo: Project;
 
@@ -14,35 +21,6 @@
     else isScootched = !newState;
   };
 
-  /* Make large numbers easier to read, with commas */
-  const putCommasInBigNum = (bigNum: number): string => {
-    return bigNum.toLocaleString();
-  };
-
-  /* Get date in month YYYY format*/
-  const getMonthYear = (inputDate: string): string => {
-    const date = new Date(inputDate);
-    return `${date.toLocaleString('default', {
-      month: 'short',
-    })}, ${date.getFullYear()}`;
-  };
-
-  /* Get amount of time ago (e.g. 5 days, 1 year) */
-  const calculateTimeAgo = (inputDate: string) => {
-    const seconds = Math.floor(
-      (new Date().getTime() - new Date(inputDate).getTime()) / 1000
-    );
-    const intervals = [31536000, 2592000, 86400, 3600, 60];
-    const intervalNames = ['year', 'month', 'day', 'hour', 'minute'];
-
-    for (let i = 0; i < intervals.length; i++) {
-      const interval = Math.floor(seconds / intervals[i]);
-      if (interval >= 1) {
-        return `${interval} ${intervalNames[i]}${interval > 1 ? 's' : ''} ago`;
-      }
-    }
-    return `${Math.floor(seconds)} seconds ago`;
-  };
 </script>
 
 <div
@@ -61,7 +39,7 @@
 
   <!-- Project name, and fork badge if applicable -->
   <h2>
-    {repo.name}
+    {formatTitle(repo.name)}
     {#if repo.isFork}<span class="is-fork-label">Fork</span>{/if}
   </h2>
 
@@ -148,7 +126,6 @@
 
 <style lang="scss">
   .project-card {
-    // padding: 0.5rem;
     border: var(--card-border);
     background: var(--card-background);
     border-radius: 4px;
@@ -187,6 +164,7 @@
       gap: 1rem;
       justify-content: space-between;
       font-family: RedHatText;
+      text-transform: capitalize;
     }
     p {
       margin: 0.25rem 0;
