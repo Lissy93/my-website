@@ -73,7 +73,7 @@ const config: SiteConfig = {
     copyright: true,
   },
   githubUser: 'lissy93',
-  defaultTheme: 'callisto',
+  defaultTheme: 'dark',
   defaultLanguage: 'en',
   colorSchemes: {
     dark: {
@@ -205,10 +205,10 @@ const config: SiteConfig = {
     },
     { name: 'personal-security-checklist', thumbnail: 'https://i.ibb.co/mTvmYGJ/personal-security-checklist.png' },
     { name: 'dotfiles', thumbnail: 'https://i.ibb.co/rH30RbM/Dotfiles.png' },
-    { name: 'brewfile', thumbnail: 'https://i.postimg.cc/FRHyvxtr/lissy93-brewfile-banner.png', },
+    { name: 'brewfile', thumbnail: 'https://i.ibb.co/N9c30xT/lissy93-brewfile-banner.png', },
     {
       name: 'dashy',
-      // featured: true,
+      featured: true,
       thumbnail:
         'https://repository-images.githubusercontent.com/343078060/82f850a2-b1af-4e9f-9245-c92700d74856',
     },
@@ -395,8 +395,12 @@ const config: SiteConfig = {
   techStack: {
     backend: [
       {
+        language: 'Rust',
+        projects: ['AdGuardian-Term'],
+      },
+      {
         language: 'Go',
-        projects: ['go-apod'],
+        projects: ['go-apod', 'OLD_AdGuardian-Term'],
       },
       {
         language: 'Node',
@@ -404,7 +408,7 @@ const config: SiteConfig = {
       },
       {
         language: 'Python',
-        projects: ['gh-trending-no-cors', 'tfl-lift-availability-dash', 'pax'],
+        projects: ['portainer-templates', 'gh-trending-no-cors', 'tfl-lift-availability-dash', 'pax'],
       },
       {
         language: 'Java',
