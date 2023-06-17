@@ -2,8 +2,9 @@
   import BackToTop from '$src/components/BackToTop.svelte';
   import NavBar from '$src/components/NavBar.svelte';
   import Footer from '$src/components/Footer.svelte';
+  import Loading from '$src/components/Loading.svelte';
   import { fade } from 'svelte/transition';
-  import { page } from '$app/stores';
+  import { navigating, page } from '$app/stores';
   import { config } from '$src/store/BlogStore';
   import { theme, encodedThemeCss, themeColors } from '$src/store/ThemeStore';
 
@@ -42,9 +43,13 @@
 
 {#key $page.url.pathname}
   <main style={`--accent: ${routeBasedAccent()}`}>
-    <div class="website" in:fade>
-      <slot />
-    </div>
+    {#if $navigating}
+      <Loading />
+    {:else}
+      <div class="website" in:fade>
+        <slot />
+      </div>
+    {/if}
   </main>
 {/key}
 
