@@ -9,6 +9,12 @@
   --card-border: 1px solid #2a2a2a;
   --code-background: #333;
 
+  // Voronoi background colors
+  --voronoi-bg-0: #111111;
+  --voronoi-bg-1: #121212;
+  --voronoi-bg-2: var(--background);
+  --voronoi-bg-3: #0d0c0c;
+
   // Accent colors (can vary based on route)
   --accent: #01c0f0;
   --accent-1: #ff0099;

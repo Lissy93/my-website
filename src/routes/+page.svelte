@@ -1,10 +1,12 @@
 <script lang="ts">
+  import * as d3 from 'd3';
   import { onMount } from 'svelte';
   import { config } from '$src/store/BlogStore';
   import Loading from '$src/components/Loading.svelte';
   import Heading from '$src/components/Heading.svelte';
   import { socialNetworks } from '$src/helpers/constants';
   import Icon from '$src/components/Icon.svelte';
+  import D3Voronoi from '$src/helpers/voronoi';
 
   export const { routeLinks } = config;
 
@@ -13,11 +15,7 @@
   const homePageLinks = routeLinks.filter((rl) => rl.route !== '/');
 
   onMount(async () => {
-    document.querySelector('#funky-background-script')?.remove();
-    var script = document.createElement('script');
-    script.src = '/wobble.js';
-    script.id = 'funky-background-script';
-    document.head.appendChild(script);
+    new D3Voronoi();
   });
 
   const socialLinks = () => {
@@ -41,7 +39,7 @@
   };
 </script>
 
-<canvas id="canvas" />
+<div id="vonoroi"></div>
 
 <main class="homepage">
   <div class="hero">
@@ -102,15 +100,10 @@
 
 <style lang="scss">
   @import '$src/styles/media-queries.scss';
+  @import '$src/styles/voronoi.scss';
 
   :global(html) {
     scroll-behavior: smooth;
-  }
-
-  canvas {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
   }
 
   *:not(canvas) {
@@ -119,6 +112,7 @@
 
   main.homepage {
     min-height: 99vh;
+    pointer-events: none;
   }
 
   .hero {
@@ -133,9 +127,11 @@
     h1 {
       font-size: 4rem;
       cursor: default;
+      pointer-events: all;
     }
     .socials {
       opacity: 0.85;
+      pointer-events: all;
       .social-link {
         text-decoration: none;
       }
@@ -168,6 +164,7 @@
       border-left: 4px solid var(--accent);
       transition: all ease-in-out 0.25s, transform ease-in-out 0.3s;
       overflow: hidden;
+      pointer-events: all;
 
       p.subtitle {
         position: absolute;
