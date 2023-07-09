@@ -4,7 +4,7 @@ import { blogStore, rssFeedUrls } from '$src/store/BlogStore';
 import { fetchPostsFromRss } from '$src/helpers/fetch-rss-posts';
 import { type RssPost, PostStatus, type RssUrlList } from '$src/types/RssXml';
 
-export const _loadPosts = (fetch: (() => Promise<Response>) | undefined,  feeds: RssUrlList | undefined) => {
+export const _loadPosts = (fetch?: (() => Promise<Response>),  feeds?: RssUrlList) => {
   let fetchStatus: PostStatus = PostStatus.Loading;
 
   // Get promise of all posts from array of RSS feeds

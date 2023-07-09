@@ -15,6 +15,7 @@
   type DisplayModes = 'grid' | 'list' | null;
   let displayMode: DisplayModes = null;
 
+  /* Sets display mode to grid, list or null (for auto) */
   const toggleDisplayMode = (newVal: DisplayModes) => {
     displayMode = newVal;
   };
@@ -84,15 +85,19 @@
         </div>
       {/if}
     </div>
+
     <div class="filter-controls">
       <form class="filter-form">
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <label on:click={() => toggleDisplayMode(null)}>View</label>
-        <button class="display-btn" class:selected="{displayMode === 'grid'}" on:click={() => toggleDisplayMode('grid')}>
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <span class="display-btn" class:selected="{displayMode === 'grid'}" on:click={() => toggleDisplayMode('grid')}>
           <Icon name="grid" />
-        </button>
-        <button class="display-btn" class:selected="{displayMode === 'list'}" on:click={() => toggleDisplayMode('list')}>
+        </span>
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <span class="display-btn" class:selected="{displayMode === 'list'}" on:click={() => toggleDisplayMode('list')}>
           <Icon name="list" />
-        </button>
+        </span>
         <label for="filter-input">Search</label>
         <input
           bind:value={searchTerm}
@@ -105,10 +110,9 @@
     </div>
   </div>
 
-  {#if !displayMode}
   <div class="project-grid">
     {#each filteredRepos as repo, index}
-        {#if index < 5 && searchTerm === ''}
+      {#if (index < 5 && searchTerm === '' && displayMode !== 'grid') || displayMode === 'list'}
         <AnimateOnScroll
         once={true}
         animation={'fade-in 1s cubic-bezier(0.4, 0.6, 0.5, 1.000) both'}
@@ -116,7 +120,7 @@
       >
         <ProjectRow {repo} />
         </AnimateOnScroll>
-        {:else}
+      {:else}
         <AnimateOnScroll
         once={true}
         animation={'fade-in 1s cubic-bezier(0.4, 0.6, 0.5, 1.000) both'}
@@ -124,34 +128,9 @@
       >
         <ProjectCard {repo} />
       </AnimateOnScroll>
-        {/if}
+      {/if}
     {/each}
   </div>
-  {:else if displayMode === 'grid'}
-  <div class="project-grid">
-    {#each filteredRepos as repo, index}
-      <AnimateOnScroll
-        once={true}
-        animation={'fade-in 1s cubic-bezier(0.4, 0.6, 0.5, 1.000) both'}
-        style={isSpan(repo)}
-      >
-        <ProjectCard {repo} />
-      </AnimateOnScroll>
-    {/each}
-  </div>
-  {:else}
-  <div class="project-list">
-    {#each filteredRepos as repo}
-      <AnimateOnScroll
-        once={true}
-        animation={'fade-in 1s cubic-bezier(0.4, 0.6, 0.5, 1.000) both'}
-        style={isSpan(repo)}
-      >
-        <ProjectRow {repo} />
-      </AnimateOnScroll>
-    {/each}
-  </div>
-  {/if}
 </section>
 
 <style lang="scss">
@@ -173,13 +152,6 @@
     padding: var(--grid-item-spacing);
     margin: var(--grid-item-spacing) 5vw;
     list-style: none;
-  }
-
-  .project-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--grid-item-spacing);
-    margin: var(--grid-item-spacing) 5vw;
   }
 
   .post-filter-options {

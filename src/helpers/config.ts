@@ -218,6 +218,10 @@ const config: SiteConfig = {
       thumbnail: 'https://i.ibb.co/wgJDXs2/adguardian-banner-2.png',
     },
     {
+      name: 'web-check',
+      thumbnail: 'https://i.ibb.co/mSz2H3n/web-check-banner.png',
+    },
+    {
       name: 'portainer-templates',
       thumbnail: 'https://i.ibb.co/J2g5Czy/portainer-templates-banner.png',
     },
@@ -423,6 +427,10 @@ const config: SiteConfig = {
       {
         language: 'Vue',
         projects: ['dashy', 'all-the-countries', 'alicia-sykes-website', 'tfl-lift-availability-dash'],
+      },
+      {
+        language: 'React',
+        projects: ['web-check'],
       },
       {
         language: 'Angular',

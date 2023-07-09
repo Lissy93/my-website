@@ -24,7 +24,7 @@
   blogStore.set(data.posts);
 
   rssFeedUrls.subscribe(() => {
-    _loadPosts(undefined);
+    _loadPosts();
   });
 
   let searchInputRef: any | HTMLElement; // Has to be any, as used in context of <svelte:element>
