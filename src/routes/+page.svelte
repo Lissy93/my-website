@@ -1,5 +1,5 @@
 <script lang="ts">
-  import * as d3 from 'd3';
+  
   import { onMount } from 'svelte';
   import { config } from '$src/store/BlogStore';
   import Loading from '$src/components/Loading.svelte';
@@ -7,6 +7,9 @@
   import { socialNetworks } from '$src/helpers/constants';
   import Icon from '$src/components/Icon.svelte';
   import D3Voronoi from '$src/helpers/voronoi';
+  import IndexComponent from '$src/routes/index/IndexComponent.svelte';
+
+  export let data: any;
 
   export const { routeLinks } = config;
 
@@ -97,6 +100,8 @@
     </div>
   {/if}
 </main>
+
+<IndexComponent data={data} />
 
 <style lang="scss">
   @import '$src/styles/media-queries.scss';
