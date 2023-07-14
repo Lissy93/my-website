@@ -11,31 +11,30 @@
 
   export let data: any;
 
-  export const { routeLinks } = config;
-
-  export let showLoader = false;
-
+  const { routeLinks } = config;
   const homePageLinks = routeLinks.filter((rl) => rl.route !== '/');
 
-  onMount(async () => {
-    new D3Voronoi();
+  let showLoader = false;
+
+  onMount(() => {
+    try { new D3Voronoi(); }
+    catch (e) { console.warn('D3Voronoi failed to load', e); }
   });
 
-  const socialLinks = () => {
-    const userSocials = Object.keys(config.contact.socials);
-    const limit = config.contact.socialButtonLimit;
-    return userSocials.slice(0, limit).map((social) => {
-      const socialProps = socialNetworks.find((sn) => sn.name === social);
-      if (!socialProps) return null;
-      const user = config.contact.socials[social];
-      return {
-        ...socialProps,
-        user,
-        href: socialProps.link + user,
-        title: `${socialProps.noAt ? '' : '@'}${user} on ${socialProps.name}`,
-      };
-    });
-  };
+  const userSocials = Object.keys(config.contact.socials);
+  const limit = config.contact.socialButtonLimit;
+
+  const socialLinks = userSocials.slice(0, limit).map((social) => {
+    const socialProps = socialNetworks.find((sn) => sn.name === social);
+    if (!socialProps) return null;
+    const user = config.contact.socials[social];
+    return {
+      ...socialProps,
+      user,
+      href: socialProps.link + user,
+      title: `${socialProps.noAt ? '' : '@'}${user} on ${socialProps.name}`,
+    };
+  });
 
   const findRouteColor = (route: string) => {
     return routeLinks?.find((r) => r.route === route)?.color || 'var(--accent)';
@@ -51,10 +50,10 @@
       commandStyle={false}
       blinkCursor={true}
       size="4rem"
-      color="var(--foreground)">Alicia Sykes</Heading
+      color="var(--home-accent-background)">Alicia Sykes</Heading
     >
     <div class="socials">
-      {#each socialLinks() as social}
+      {#each socialLinks as social}
         {#if social}
           <a
             href={social.href}
@@ -65,7 +64,7 @@
           >
             <Icon
               name={social.icon}
-              color="var(--foreground)"
+              color="var(--home-accent-background)"
               width="1.8rem"
               height="1.8rem"
               hoverColor={social.tone}
@@ -91,7 +90,7 @@
             showLoader = true;
           }}
         >
-          <Heading level="h3" size="2rem" color="currentcolor"
+          <Heading level="h3" size="2rem" color="var(--home-accent-foreground)"
             >{navLink.label}</Heading
           >
           <p class="subtitle">{navLink.description}</p>
@@ -133,12 +132,14 @@
       font-size: 4rem;
       cursor: default;
       pointer-events: all;
+      color: var(--home-accent-background);
     }
     .socials {
       opacity: 0.85;
       pointer-events: all;
       .social-link {
         text-decoration: none;
+        color: var(--home-accent-background);
       }
       &:hover {
         opacity: 1;
@@ -162,7 +163,7 @@
     a.tile {
       color: var(--foreground);
       border: var(--card-border);
-      background: var(--card-background);
+      background: var(--home-accent-background); // var(--card-background);
       border-radius: 4px;
       text-decoration: none;
       padding: 1rem;
