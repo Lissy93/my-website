@@ -18,4 +18,5 @@ export interface Project {
   thumbnail?: string;
   hidden?: boolean;
   featured?: boolean;
+  archived?: boolean;
 }

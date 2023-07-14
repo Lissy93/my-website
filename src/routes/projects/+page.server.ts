@@ -27,6 +27,7 @@ const makeProjectList = async (ghResponse: any): Promise<Project[]> => {
         forks: repo.forks_count,
         issues: repo.open_issues_count,
         topics: repo.topics,
+        archived: repo.archived,
         ...projectComplimentaryData, // Append and merge with any hard-coded data from config
       };
     })
