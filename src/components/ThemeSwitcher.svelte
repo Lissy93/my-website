@@ -20,7 +20,6 @@
   const updateTheme = (newTheme: string) => {
     if (themes.includes(newTheme)) {
       theme.set(newTheme as Theme);
-      document.documentElement.setAttribute('data-theme', newTheme);
     }
     closeDropdown();
   };

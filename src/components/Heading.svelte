@@ -8,7 +8,7 @@
   export let blinkCursor = false; // Whether to show blinking cursor after heading
 
   // Computed values, for reactivity
-  $: computedColor = color ? `--headingColor: ${color};` : '';
+  $: computedColor = color ? `--heading-color: ${color};` : '';
   $: computedSize = size ? `--headingSize: ${size};` : '';
   $: computedFont = font ? `--headingFont: ${font};` : '';
   $: computedStyles = `${computedColor} ${computedSize} ${computedFont}`;
@@ -32,7 +32,7 @@
     cursor: default;
     transition: all 0.25s ease-in-out;
     font-family: var(--headingFont, FiraCode);
-    color: var(--headingColor, var(--accent));
+    color: var(--heading-color, var(--accent));
     &.command-style:before {
       content: '>';
       margin-right: 6px;
@@ -44,7 +44,7 @@
       height: 0.25rem;
       margin-left: 0.1rem;
       display: inline-block;
-      background: var(--headingColor, var(--accent));
+      background: var(--heading-color, var(--accent));
       animation: cursor-blink 1.25s steps(2) infinite;
     }
   }

@@ -16,12 +16,18 @@ theme &&
     if (browser) localStorage.theme = newTheme;
   });
 
+// Set the data-theme attribute on the document element
+export const setHtmlThemeAttribute = (theme: Theme) => {
+  if (browser) document.documentElement.setAttribute('data-theme', theme);
+};
+
 export const themeColors = derived([theme], ([$theme]) => {
   const themeData = (config.colorSchemes || {})[$theme] || {};
+  setHtmlThemeAttribute($theme);
   return Object.keys(themeData).reduce((acc, key) => {
     acc[key] = themeData[key];
     return acc;
-  }, {} as { [index: string]: any });
+  }, {} as { [index: string]: unknown });
 });
 
 // Fetch, compute and encoded CSS properties for the selected theme, ready for injection

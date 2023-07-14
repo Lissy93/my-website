@@ -36,7 +36,7 @@ export default class D3Voronoi {
     this.svg.attr('width', this.width);
     this.svg.attr('height', this.height);
 
-    this.mouseLeaveEvents();
+    // this.mouseLeaveEvents();
 
     this.sites = d3.range(300).map(() => {
       return [Math.random() * this.width, Math.random() * this.height] as [number, number];
@@ -63,7 +63,7 @@ export default class D3Voronoi {
     this.svg.on('pointermove', (event: MouseEvent) => {
       const [mx, my] = d3.pointer(event, this.svg.node());
       const siteIndex = this.delaunay.find(mx, my);
-      this.polygon.attr('class', (d: typeof Polygon, i: number) => i === siteIndex ? 'highlight' : 'v-' + i % 9);
+      // this.polygon.attr('class', (d: typeof Polygon, i: number) => i === siteIndex ? 'highlight' : 'v-' + i % 9);
       this.sites[0] = [mx, my];
       this.redraw();
     });
@@ -77,10 +77,22 @@ export default class D3Voronoi {
     this.site = this.site.data(this.sites).join('circle').call(this.redrawSite.bind(this));
   }
 
+  // private redrawPolygon(polygon: d3.Selection<d3.BaseType, typeof Polygon, SVGGElement, unknown>) {
+  //   polygon
+  //     .attr('d', (d: typeof Polygon) => d ? 'M' + d.join('L') + 'Z' : null)
+  //     .attr('class', (d: typeof Polygon, i: number) => 'v-' + i % 9);
+  // }
+
   private redrawPolygon(polygon: d3.Selection<d3.BaseType, typeof Polygon, SVGGElement, unknown>) {
     polygon
       .attr('d', (d: typeof Polygon) => d ? 'M' + d.join('L') + 'Z' : null)
-      .attr('class', (d: typeof Polygon, i: number) => 'v-' + i % 9);
+      .attr('class', (d: typeof Polygon, i: number) => {
+        const centroid = d3.polygonCentroid(d);
+        const relativeHeight = centroid[1] / this.height;
+        const classIndex = Math.ceil(relativeHeight * 10);
+        const randomIndex = Math.floor(Math.random() * 10);
+        return `c-${classIndex} r-${randomIndex}`;
+      });
   }
 
   private redrawSite(site: d3.Selection<SVGCircleElement, [number, number], SVGGElement, unknown>) {
@@ -102,9 +114,9 @@ export default class D3Voronoi {
     });
   }
 
-  private mouseLeaveEvents() {
-    this.svg.on('pointerout', () => {
-      this.polygon.attr('class', (d: typeof Polygon, i: number) => 'v-' + i % 9);
-    });
-  }
+  // private mouseLeaveEvents() {
+  //   this.svg.on('pointerout', () => {
+  //     this.polygon.attr('class', (d: typeof Polygon, i: number) => 'v-' + i % 9);
+  //   });
+  // }
 }
