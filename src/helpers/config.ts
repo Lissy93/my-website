@@ -88,12 +88,16 @@ const config: SiteConfig = {
       'accent-2': '#b45eff',
       'accent-3': '#01c0f0',
       'accent-4': '#1de691',
+      'home-accent-background': '#2a3367',
+      'home-accent-foreground': 'var(--foreground)',
     },
     light: {
-      background: '#F8F8FF',
+      background: '#ededed',
       foreground: '#2a3367',
-      'card-background': '#ededed',
+      'card-background': '#F8F8FF',
       'card-border': '1px solid #0000001a',
+      'home-accent-background': '#2a3367',
+      'home-accent-foreground': 'var(--background)',
     },
     callisto: {
       background: '#0a192f',

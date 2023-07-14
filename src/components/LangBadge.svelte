@@ -16,6 +16,7 @@
   const badgeConfigs: BadgeConfigs = {
     // Programming Languages
     android: { name: 'Android', color: '3DDC84', icon: 'android' },
+    astro: { name: 'Astro', color: 'FF5D01', icon: 'astro' },
     angular: { name: 'Angular', color: 'DD0031', icon: 'angular' },
     babel: { name: 'Babel', color: 'F9DC3E', icon: 'babel' },
     bash: { name: 'Bash', color: '4EAA25', icon: 'gnubash' },
@@ -46,6 +47,7 @@
     node: { name: 'Node.js', color: '339933', icon: 'nodedotjs' },
     nim: { name: 'Nim', color: 'FFE953', icon: 'nim' },
     markdown: { name: 'Markdown', color: '000000', icon: 'markdown' },
+    makefile: { name: 'Makefile', color: '006600', icon: 'cmake' },
     ocaml: { name: ' OCaml', color: 'EC6813', icon: ' ocaml' },
     perl: { name: 'Perl', color: '39457E', icon: 'perl' },
     php: { name: 'PHP', color: '777BB4', icon: 'php' },
