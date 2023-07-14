@@ -11,7 +11,7 @@ export let accent = 'var(--accent)';
 </script>
 
 <section class="blog-section" style="--accent:{accent};">
-  <Heading level="h2">Posts</Heading>
+  <Heading level="h2" color="var(--accent)">Posts</Heading>
   <div class="buttons">
     <LinkButton to="/blog" icon="more-arrow">See All</LinkButton>
     <LinkButton

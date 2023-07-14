@@ -13,7 +13,7 @@
   </script>
   
   <section class="tech-stack-section" style="--accent:{accent};">
-    <Heading level="h2">Tech Stack</Heading>
+    <Heading level="h2" color="var(--accent)">Tech Stack</Heading>
     <div class="buttons">
       <LinkButton to="/projects" icon="more-arrow">See All</LinkButton>
       <LinkButton

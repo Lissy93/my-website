@@ -13,7 +13,7 @@ let projectCount = 20;
 </script>
 
 <section class="projects-section" style="--accent:{accent};">
-  <Heading level="h2">Projects</Heading>
+  <Heading level="h2" color="var(--accent)">Projects</Heading>
   <div class="buttons">
     <LinkButton to="/projects" icon="more-arrow">See All</LinkButton>
     <LinkButton

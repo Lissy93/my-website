@@ -35,7 +35,7 @@
 
 <section class="main">
   <div class="social-wrapper">
-    <Heading level="h2">lets_connect</Heading>
+    <Heading level="h2" color="var(--accent)">lets_connect</Heading>
     <!-- Links to social media profiles -->
     <div class="social-buttons">
       {#each socials.slice(0, numSocialsToDisplay) as social}

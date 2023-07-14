@@ -85,7 +85,7 @@
   name="website-contact-form"
   data-netlify="true"
 >
-  <Heading level="h2">send_message</Heading>
+  <Heading level="h2" color="var(--accent)">send_message</Heading>
   {#if showMailForm && mailSendStatus != 'sending'}
     <div class="user-deets">
       <div class="input-group">

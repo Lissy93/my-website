@@ -37,7 +37,7 @@
 </script>
 
 <div class="pgp-container">
-  <Heading level="h2">keys</Heading>
+  <Heading level="h2" color="var(--accent)">keys</Heading>
 
   {#each keys as key}
     <div class="key-row">

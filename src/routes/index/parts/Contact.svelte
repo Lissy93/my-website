@@ -30,7 +30,7 @@ const toggleSocialLimit = () => {
 </script>
   
 <section class="contact-section" style="--accent:{accent};">
-  <Heading level="h2">Contact</Heading>
+  <Heading level="h2" color="var(--accent)">Contact</Heading>
   <div class="buttons">
     <LinkButton to="/contact" icon="more-arrow">Get in Touch</LinkButton>
     <LinkButton
