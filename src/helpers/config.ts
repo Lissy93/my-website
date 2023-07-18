@@ -2,7 +2,7 @@ import type { SiteConfig } from '$src/types/Config';
 
 const config: SiteConfig = {
   title: 'Alicia Sykes',
-  source: 'https://github.com/lissy93/devolio',
+  source: 'https://github.com/lissy93/my-website',
   baseUrl: 'https://as93.net',
   initialFeeds: [{ label: 'Notes', url: 'https://notes.aliciasykes.com/feed' }],
   additionalFeeds: [
@@ -442,7 +442,7 @@ const config: SiteConfig = {
       },
       {
         language: 'Svelte',
-        projects: ['devolio', 'cheat-code'],
+        projects: ['my-website', 'cheat-code'],
       },
       {
         language: 'D3',

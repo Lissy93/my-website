@@ -48,7 +48,7 @@ jobs:
             maintainer=Lissy93
             org.opencontainers.image.title=Devolio
             org.opencontainers.image.description=A developer portfolio website
-            org.opencontainers.image.documentation=https://github.com/lissy93/devolio
+            org.opencontainers.image.documentation=https://github.com/lissy93/my-website
             org.opencontainers.image.authors=Alicia Sykes
             org.opencontainers.image.licenses=MIT
 

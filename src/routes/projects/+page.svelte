@@ -277,7 +277,7 @@
 
   <div class="project-grid">
     {#each filteredRepos as repo, index}
-      {#if (index < 5 && searchTerm === '' && !showFilters && displayMode !== 'grid')
+      {#if (index < 7 && searchTerm === '' && !showFilters && displayMode !== 'grid')
         && (browser && window.innerWidth > 768)
         || displayMode === 'list'
       }
