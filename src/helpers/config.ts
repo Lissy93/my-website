@@ -4,7 +4,7 @@ const config: SiteConfig = {
   title: 'Alicia Sykes',
   source: 'https://github.com/lissy93/my-website',
   baseUrl: 'https://as93.net',
-  initialFeeds: [{ label: 'Notes', url: 'https://notes.aliciasykes.com/feed' }],
+  initialFeeds: [{ label: 'Notes', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/blog.atom' }],
   additionalFeeds: [
     { label: 'Notes', url: 'https://notes.aliciasykes.com/feed' },
     {
