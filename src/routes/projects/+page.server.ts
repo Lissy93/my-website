@@ -46,6 +46,9 @@ export async function load({ fetch }) {
     .then((res: any) => res.json())
     .then(makeProjectList);
 
-  const mirrors = await fetch(`https://codeberg.org/api/v1/user/repos?access_token=${CODEBERG_TOKEN}`).then((res: any) => res.json()) as Mirror[];
+  const mirrors = CODEBERG_TOKEN ?
+    await fetch(`https://codeberg.org/api/v1/user/repos?access_token=${CODEBERG_TOKEN}`)
+      .then((res: any) => res.json()) as Mirror[]
+    : {};
   return { repos, mirrors };
 }

@@ -324,6 +324,7 @@
   </div>
 {/if}
 
+{#if mirrors.length > 0}
 <section class="mirror-list">
   <div class="title">
     <Heading level="h2" size="2.5rem">mirrors</Heading>
@@ -339,6 +340,7 @@
     {/each}
   </div>
 </section>
+{/if}
 
 <style lang="scss">
   @import './styles.scss';
