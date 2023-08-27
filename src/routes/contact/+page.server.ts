@@ -2,6 +2,8 @@ import { TWITTER_TOKEN, GITHUB_TOKEN } from '$env/static/private';
 import type { SocialMetric } from '$src/types/Socials';
 import config from '$src/helpers/config';
 
+export const prerender = true;
+
 export const _getTwitterInfo = async (username: string) => {
   const twitterEndpoint = `https://api.twitter.com/2/users/by/username/${username}?user.fields=public_metrics`;
   return await fetch(twitterEndpoint, {

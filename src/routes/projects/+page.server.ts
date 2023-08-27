@@ -2,6 +2,8 @@ import { config } from '$src/store/BlogStore';
 import { GITHUB_TOKEN, CODEBERG_TOKEN } from '$env/static/private';
 import type { Project, Mirror } from '$src/types/Project';
 
+export const prerender = true;
+
 const makeProjectList = async (ghResponse: any): Promise<Project[]> => {
   if (!ghResponse || !Array.isArray(ghResponse)) return [];
   return ghResponse

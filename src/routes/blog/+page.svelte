@@ -17,7 +17,7 @@
 
   export let data;
 
-  import { _loadPosts } from './+page';
+  import { _loadPosts } from './client';
 
   export let fetchStatus: PostStatus = PostStatus.Loading;
 
