@@ -9,13 +9,6 @@
   publish = "build/"
   functions = "functions/"
 
-# Meta config, for the 1-Click deploy listing
-[template.environment]
-  STATUSKIT_PAGE_TITLE = "Devolio"
-  STATUSKIT_COMPANY_LOGO = "https://github.com/Lissy93/devolio/raw/master/static/pwa/android-chrome-512x512.png"
-  STATUSKIT_SUPPORT_CONTACT_LINK = "https://github.com/lissy93/devolio"
-  STATUSKIT_RESOURCES_LINK = "https://github.com/lissy93/devolio"
-
 # Set any security headers here
 [[headers]]
   for = "/*"
