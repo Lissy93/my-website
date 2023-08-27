@@ -4,7 +4,7 @@
   export let mirror: Mirror;
 </script>
 
-<a class="mirror-card" href={mirror.html_url} title={mirror.description}>
+<a class="mirror-card" href={mirror.html_url} title={mirror.description} target="_blank" rel="noreferrer">
   <img src={mirror.avatar_url} alt={`${mirror.stars_count}`} />
   <div class="right">
     <h3>{mirror.name}</h3>
