@@ -1,6 +1,8 @@
 <script lang="ts">
   export let language = '';
   export let size: number | null = null;
+  export let iconOnly = false;
+  export let useShields = false;
 
   interface LanguageAttributes {
     name: string;
@@ -160,7 +162,7 @@
     const { name, color, icon } = attributes;
     const badgeEndpoint = 'https://img.shields.io/static/v1';
     return `${badgeEndpoint}?`
-      + `label=&message=${encodeURIComponent(name)}`
+      + (!iconOnly ? `label=&message=${encodeURIComponent(name)}` : 'label=&message= ')
       + `&color=${color}`
       + `&logo=${icon}`
       + `&logoColor=${getIconColor(color)}`;
@@ -172,14 +174,24 @@
 </script>
 
 <div>
-  {#if badgeUrl}
+  {#if badgeUrl && useShields}
     <img
       src={badgeUrl}
       class={$$props.class}
       height={size || null}
       alt={langAttributes?.name}
+      title={`Language: ${langAttributes?.name}`}
     />
+  {:else if langAttributes}
+    <div
+      class="language"
+      style:background="#{langAttributes?.color}"
+      style:color="#{getIconColor(langAttributes?.color)}">
+      <img height="16" width="16" alt="l" src="https://cdn.simpleicons.org/{langAttributes.icon}/{getIconColor(langAttributes?.color)}" />
+      {langAttributes.name}
+    </div>
   {/if}
+
 </div>
 
 <style lang="scss">
@@ -189,6 +201,20 @@
     &:hover {
       filter: grayscale(0%);
       transform: scale(1.05);
+    }
+  }
+  .language {
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: bold;
+    width: fit-content;
+    padding: 0.1rem 0.2rem;
+    border-radius: var(--curve-factor, 4px);
+    display: flex;
+    gap: 0.25rem;
+    img {
+      width: 1rem;
+      height: 1rem;
     }
   }
 </style>
