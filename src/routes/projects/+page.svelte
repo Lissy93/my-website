@@ -3,6 +3,7 @@
   import { slide } from 'svelte/transition';
   import Heading from '$src/components/Heading.svelte';
   import ProjectCard from './ProjectCard.svelte';
+  import MirrorCard from './MirrorCard.svelte';
   import ProjectRow from './ProjectRow.svelte';
   import type { Project } from '$src/types/Project';
   import AnimateOnScroll from '$src/components/AnimateOnScroll.svelte';
@@ -16,6 +17,7 @@
   let showFilters = false;
   let filteredRepos = data.repos;
   const repos = data.repos;
+  const mirrors = data.mirrors;
   let searchInputRef: any | HTMLElement; // Has to be any, as used in context of <svelte:element>
   
   let sortBy: string = '';
@@ -301,6 +303,22 @@
   </div>
 </section>
 
+<section class="mirror-list">
+  <div class="title">
+    <Heading level="h2" size="2.5rem">mirrors</Heading>
+  </div>
+  <div class="mirror-grid">
+    {#each mirrors as mirror}
+      <AnimateOnScroll
+        once={true}
+        animation={'fade-in 1s cubic-bezier(0.4, 0.6, 0.5, 1.000) both'}
+      >
+        <MirrorCard {mirror} />
+      </AnimateOnScroll>
+    {/each}
+  </div>
+</section>
+
 <style lang="scss">
   @import '$src/styles/dimensions.scss';
   section {
@@ -311,7 +329,7 @@
   .title {
     margin: 0 calc(5vw + 1rem);
   }
-  .project-grid {
+  .project-grid, .mirror-grid {
     display: grid;
     grid-auto-flow: dense;
     grid-template-columns: repeat(auto-fit, minmax(var(--grid-item-width), 1fr));

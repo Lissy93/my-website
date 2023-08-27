@@ -1,6 +1,6 @@
 import { config } from '$src/store/BlogStore';
-import { GITHUB_TOKEN } from '$env/static/private';
-import type { Project } from '$src/types/Project';
+import { GITHUB_TOKEN, CODEBERG_TOKEN } from '$env/static/private';
+import type { Project, Mirror } from '$src/types/Project';
 
 const makeProjectList = async (ghResponse: any): Promise<Project[]> => {
   if (!ghResponse || !Array.isArray(ghResponse)) return [];
@@ -45,5 +45,7 @@ export async function load({ fetch }) {
   const repos = await fetch(githubApiUrl, githubRequest)
     .then((res: any) => res.json())
     .then(makeProjectList);
-  return { repos };
+
+  const mirrors = await fetch(`https://codeberg.org/api/v1/user/repos?access_token=${CODEBERG_TOKEN}`).then((res: any) => res.json()) as Mirror[];
+  return { repos, mirrors };
 }

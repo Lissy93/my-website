@@ -20,3 +20,17 @@ export interface Project {
   featured?: boolean;
   archived?: boolean;
 }
+
+export interface Mirror {
+  id: number;
+  name: string;
+  full_name: string;
+  description: string;
+  avatar_url: string;
+  language: string;
+  html_url: string;
+  website: string;
+  stars_count: number;
+  created_at: string;
+  updated_at: string;
+}
