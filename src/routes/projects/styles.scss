@@ -1,4 +1,6 @@
 @import '$src/styles/dimensions.scss';
+@import '$src/styles/media-queries.scss';
+
   section {
     margin: 1rem auto;
     text-align: left;
@@ -182,3 +184,7 @@
       opacity: 1;
     }
   }
+
+@include tablet-down {
+  .post-filter-options { display: none; }
+}

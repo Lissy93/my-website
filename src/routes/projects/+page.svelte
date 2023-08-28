@@ -189,7 +189,7 @@
   };
 
   const isSpan = (repo: Project) =>
-    repo.featured ? 'grid-row: span 2; grid-column: span 2;' : '';
+    (repo.featured && browser && window.innerWidth > 768) ? 'grid-row: span 2; grid-column: span 2;' : '';
 </script>
 
 <svelte:window on:keydown={handleKeydown} />

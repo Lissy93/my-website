@@ -24,11 +24,7 @@
 </script>
 
 <div
-  class="project-card {isScootched
-    ? 'scootch'
-    : repo.thumbnail
-    ? 'fixed'
-    : ''} {repo.featured ? 'featured' : ''}"
+  class="project-card {isScootched ? 'scootch' : repo.thumbnail ? 'fixed' : ''} {repo.featured ? 'featured' : ''}"
   on:mouseenter={() => scootch(true)}
   on:mouseleave={() => scootch(false)}
 >
@@ -125,6 +121,7 @@
 </div>
 
 <style lang="scss">
+  @import '$src/styles/media-queries.scss';
   .project-card {
     border: var(--card-border);
     background: var(--card-background);
@@ -135,6 +132,7 @@
     transition: all 0.15s ease-in-out;
     cursor: default;
     height: 100%;
+    overflow: hidden;
     h2,
     .repo-description,
     .repo-info,
@@ -237,6 +235,7 @@
         fill: var(--misc);
       }
     }
+    @include tablet-up {
     &.scootch:not(.featured) {
       height: 16rem;
       .thumbnail {
@@ -250,15 +249,18 @@
         display: none;
       }
     }
-    &.featured {
-      height: 100%;
-      .thumbnail {
-        height: 80%;
-        min-height: 200px;
-      }
-      .repo-description {
-        -webkit-line-clamp: 4;
-        margin: 0.5rem 0;
+  }
+    @include tablet-up {
+      &.featured {
+        height: 100%;
+        .thumbnail {
+          height: 80%;
+          min-height: 200px;
+        }
+        .repo-description {
+          -webkit-line-clamp: 4;
+          margin: 0.5rem 0;
+        }
       }
     }
   }
