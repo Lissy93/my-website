@@ -26,6 +26,7 @@ RUN npm install
 COPY . ./
 
 # Build initial app for production
+ENV DEPLOY_TARGET=NODE
 RUN npm run build
 
 # Production stage

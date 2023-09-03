@@ -14,10 +14,10 @@ if (process.env.DEPLOY_TARGET === 'NETLIFY') {
   selectedAdapter = vercelAdapter();
 } else if (process.env.DEPLOY_TARGET === 'NODE') {
   selectedAdapter = nodeAdapter();
-} else if (process.env.DEPLOY_TARGET === 'AUTO') {
-  selectedAdapter = autoAdapter();
-} else {
+} else if (process.env.DEPLOY_TARGET === 'STATIC') {
   selectedAdapter = staticAdapter();
+} else {
+  selectedAdapter = autoAdapter();
 }
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -29,24 +29,9 @@ const config = {
       '$src/*': 'src/*',
     },
     prerender: {
-      handleMissingId: 'ignore', // or 'remove' or 'fail'
+      handleMissingId: 'ignore',
       crawl: true,
     }
-  },
-  worker: {
-    plugins: [
-      {
-        name: 'remove-manifest',
-        configResolved(c) {
-          const manifestPlugin = c.worker.plugins.findIndex((p) => p.name === 'vite:manifest');
-          c.worker.plugins.splice(manifestPlugin, 1);
-          const ssrManifestPlugin = c.worker.plugins.findIndex(
-            (p) => p.name === 'vite:ssr-manifest'
-          );
-          c.plugins.splice(ssrManifestPlugin, 1);
-        }
-      }
-    ]
   }
 };
 
