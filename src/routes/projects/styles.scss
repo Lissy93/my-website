@@ -73,6 +73,7 @@
       flex-direction: column;
       &.cancel-filters {
         button {
+          color: var(--foreground);
           margin: 0 0.25rem;
           padding: 0.2rem 0.25rem;
           font-family: FiraCode;
