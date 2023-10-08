@@ -10,10 +10,22 @@
   --code-background: #333;
 
   // Voronoi background colors
+  --voronoi-background: #080e20;
+  --voronoi-lines: #ffffff54;
   --voronoi-bg-0: #111111;
   --voronoi-bg-1: #121212;
   --voronoi-bg-2: var(--background);
   --voronoi-bg-3: #0d0c0c;
+  --voronoi-c1: #01c0f0;
+  --voronoi-c2: #00bbfa;
+  --voronoi-c3: #00b5ff;
+  --voronoi-c4: #00aeff;
+  --voronoi-c5: #00a5ff;
+  --voronoi-c6: #109cff;
+  --voronoi-c7: #4f90ff;
+  --voronoi-c8: #7683ff;
+  --voronoi-c9: #9772ff;
+  --voronoi-c10: #b45eff;
 
   // Accent colors (can vary based on route)
   --accent: #01c0f0;
@@ -24,6 +36,8 @@
 
 
   --heading-color: var(--accent);
+
+  --home-tile-background: var(--card-background);
   --home-accent-background: var(--card-background);
   --home-accent-foreground: var(--foreground);
 

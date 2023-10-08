@@ -163,7 +163,7 @@
     a.tile {
       color: var(--foreground);
       border: var(--card-border);
-      background: var(--home-accent-background); // var(--card-background);
+      background: var(--home-tile-background); // var(--card-background);
       border-radius: 4px;
       text-decoration: none;
       padding: 1rem;

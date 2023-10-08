@@ -4,9 +4,10 @@
   height: 100vh;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16);
 
-  $col-lines:  #ffffff54; // var(--card-background);
-  $col-initial-primary-fill:  var(--background); // #101010;
-  $col-selected-polygon: white; // var(--card-background);
+  $col-lines: var(--voronoi-lines);
+  --voronoi-background: #080e20;
+  $col-initial-primary-fill:  var(--voronoi-background);
+  $col-selected-polygon: white;
   $col-selected-site-fill:  none;
   $col-selected-site-stroke:  none;
   $col-sites-fill: none;
@@ -40,27 +41,28 @@
     fill: $col-selected-site-fill;
     stroke: $col-selected-site-stroke;
   }
-  :global(.r-0){ fill: var(--voronoi-bg-0); }
-  :global(.r-1){ fill: var(--voronoi-bg-1); }
-  :global(.r-2){ fill: var(--voronoi-bg-2); }
-  :global(.r-3){ fill: var(--voronoi-bg-3); }
-  :global(.r-4){ fill: var(--background); }
-  :global(.r-5){ fill: var(--background); }
-  :global(.r-6){ fill: var(--background); }
-  :global(.r-7){ fill: var(--background); }
-  :global(.r-8){ fill: var(--background); }
-  :global(.r-9){ fill: var(--background); }
+  :global(.r-0){ fill: var(--voronoi-r0); }
+  :global(.r-1){ fill: var(--voronoi-r1); }
+  :global(.r-2){ fill: var(--voronoi-r2); }
+  :global(.r-3){ fill: var(--voronoi-r3); }
+  :global(.r-4){ fill: var(--voronoi-r4); }
+  :global(.r-5){ fill: var(--voronoi-r5); }
+  :global(.r-6){ fill: var(--voronoi-r6); }
+  :global(.r-7){ fill: var(--voronoi-r7); }
+  :global(.r-8){ fill: var(--voronoi-r8); }
+  :global(.r-9){ fill: var(--voronoi-r9); }
+  :global(.r-10){ fill: var(--voronoi-r10); }
 
-  :global(.c-1) { fill: #01c0f0; }
-  :global(.c-2) { fill: #00bbfa; }
-  :global(.c-3) { fill: #00b5ff; }
-  :global(.c-4) { fill: #00aeff; }
-  :global(.c-5) { fill: #00a5ff; }
-  :global(.c-6) { fill: #109cff; }
-  :global(.c-7) { fill: #4f90ff; }
-  :global(.c-8) { fill: #7683ff; }
-  :global(.c-9) { fill: #9772ff; }
-  :global(.c-10) { fill: #b45eff; }
+  :global(.c-1) { fill: var(--voronoi-c1); }
+  :global(.c-2) { fill: var(--voronoi-c2); }
+  :global(.c-3) { fill: var(--voronoi-c3); }
+  :global(.c-4) { fill: var(--voronoi-c4); }
+  :global(.c-5) { fill: var(--voronoi-c5); }
+  :global(.c-6) { fill: var(--voronoi-c6); }
+  :global(.c-7) { fill: var(--voronoi-c7); }
+  :global(.c-8) { fill: var(--voronoi-c8); }
+  :global(.c-9) { fill: var(--voronoi-c9); }
+  :global(.c-10) { fill: var(--voronoi-c10); }
 
   background-color: $col-initial-primary-fill;
 }

@@ -91,7 +91,7 @@ export default class D3Voronoi {
         const relativeHeight = centroid[1] / this.height;
         const classIndex = Math.ceil(relativeHeight * 10);
         const randomIndex = Math.floor(Math.random() * 10);
-        return `c-${classIndex} r-${randomIndex}`;
+        return `r-${randomIndex} c-${classIndex}`;
       });
   }
 

@@ -73,7 +73,7 @@ const config: SiteConfig = {
     copyright: true,
   },
   githubUser: 'lissy93',
-  defaultTheme: 'dark',
+  defaultTheme: 'callisto',
   defaultLanguage: 'en',
   colorSchemes: {
     dark: {
@@ -97,7 +97,7 @@ const config: SiteConfig = {
       'card-background': '#F8F8FF',
       'card-border': '1px solid #0000001a',
       'home-accent-background': '#2a3367',
-      'home-accent-foreground': 'var(--background)',
+      'home-accent-foreground': 'var(--foreground)',
     },
     callisto: {
       background: '#0a192f',
