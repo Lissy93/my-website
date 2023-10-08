@@ -109,6 +109,34 @@ const config: SiteConfig = {
       'accent-2': '#00ccb4',
       'accent-3': '#00ccb4',
       'accent-4': '#00ccb4',
+      'voronoi-background': '#0a192f',
+
+      'home-accent-background': '#00ccb4',
+      'home-tile-background': '#0B1021',
+      'voronoi-lines': '#4ee8d61a',
+
+      'voronoi-c1': '#141B33',
+      'voronoi-c2': '#131A31',
+      'voronoi-c3': '#12192F',
+      'voronoi-c4': '#11182D',
+      'voronoi-c5': '#10172B',
+      'voronoi-c6': '#0F1629',
+      'voronoi-c7': '#0E1527',
+      'voronoi-c8': '#0D1425',
+      'voronoi-c9': '#0C1323',
+      'voronoi-c10': '#0B1221',
+
+      'voronoi-r0': '#141b33',
+      'voronoi-r1': '#141b33',
+      'voronoi-r2': '#12182e',
+      'voronoi-r3': '#101629',
+      'voronoi-r4': '#0e1324',
+      'voronoi-r5': '#0c101f',
+      'voronoi-r6': '#0c101f',
+      'voronoi-r7': '#0a0e1a',
+      'voronoi-r8': '#0a0e1a',
+      'voronoi-r9': '#080b14',
+      'voronoi-r10': '#06080f',
     },
   },
   workExperience: [
@@ -224,6 +252,10 @@ const config: SiteConfig = {
     {
       name: 'web-check',
       thumbnail: 'https://i.ibb.co/mSz2H3n/web-check-banner.png',
+    },
+    {
+      name: 'git-into-open-source',
+      thumbnail: 'https://i.ibb.co/Jm8gpBN/git-into-opensource-banner.png',
     },
     {
       name: 'portainer-templates',
