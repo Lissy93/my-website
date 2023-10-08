@@ -18,7 +18,7 @@
       <h5 class="title">
         <span class="position">{job.jobTitle}</span>
         <span class="at">@</span>
-        <a class="company" href={job.companyUrl}>{job.company}</a>
+        <a class="company" href={job.companyUrl} target="_blank" rel="noreferrer">{job.company}</a>
       </h5>
       <p class="date">{job.datesWorked}</p>
       <p class="description">{job.responsibilities || ''}</p>
