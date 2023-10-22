@@ -57,6 +57,13 @@
       flex-wrap: wrap;
       gap: 0.5rem;
       align-items: center;
+      span {
+        cursor: pointer;
+        transition: 0.25s all ease-in-out;
+        &:hover {
+          filter: brightness(1.2);
+        }
+      }
       .selectedLang {
         display: flex;
         border: var(--card-border);

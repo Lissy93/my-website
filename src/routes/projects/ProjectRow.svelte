@@ -165,7 +165,7 @@
       justify-content: space-between;
       overflow: hidden;
       flex-wrap: wrap;
-      opacity: 0.75;
+      opacity: 0.65;
     }
     .date-info {
       display: flex;
