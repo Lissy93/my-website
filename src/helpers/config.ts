@@ -440,7 +440,7 @@ const config: SiteConfig = {
       },
       {
         language: 'Go',
-        projects: ['go-apod', 'OLD_AdGuardian-Term'],
+        projects: ['go-apod', 'OLD_AdGuardian-Term', 'whois-api'],
       },
       {
         language: 'Node',
@@ -481,12 +481,16 @@ const config: SiteConfig = {
         projects: ['twitter-sentiment-visualisation', 'voronoi-site-template', 'happy-app', 'realtime-speech-analytics'],
       },
       {
-        language: 'HTML',
-        projects: ['md-cv-maker', 'email-extractor', 'bullet-convertor', 'cyber-defence-presentation', 'voronoi-site-template', 'web-dev-school'],
+        language: 'Astro',
+        projects: ['git-into-open-source'],
       },
       {
         language: 'CoffeeScript',
         projects: ['sentiment-analysis'],
+      },
+      {
+        language: 'HTML',
+        projects: ['repo-badge-maker ', 'bullet-convertor', 'md-toc-generator', 'email-extractor', 'cyber-defence-presentation', 'web-dev-school', 'md-cv-maker'],
       },
     ],
     mobile: [
