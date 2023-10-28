@@ -41,9 +41,8 @@
   };
 </script>
 
-<div id="vonoroi"></div>
-
 <main class="homepage">
+  <div id="vonoroi"></div>
   <div class="hero">
     <Heading
       level="h1"
@@ -116,11 +115,12 @@
 
   main.homepage {
     min-height: 99vh;
-    pointer-events: none;
+    position: relative;
   }
 
   .hero {
     text-align: center;
+    pointer-events: none;
     // background: var(--card-background);
     // border-bottom: var(--card-border);
     min-height: 30vh;
@@ -132,6 +132,7 @@
       font-size: 4rem;
       cursor: default;
       pointer-events: all;
+      z-index: 1;
       color: var(--home-accent-background);
     }
     .socials {

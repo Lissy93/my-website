@@ -107,6 +107,7 @@
       .pages {
         opacity: 0.9;
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         &:hover {
           opacity: 1;

@@ -48,6 +48,10 @@ export let accent = 'var(--accent)';
     &.projects-section, &.blog-section {
       grid-row-start: span 3;
     }
+    @include tablet-down {
+      width: 100vw;
+      margin: 0;
+    }
   }
   ul {
     list-style: none;

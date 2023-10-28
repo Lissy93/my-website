@@ -27,7 +27,12 @@ export let accent = 'var(--accent)';
 </section>
 
 <style lang="scss">
+@import '$src/styles/media-queries.scss';
 .about-section {
+  @include tablet-down {
+    width: 100vw;
+    margin: 0;
+  }
   .buttons {
     display: flex;
     gap: 1rem;

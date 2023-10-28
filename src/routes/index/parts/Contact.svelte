@@ -55,6 +55,7 @@ const toggleSocialLimit = () => {
 </section>
     
   <style lang="scss">
+  @import '$src/styles/media-queries.scss';
 
   section {
     margin: 1rem auto;
@@ -63,10 +64,13 @@ const toggleSocialLimit = () => {
       display: flex;
       gap: 1rem;
     }
+    @include tablet-down {
+      width: 100vw;
+      margin: 0;
+    }
   }
   
   .contact-section {
-    width: 100%;
     .social-buttons {
       display: grid;
       grid-auto-flow: dense;

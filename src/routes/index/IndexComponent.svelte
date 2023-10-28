@@ -19,6 +19,8 @@
 </div>
 
 <style lang="scss">
+  @import '$src/styles/media-queries.scss';
+
   .index-page {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
@@ -27,5 +29,9 @@
     padding: 1rem;
     width: 95vw;
     margin: 0 auto;
+
+    @include tablet-down {
+      padding: 0;
+    }
   }
 </style>

@@ -3,6 +3,7 @@
   width: 100vw;
   height: 100vh;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+  height: -webkit-fill-available;
 
   $col-lines: var(--voronoi-lines);
   --voronoi-background: #080e20;

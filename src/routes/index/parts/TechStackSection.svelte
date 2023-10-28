@@ -71,8 +71,13 @@
   </section>
   
   <style lang="scss">
+  @import '$src/styles/media-queries.scss';
   .tech-stack-section {
     --transition:  0.3s 0.1s all ease-in-out;
+    @include tablet-down {
+      width: 100vw;
+      margin: 0;
+    }
     .buttons {
       display: flex;
       gap: 1rem;
@@ -112,6 +117,9 @@
 
   .stack-section {
     display: flex;
+    @include tablet-down {
+      flex-wrap: wrap;
+    }
   }
   .hover-info {
     opacity: 0;

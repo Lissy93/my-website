@@ -33,6 +33,7 @@
     transition: all 0.25s ease-in-out;
     font-family: var(--headingFont, FiraCode);
     color: var(--heading-color, var(--accent));
+    z-index: 1;
     &.command-style:before {
       content: '>';
       margin-right: 6px;
