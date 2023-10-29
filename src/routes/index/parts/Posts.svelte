@@ -45,7 +45,7 @@ export let accent = 'var(--accent)';
       display: flex;
       gap: 1rem;
     }
-    &.projects-section, &.blog-section {
+    &.blog-section {
       grid-row-start: span 3;
     }
     @include tablet-down {
@@ -79,7 +79,7 @@ export let accent = 'var(--accent)';
         }
       }
       @include tablet-down {
-        .line, &.first, .date { display: none; }
+        .line, &.first { display: none; }
       }
 
       
@@ -104,11 +104,6 @@ export let accent = 'var(--accent)';
         color: var(--dimmed-text);
         font-size: 1.5rem;
       }
-      .date {
-        font-size: 0.7rem;
-        opacity: 0;
-        transition: all 0.3s ease-in-out;
-      }
 
       &:hover a .txt, a:focus .txt {
           transform: translateX(1rem);
@@ -122,10 +117,6 @@ export let accent = 'var(--accent)';
       &:hover:not(.first) {
         .line {
           color: var(--accent);
-        }
-        .date {
-          opacity: 0.7;
-          transform: translateX(1.5rem);
         }
       }
     }

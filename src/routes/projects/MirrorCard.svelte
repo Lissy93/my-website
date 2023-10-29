@@ -27,7 +27,7 @@
       width: 2rem;
       height: 2rem;
     }
-    h3, p {
+    h3 {
       margin: 0;
     }
     .right {

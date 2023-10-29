@@ -128,13 +128,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    h1 {
-      font-size: 4rem;
-      cursor: default;
-      pointer-events: all;
-      z-index: 1;
-      color: var(--home-accent-background);
-    }
     .socials {
       opacity: 0.85;
       pointer-events: all;

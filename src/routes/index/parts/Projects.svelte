@@ -80,14 +80,6 @@ let projectCount = 20;
 <style lang="scss">
 @import '$src/styles/media-queries.scss';
 
-.title-link {
-  text-decoration: none;
-  margin: 0.5rem auto 0 auto;
-  :global(h1) {
-    cursor: pointer;
-  }
-}
-
 section {
   margin: 1rem auto;
   width: 100%;
@@ -95,7 +87,7 @@ section {
     display: flex;
     gap: 1rem;
   }
-  &.projects-section, &.blog-section {
+  &.projects-section {
     grid-row-start: span 3;
   }
   @include tablet-down {
@@ -129,7 +121,7 @@ ul {
       }
     }
     @include tablet-down {
-      .line, &.first, .date { display: none; }
+      .line, &.first { display: none; }
     }
 
     
@@ -153,11 +145,6 @@ ul {
       color: var(--dimmed-text);
       font-size: 1.5rem;
     }
-    .date {
-      font-size: 0.7rem;
-      opacity: 0;
-      transition: all 0.3s ease-in-out;
-    }
 
     &:hover a .txt, a:focus .txt {
         transform: translateX(1rem);
@@ -170,10 +157,6 @@ ul {
     &:hover:not(.first) {
       .line {
         color: var(--accent);
-      }
-      .date {
-        opacity: 0.7;
-        transform: translateX(1.5rem);
       }
     }
   }
