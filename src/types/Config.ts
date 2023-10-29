@@ -11,6 +11,7 @@ export interface TechStackItem {
 
 export interface SiteConfig {
   title: string; // Website title / name
+  description: string; // Website description
   source: string; // Link to project source (e.g. on GitHub)
   baseUrl: string; // The URL where the site is hosted
   loadIndex?: boolean; // Weather to skip to /index instead of /home

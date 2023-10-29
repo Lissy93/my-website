@@ -2,6 +2,7 @@ import type { SiteConfig } from '$src/types/Config';
 
 const config: SiteConfig = {
   title: 'Alicia Sykes',
+  description: '',
   source: 'https://github.com/lissy93/my-website',
   baseUrl: 'https://as93.net',
   initialFeeds: [{ label: 'Notes', url: 'https://raw.githubusercontent.com/Lissy93/feeds/main/blog.atom' }],
