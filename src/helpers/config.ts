@@ -276,9 +276,26 @@ const config: SiteConfig = {
       thumbnail: 'https://i.ibb.co/W0f10Vv/sentiment-sweep-grid.png',
     },
     {
+      name: 'my-website',
+      thumbnail: 'https://i.ibb.co/ZhMTxmR/my-website-banner-image.png',
+    },
+    {
+      name: 'lissy93',
+      thumbnail: 'https://i.ibb.co/TkqZmZ9/Screenshot-from-2023-10-29-23-48-30.png',
+    },
+    {
+      name: 'minimal-terminal-prompt',
+      thumbnail: 'https://i.ibb.co/VSZbtRF/Screenshot-from-2023-10-29-23-50-00.png',
+    },
+    {
       name: 'espanso-config',
       thumbnail:
         'https://repository-images.githubusercontent.com/362820466/b1ef9380-a909-11eb-9d34-2aaf94ed5d95',
+    },
+    {
+      name: 'anti-theft-charge',
+      thumbnail:
+        'https://i.ibb.co/LZfDXR9/Screenshot-from-2023-10-29-23-51-27.png',
     },
     { name: '', thumbnail: '' },
     { name: '', thumbnail: '' },
