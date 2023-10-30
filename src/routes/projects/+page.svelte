@@ -316,11 +316,17 @@
 
 {#if repos.length > itemsToShow}
   <div class="load-more">
-    <span>Showing {itemsToShow} of {repos.length} projects</span>
+    <span>Showing {itemsToShow} of {repos.length}+ projects</span>
     <Button
       icon="expand-down"
       click={() => itemsToShow += 20}
     >Load more</Button>
+  </div>
+{/if}
+
+{#if repos.length <= itemsToShow && repos.length >= 100}
+  <div class="load-more">
+    <span>Due to limitations with the GitHub API, this page only shows a maximum of 100 repositories</span>
   </div>
 {/if}
 

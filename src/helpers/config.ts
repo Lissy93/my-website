@@ -285,7 +285,7 @@ const config: SiteConfig = {
     },
     {
       name: 'minimal-terminal-prompt',
-      thumbnail: 'https://i.ibb.co/VSZbtRF/Screenshot-from-2023-10-29-23-50-00.png',
+      thumbnail: 'https://i.ibb.co/WtH9JHV/Screenshot-from-2023-10-30-14-00-46.png',
     },
     {
       name: 'espanso-config',
@@ -297,8 +297,43 @@ const config: SiteConfig = {
       thumbnail:
         'https://i.ibb.co/LZfDXR9/Screenshot-from-2023-10-29-23-51-27.png',
     },
-    { name: '', thumbnail: '' },
-    { name: '', thumbnail: '' },
+    {
+      name: 'hasami-shogi',
+      thumbnail:
+        'https://i.ibb.co/vvpw9Yg/upscaled-hasami.jpg',
+    },
+    {
+      name: 'all-the-countries',
+      thumbnail: 'https://repository-images.githubusercontent.com/331389984/ab3f8a8b-a3bc-493c-9f0c-b119ec1575af',
+    },
+    {
+      name: 'cheat-code',
+      thumbnail: 'https://repository-images.githubusercontent.com/615807756/01b14e2b-2f15-4e7c-857e-b2fa5ae16dfe',
+    },
+    {
+      name: 'sentiment-analysis',
+      thumbnail: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn-images-1.medium.com%2Fmax%2F800%2F1*NF6AdPk6sOMNNbQE5glvEQ.png',
+    },
+    {
+      name: 'aliciasykes.com',
+      thumbnail: 'https://repository-images.githubusercontent.com/165275206/a5fc1f00-f206-11e9-9f21-6e5f696368e7',
+    },
+    {
+      name: 'happy-app',
+      thumbnail: 'https://repository-images.githubusercontent.com/94193652/5880b180-f208-11e9-9ab5-9f4b86f46017',
+    },
+    {
+      name: 'docker-tcpdump',
+      thumbnail: 'https://repository-images.githubusercontent.com/477052083/f3f92a20-75d4-41cd-a549-a1ee45c061f9',
+    },
+    {
+      name: 'revision-quizzes',
+      thumbnail: 'https://i.ibb.co/JvCGbYf/revision-quizzes-screenshot.png',
+    },
+    {
+      name: 'minesweper',
+      thumbnail: 'https://repository-images.githubusercontent.com/19034001/6fff26ca-21ea-4381-bf66-8ceb67bd047a',
+    },
   ],
   postComplimentaryData: [
     {
