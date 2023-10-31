@@ -334,6 +334,30 @@ const config: SiteConfig = {
       name: 'minesweper',
       thumbnail: 'https://repository-images.githubusercontent.com/19034001/6fff26ca-21ea-4381-bf66-8ceb67bd047a',
     },
+    {
+      name: 'md-cv-maker',
+      thumbnail: 'https://i.ibb.co/jvDkGT1/Screenshot-from-2023-10-31-10-29-23.png',
+    },
+    {
+      name: 'secure-coding-deck',
+      thumbnail: 'https://i.ibb.co/ZSDrHc8/secure-coding-deck.png',
+    },
+    {
+      name: 'tfl-lift-availability-dash',
+      thumbnail: 'https://github.com/Lissy93/tfl-lift-availability-dash/blob/master/screenshot/demo.gif?raw=true',
+    },
+    {
+      name: 'cyber-defence-presentation',
+      thumbnail: 'https://i.ibb.co/ZgpFkm5/cyber-defence-presentation.png',
+    },
+    {
+      name: 'OLD_AdGuardian-Term',
+      thumbnail: 'https://i.ibb.co/BykbdjF/Screenshot-from-2023-06-03-22-57-07.png',
+    },
+    {
+      name: 'homepage-for-awesome-code.co.uk',
+      thumbnail: 'https://github.com/Lissy93/homepage-for-awesome-code.co.uk/blob/master/banner.gif?raw=true',
+    },
   ],
   postComplimentaryData: [
     {
