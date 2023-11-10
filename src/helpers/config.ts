@@ -358,6 +358,10 @@ const config: SiteConfig = {
       name: 'homepage-for-awesome-code.co.uk',
       thumbnail: 'https://github.com/Lissy93/homepage-for-awesome-code.co.uk/blob/master/banner.gif?raw=true',
     },
+    {
+      name: 'bug-bounties',
+      thumbnail: 'https://raw.githubusercontent.com/Lissy93/bug-bounties/main/web/public/banner.png',
+    },
   ],
   postComplimentaryData: [
     {
