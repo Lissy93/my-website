@@ -65,6 +65,7 @@
     scala: { name: 'Scala', color: 'DC322F', icon: 'scala' },
     shell: { name: 'Shell', color: '4EAA25', icon: 'gnubash' },
     svelte: { name: 'Svelte', color: 'ff3e00', icon: 'svelte' },
+    solid: { name: 'Solid', color: '2C4F7C', icon: 'solid' },
     swift: { name: 'Swift', color: 'F05138', icon: 'swift' },
     typescript: { name: 'TypeScript', color: '3178C6', icon: 'typescript' },
     vue: { name: 'Vue.js', color: '4FC08D', icon: 'vuedotjs' },
@@ -91,6 +92,7 @@
     mongodb: { name: 'MongoDB', color: '47A248', icon: 'mongodb' },
     redis: { name: 'Redis', color: 'DC382D', icon: 'redis' },
     sqlite: { name: 'SQLite', color: '003B57', icon: 'sqlite' },
+    postgresql: { name: 'PostgreSQL', color: '336791', icon: 'postgresql' },
 
     // Testing
     jest: { name: 'Jest', color: 'C21325', icon: 'jest' },
