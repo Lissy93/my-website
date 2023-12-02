@@ -362,8 +362,16 @@ const config: SiteConfig = {
       name: 'bug-bounties',
       thumbnail: 'https://raw.githubusercontent.com/Lissy93/bug-bounties/main/web/public/banner.png',
     },
+    {
+      name: 'cso',
+      thumbnail: 'https://github.com/Lissy93/cso/blob/HEAD/public/banner.png?raw=true',
+    },
   ],
   postComplimentaryData: [
+    {
+      postRef: '50 ways to bring in extra cash as a developer',
+      thumbnail: 'https://i.ibb.co/DDQBHvL/developer-side-hustles.png',
+    },
     {
       postRef: 'CLI tools you cant live without',
       thumbnail: 'https://i.ibb.co/F4THZ2T/cli-tools-banner.png',
@@ -546,24 +554,28 @@ const config: SiteConfig = {
         projects: ['dashy', 'all-the-countries', 'alicia-sykes-website', 'tfl-lift-availability-dash'],
       },
       {
+        language: 'Svelte',
+        projects: ['my-website', 'cheat-code'],
+      },
+      {
         language: 'React',
         projects: ['web-check'],
+      },
+      {
+        language: 'Solid',
+        projects: ['cso'],
       },
       {
         language: 'Angular',
         projects: ['happy-app', 'realtime-speech-analytics'],
       },
       {
-        language: 'Svelte',
-        projects: ['my-website', 'cheat-code'],
+        language: 'Astro',
+        projects: ['git-into-open-source'],
       },
       {
         language: 'D3',
         projects: ['twitter-sentiment-visualisation', 'happy-app', 'realtime-speech-analytics'],
-      },
-      {
-        language: 'Astro',
-        projects: ['git-into-open-source'],
       },
       {
         language: 'CoffeeScript',
@@ -623,7 +635,7 @@ const config: SiteConfig = {
       'Netlify', 'Vercel', 'CloudFlare', 'Azure', 'AWS', 'GCP',
     ],
     databases: [
-      'MySQL', 'MongoDB', 'SQLite', 'Redis',
+      'PostgreSQL', 'SQLite', 'Redis','MySQL', 'MongoDB',
     ],
     testing: [
       'Jest', 'Puppeteer', 'Enzyme', 'Cypress',
