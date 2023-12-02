@@ -46,6 +46,9 @@
   <section class="stack">
     <TechStack/>
   </section>
+
+  <!-- Social links -->
+  <section class="soclials"></section>
 </div>
 
 <style lang="scss">
@@ -53,11 +56,15 @@
 
   .heading {
     margin: 1rem calc(5vw + 1rem) 0;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
   }
 
   .content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    max-width: 1200px;
     @include laptop-up {
       // There's probably a better way to scale this grid, bit idk how
       grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
@@ -136,7 +143,12 @@
     }
     // Tech stack section
     &.stack {
-      grid-row-start: span 2;
+      grid-row-start: span 3;
+    }
+
+    // Social links section
+    &.soclials {
+      grid-column-start: span 2;
     }
   }
 
