@@ -559,7 +559,7 @@ const config: SiteConfig = {
       },
       {
         language: 'D3',
-        projects: ['twitter-sentiment-visualisation', 'voronoi-site-template', 'happy-app', 'realtime-speech-analytics'],
+        projects: ['twitter-sentiment-visualisation', 'happy-app', 'realtime-speech-analytics'],
       },
       {
         language: 'Astro',
