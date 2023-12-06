@@ -183,9 +183,10 @@
     font-family: RedHatText;
     border-radius: 6px;
     border: var(--card-border);
-    margin: 1rem 5vw;
+    margin: 1rem auto;
     padding: 0 0 1rem 0;
     min-height: 50vh;
+    max-width: 1000px;
 
     .title {
       margin: 0 1.5rem;
