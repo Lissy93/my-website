@@ -38,7 +38,7 @@
     erlang: { name: ' Erlang', color: 'A90533', icon: ' erlang' },
     fsharp: { name: 'F#', color: 'B845FC', icon: 'fsharp' },
     flutter: { name: 'Flutter', color: '02569B', icon: 'flutter' },
-    go: { name: 'Go Lang', color: '00ADD8', icon: 'go' },
+    go: { name: 'Go', color: '00ADD8', icon: 'go' },
     html: { name: 'HTML', color: 'E34F26', icon: 'html5' },
     haskell: { name: ' Haskell', color: '5D4F85', icon: ' haskell' },
     java: { name: 'Java', color: '007396', icon: 'mocha' },
@@ -170,9 +170,9 @@
       + `&logoColor=${getIconColor(color)}`;
   };
 
-  // Make both badge URL and language info available to the component
-  export const langAttributes = getLangAttributes(language);
-  export const badgeUrl = langAttributes ? getBadgeUrl(langAttributes) : null;
+  // Make both badge URL and language info available to the component (and reactive)
+  $: langAttributes = getLangAttributes(language);
+  $: badgeUrl = langAttributes ? getBadgeUrl(langAttributes) : null;
 </script>
 
 <div>
