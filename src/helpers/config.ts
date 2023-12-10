@@ -104,7 +104,7 @@ const config: SiteConfig = {
       background: '#0a192f',
       foreground: '#dcdcdc',
       'dimmed-text': '#8892b0',
-      'card-background': '#0b1021ba',
+      'card-background': '#0b1021',
       'card-border': '1px solid #ffffff1a',
       'accent-1': '#00ccb4',
       'accent-2': '#00ccb4',
@@ -250,6 +250,7 @@ const config: SiteConfig = {
     },
     {
       name: 'awesome-privacy',
+      language: 'markdown',
       thumbnail: 'https://repository-images.githubusercontent.com/512269935/6b38d78e-6e4d-484e-bbc8-e0dd81c97e0a',
     },
     {
@@ -304,6 +305,7 @@ const config: SiteConfig = {
     },
     {
       name: 'lissy93',
+      language: 'markdown',
       thumbnail: 'https://i.ibb.co/TkqZmZ9/Screenshot-from-2023-10-29-23-48-30.png',
     },
     {
@@ -324,6 +326,7 @@ const config: SiteConfig = {
     },
     {
       name: 'personal-security-checklist',
+      language: 'markdown',
       thumbnail: 'https://i.ibb.co/mTvmYGJ/personal-security-checklist.png',
     },
     {
