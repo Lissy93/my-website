@@ -16,7 +16,7 @@
   export let data;
   let searchTerm = '';
   let showFilters = false;
-  let filteredRepos = data.repos;
+  let filteredRepos = data.repos.filter((r: Project) => !r.isFork);
   const repos = data.repos;
   const mirrors = data.mirrors;
   let searchInputRef: any | HTMLElement; // Has to be any, as used in context of <svelte:element>
