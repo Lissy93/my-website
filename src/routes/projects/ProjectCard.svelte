@@ -44,7 +44,7 @@
     {#if repo.description}
       {repo.description}
     {:else}
-      <i>A mysterious project, without a description</i>
+      <i class="no-description">A mysterious project, without a description</i>
     {/if}
   </p>
 
@@ -141,6 +141,7 @@
     }
     &:not(.featured) {
       max-height: 18rem;
+      max-width: 420px;
     }
     &.fixed:not(.featured) {
       height: 16rem;
@@ -185,6 +186,10 @@
       font-family: RedHatText;
       line-height: 1.5rem;
       transition: all 0.15s ease-in-out;
+      .no-description {
+        opacity: 0.5;
+        color: var(--accent);
+      }
     }
     .repo-info {
       display: flex;
@@ -197,6 +202,7 @@
         display: flex;
         gap: 0.25rem;
         align-items: center;
+        display: none;
       }
       .date-info {
         display: flex;
@@ -218,6 +224,9 @@
     &:hover {
       .repo-info {
         opacity: 1;
+        .info-item {
+          display: flex;
+        }
       }
       .star-count :global(svg path) {
         fill: var(--warning);
@@ -242,7 +251,7 @@
         height: 150px;
       }
       .repo-description {
-        -webkit-line-clamp: 1;
+        -webkit-line-clamp: 2;
         margin: 0;
       }
       .view-buttons {
