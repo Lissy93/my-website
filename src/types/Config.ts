@@ -60,6 +60,7 @@ export interface SiteConfig {
     name: string; // GitHub repo name
     thumbnail: string; // URL to thumbnail image
     featured?: boolean; // If true, project will displayed in large size
+    language?: string; // Optionally set/ override the repos language
   }[];
   postComplimentaryData: {
     // Optional extra data to attach to posts

@@ -233,138 +233,122 @@ const config: SiteConfig = {
   ],
   projectComplimentaryData: [
     {
-      name: 'quick-example-of-testing-in-nodejs',
-      thumbnail: 'https://i.ibb.co/WDpBStz/better-test3.png',
-    },
-    { name: 'personal-security-checklist', thumbnail: 'https://i.ibb.co/mTvmYGJ/personal-security-checklist.png' },
-    { name: 'dotfiles', thumbnail: 'https://i.ibb.co/rH30RbM/Dotfiles.png' },
-    { name: 'brewfile', thumbnail: 'https://i.ibb.co/N9c30xT/lissy93-brewfile-banner.png', },
-    {
-      name: 'dashy',
-      featured: true,
-      thumbnail:
-        'https://repository-images.githubusercontent.com/343078060/82f850a2-b1af-4e9f-9245-c92700d74856',
-    },
-    {
       name: 'AdGuardian-Term',
-      // featured: true,
       thumbnail: 'https://i.ibb.co/wgJDXs2/adguardian-banner-2.png',
-    },
-    {
-      name: 'web-check',
-      thumbnail: 'https://i.ibb.co/mSz2H3n/web-check-banner.png',
-    },
-    {
-      name: 'git-into-open-source',
-      thumbnail: 'https://i.ibb.co/Jm8gpBN/git-into-opensource-banner.png',
-    },
-    {
-      name: 'portainer-templates',
-      thumbnail: 'https://i.ibb.co/J2g5Czy/portainer-templates-banner.png',
-    },
-    {
-      name: 'awesome-privacy',
-      thumbnail:
-        'https://repository-images.githubusercontent.com/512269935/6b38d78e-6e4d-484e-bbc8-e0dd81c97e0a',
-    },
-    {
-      name: 'email-comparison',
-      thumbnail: 'https://i.ibb.co/f8ZfxmW/email-comparison-screenshot.png',
-    },
-    {
-      name: 'twitter-sentiment-visualisation',
-      thumbnail: 'https://i.ibb.co/W0f10Vv/sentiment-sweep-grid.png',
-    },
-    {
-      name: 'my-website',
-      thumbnail: 'https://i.ibb.co/ZhMTxmR/my-website-banner-image.png',
-    },
-    {
-      name: 'lissy93',
-      thumbnail: 'https://i.ibb.co/TkqZmZ9/Screenshot-from-2023-10-29-23-48-30.png',
-    },
-    {
-      name: 'minimal-terminal-prompt',
-      thumbnail: 'https://i.ibb.co/WtH9JHV/Screenshot-from-2023-10-30-14-00-46.png',
-    },
-    {
-      name: 'espanso-config',
-      thumbnail:
-        'https://repository-images.githubusercontent.com/362820466/b1ef9380-a909-11eb-9d34-2aaf94ed5d95',
-    },
-    {
-      name: 'anti-theft-charge',
-      thumbnail:
-        'https://i.ibb.co/LZfDXR9/Screenshot-from-2023-10-29-23-51-27.png',
-    },
-    {
-      name: 'hasami-shogi',
-      thumbnail:
-        'https://i.ibb.co/vvpw9Yg/upscaled-hasami.jpg',
-    },
-    {
-      name: 'all-the-countries',
-      thumbnail: 'https://repository-images.githubusercontent.com/331389984/ab3f8a8b-a3bc-493c-9f0c-b119ec1575af',
-    },
-    {
-      name: 'cheat-code',
-      thumbnail: 'https://repository-images.githubusercontent.com/615807756/01b14e2b-2f15-4e7c-857e-b2fa5ae16dfe',
-    },
-    {
-      name: 'sentiment-analysis',
-      thumbnail: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn-images-1.medium.com%2Fmax%2F800%2F1*NF6AdPk6sOMNNbQE5glvEQ.png',
     },
     {
       name: 'aliciasykes.com',
       thumbnail: 'https://repository-images.githubusercontent.com/165275206/a5fc1f00-f206-11e9-9f21-6e5f696368e7',
     },
     {
-      name: 'happy-app',
-      thumbnail: 'https://repository-images.githubusercontent.com/94193652/5880b180-f208-11e9-9ab5-9f4b86f46017',
+      name: 'all-the-countries',
+      thumbnail: 'https://repository-images.githubusercontent.com/331389984/ab3f8a8b-a3bc-493c-9f0c-b119ec1575af',
     },
     {
-      name: 'docker-tcpdump',
-      thumbnail: 'https://repository-images.githubusercontent.com/477052083/f3f92a20-75d4-41cd-a549-a1ee45c061f9',
+      name: 'anti-theft-charge',
+      thumbnail: 'https://i.ibb.co/LZfDXR9/Screenshot-from-2023-10-29-23-51-27.png',
     },
     {
-      name: 'revision-quizzes',
-      thumbnail: 'https://i.ibb.co/JvCGbYf/revision-quizzes-screenshot.png',
+      name: 'awesome-privacy',
+      thumbnail: 'https://repository-images.githubusercontent.com/512269935/6b38d78e-6e4d-484e-bbc8-e0dd81c97e0a',
     },
     {
-      name: 'minesweper',
-      thumbnail: 'https://repository-images.githubusercontent.com/19034001/6fff26ca-21ea-4381-bf66-8ceb67bd047a',
-    },
-    {
-      name: 'md-cv-maker',
-      thumbnail: 'https://i.ibb.co/jvDkGT1/Screenshot-from-2023-10-31-10-29-23.png',
-    },
-    {
-      name: 'secure-coding-deck',
-      thumbnail: 'https://i.ibb.co/ZSDrHc8/secure-coding-deck.png',
-    },
-    {
-      name: 'tfl-lift-availability-dash',
-      thumbnail: 'https://github.com/Lissy93/tfl-lift-availability-dash/blob/master/screenshot/demo.gif?raw=true',
-    },
-    {
-      name: 'cyber-defence-presentation',
-      thumbnail: 'https://i.ibb.co/ZgpFkm5/cyber-defence-presentation.png',
-    },
-    {
-      name: 'OLD_AdGuardian-Term',
-      thumbnail: 'https://i.ibb.co/BykbdjF/Screenshot-from-2023-06-03-22-57-07.png',
-    },
-    {
-      name: 'homepage-for-awesome-code.co.uk',
-      thumbnail: 'https://github.com/Lissy93/homepage-for-awesome-code.co.uk/blob/master/banner.gif?raw=true',
+      name: 'brewfile',
+      thumbnail: 'https://i.ibb.co/N9c30xT/lissy93-brewfile-banner.png',
     },
     {
       name: 'bug-bounties',
       thumbnail: 'https://raw.githubusercontent.com/Lissy93/bug-bounties/main/web/public/banner.png',
     },
     {
+      name: 'cheat-code',
+      thumbnail: 'https://i.ibb.co/3BJNCpg/cheatcode.png',
+    },
+    {
       name: 'cso',
       thumbnail: 'https://github.com/Lissy93/cso/blob/HEAD/public/banner.png?raw=true',
+      language: 'Solid',
+    },
+    {
+      name: 'dashy',
+      featured: true,
+      thumbnail: 'https://repository-images.githubusercontent.com/343078060/82f850a2-b1af-4e9f-9245-c92700d74856',
+    },
+    {
+      name: 'docker-tcpdump',
+      thumbnail: 'https://i.ibb.co/RQyX8kL/docker-tcp-dump.png',
+    },
+    {
+      name: 'dotfiles',
+      thumbnail: 'https://i.ibb.co/YyrcjsH/Screenshot-from-2023-12-10-18-19-26.png',
+    },
+    {
+      name: 'email-comparison',
+      thumbnail: 'https://i.ibb.co/f8ZfxmW/email-comparison-screenshot.png',
+    },
+    {
+      name: 'espanso-config',
+      thumbnail: 'https://repository-images.githubusercontent.com/362820466/b1ef9380-a909-11eb-9d34-2aaf94ed5d95',
+    },
+    {
+      name: 'git-into-open-source',
+      thumbnail: 'https://i.ibb.co/Jm8gpBN/git-into-opensource-banner.png',
+    },
+    {
+      name: 'happy-app',
+      thumbnail: 'https://repository-images.githubusercontent.com/94193652/5880b180-f208-11e9-9ab5-9f4b86f46017',
+    },
+    {
+      name: 'hasami-shogi',
+      thumbnail: 'https://i.ibb.co/vvpw9Yg/upscaled-hasami.jpg',
+    },
+    {
+      name: 'lissy93',
+      thumbnail: 'https://i.ibb.co/TkqZmZ9/Screenshot-from-2023-10-29-23-48-30.png',
+    },
+    {
+      name: 'minesweper',
+      thumbnail: 'https://repository-images.githubusercontent.com/19034001/6fff26ca-21ea-4381-bf66-8ceb67bd047a',
+    },
+    {
+      name: 'minimal-terminal-prompt',
+      thumbnail: 'https://i.ibb.co/hMMPqPr/minimal-terminal-prompt.png',
+    },
+    {
+      name: 'my-website',
+      thumbnail: 'https://i.ibb.co/ZhMTxmR/my-website-banner-image.png',
+    },
+    {
+      name: 'OLD_AdGuardian-Term',
+      thumbnail: 'https://i.ibb.co/BykbdjF/Screenshot-from-2023-06-03-22-57-07.png',
+    },
+    {
+      name: 'personal-security-checklist',
+      thumbnail: 'https://i.ibb.co/mTvmYGJ/personal-security-checklist.png',
+    },
+    {
+      name: 'portainer-templates',
+      thumbnail: 'https://i.ibb.co/J2g5Czy/portainer-templates-banner.png',
+    },
+    {
+      name: 'revision-quizzes',
+      thumbnail: 'https://i.ibb.co/JvCGbYf/revision-quizzes-screenshot.png',
+    },
+    {
+      name: 'sentiment-analysis',
+      thumbnail: 'https://i.ibb.co/ysLpBCn/sentiment-analysis-png.png',
+    },
+    {
+      name: 'twitter-sentiment-visualisation',
+      thumbnail: 'https://i.ibb.co/W0f10Vv/sentiment-sweep-grid.png',
+    },
+    {
+      name: 'usermonkey',
+      thumbnail: 'https://i.ibb.co/hLj9HfR/user-monkey.png',
+    },
+    {
+      name: 'web-check',
+      thumbnail: 'https://i.ibb.co/mSz2H3n/web-check-banner.png',
     },
   ],
   postComplimentaryData: [
