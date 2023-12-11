@@ -8,6 +8,7 @@ export const config = CONFIG;
 
 // List of RSS feeds to fetch + show on load
 export const initialFeeds: RssUrlList = config.initialFeeds;
+
 // List of extra feeds, that can be enabled through the UI
 export const extraFeeds: RssUrlList = config.additionalFeeds;
 
