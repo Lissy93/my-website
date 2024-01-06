@@ -353,6 +353,10 @@ const config: SiteConfig = {
       name: 'web-check',
       thumbnail: 'https://i.ibb.co/mSz2H3n/web-check-banner.png',
     },
+    {
+      name: 'who-dat',
+      thumbnail: 'https://github.com/Lissy93/who-dat/blob/main/public/who-dat.png?raw=true',
+    },
   ],
   postComplimentaryData: [
     {
@@ -516,7 +520,7 @@ const config: SiteConfig = {
       },
       {
         language: 'Go',
-        projects: ['go-apod', 'OLD_AdGuardian-Term', 'whois-api'],
+        projects: ['who-dat', 'go-apod', 'OLD_AdGuardian-Term'],
       },
       {
         language: 'Node',
@@ -563,6 +567,10 @@ const config: SiteConfig = {
       {
         language: 'D3',
         projects: ['twitter-sentiment-visualisation', 'happy-app', 'realtime-speech-analytics'],
+      },
+      {
+        language: 'Alpine',
+        projects: ['who-dat'],
       },
       {
         language: 'CoffeeScript',
