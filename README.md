@@ -355,13 +355,6 @@ To get started, fork the repo, make your changes, add, commit and push the code,
             <br />
             <sub><b>Tobias</b></sub>
         </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/CrossPatch9000">
-            <img src="https://avatars.githubusercontent.com/u/150388639?u=2de7d52e66299307a2d8f863f81b5f493b068e4c&v=4" width="80;" alt="CrossPatch9000"/>
-            <br />
-            <sub><b>CrossPatch9000</b></sub>
-        </a>
     </td></tr>
 </table>
 <!-- readme: sponsors -end -->
