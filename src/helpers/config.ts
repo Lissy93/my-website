@@ -524,7 +524,7 @@ const config: SiteConfig = {
       },
       {
         language: 'Node',
-        projects: [' twitter-sentiment-visualisation', 'quick-example-of-testing-in-nodejs'],
+        projects: ['twitter-sentiment-visualisation', 'quick-example-of-testing-in-nodejs'],
       },
       {
         language: 'Python',
