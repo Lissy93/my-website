@@ -627,7 +627,7 @@ const config: SiteConfig = {
       'Ansible', 'Kubernetes', 'Prometheus', 'GitHubActions', 'Grafana',
     ],
     cloud: [
-      'Netlify', 'Vercel', 'CloudFlare', 'Azure', 'AWS', 'GCP',
+      'Netlify', 'Vercel', 'Cloudflare', 'Azure', 'AWS', 'GCP',
     ],
     databases: [
       'PostgreSQL', 'SQLite', 'Redis','MySQL', 'MongoDB',

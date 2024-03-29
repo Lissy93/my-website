@@ -82,7 +82,7 @@
     // Cloud
     netlify: { name: 'Netlify', color: '00C7B7', icon: 'netlify' },
     vercel: { name: 'Vercel', color: '000000', icon: 'vercel' },
-    cloudflare: { name: 'CloudFlare', color: 'F38020', icon: 'cloudflare' },
+    cloudflare: { name: 'Cloudflare', color: 'F38020', icon: 'cloudflare' },
     aws: { name: 'AWS', color: '232F3E', icon: 'amazonaws' },
     azure: { name: 'Azure', color: '0089D6', icon: 'azuredevops' },
     gcp: { name: 'GCP', color: '4285F4', icon: 'googlecloud' },
