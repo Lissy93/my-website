@@ -243,17 +243,17 @@ To get started, fork the repo, make your changes, add, commit and push the code,
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/Admonstrator">
+            <img src="https://avatars.githubusercontent.com/u/69824?v=4" width="80;" alt="Admonstrator"/>
+            <br />
+            <sub><b>Aaron Viehl</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/peng1can">
             <img src="https://avatars.githubusercontent.com/u/225854?v=4" width="80;" alt="peng1can"/>
             <br />
             <sub><b>Peng1can</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/bgadrian">
-            <img src="https://avatars.githubusercontent.com/u/830001?u=69f115baad2fcd8c14eb05bdbf5cd80f4649a95a&v=4" width="80;" alt="bgadrian"/>
-            <br />
-            <sub><b>B.G.Adrian</b></sub>
         </a>
     </td>
     <td align="center">
@@ -391,13 +391,6 @@ To get started, fork the repo, make your changes, add, commit and push the code,
             <br />
             <sub><b>Nrvo</b></sub>
         </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/mezza93">
-            <img src="https://avatars.githubusercontent.com/u/153599966?v=4" width="80;" alt="mezza93"/>
-            <br />
-            <sub><b>Mezza93</b></sub>
-        </a>
     </td></tr>
 </table>
 <!-- readme: sponsors -end -->
@@ -426,6 +419,13 @@ To get started, fork the repo, make your changes, add, commit and push the code,
             <img src="https://avatars.githubusercontent.com/u/3266614?v=4" width="80;" alt="xcpep"/>
             <br />
             <sub><b>Daniel Patterson</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/jesopo">
+            <img src="https://avatars.githubusercontent.com/u/11245819?v=4" width="80;" alt="jesopo"/>
+            <br />
+            <sub><b>Jess Porter</b></sub>
         </a>
     </td></tr>
 </table>
