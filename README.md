@@ -243,6 +243,13 @@ To get started, fork the repo, make your changes, add, commit and push the code,
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/Admonstrator">
+            <img src="https://avatars.githubusercontent.com/u/69824?u=1e226d7a36cdd661c3e4cd486fea140d045b7d57&v=4" width="80;" alt="Admonstrator"/>
+            <br />
+            <sub><b>Aaron Viehl</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/peng1can">
             <img src="https://avatars.githubusercontent.com/u/225854?v=4" width="80;" alt="peng1can"/>
             <br />
@@ -251,7 +258,7 @@ To get started, fork the repo, make your changes, add, commit and push the code,
     </td>
     <td align="center">
         <a href="https://github.com/tbjers">
-            <img src="https://avatars.githubusercontent.com/u/1117052?u=539d96d5e581b3139c75713ce35b89a36626404c&v=4" width="80;" alt="tbjers"/>
+            <img src="https://avatars.githubusercontent.com/u/1117052?v=4" width="80;" alt="tbjers"/>
             <br />
             <sub><b>Torgny Bjers</b></sub>
         </a>
@@ -269,20 +276,13 @@ To get started, fork the repo, make your changes, add, commit and push the code,
             <br />
             <sub><b>Anand Chowdhary</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/shrippen">
             <img src="https://avatars.githubusercontent.com/u/2873570?v=4" width="80;" alt="shrippen"/>
             <br />
             <sub><b>Shrippen</b></sub>
-        </a>
-    </td></tr>
-<tr>
-    <td align="center">
-        <a href="https://github.com/davidpaulyoung">
-            <img src="https://avatars.githubusercontent.com/u/3418369?v=4" width="80;" alt="davidpaulyoung"/>
-            <br />
-            <sub><b>David Young</b></sub>
         </a>
     </td>
     <td align="center">
@@ -307,25 +307,39 @@ To get started, fork the repo, make your changes, add, commit and push the code,
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/InDieTasten">
+            <img src="https://avatars.githubusercontent.com/u/7047377?u=8d8f8017628b38bc46dcbf3620e194b01d3fb2d1&v=4" width="80;" alt="InDieTasten"/>
+            <br />
+            <sub><b>InDieTasten</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/bmcgonag">
             <img src="https://avatars.githubusercontent.com/u/7346620?u=2a0f9284f3e12ac1cc15288c254d1ec68a5081e8&v=4" width="80;" alt="bmcgonag"/>
             <br />
             <sub><b>Brian McGonagill</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/vlad-timofeev">
             <img src="https://avatars.githubusercontent.com/u/11474041?u=eee43705b54d2ec9f51fc4fcce5ad18dd17c87e4&v=4" width="80;" alt="vlad-timofeev"/>
             <br />
             <sub><b>Vlad Timofeev</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/helixzz">
             <img src="https://avatars.githubusercontent.com/u/12218889?u=d06d0c103dfbdb99450623064f7da3c5a3675fb6&v=4" width="80;" alt="helixzz"/>
             <br />
             <sub><b>HeliXZz</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/mryesiller">
+            <img src="https://avatars.githubusercontent.com/u/24632172?u=0d20f2d615158f87cd60a3398d3efb026c32f291&v=4" width="80;" alt="mryesiller"/>
+            <br />
+            <sub><b>Göksel Yeşiller</b></sub>
         </a>
     </td>
     <td align="center">
@@ -343,17 +357,32 @@ To get started, fork the repo, make your changes, add, commit and push the code,
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/ratty222">
-            <img src="https://avatars.githubusercontent.com/u/92832598?u=137b65530cbd5f5af9c24cde51baa6cc77cc934b&v=4" width="80;" alt="ratty222"/>
+        <a href="https://github.com/frankdez93">
+            <img src="https://avatars.githubusercontent.com/u/87549420?v=4" width="80;" alt="frankdez93"/>
             <br />
-            <sub><b>Brent</b></sub>
+            <sub><b>Frankdez93</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/terminaltrove">
+            <img src="https://avatars.githubusercontent.com/u/121595180?v=4" width="80;" alt="terminaltrove"/>
+            <br />
+            <sub><b>Terminal Trove</b></sub>
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/CrazyWolf13">
-            <img src="https://avatars.githubusercontent.com/u/96661824?v=4" width="80;" alt="CrazyWolf13"/>
+        <a href="https://github.com/NixyJuppie">
+            <img src="https://avatars.githubusercontent.com/u/138570196?u=b102c222487905728b858704962d32759df29ebe&v=4" width="80;" alt="NixyJuppie"/>
             <br />
-            <sub><b>Tobias</b></sub>
+            <sub><b>Nixy</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/nrvo">
+            <img src="https://avatars.githubusercontent.com/u/151435968?u=e1dcb307fd0efdc45cddbe9490a7b956e4da6835&v=4" width="80;" alt="nrvo"/>
+            <br />
+            <sub><b>Nrvo</b></sub>
         </a>
     </td></tr>
 </table>
@@ -376,6 +405,20 @@ To get started, fork the repo, make your changes, add, commit and push the code,
             <img src="https://avatars.githubusercontent.com/u/87835202?v=4" width="80;" alt="liss-bot"/>
             <br />
             <sub><b>Alicia Bot</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/xcpep">
+            <img src="https://avatars.githubusercontent.com/u/3266614?v=4" width="80;" alt="xcpep"/>
+            <br />
+            <sub><b>Daniel Patterson</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/jesopo">
+            <img src="https://avatars.githubusercontent.com/u/11245819?v=4" width="80;" alt="jesopo"/>
+            <br />
+            <sub><b>Jess Porter</b></sub>
         </a>
     </td></tr>
 </table>

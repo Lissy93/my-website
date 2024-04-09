@@ -524,7 +524,7 @@ const config: SiteConfig = {
       },
       {
         language: 'Node',
-        projects: [' twitter-sentiment-visualisation', 'quick-example-of-testing-in-nodejs'],
+        projects: ['twitter-sentiment-visualisation', 'quick-example-of-testing-in-nodejs'],
       },
       {
         language: 'Python',
@@ -627,7 +627,7 @@ const config: SiteConfig = {
       'Ansible', 'Kubernetes', 'Prometheus', 'GitHubActions', 'Grafana',
     ],
     cloud: [
-      'Netlify', 'Vercel', 'CloudFlare', 'Azure', 'AWS', 'GCP',
+      'Netlify', 'Vercel', 'Cloudflare', 'Azure', 'AWS', 'GCP',
     ],
     databases: [
       'PostgreSQL', 'SQLite', 'Redis','MySQL', 'MongoDB',
