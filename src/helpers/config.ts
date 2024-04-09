@@ -250,7 +250,7 @@ const config: SiteConfig = {
     },
     {
       name: 'awesome-privacy',
-      language: 'markdown',
+      language: 'astro',
       thumbnail: 'https://repository-images.githubusercontent.com/512269935/6b38d78e-6e4d-484e-bbc8-e0dd81c97e0a',
     },
     {
@@ -326,7 +326,7 @@ const config: SiteConfig = {
     },
     {
       name: 'personal-security-checklist',
-      language: 'markdown',
+      language: 'qwik',
       thumbnail: 'https://i.ibb.co/mTvmYGJ/personal-security-checklist.png',
     },
     {
