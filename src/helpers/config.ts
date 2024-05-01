@@ -149,6 +149,7 @@ const config: SiteConfig = {
       datesWorked: 'August 2022 - Present',
       projectType: 'Clients',
       projects: [
+        { name: 'International SOS', logo: 'https://i.ibb.co/WgKKMFQ/Isos.jpg', description: '', },
         { name: 'Frasers Group', logo: 'https://i.ibb.co/sQcvxmG/Frasers.png', description: '', },
         { name: 'Lloyds Bank', logo: 'https://i.ibb.co/GCSDPCq/Lloyds-bank.jpg', description: '', },
       ],
