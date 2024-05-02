@@ -147,6 +147,13 @@ const config: SiteConfig = {
       companyLogo: 'https://and.digital/favicon.ico',
       jobTitle: 'Principle Engineer',
       datesWorked: 'August 2022 - Present',
+      responsibilities: 'As a member of the Practice Group within Hamilton Club, '
+      + 'I work across several client projects, ensuring that '
+      + 'code quality, maintainability and security are top notch. '
+      + 'I\'m responsible for training up our developers, helping them gain '
+      + 'the skills necessary to best support our clients. '
+      + 'I\'m always up for trying out new tech, so that I\'m in a good position '
+      + 'to choose the best tech stacks on a per-client basis.',
       projectType: 'Clients',
       projects: [
         { name: 'International SOS', logo: 'https://i.ibb.co/WgKKMFQ/Isos.jpg', description: '', },
