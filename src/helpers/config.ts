@@ -293,6 +293,7 @@ const config: SiteConfig = {
     },
     {
       name: 'email-comparison',
+      language: 'lit',
       thumbnail: 'https://i.ibb.co/f8ZfxmW/email-comparison-screenshot.png',
     },
     {
@@ -359,6 +360,7 @@ const config: SiteConfig = {
     },
     {
       name: 'web-check',
+      language: 'react',
       thumbnail: 'https://i.ibb.co/mSz2H3n/web-check-banner.png',
     },
     {
