@@ -236,6 +236,13 @@ To get started, fork the repo, make your changes, add, commit and push the code,
 <table>
 <tr>
     <td align="center">
+        <a href="https://github.com/github">
+            <img src="https://avatars.githubusercontent.com/u/9919?v=4" width="80;" alt="github"/>
+            <br />
+            <sub><b>GitHub</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/koconder">
             <img src="https://avatars.githubusercontent.com/u/25068?u=582657b23622aaa3dfe68bd028a780f272f456fa&v=4" width="80;" alt="koconder"/>
             <br />
@@ -247,13 +254,6 @@ To get started, fork the repo, make your changes, add, commit and push the code,
             <img src="https://avatars.githubusercontent.com/u/69824?u=1e226d7a36cdd661c3e4cd486fea140d045b7d57&v=4" width="80;" alt="Admonstrator"/>
             <br />
             <sub><b>Aaron Viehl</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/peng1can">
-            <img src="https://avatars.githubusercontent.com/u/225854?v=4" width="80;" alt="peng1can"/>
-            <br />
-            <sub><b>Peng1can</b></sub>
         </a>
     </td>
     <td align="center">
@@ -301,7 +301,7 @@ To get started, fork the repo, make your changes, add, commit and push the code,
     </td>
     <td align="center">
         <a href="https://github.com/digitalarche">
-            <img src="https://avatars.githubusercontent.com/u/6546135?u=d033c9c16e8367987aec3f9ff5922bc67dd1eedf&v=4" width="80;" alt="digitalarche"/>
+            <img src="https://avatars.githubusercontent.com/u/6546135?u=564756d7f44ab2206819eb3148f6d822673f5066&v=4" width="80;" alt="digitalarche"/>
             <br />
             <sub><b>Digital Archeology</b></sub>
         </a>
@@ -314,13 +314,20 @@ To get started, fork the repo, make your changes, add, commit and push the code,
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/araguaci">
+            <img src="https://avatars.githubusercontent.com/u/7318668?v=4" width="80;" alt="araguaci"/>
+            <br />
+            <sub><b>Araguaci</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
         <a href="https://github.com/bmcgonag">
             <img src="https://avatars.githubusercontent.com/u/7346620?u=2a0f9284f3e12ac1cc15288c254d1ec68a5081e8&v=4" width="80;" alt="bmcgonag"/>
             <br />
             <sub><b>Brian McGonagill</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/vlad-timofeev">
             <img src="https://avatars.githubusercontent.com/u/11474041?u=eee43705b54d2ec9f51fc4fcce5ad18dd17c87e4&v=4" width="80;" alt="vlad-timofeev"/>
@@ -336,10 +343,32 @@ To get started, fork the repo, make your changes, add, commit and push the code,
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/patvdv">
+            <img src="https://avatars.githubusercontent.com/u/12430107?u=e8911c2fb91af4d30432f76da8c40927b2830bd7&v=4" width="80;" alt="patvdv"/>
+            <br />
+            <sub><b>Patrick Van Der Veken</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/plgonzalezrx8">
+            <img src="https://avatars.githubusercontent.com/u/19900049?v=4" width="80;" alt="plgonzalezrx8"/>
+            <br />
+            <sub><b>Pedro Gonzalez</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/mryesiller">
             <img src="https://avatars.githubusercontent.com/u/24632172?u=0d20f2d615158f87cd60a3398d3efb026c32f291&v=4" width="80;" alt="mryesiller"/>
             <br />
             <sub><b>Göksel Yeşiller</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
+        <a href="https://github.com/allesauseinerhand">
+            <img src="https://avatars.githubusercontent.com/u/32039836?v=4" width="80;" alt="allesauseinerhand"/>
+            <br />
+            <sub><b>Allesauseinerhand</b></sub>
         </a>
     </td>
     <td align="center">
@@ -350,6 +379,13 @@ To get started, fork the repo, make your changes, add, commit and push the code,
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/lamtrinhdev">
+            <img src="https://avatars.githubusercontent.com/u/49742151?u=c5eaca5aa6841a80605cf4f7d0e861a9e6339ef3&v=4" width="80;" alt="lamtrinhdev"/>
+            <br />
+            <sub><b>LamTrinh.Dev</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/Bastii717">
             <img src="https://avatars.githubusercontent.com/u/53431819?u=604977bed6ad6875ada890d0d3765a4cacc2fa14&v=4" width="80;" alt="Bastii717"/>
             <br />
@@ -357,13 +393,27 @@ To get started, fork the repo, make your changes, add, commit and push the code,
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/getumbrel">
+            <img src="https://avatars.githubusercontent.com/u/59408891?v=4" width="80;" alt="getumbrel"/>
+            <br />
+            <sub><b>Umbrel</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/M2TD">
+            <img src="https://avatars.githubusercontent.com/u/85460457?v=4" width="80;" alt="M2TD"/>
+            <br />
+            <sub><b>M2TD</b></sub>
+        </a>
+    </td></tr>
+<tr>
+    <td align="center">
         <a href="https://github.com/frankdez93">
             <img src="https://avatars.githubusercontent.com/u/87549420?v=4" width="80;" alt="frankdez93"/>
             <br />
             <sub><b>Frankdez93</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/terminaltrove">
             <img src="https://avatars.githubusercontent.com/u/121595180?v=4" width="80;" alt="terminaltrove"/>
