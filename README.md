@@ -351,7 +351,7 @@ To get started, fork the repo, make your changes, add, commit and push the code,
     </td>
     <td align="center">
         <a href="https://github.com/plgonzalezrx8">
-            <img src="https://avatars.githubusercontent.com/u/19900049?v=4" width="80;" alt="plgonzalezrx8"/>
+            <img src="https://avatars.githubusercontent.com/u/19900049?u=48a58d2da520a9d712184c6e6e99927ff3cbf179&v=4" width="80;" alt="plgonzalezrx8"/>
             <br />
             <sub><b>Pedro Gonzalez</b></sub>
         </a>
