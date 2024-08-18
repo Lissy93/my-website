@@ -4,7 +4,7 @@ import { load as loadSocials } from '$src/routes/contact/+page.server';
 import config from '$src/helpers/config';
 import type { PageServerLoad } from './$types';
 
-export const prerender = true;
+// export const prerender = true;
 
 /** @type {import('./$types').PageLoad} */
 export const load = async ({ fetch }: PageServerLoad) => {
