@@ -101,7 +101,7 @@ const config: SiteConfig = {
       'home-accent-foreground': 'var(--foreground)',
     },
     callisto: {
-      background: '#0a192f',
+      background: '#020617',
       foreground: '#dcdcdc',
       'dimmed-text': '#8892b0',
       'card-background': '#0b1021',

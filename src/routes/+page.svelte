@@ -6,8 +6,8 @@
   import Heading from '$src/components/Heading.svelte';
   import { socialNetworks } from '$src/helpers/constants';
   import Icon from '$src/components/Icon.svelte';
-  import D3Voronoi from '$src/helpers/voronoi';
   import IndexComponent from '$src/routes/index/IndexComponent.svelte';
+  import Background from '$src/components/FancyBackground.svelte';
 
   export let data: any;
 
@@ -16,10 +16,10 @@
 
   let showLoader = false;
 
-  onMount(() => {
-    try { new D3Voronoi(); }
-    catch (e) { console.warn('D3Voronoi failed to load', e); }
-  });
+  // onMount(() => {
+  //   try { new D3Voronoi(); }
+  //   catch (e) { console.warn('D3Voronoi failed to load', e); }
+  // });
 
   const userSocials = Object.keys(config.contact.socials);
   const limit = config.contact.socialButtonLimit;
@@ -40,10 +40,9 @@
     return routeLinks?.find((r) => r.route === route)?.color || 'var(--accent)';
   };
 </script>
-
+<Background />
 <main class="homepage">
-  <div id="vonoroi"></div>
-  <div class="hero">
+  <section class="hero sec-0">
     <Heading
       level="h1"
       commandStyle={false}
@@ -72,9 +71,22 @@
         {/if}
       {/each}
     </div>
-  </div>
+  </section>
 
-  {#if showLoader}
+  <section class="sec-1">
+    <a href="/projects">Projects</a>
+  </section>
+  <section class="sec-2">
+    <a href="/about">About</a>
+  </section>
+  <section class="sec-3">
+    <a href="/blog">Blog</a>
+  </section>
+  <section class="sec-4">
+    <a href="/contact">Contact</a>
+  </section>
+
+  <!-- {#if showLoader}
     <Loading message="Pre-fetching Posts" />
   {/if}
 
@@ -96,10 +108,10 @@
         </a>
       {/each}
     </div>
-  {/if}
+  {/if} -->
 </main>
 
-<IndexComponent data={data} />
+<!-- <IndexComponent data={data} /> -->
 
 <style lang="scss">
   @import '$src/styles/media-queries.scss';
@@ -114,8 +126,40 @@
   }
 
   main.homepage {
-    min-height: 99vh;
     position: relative;
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    section {
+      width: 100%;
+    }
+    .sec-0 {
+      flex: 0 0 32%;
+    }
+    .sec-1, .sec-2, .sec-3, .sec-4 {
+      flex: 0 0 17%;
+      color: #1C1678;
+      display: flex;
+      align-items: center;
+      font-size: 2rem;
+      font-family: Poppins, sans-serif;
+      text-decoration: none;
+      font-weight: 600;
+      a {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        pointer-events: all;
+        text-decoration: none;
+        padding:  0.5rem 1rem;
+        color: #1C1678;
+        transition: all 0.25s ease-in-out;
+      }
+    }
   }
 
   .hero {
@@ -141,52 +185,52 @@
     }
   }
 
-  .tiles {
-    display: grid;
-    grid-auto-flow: dense;
-    max-width: 70rem;
-    margin: auto;
-    padding: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 1rem;
-    width: 80vw;
-    @include tablet-down {
-      display: flex;
-      flex-direction: column;
-    }
-    a.tile {
-      color: var(--foreground);
-      border: var(--card-border);
-      background: var(--home-tile-background); // var(--card-background);
-      border-radius: 4px;
-      text-decoration: none;
-      padding: 1rem;
-      border-left: 4px solid var(--accent);
-      transition: all ease-in-out 0.25s, transform ease-in-out 0.3s;
-      overflow: hidden;
-      pointer-events: all;
+  // .tiles {
+  //   display: grid;
+  //   grid-auto-flow: dense;
+  //   max-width: 70rem;
+  //   margin: auto;
+  //   padding: 1rem;
+  //   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  //   gap: 1rem;
+  //   width: 80vw;
+  //   @include tablet-down {
+  //     display: flex;
+  //     flex-direction: column;
+  //   }
+  //   a.tile {
+  //     color: var(--foreground);
+  //     border: var(--card-border);
+  //     background: var(--home-tile-background); // var(--card-background);
+  //     border-radius: 4px;
+  //     text-decoration: none;
+  //     padding: 1rem;
+  //     border-left: 4px solid var(--accent);
+  //     transition: all ease-in-out 0.25s, transform ease-in-out 0.3s;
+  //     overflow: hidden;
+  //     pointer-events: all;
 
-      p.subtitle {
-        position: absolute;
-        color: var(--dimmed-text);
-        margin: 0;
-        transform: translateX(-20rem) translateY(2rem) scale(0.5) rotate(5deg);
-        transition: all ease-in-out 0.2s;
-        opacity: 0;
-      }
+  //     p.subtitle {
+  //       position: absolute;
+  //       color: var(--dimmed-text);
+  //       margin: 0;
+  //       transform: translateX(-20rem) translateY(2rem) scale(0.5) rotate(5deg);
+  //       transition: all ease-in-out 0.2s;
+  //       opacity: 0;
+  //     }
 
-      &:hover {
-        :global(h3) {
-          color: var(--accent);
-          transform: translateY(-1rem);
-        }
-        border-left-width: 8px;
-        transform: scale(1.02);
-        p.subtitle {
-          transform: translateX(0) translateY(-1.5rem) scale(1) rotate(0);
-          opacity: 1;
-        }
-      }
-    }
-  }
+  //     &:hover {
+  //       :global(h3) {
+  //         color: var(--accent);
+  //         transform: translateY(-1rem);
+  //       }
+  //       border-left-width: 8px;
+  //       transform: scale(1.02);
+  //       p.subtitle {
+  //         transform: translateX(0) translateY(-1.5rem) scale(1) rotate(0);
+  //         opacity: 1;
+  //       }
+  //     }
+  //   }
+  // }
 </style>

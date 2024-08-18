@@ -12,10 +12,11 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "test:unit": "vitest",
     "lint": "prettier --plugin-search-dir . --check . && eslint .",
-    "format": "prettier --plugin-search-dir . --write .",
+    " rmat": "prettier --plugin-search-dir . --write .",
     "health-check": "node health-check"
   },
   "devDependencies": {
+    "@fontsource/poppins": "^5.0.14",
     "@playwright/test": "^1.28.1",
     "@sveltejs/adapter-auto": "^1.0.0",
     "@sveltejs/adapter-netlify": "^1.0.0-next.88",
@@ -43,5 +44,6 @@
   "dependencies": {
     "d3": "^7.8.5",
     "d3-delaunay": "^6.0.4"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
