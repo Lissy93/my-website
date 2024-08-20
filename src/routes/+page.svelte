@@ -1,13 +1,10 @@
 <script lang="ts">
-  
   import { onMount } from 'svelte';
   import { config } from '$src/store/BlogStore';
   import Loading from '$src/components/Loading.svelte';
   import Heading from '$src/components/Heading.svelte';
   import { socialNetworks } from '$src/helpers/constants';
   import Icon from '$src/components/Icon.svelte';
-  import IndexComponent from '$src/routes/index/IndexComponent.svelte';
-  import Background from '$src/components/FancyBackground.svelte';
 
   export let data: any;
 
@@ -15,11 +12,6 @@
   const homePageLinks = routeLinks.filter((rl) => rl.route !== '/');
 
   let showLoader = false;
-
-  // onMount(() => {
-  //   try { new D3Voronoi(); }
-  //   catch (e) { console.warn('D3Voronoi failed to load', e); }
-  // });
 
   const userSocials = Object.keys(config.contact.socials);
   const limit = config.contact.socialButtonLimit;
@@ -39,8 +31,51 @@
   const findRouteColor = (route: string) => {
     return routeLinks?.find((r) => r.route === route)?.color || 'var(--accent)';
   };
+
+  onMount(() => {
+    const buttons = document.querySelectorAll<HTMLAnchorElement>('.tile');
+    buttons.forEach((button) => {
+      button.addEventListener('mousemove', (e: MouseEvent) => {
+        const { x, y } = button.getBoundingClientRect();
+        button.style.setProperty('--x', `${e.clientX - x}`);
+        button.style.setProperty('--y', `${e.clientY - y}`);
+      });
+    });
+
+    const body = document.querySelector('body');
+    if (body) {
+      let mouseX = 0;
+      let mouseY = 0;
+      let currentX = 0;
+      let currentY = 0;
+      const easing = 0.025;
+
+      const updatePosition = () => {
+        // Apply easing to create the delay effect
+        currentX += (mouseX - currentX) * easing;
+        currentY += (mouseY - currentY) * easing;
+
+        // Update CSS variables for positioning
+        body.style.setProperty('--x', `${currentX}`);
+        body.style.setProperty('--y', `${currentY}`);
+
+        // Continue the animation loop
+        requestAnimationFrame(updatePosition);
+      };
+
+      // Track mouse movement
+      body.addEventListener('mousemove', (e: MouseEvent) => {
+        const { x, y } = body.getBoundingClientRect();
+        mouseX = e.clientX - x;
+        mouseY = e.clientY - y;
+      });
+
+      // Start the body animation loop
+      requestAnimationFrame(updatePosition);
+    }
+  });
+
 </script>
-<Background />
 <main class="homepage">
   <section class="hero sec-0">
     <Heading
@@ -73,45 +108,26 @@
     </div>
   </section>
 
-  <section class="sec-1">
-    <a href="/projects">Projects</a>
-  </section>
-  <section class="sec-2">
-    <a href="/about">About</a>
-  </section>
-  <section class="sec-3">
-    <a href="/blog">Blog</a>
-  </section>
-  <section class="sec-4">
-    <a href="/contact">Contact</a>
-  </section>
-
-  <!-- {#if showLoader}
-    <Loading message="Pre-fetching Posts" />
-  {/if}
-
-  {#if !showLoader}
-    <div class="tiles">
-      {#each homePageLinks as navLink}
-        <a
-          class="tile"
-          href={navLink.route}
-          style={`--accent: ${findRouteColor(navLink.route)};`}
-          on:click={() => {
-            showLoader = true;
-          }}
+  <div class="tiles">
+    {#each homePageLinks as navLink}
+      <a
+        class="tile"
+        href={navLink.route}
+        style={`--accent: ${findRouteColor(navLink.route)};`}
+        on:click={() => {
+          showLoader = true;
+        }}
+      >
+        <Heading level="h3" size="2rem" color="var(--home-accent-foreground)"
+          >{navLink.label}</Heading
         >
-          <Heading level="h3" size="2rem" color="var(--home-accent-foreground)"
-            >{navLink.label}</Heading
-          >
-          <p class="subtitle">{navLink.description}</p>
-        </a>
-      {/each}
-    </div>
-  {/if} -->
+        <p class="subtitle">{navLink.description}</p>
+      </a>
+    {/each}
+  </div>
+
 </main>
 
-<!-- <IndexComponent data={data} /> -->
 
 <style lang="scss">
   @import '$src/styles/media-queries.scss';
@@ -132,33 +148,22 @@
     pointer-events: none;
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    section {
-      width: 100%;
+  }
+
+  :global(body) {
+    &::after {
+      content: "";
+      position: absolute;
+      top: calc(var(--y, 0) * 1px - 400px);
+      left: calc(var(--x, 0) * 1px - 400px);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(rgb(46, 45, 64), #0361f700 50%);
+      opacity: 0;
+      transition: opacity 0.2s;
     }
-    .sec-0 {
-      flex: 0 0 32%;
-    }
-    .sec-1, .sec-2, .sec-3, .sec-4 {
-      flex: 0 0 17%;
-      color: #1C1678;
-      display: flex;
-      align-items: center;
-      font-size: 2rem;
-      font-family: Poppins, sans-serif;
-      text-decoration: none;
-      font-weight: 600;
-      a {
-        width: 100%;
-        height: fit-content;
-        display: flex;
-        align-items: center;
-        pointer-events: all;
-        text-decoration: none;
-        padding:  0.5rem 1rem;
-        color: #1C1678;
-        transition: all 0.25s ease-in-out;
-      }
+    &:hover::after {
+      opacity: 0.4;
     }
   }
 
@@ -185,52 +190,71 @@
     }
   }
 
-  // .tiles {
-  //   display: grid;
-  //   grid-auto-flow: dense;
-  //   max-width: 70rem;
-  //   margin: auto;
-  //   padding: 1rem;
-  //   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  //   gap: 1rem;
-  //   width: 80vw;
-  //   @include tablet-down {
-  //     display: flex;
-  //     flex-direction: column;
-  //   }
-  //   a.tile {
-  //     color: var(--foreground);
-  //     border: var(--card-border);
-  //     background: var(--home-tile-background); // var(--card-background);
-  //     border-radius: 4px;
-  //     text-decoration: none;
-  //     padding: 1rem;
-  //     border-left: 4px solid var(--accent);
-  //     transition: all ease-in-out 0.25s, transform ease-in-out 0.3s;
-  //     overflow: hidden;
-  //     pointer-events: all;
+  .tiles {
+    display: grid;
+    grid-auto-flow: dense;
+    max-width: 70rem;
+    margin: auto;
+    padding: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1rem;
+    width: 80vw;
+    @include tablet-down {
+      display: flex;
+      flex-direction: column;
+    }
+    a.tile {
+      color: var(--foreground);
+      border: var(--card-border);
+      background: var(--home-tile-background); // var(--card-background);
+      border-radius: 4px;
+      text-decoration: none;
+      padding: 1rem;
+      border-left: 4px solid var(--accent);
+      transition: all ease-in-out 0.25s, transform ease-in-out 0.3s;
+      overflow: hidden;
+      pointer-events: all;
 
-  //     p.subtitle {
-  //       position: absolute;
-  //       color: var(--dimmed-text);
-  //       margin: 0;
-  //       transform: translateX(-20rem) translateY(2rem) scale(0.5) rotate(5deg);
-  //       transition: all ease-in-out 0.2s;
-  //       opacity: 0;
-  //     }
+      p.subtitle {
+        position: absolute;
+        color: var(--dimmed-text);
+        margin: 0;
+        transform: translateX(-20rem) translateY(2rem) scale(0.5) rotate(5deg);
+        transition: all ease-in-out 0.2s;
+        opacity: 0;
+      }
 
-  //     &:hover {
-  //       :global(h3) {
-  //         color: var(--accent);
-  //         transform: translateY(-1rem);
-  //       }
-  //       border-left-width: 8px;
-  //       transform: scale(1.02);
-  //       p.subtitle {
-  //         transform: translateX(0) translateY(-1.5rem) scale(1) rotate(0);
-  //         opacity: 1;
-  //       }
-  //     }
-  //   }
-  // }
+      &:hover {
+        :global(h3) {
+          color: var(--accent);
+          transform: translateY(-1rem);
+        }
+        border-left-width: 8px;
+        transform: scale(1.02);
+        p.subtitle {
+          transform: translateX(0) translateY(-1.5rem) scale(1) rotate(0);
+          opacity: 1;
+        }
+      }
+
+      position: relative;
+      overflow: hidden;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: calc(var(--y, 0) * 1px - 50px);
+        left: calc(var(--x, 0) * 1px - 50px);
+        width: 100px;
+        height: 100px;
+        background: radial-gradient(rgb(46, 45, 64), #0361f700 80%);
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+
+      &:hover::after {
+        opacity: 0.6;
+      }
+    }
+  }
 </style>
