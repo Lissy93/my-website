@@ -112,7 +112,7 @@ const config: SiteConfig = {
       'accent-4': '#00ccb4',
       'voronoi-background': '#0a192f',
 
-      'home-accent-background': '#00ccb4',
+      'home-accent-background': '#fff',
       'home-tile-background': '#0B1021',
       'voronoi-lines': '#4ee8d61a',
 

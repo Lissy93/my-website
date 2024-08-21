@@ -3,6 +3,7 @@
   import { config } from '$src/store/BlogStore';
   import Loading from '$src/components/Loading.svelte';
   import Heading from '$src/components/Heading.svelte';
+  import AnimatedHero from '$src/components/AnimatedHero.svelte';
   import { socialNetworks } from '$src/helpers/constants';
   import Icon from '$src/components/Icon.svelte';
 
@@ -77,36 +78,35 @@
 
 </script>
 <main class="homepage">
-  <section class="hero sec-0">
-    <Heading
-      level="h1"
-      commandStyle={false}
-      blinkCursor={true}
-      size="4rem"
-      color="var(--home-accent-background)">Alicia Sykes</Heading
-    >
-    <div class="socials">
-      {#each socialLinks as social}
-        {#if social}
-          <a
-            href={social.href}
-            class="social-link"
-            title={social.title}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Icon
-              name={social.icon}
-              color="var(--home-accent-background)"
-              width="1.8rem"
-              height="1.8rem"
-              hoverColor={social.tone}
-            />
-          </a>
-        {/if}
-      {/each}
-    </div>
-  </section>
+  <!-- <Heading
+    level="h1"
+    commandStyle={false}
+    blinkCursor={true}
+    size="4rem"
+    color="var(--home-accent-background)">Alicia Sykes</Heading
+  > -->
+  <AnimatedHero />
+  <div class="socials">
+    {#each socialLinks as social}
+      {#if social}
+        <a
+          href={social.href}
+          class="social-link"
+          title={social.title}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Icon
+            name={social.icon}
+            color="var(--home-accent-background)"
+            width="1.8rem"
+            height="1.8rem"
+            hoverColor={social.tone}
+          />
+        </a>
+      {/if}
+    {/each}
+  </div>
 
   <div class="tiles">
     {#each homePageLinks as navLink}
@@ -131,29 +131,26 @@
 
 <style lang="scss">
   @import '$src/styles/media-queries.scss';
-  @import '$src/styles/voronoi.scss';
 
   :global(html) {
     scroll-behavior: smooth;
   }
 
-  *:not(canvas) {
-    z-index: 1;
-  }
-
   main.homepage {
-    position: relative;
     position: relative;
     z-index: 2;
     pointer-events: none;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    // min-height: 100vh;
+    gap: 2rem;
   }
 
   :global(body) {
     &::after {
       content: "";
-      position: absolute;
+      position: fixed;
       top: calc(var(--y, 0) * 1px - 400px);
       left: calc(var(--x, 0) * 1px - 400px);
       width: 800px;
@@ -161,34 +158,27 @@
       background: radial-gradient(rgb(46, 45, 64), #0361f700 50%);
       opacity: 0;
       transition: opacity 0.2s;
+      pointer-events: none;
+      overflow: hidden;
     }
     &:hover::after {
       opacity: 0.4;
     }
   }
 
-  .hero {
-    text-align: center;
-    pointer-events: none;
-    // background: var(--card-background);
-    // border-bottom: var(--card-border);
-    min-height: 30vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    .socials {
-      opacity: 0.85;
-      pointer-events: all;
-      .social-link {
-        text-decoration: none;
-        color: var(--home-accent-background);
-      }
-      &:hover {
-        opacity: 1;
-      }
+
+  .socials {
+    opacity: 0.85;
+    pointer-events: all;
+    .social-link {
+      text-decoration: none;
+      color: var(--home-accent-background);
+    }
+    &:hover {
+      opacity: 1;
     }
   }
+
 
   .tiles {
     display: grid;
