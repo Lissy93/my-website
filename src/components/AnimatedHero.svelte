@@ -22,7 +22,8 @@
 
 
 <style lang="scss">
-@import 'https://fonts.googleapis.com/css?family=Baloo+Paaji';
+
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 // Styling variables
 $secondary-color: var(--home-accent-background, #f543ea);
@@ -43,7 +44,7 @@ $initial-delay-h3: 6s;
 $end-game-delay: 9s;
 
 .container {
-  font-family: 'Baloo Paaji', cursive;
+  font-family: 'Permanent Marker', 'Poppins', 'Baloo Paaji', cursive;
   width: 80vw;
   height: 24rem;
   position: relative;
