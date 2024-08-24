@@ -4,6 +4,7 @@
   export let color: string | undefined = undefined; // An optional override color (defaults to accent)
   export let size: string | undefined = undefined; // An optional override size (default depends on level)
   export let font: string | undefined = undefined; // An optional override font (defaults to FiraCode)
+  export let weight: number | undefined = undefined; // An optional override weight (defaults to 700)
   export let commandStyle = true; // Whether to show chevron before heading
   export let blinkCursor = false; // Whether to show blinking cursor after heading
 
@@ -11,7 +12,8 @@
   $: computedColor = color ? `--heading-color: ${color};` : '';
   $: computedSize = size ? `--headingSize: ${size};` : '';
   $: computedFont = font ? `--headingFont: ${font};` : '';
-  $: computedStyles = `${computedColor} ${computedSize} ${computedFont}`;
+  $: computedWeight = font ? `--headingWeight: ${weight};` : '';
+  $: computedStyles = `${computedColor} ${computedSize} ${computedFont} ${computedWeight}`;
   $: computedClasses =
     (blinkCursor ? 'blink-cursor ' : '') +
     (commandStyle ? 'command-style ' : '');
@@ -28,7 +30,7 @@
   h4,
   h5,
   h6 {
-    font-weight: 700;
+    font-weight: var(--headingWeight, 700);
     cursor: default;
     transition: all 0.25s ease-in-out;
     font-family: var(--headingFont, FiraCode);

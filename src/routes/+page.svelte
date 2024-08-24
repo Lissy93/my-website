@@ -85,7 +85,8 @@
     size="4rem"
     color="var(--home-accent-background)">Alicia Sykes</Heading
   > -->
-  <AnimatedHero />
+  
+  <h1>Alicia Sykes</h1>
   <div class="socials">
     {#each socialLinks as social}
       {#if social}
@@ -107,6 +108,7 @@
       {/if}
     {/each}
   </div>
+  <AnimatedHero />
 
   <div class="tiles">
     {#each homePageLinks as navLink}
@@ -118,7 +120,7 @@
           showLoader = true;
         }}
       >
-        <Heading level="h3" size="2rem" color="var(--home-accent-foreground)"
+        <Heading level="h3" size="1.4rem" color="var(--home-accent-foreground)" weight={600}
           >{navLink.label}</Heading
         >
         <p class="subtitle">{navLink.description}</p>
@@ -131,9 +133,18 @@
 
 <style lang="scss">
   @import '$src/styles/media-queries.scss';
+  @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
 
   :global(html) {
     scroll-behavior: smooth;
+  }
+
+  h1 {
+    font-size: 5rem;
+    font-family: 'Permanent Marker', 'Poppins', 'Baloo Paaji', cursive;
+    text-align: center;
+    margin: 0 auto;
   }
 
   main.homepage {
@@ -181,25 +192,28 @@
 
 
   .tiles {
-    display: grid;
-    grid-auto-flow: dense;
-    max-width: 70rem;
-    margin: auto;
-    padding: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    // display: grid;
+    // grid-auto-flow: dense;
+    // max-width: 70rem;
+    // margin: auto;
+    // padding: 1rem;
+    // grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    max-width: 32rem;
     gap: 1rem;
     width: 80vw;
+    display: flex;
+    flex-direction: column;
     @include tablet-down {
       display: flex;
       flex-direction: column;
     }
     a.tile {
       color: var(--foreground);
-      border: var(--card-border);
-      background: var(--home-tile-background); // var(--card-background);
+      border: 1px solid transparent;
+      // background: var(--home-tile-background);
       border-radius: 4px;
       text-decoration: none;
-      padding: 1rem;
+      padding: 0.5rem 1rem;
       border-left: 4px solid var(--accent);
       transition: all ease-in-out 0.25s, transform ease-in-out 0.3s;
       overflow: hidden;
@@ -220,6 +234,9 @@
           transform: translateY(-1rem);
         }
         border-left-width: 8px;
+        border-right: var(--card-border);
+        border-top: var(--card-border);
+        border-bottom: var(--card-border);
         transform: scale(1.02);
         p.subtitle {
           transform: translateX(0) translateY(-1.5rem) scale(1) rotate(0);
