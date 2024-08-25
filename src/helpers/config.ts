@@ -99,6 +99,9 @@ const config: SiteConfig = {
       'card-border': '1px solid #0000001a',
       'home-accent-background': '#2a3367',
       'home-accent-foreground': 'var(--foreground)',
+      
+      'home-animated-gradient-outer': '#ffe7f500',
+      'home-animated-gradient-inner': '#ff8ed05c',
     },
     callisto: {
       background: '#020617',
@@ -114,30 +117,8 @@ const config: SiteConfig = {
 
       'home-accent-background': '#fff',
       'home-tile-background': '#0B1021',
-      'voronoi-lines': '#4ee8d61a',
-
-      'voronoi-c1': '#141B33',
-      'voronoi-c2': '#131A31',
-      'voronoi-c3': '#12192F',
-      'voronoi-c4': '#11182D',
-      'voronoi-c5': '#10172B',
-      'voronoi-c6': '#0F1629',
-      'voronoi-c7': '#0E1527',
-      'voronoi-c8': '#0D1425',
-      'voronoi-c9': '#0C1323',
-      'voronoi-c10': '#0B1221',
-
-      'voronoi-r0': '#141b33',
-      'voronoi-r1': '#141b33',
-      'voronoi-r2': '#12182e',
-      'voronoi-r3': '#101629',
-      'voronoi-r4': '#0e1324',
-      'voronoi-r5': '#0c101f',
-      'voronoi-r6': '#0c101f',
-      'voronoi-r7': '#0a0e1a',
-      'voronoi-r8': '#0a0e1a',
-      'voronoi-r9': '#080b14',
-      'voronoi-r10': '#06080f',
+      'home-animated-gradient-outer': '#0361f700',
+      'home-animated-gradient-inner': '#2e2d40',
     },
   },
   workExperience: [
