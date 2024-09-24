@@ -5,7 +5,7 @@
   export let textColor = '';
   export let icon: string | null = null;
   export let click: () => void = () => {};
-</script>
+</script> 
 
 <button class={priority} style={`--textColor: ${textColor};`} on:click={click}>
   {#if icon}

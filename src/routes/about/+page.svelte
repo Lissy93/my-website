@@ -2,6 +2,7 @@
   import Heading from '$src/components/Heading.svelte';
   import TechStack from '$src/components/TechStack.svelte';
   import WorkExperience from '$src/components/WorkExperience.svelte';
+  import Resume from '$src/components/Resume.svelte';
   import { t } from '$src/store/Language';
 
   import config from '$src/helpers/config';
@@ -48,7 +49,13 @@
   </section>
 
   <!-- Social links -->
-  <section class="soclials"></section>
+  <!-- <section class="soclials"></section> -->
+  
+  <!-- CV -->
+  <section class="resume">
+    <Resume />
+  </section>
+
 </div>
 
 <style lang="scss">
@@ -148,6 +155,9 @@
 
     // Social links section
     &.soclials {
+      grid-column-start: span 2;
+    }
+    &.resume {
       grid-column-start: span 2;
     }
   }
