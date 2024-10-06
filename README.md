@@ -337,7 +337,7 @@ To get started, fork the repo, make your changes, add, commit and push the code,
     </td>
     <td align="center">
         <a href="https://github.com/Sacquer">
-            <img src="https://avatars.githubusercontent.com/u/29262439?v=4" width="80;" alt="Sacquer"/>
+            <img src="https://avatars.githubusercontent.com/u/29262439?u=c925b80a37404bc8cf652ac9ce8e6639fd97e2f4&v=4" width="80;" alt="Sacquer"/>
             <br />
             <sub><b>Gökhan Alkacir</b></sub>
         </a>
