@@ -382,7 +382,7 @@ To get started, fork the repo, make your changes, add, commit and push the code,
         <a href="https://github.com/rpvu">
             <img src="https://avatars.githubusercontent.com/u/90328029?v=4" width="80;" alt="rpvu"/>
             <br />
-            <sub><b>rpvu</b></sub>
+            <sub><b>Rpvu</b></sub>
         </a>
     </td>
     <td align="center">
