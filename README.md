@@ -377,13 +377,6 @@ To get started, fork the repo, make your changes, add, commit and push the code,
             <br />
             <sub><b>Hudsonrock-partnerships</b></sub>
         </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/CarterPerez-dev">
-            <img src="https://avatars.githubusercontent.com/u/188120068?u=0e409c671324f8872efe4e2f7e5c12ebb8670010&v=4" width="80;" alt="CarterPerez-dev"/>
-            <br />
-            <sub><b>Carter Perez</b></sub>
-        </a>
     </td></tr>
 </table>
 <!-- readme: sponsors -end -->
