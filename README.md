@@ -279,6 +279,13 @@ To get started, fork the repo, make your changes, add, commit and push the code,
     </td></tr>
 <tr>
     <td align="center">
+        <a href="https://github.com/elvito">
+            <img src="https://avatars.githubusercontent.com/u/9715912?v=4" width="80;" alt="elvito"/>
+            <br />
+            <sub><b>elvito</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/vlad-tim">
             <img src="https://avatars.githubusercontent.com/u/11474041?u=eee43705b54d2ec9f51fc4fcce5ad18dd17c87e4&v=4" width="80;" alt="vlad-tim"/>
             <br />
@@ -290,6 +297,13 @@ To get started, fork the repo, make your changes, add, commit and push the code,
             <img src="https://avatars.githubusercontent.com/u/12218889?u=d06d0c103dfbdb99450623064f7da3c5a3675fb6&v=4" width="80;" alt="helixzz"/>
             <br />
             <sub><b>HeliXZz</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Daechler">
+            <img src="https://avatars.githubusercontent.com/u/50748803?v=4" width="80;" alt="Daechler"/>
+            <br />
+            <sub><b>Daechler</b></sub>
         </a>
     </td>
     <td align="center">
@@ -305,7 +319,8 @@ To get started, fork the repo, make your changes, add, commit and push the code,
             <br />
             <sub><b>SSD Nodes</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/frankdez93">
             <img src="https://avatars.githubusercontent.com/u/87549420?v=4" width="80;" alt="frankdez93"/>
@@ -319,8 +334,7 @@ To get started, fork the repo, make your changes, add, commit and push the code,
             <br />
             <sub><b>John BigoudOps</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/terminaltrove">
             <img src="https://avatars.githubusercontent.com/u/121595180?v=4" width="80;" alt="terminaltrove"/>
@@ -348,10 +362,11 @@ To get started, fork the repo, make your changes, add, commit and push the code,
             <br />
             <sub><b>Really Him</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/gl0bal01">
-            <img src="https://avatars.githubusercontent.com/u/173822055?u=6979dcc4773b1adfe6011019b9df3da6c9fc4534&v=4" width="80;" alt="gl0bal01"/>
+            <img src="https://avatars.githubusercontent.com/u/173822055?u=8911ba88503c8b1d134dc0058e9e0bec5f23b8d9&v=4" width="80;" alt="gl0bal01"/>
             <br />
             <sub><b>Gl0bal01 💖 龴ↀ◡ↀ龴</b></sub>
         </a>
@@ -362,18 +377,10 @@ To get started, fork the repo, make your changes, add, commit and push the code,
             <br />
             <sub><b>Envisage Cloud Solutions</b></sub>
         </a>
-    </td></tr>
-<tr>
-    <td align="center">
-        <a href="https://github.com/clj00321">
-            <img src="https://avatars.githubusercontent.com/u/243985327?u=e42e7121ebab0a1a2938d7dd8127b6d3f7bfda8c&v=4" width="80;" alt="clj00321"/>
-            <br />
-            <sub><b>Christian Løvgren Jensen</b></sub>
-        </a>
     </td>
     <td align="center">
         <a href="https://github.com/UhOhSpaghettiCode">
-            <img src="https://avatars.githubusercontent.com/u/247676402?u=5f72d4663b2cfa48035f68ca449330fbc37878d8&v=4" width="80;" alt="UhOhSpaghettiCode"/>
+            <img src="https://avatars.githubusercontent.com/u/247676402?u=0bda2a0f4c134befbd89e26b6e8a749a5166d6bc&v=4" width="80;" alt="UhOhSpaghettiCode"/>
             <br />
             <sub><b>No Thanks</b></sub>
         </a>
