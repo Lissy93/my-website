@@ -243,6 +243,13 @@ To get started, fork the repo, make your changes, add, commit and push the code,
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/BrunoBernardino">
+            <img src="https://avatars.githubusercontent.com/u/1239616?v=4" width="80;" alt="BrunoBernardino"/>
+            <br />
+            <sub><b>Bruno Bernardino</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/bile0026">
             <img src="https://avatars.githubusercontent.com/u/5022496?u=aec96ad173c0ea9baaba93807efa8a848af6595c&v=4" width="80;" alt="bile0026"/>
             <br />
@@ -257,12 +264,20 @@ To get started, fork the repo, make your changes, add, commit and push the code,
         </a>
     </td>
     <td align="center">
+        <a href="https://github.com/nrjohnstone">
+            <img src="https://avatars.githubusercontent.com/u/6700819?v=4" width="80;" alt="nrjohnstone"/>
+            <br />
+            <sub><b>Nathan Johnstone</b></sub>
+        </a>
+    </td>
+    <td align="center">
         <a href="https://github.com/InDieTasten">
             <img src="https://avatars.githubusercontent.com/u/7047377?u=8d8f8017628b38bc46dcbf3620e194b01d3fb2d1&v=4" width="80;" alt="InDieTasten"/>
             <br />
             <sub><b>InDieTasten</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/araguaci">
             <img src="https://avatars.githubusercontent.com/u/7318668?v=4" width="80;" alt="araguaci"/>
@@ -276,8 +291,14 @@ To get started, fork the repo, make your changes, add, commit and push the code,
             <br />
             <sub><b>Brian McGonagill</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
+    <td align="center">
+        <a href="https://github.com/elvito">
+            <img src="https://avatars.githubusercontent.com/u/9715912?v=4" width="80;" alt="elvito"/>
+            <br />
+            <sub><b>elvito</b></sub>
+        </a>
+    </td>
     <td align="center">
         <a href="https://github.com/vlad-tim">
             <img src="https://avatars.githubusercontent.com/u/11474041?u=eee43705b54d2ec9f51fc4fcce5ad18dd17c87e4&v=4" width="80;" alt="vlad-tim"/>
@@ -298,7 +319,8 @@ To get started, fork the repo, make your changes, add, commit and push the code,
             <br />
             <sub><b>Daechler</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/getumbrel">
             <img src="https://avatars.githubusercontent.com/u/59408891?v=4" width="80;" alt="getumbrel"/>
@@ -319,8 +341,7 @@ To get started, fork the repo, make your changes, add, commit and push the code,
             <br />
             <sub><b>Frankdez93</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/BigoudOps">
             <img src="https://avatars.githubusercontent.com/u/101472804?u=5e4948110e48320024f212edf5ae2332b63fc391&v=4" width="80;" alt="BigoudOps"/>
@@ -337,11 +358,12 @@ To get started, fork the repo, make your changes, add, commit and push the code,
     </td>
     <td align="center">
         <a href="https://github.com/MichaelPerron">
-            <img src="https://avatars.githubusercontent.com/u/130603904?v=4" width="80;" alt="MichaelPerron"/>
+            <img src="https://avatars.githubusercontent.com/u/130603904?u=7c00e3e333b538bc86168cbfa72e997f818967b8&v=4" width="80;" alt="MichaelPerron"/>
             <br />
             <sub><b>Michael Perron</b></sub>
         </a>
-    </td>
+    </td></tr>
+<tr>
     <td align="center">
         <a href="https://github.com/hudsonrock-partnerships">
             <img src="https://avatars.githubusercontent.com/u/163282900?u=5f2667f7fe5d284ac7a2da6b0800ea8970b0fcbf&v=4" width="80;" alt="hudsonrock-partnerships"/>
@@ -362,8 +384,7 @@ To get started, fork the repo, make your changes, add, commit and push the code,
             <br />
             <sub><b>LambdaTest</b></sub>
         </a>
-    </td></tr>
-<tr>
+    </td>
     <td align="center">
         <a href="https://github.com/hesreallyhim">
             <img src="https://avatars.githubusercontent.com/u/172150522?u=e288991976c46b53437a5880e90be140634a8477&v=4" width="80;" alt="hesreallyhim"/>
